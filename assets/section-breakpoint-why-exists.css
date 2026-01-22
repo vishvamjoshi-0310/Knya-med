@@ -181,7 +181,7 @@
 
 /* Next Card State (60% visible behind) */
 .breakpoint-why-exists-section .stat-card.is-next {
-  transform: scale(0.8) translateY(52px) translateX(269px);
+  transform: scale(0.8) translateY(52px) translateX(325px);
   z-index: 5;
   opacity: 1;
   pointer-events: auto;
