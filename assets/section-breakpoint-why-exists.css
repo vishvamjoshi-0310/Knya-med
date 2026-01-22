@@ -162,7 +162,7 @@
   transform-origin: top left;
   cursor: pointer;
   box-sizing: border-box;
-  
+
   /* Default state - hidden */
   opacity: 0;
   pointer-events: none;
@@ -283,6 +283,7 @@
    ============================================ */
 
 @media screen and (max-width: 768px) {
+
   /* Section Padding */
   .breakpoint-why-exists-section {
     padding: 36px 18px;
