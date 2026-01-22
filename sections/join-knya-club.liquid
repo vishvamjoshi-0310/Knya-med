@@ -1,0 +1,397 @@
+{{ 'home-join-knya.css' | asset_url | stylesheet_tag }}
+<style>
+     .join-swipp{margin-top:{{ section.settings.margintopjoin}}px;}
+  /*   .socialDiv{background-image:url('{{ 'Vector.svg' | asset_url }}');} */
+      @media only screen and (max-width:640px){
+       .join-swipp{margin-top:{{ section.settings.margintopjoinmob}}px}
+     }
+</style>
+<div class="top-join">
+  <div class="join-swipp page-width">
+    <div class="font-heebo-medium joinHeading {% if section.settings.show_padding  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob %}padding-right-mob padding-left-mob{% endif %}">
+      <h2 class="joinh1">{{ section.settings.joinheader }}</h2>
+      <a href="{{ section.settings.urlYoutube }}" target="_blank">
+        <div class="socialDiv upperDiv div-youtube">
+          <img
+            class="you-back"
+            src="{{ section.settings.social-you | img_url }}"
+            loading="lazy"
+            alt="{{ section.settings.social-you.alt | escape }}"
+            width="{{ section.settings.social-you.width }}"
+            height="{{ section.settings.social-you.height }}"
+          >
+          {% if section.settings['social-you-back'] %}
+            <img
+              class="back-social"
+              src="{{ section.settings.social-you-back | img_url }}"
+              loading="lazy"
+              alt="{{ section.settings.social-you-back.alt | escape }}"
+              width="{{ section.settings.social-you-back.width }}"
+              height="{{ section.settings.ssocial-you-back.height }}"
+            >
+          {% endif %}
+          <h5 class="instaJ font-heebo-medium">{{ section.settings.youtubeJoin }}</h5>
+        </div>
+      </a>
+      <a href="{{ section.settings.urlInstagram }}" target="_blank">
+        <div class="socialDiv upperDiv div-insta">
+          <img
+            class="insta-back"
+            src="{{ section.settings.social-insta | img_url }}"
+            loading="lazy"
+            alt="{{ section.settings.social-insta.alt | escape }}"
+            width="{{ section.settings.social-insta.width }}"
+            height="{{ section.settings.social-insta.height }}"
+          >
+          {% if section.settings['social-insta-back'] %}
+            <img
+              class="back-social-inst"
+              src="{{ section.settings.social-insta-back | img_url }}"
+              loading="lazy"
+              alt="{{ section.settings.social-insta-back.alt | escape }}"
+              width="{{ section.settings.social-insta-back.width }}"
+              height="{{ section.settings.social-insta-back.height }}"
+            >
+          {% endif %}
+          <h5 class="instaJ font-heebo-medium">{{ section.settings.instaJoin }}</h5>
+        </div>
+      </a>
+    </div>
+    <div class="join-upper-div">
+      <div class="swiper join mySwiperj font-heebo-regular">
+        <div class="swiper-wrapper">
+          {%- for block in section.blocks -%}
+            {% if block.settings['desk-vid-src'] %}
+              <div class="swiper-slide join-slidee joinvid-home-{{ forloop.index }}" data-count="{{ forloop.index }}">
+                <div class="desk-vid sweepSlide">
+                  <video
+                    id="homevideo "
+                    class="pro-vid join-vid lazy"
+                    playsinline="playsinline"
+                    loading="lazy"
+                    width="100%"
+                    height="auto"
+                    controls
+                    preload="auto"
+                    loop="false"
+                    style="width: 100%; border-top-right-radius:5px;"
+                    {% if block.settings['thumb-img-mob'] != blank %}
+                      poster="{{ block.settings.thumb-img-mob | img_url : "500x" }}"
+                    {% endif %}
+                  >
+                    <source data-src="{{ block.settings.desk-vid-src }}" type="video/mp4">
+                  </video>
+
+                  {% if block.settings.vid1Text != blank %}
+                    <div class="belowText">
+                      <img
+                        class="back-image"
+                        srcset="
+                          {%- if section.settings.back_image.width >= 375 -%}{{ section.settings.back_image | image_url: width: 375 }} 375w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 550 -%}{{ section.settings.back_image | image_url: width: 550 }} 550w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 750 -%}{{ section.settings.back_image | image_url: width: 750 }} 750w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 1100 -%}{{ section.settings.back_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 1500 -%}{{ section.settings.back_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 1780 -%}{{ section.settings.back_image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 2000 -%}{{ section.settings.back_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 3000 -%}{{ section.settings.back_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                          {%- if section.settings.back_image.width >= 3840 -%}{{ section.settings.back_image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                          {{ section.settings.back_image | image_url }} {{ section.settings.back_image.width }}w
+                        "
+                        sizes="100vw"
+                        src="{{ section.settings.back_image | image_url: width: 1500 }}"
+                        loading="lazy"
+                        alt="{{ section.settings.back_image.alt | escape }}"
+                        width="{{ section.settings.back_image.width }}"
+                        height="{{ section.settings.back_image.height }}"
+                      >
+                      <p
+                        class="joinText"
+                        data-count="vid-{{ forloop.index }}"
+                        sorce-tag="{{ block.settings.vidDesk.sources[1].url }}"
+                      >
+                        {{ block.settings.vid1Text | truncate: 33 }}
+                      </p>
+                    </div>
+                  {% endif %}
+                </div>
+                {% comment %}
+                  {% if block.settings.vid-src %}
+                  <div class="mob-vid swiper-slide sweepSlide">
+                   <!-- <video id="homevideo " class ="pro-vid join-vid" playsinline width="100%" height="auto" loading="lazy" preload="metadata" loop="false" style="width: 100%; border-top-right-radius:5px;" {% if block.settings.thumb-img-mob != blank  %} poster="{{ block.settings.thumb-img-mob | img_url : "500x" }}" {% endif %} >
+                    <source src="{{ block.settings.vidMob.sources[1].url }}" type="video/mp4">
+                  </video> -->
+                    <video id="homevideo " class ="pro-vid join-vid" playsinline width="100%" height="auto" controls preload="metadata" loop="false" style="width: 100%; border-top-right-radius:5px;" {% if block.settings.thumb-img-mob != blank  %} poster="{{ block.settings.thumb-img-mob | img_url : "500x" }}" {% endif %}>
+                    <source src="{{ block.settings.vid-src }}" type="video/mp4">
+                  </video>
+
+                  <!-- {% if block.settings.vid2Text!= blank %}
+                  <div class="belowText">
+                    <img class="back-image"
+                  srcset="{%- if section.settings.back_image.width >= 375 -%}{{ section.settings.back_image | image_url: width: 375 }} 375w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 550 -%}{{ section.settings.back_image | image_url: width: 550 }} 550w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 750 -%}{{ section.settings.back_image | image_url: width: 750 }} 750w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 1100 -%}{{ section.settings.back_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 1500 -%}{{ section.settings.back_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 1780 -%}{{ section.settings.back_image | image_url: width: 1780 }} 1780w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 2000 -%}{{ section.settings.back_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 3000 -%}{{ section.settings.back_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+                  {%- if section.settings.back_image.width >= 3840 -%}{{ section.settings.back_image | image_url: width: 3840 }} 3840w,{%- endif -%}
+                  {{ section.settings.back_image | image_url }} {{ section.settings.back_image.width }}w"
+                  sizes="100vw"
+                  src="{{ section.settings.back_image | image_url: width: 1500 }}"
+                  loading="lazy"
+                  alt="{{ section.settings.back_image.alt | escape }}"
+                  width="{{ section.settings.back_image.width }}"
+                  height="{{ section.settings.back_image.height }}"
+                  >
+                   <p class="joinText">{{ block.settings.vid2Text | truncate: 23 }}</p>
+                  </div>
+                      {% endif %} -->
+
+                  </div>
+                    {% endif %}
+                {% endcomment %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="endDiv {% if section.settings.show_padding  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob %}padding-right-mob padding-left-mob{% endif %}">
+          <a href="{{ section.settings.urlYoutube }}" target="_blank">
+            <div class="socialDiv">
+              <img
+                src="{{ section.settings.social-you | img_url }}"
+                loading="lazy"
+                alt="{{ section.settings.social-you.alt | escape }}"
+                width="{{ section.settings.social-you.width }}"
+                height="{{ section.settings.social-you.height }}"
+              >
+              <h5 class="instaJ font-heebo-medium">{{ section.settings.youtubeJoin }}</h5>
+            </div>
+          </a>
+          <a href="{{ section.settings.urlInstagram }}" target="_blank">
+            <div class="socialDiv">
+              <img
+                src="{{ section.settings.social-insta | img_url }}"
+                loading="lazy"
+                alt="{{ section.settings.social-insta.alt | escape }}"
+                width="{{ section.settings.social-insta.width }}"
+                height="{{ section.settings.social-insta.height }}"
+              >
+              <h5 class="instaJ font-heebo-medium">{{ section.settings.instaJoin }}</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swiper = new Swiper('.mySwiperj', {
+        slidesPerView: 4.5,
+        spaceBetween: 30,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.25,
+            spaceBetween: 20,
+          },
+          660: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+          },
+          900: {
+            slidesPerView: 4.5,
+            spaceBetween: 20,
+          },
+          2000: {
+            slidesPerView: 3.5,
+            spaceBetween: 20,
+          },
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    },
+    { once: true }
+  );
+
+  // document.querySelectorAll(".join-vid").forEach(each=>{
+  //       each.addEventListener("click", function(e){
+  //           if(!e.target.paused ){
+  //           e.target.play();
+
+  //           }else{
+  //           document.querySelectorAll(".join-vid").forEach(each1=>{
+  //             each1.pause();
+  //             each1.load();
+  //           });
+  //         }
+  //       if(e.target.paused){
+  //         e.target.play();
+  //           }else{
+  //              e.target.pause()
+  //              e.target.load();
+  //           }
+  //     })
+  // })
+</script>
+
+{% schema %}
+{
+  "name": "Join Knya",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "back_image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "social-you",
+      "label": "social bg img"
+    },
+    {
+      "type": "image_picker",
+      "id": "social-you-back",
+      "label": "social bg img hover"
+    },
+    {
+      "type": "image_picker",
+      "id": "social-insta",
+      "label": "social bg img"
+    },
+    {
+      "type": "image_picker",
+      "id": "social-insta-back",
+      "label": "social bg img hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintopjoin",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintopjoinmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "joinheader",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "youtubeJoin",
+      "label": "Youtube"
+    },
+    {
+      "type": "text",
+      "id": "urlYoutube",
+      "label": "url for YouTube"
+    },
+    {
+      "type": "text",
+      "id": "instaJoin",
+      "label": "Instagram"
+    },
+    {
+      "type": "text",
+      "id": "urlInstagram",
+      "label": "url for instagram"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "videos",
+      "settings": [
+        {
+          "type": "text",
+          "id": "desk-vid-src",
+          "label": "video source"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumb-img",
+          "label": "thumbnail-image"
+        },
+        {
+          "type": "text",
+          "id": "vid1Text",
+          "label": "text for video"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "vidSlider"
+    }
+  ]
+}
+{% endschema %}
+<script>
+  // Lazy Load Video
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var lazyVideos = [].slice.call(document.querySelectorAll('.sweepSlide video.lazy'));
+
+    if ('IntersectionObserver' in window) {
+      var lazyVideoObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (video) {
+          if (video.isIntersecting) {
+            for (var source in video.target.children) {
+              var videoSource = video.target.children[source];
+              if (typeof videoSource.tagName === 'string' && videoSource.tagName === 'SOURCE') {
+                videoSource.src = videoSource.dataset.src;
+              }
+            }
+
+            video.target.load();
+            video.target.classList.remove('lazy');
+            lazyVideoObserver.unobserve(video.target);
+          }
+        });
+      });
+
+      lazyVideos.forEach(function (lazyVideo) {
+        lazyVideoObserver.observe(lazyVideo);
+      });
+    }
+  });
+</script>

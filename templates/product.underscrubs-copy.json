@@ -1,0 +1,551 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrum_new_4Ud9Ax": {
+      "type": "breadcrum-new",
+      "settings": {
+        "margintopbread": 24,
+        "margintopbreadmob": 12,
+        "margintopbread_collection": 0,
+        "margintopbreadmob_collection": 0
+      }
+    },
+    "main": {
+      "type": "engraving-product-new",
+      "blocks": {
+        "titlewithicons_4KKk7E": {
+          "type": "titlewithicons",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "disabled": true,
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "rating_tkMAwm": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "engraving_iAzktz": {
+          "type": "Engraving",
+          "disabled": true,
+          "settings": {
+            "showEngraving": true,
+            "EngravingProductHandlepicker": "custom-engraving-copy",
+            "EngravingLeftImage_desk": "shopify://shop_images/Engraving_pop_up_image_Desktop.png",
+            "EngravingLeftImage_mob": "shopify://shop_images/Engraving_pop_up_image_Mobile.png",
+            "heading_text_emgrav": "Add Engraving",
+            "subheading_text_emgrav": "Complimentary for a Limited Time",
+            "heading_second_text_emgrav": "No, I’ll Pass",
+            "subheading_second_text_emgrav": "",
+            "Engravingbullets": "<ul><li>Engraving orders take an additional 3-5 business days for dispatch.</li><li>Since they are customized just for you, engraved items are not eligible for return or exchange.</li></ul>"
+          }
+        },
+        "customtext_msg_AGeA4y": {
+          "type": "customtextMsg",
+          "disabled": true,
+          "settings": {
+            "textMg": "3-5 days dispatch for custom engraving."
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "estimated_delivery_date_cp_clickpost_edd_9WqyUK": {
+          "type": "shopify://apps/estimated-delivery-date-cp/blocks/clickpost-edd/052d4955-0ec2-4e86-8e1f-f971acb44560",
+          "settings": {
+            "heading": "Delivery Details",
+            "color": "#482f8f",
+            "submit_color": "#f4ecd0",
+            "submit": "Check",
+            "edd_text": "Delivery between",
+            "edd_color": "#008000",
+            "fail_color": "#ff0000",
+            "cod_text": "Cash on delivery",
+            "unservicable_text": "Pincode not servicable",
+            "cod": true,
+            "date_range": true,
+            "only_min": false,
+            "month": false,
+            "placeholder": "Enter your pincode",
+            "date_format": "1",
+            "enable_countdown": false,
+            "invalid_text": "Please enter a valid pincode",
+            "extra_text": "",
+            "max_date_additional_text": "",
+            "helping_text": "",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "icon_with_text_QjLE4R": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "horizontal",
+            "image_1": "shopify://shop_images/Express_shippingbox.svg",
+            "heading_1": "1-3 Day express shipping",
+            "image_2": "shopify://shop_images/icon_1_f0e57eed-4e48-4887-9642-73164e09e46f.svg",
+            "heading_2": "Easy exchange & returns",
+            "image_3": "shopify://shop_images/icon_7aa98b84-a9c3-4d72-ae77-fe0a561dff2b.svg",
+            "heading_3": "COD Available"
+          }
+        },
+        "kite_discount_free_gift_app_block_vol_discount_DXnWPt": {
+          "type": "shopify://apps/kite-discount-free-gift/blocks/app-block-volDiscount/2c7302c4-455d-4078-a829-48563ba26089",
+          "settings": {
+            "blockId": "block-id"
+          }
+        },
+        "offer_JxBhcn": {
+          "type": "offer",
+          "disabled": true,
+          "settings": {
+            "headingoffer": "We are Offering",
+            "offer1": "Flat ₹50 Off##On Order Above ##₹1499##SAVE50",
+            "offer2": "Flat ₹100 Off##On Order Above ##₹1999##SAVE100",
+            "offer3": "Flat ₹150 Off##On Order Above ##₹2499##SAVE150",
+            "offer4": "Flat ₹200 Off##On Order Above ##₹2999##SAVE200",
+            "offer5": "",
+            "offer6": ""
+          }
+        },
+        "pincode_checker_dFnWJg": {
+          "type": "pincode_checker",
+          "disabled": true,
+          "settings": {
+            "pincode_heading": "Check Delivery",
+            "pincode_placeholder": "Enter Pincode",
+            "pincode_btn_text": "CHECK",
+            "pincode_invalid_msg": "Please Enter Valid Pincode",
+            "pincode_emptymsg": "Please Enter Pincode To Check",
+            "pincode_failed_msg": "Sorry, we are not here yet.",
+            "pincode_Note_msg": "Note : Embroidered items take 5  additional days."
+          }
+        },
+        "productfeature_6neaeN": {
+          "type": "productfeature",
+          "disabled": true,
+          "settings": {}
+        },
+        "knya_description_GdmCWC": {
+          "type": "knya-description",
+          "settings": {
+            "des1": "DESCRIPTION",
+            "des2": "Details & Fit",
+            "des3": "Fabric & Care",
+            "des4": "Return & Exchange",
+            "des5": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Materials",
+            "icon": "leather",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible-row-1": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible-row-2": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Dimensions",
+            "icon": "ruler",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible-row-3": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Care Instructions",
+            "icon": "heart",
+            "content": "",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "complementary_mrYLwL": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "block_heading": "Pairs well with",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": false
+          }
+        }
+      },
+      "block_order": [
+        "titlewithicons_4KKk7E",
+        "vendor",
+        "title",
+        "price",
+        "rating_tkMAwm",
+        "variant_picker",
+        "quantity_selector",
+        "engraving_iAzktz",
+        "customtext_msg_AGeA4y",
+        "buy_buttons",
+        "estimated_delivery_date_cp_clickpost_edd_9WqyUK",
+        "icon_with_text_QjLE4R",
+        "kite_discount_free_gift_app_block_vol_discount_DXnWPt",
+        "offer_JxBhcn",
+        "pincode_checker_dFnWJg",
+        "productfeature_6neaeN",
+        "knya_description_GdmCWC",
+        "description",
+        "collapsible-row-0",
+        "collapsible-row-1",
+        "collapsible-row-2",
+        "collapsible-row-3",
+        "share",
+        "complementary_mrYLwL"
+      ],
+      "settings": {
+        "bg-readmore-default": "shopify://shop_images/Vector_8_c38b4c41-8d23-44c8-b6b6-1fef4d867b18.png",
+        "enable_sticky_info": true,
+        "media_position": "left",
+        "gallery_layout": "stacked",
+        "media_size": "large",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 24,
+        "padding_bottom": 28,
+        "textMgFontSizeDesktop": 16,
+        "textMgFontSizeMobile": 14,
+        "add_emb_desktop_font_size": 14,
+        "add_emb_mobile_font_size": 14,
+        "add_emb_desktop_sub_font_size": 12,
+        "add_emb_mobile_sub_font_size": 12,
+        "selected_background_color": "#f7f1ff",
+        "heading_font_text": "#462d8c",
+        "subHeading_font_text": "#4a4458",
+        "heading_text": "Add Embroidery",
+        "subheading_text": "Add your Name/Logo/Icon",
+        "heading_second_text": "No, I’ll Pass",
+        "subheading_second_text": ""
+      }
+    },
+    "f875aa63-037d-4aeb-b35a-9eef6ace800f": {
+      "type": "pdp-designedtobebetter",
+      "disabled": true,
+      "settings": {
+        "pdp_tobebetter": false,
+        "pdp_tobebetter_mob": false,
+        "margintop_pdp_tobebetter": 0,
+        "paddingtopbottomtobetter": 0,
+        "tobebetter_heading": "Designed to be better to the core"
+      }
+    },
+    "product_feature_ntggQK": {
+      "type": "product-feature",
+      "settings": {}
+    },
+    "full_width_banner_Jx7apB": {
+      "type": "full-width-banner",
+      "disabled": true,
+      "settings": {
+        "show_padding_full": true,
+        "show_padding_mob_full": true,
+        "marginTopfull": 0,
+        "marginBottomfull": 0,
+        "marginTopfullmob": 0,
+        "marginBottomfullmob": 0,
+        "desk-img": "shopify://shop_images/Ecoflex_Comparission_Banner_18900c9a-21ea-4104-bce0-c1ddd2261ea8.png",
+        "mob-img": "shopify://shop_images/Ecoflex_Comparission_Banner2_mob_439fd1ff-8e86-43f4-a72a-90f589c791ba.png",
+        "headerText": "",
+        "second": "",
+        "shopNow": "",
+        "shopNowurl": ""
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "product_details_exchange_new_zzVzRJ": {
+      "type": "product-details-exchange-new",
+      "settings": {
+        "show_padding_ex": true,
+        "show_padding_mob_ex": true,
+        "backgroundImage": "shopify://shop_images/Screenshot_2023-05-01_at_4.56.26_PM_d2174389-781a-4316-b713-5293c038f260.png",
+        "margintopex": 0,
+        "margintopexmob": 0,
+        "product-detail": "Anatomy Of Knya",
+        "detail-title": "The anatomy of Knya",
+        "exchange-title": "How you can Return, Refund, or Exchange"
+      }
+    },
+    "c6c4d750-e603-4f22-b301-7adfc1fa9e07": {
+      "type": "product-detail-exchange",
+      "disabled": true,
+      "settings": {
+        "show_padding_ex": true,
+        "show_padding_mob_ex": true,
+        "backgroundImage": "shopify://shop_images/Screenshot_2023-05-01_at_4.56.26_PM_d2174389-781a-4316-b713-5293c038f260.png",
+        "margintopex": 0,
+        "margintopexmob": 0,
+        "product-detail": "PRODUCT DETAILS",
+        "product-policy": "PRODUCT DETAILS",
+        "detail-title": "The anatomy of your Knya scrub",
+        "exchange-title": "How you can Return, Refund, or Exchange",
+        "exchange-content": "You can return or exchange your non-customised order within 7 days from the date of delivery. However, we do not accept returns and exchange requests for our custom-embroidered products. Additionally, if the product is used, washed, or the tags are removed, we will not be able to process your refund or exchange.",
+        "exchange-lower": ""
+      }
+    },
+    "flex_fit_new_BTyWgV": {
+      "type": "flex-fit-new",
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "swiper_enable_button": false,
+        "marginTopslidd1": 56,
+        "marginBottomslidd1": 0,
+        "marginTopsliddmob1": 42,
+        "marginBottomsliddmob1": 0,
+        "headText": "Seen in Knya",
+        "secondText": "Over a 1000+ 5-star reviews and counting"
+      }
+    },
+    "slider_new_QX8dkA": {
+      "type": "slider-new",
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "marginTopslidd": 48,
+        "marginBottomslidd": 48,
+        "marginTopsliddmob": 24,
+        "marginBottomsliddmob": 24,
+        "headText": "You May Also Like",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "",
+        "collection": "{{ product.metafields.custom.game_changer_collection_picker.value }}"
+      }
+    },
+    "slider_new_Pzftqj": {
+      "type": "slider-new",
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "marginTopslidd": 56,
+        "marginBottomslidd": 48,
+        "marginTopsliddmob": 12,
+        "marginBottomsliddmob": 36,
+        "headText": "Others Also Bought",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "",
+        "collection": "{{ product.metafields.custom.pair_to_perform_collection_picker.value }}"
+      }
+    },
+    "0feb8cc2-a0ef-42e8-ba96-beae50b17e6c": {
+      "type": "slider",
+      "disabled": true,
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 80,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 43,
+        "marginBottomsliddmob": 0,
+        "headText": "Complete Your Uniform",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "",
+        "collection": "{{ product.metafields.custom.game_changer_collection_picker.value }}"
+      }
+    },
+    "d8f53566-f93d-4c30-af3b-05fb8a2b38e7": {
+      "type": "slider",
+      "disabled": true,
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 100,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 43,
+        "marginBottomsliddmob": 0,
+        "headText": "Pair to perform",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "Shop accessories",
+        "collection": "{{ product.metafields.custom.pair_to_perform_collection_picker.value }}"
+      }
+    },
+    "8db3f037-4f1d-4737-99d1-ec2241ee4113": {
+      "type": "top-margin-section",
+      "disabled": true,
+      "settings": {
+        "margintopuni": 100,
+        "margintopunimob": 60
+      }
+    },
+    "e75b45f9-068f-4335-ae70-91ba9766a9d4": {
+      "type": "pdp-flex-the-fit",
+      "disabled": true,
+      "settings": {
+        "ecoflex_pdp": true,
+        "ecoflex_pdp_mob": true,
+        "margintop_pdp": 0,
+        "margintop_pdpmob": 0,
+        "pdp_heading": "Flex the Fit",
+        "pdp_para": "Reviews"
+      }
+    },
+    "455e297a-0255-4e51-9f08-df53ada83bb8": {
+      "type": "upper-reviews-title-section",
+      "settings": {
+        "show_padding_rev": false,
+        "show_padding_mob_rev": false,
+        "margintoprev": 48,
+        "margintoprevmob": 30,
+        "review-title": "From the #FocusedCrew",
+        "review-sub-title": "Tried, tested, and loved"
+      }
+    },
+    "16825093237a65313e": {
+      "type": "apps",
+      "blocks": {
+        "09e880eb-5aa8-4b79-8dc2-e823b84c4c2b": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "09e880eb-5aa8-4b79-8dc2-e823b84c4c2b"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "ebbfe336-2289-48d5-a1f0-3cabdc6725ce": {
+      "type": "pdp-seo-footer",
+      "settings": {
+        "bg-seo": "shopify://shop_images/Vector_8_c38b4c41-8d23-44c8-b6b6-1fef4d867b18.png",
+        "margintopseoc": 0,
+        "margintopseocmob": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrum_new_4Ud9Ax",
+    "main",
+    "f875aa63-037d-4aeb-b35a-9eef6ace800f",
+    "product_feature_ntggQK",
+    "full_width_banner_Jx7apB",
+    "product-recommendations",
+    "product_details_exchange_new_zzVzRJ",
+    "c6c4d750-e603-4f22-b301-7adfc1fa9e07",
+    "flex_fit_new_BTyWgV",
+    "slider_new_QX8dkA",
+    "slider_new_Pzftqj",
+    "0feb8cc2-a0ef-42e8-ba96-beae50b17e6c",
+    "d8f53566-f93d-4c30-af3b-05fb8a2b38e7",
+    "8db3f037-4f1d-4737-99d1-ec2241ee4113",
+    "e75b45f9-068f-4335-ae70-91ba9766a9d4",
+    "455e297a-0255-4e51-9f08-df53ada83bb8",
+    "16825093237a65313e",
+    "ebbfe336-2289-48d5-a1f0-3cabdc6725ce"
+  ]
+}

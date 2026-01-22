@@ -1,0 +1,98 @@
+
+{% render 'blog-landing-page-banner' %}
+<style>
+  .blog-full-banner-wrapper .blog-banner-fullImage .blog-banner-imgWrapper img { width:100%;height:100%;}
+.blog-banner-text-over-image {  position: absolute; left:50px; width: 90%;}
+.blog-full-banner-wrapper { display: block;    margin-top: 0rem;    position: relative; }
+.blog-full-banner-wrapper .container-fluid{ padding:0 !important;margin:0 !important;}
+  .blog-full-banner-wrapper .mobileimage{display:none;}
+h1.blog-banner-subtitle {color: #fff;font-weight: 400; color:#d3e167;   text-align: center;font-family: 'Heebo-Medium';font-size: 3.594vw;line-height: 100%; margin-bottom: 0;}
+P.blog-banner-subtitle.tagged{color:#482f8f;}
+  .blog-banner-fullImage{display: flex;align-items: center;justify-content: end;}
+
+@media  (min-width:901px) and (max-width:1200px){
+  
+p.blog-banner-subtitle {font-size: 17px;line-height: 32px; margin-bottom: 0;}
+}
+ 
+
+@media only screen and (max-width:900px){
+  .blog-full-banner-wrapper .mobileimage{display:block;}
+  .blog-full-banner-wrapper .desktopimage{display:none;}
+  .blog-banner-fullImage{display:block;}
+  .blog-banner-text-over-image {display: block; padding-right: 0rem;left: 0px; width: 100%; top: 36%;}
+  .blog-banner-textSubtitle {width: 100%;padding: 1rem 3rem;}
+  h1.blog-banner-subtitle {font-size: 28px !important;  line-height:28px!important; margin-top: 0;text-align: center;}
+
+}
+  
+
+</style>
+
+{% schema %}
+  {
+    "name": "blog-landing-page-banner",
+    "settings": [
+{
+"id":"backgroundImage1",
+"type":"image_picker",
+"label":"Desktop Image"
+},
+{
+"id":"backgroundImage2",
+"type":"image_picker",
+"label":"Mobile Image"
+},
+      {
+"id":"backgroundImagetwo1",
+"type":"image_picker",
+"label":"Desktop Image"
+},
+{
+"id":"backgroundImagetwo2",
+"type":"image_picker",
+"label":"Mobile Image"
+},
+{
+"id":"subtitle",
+"type":"text",
+"label":"Heading"
+},
+     
+
+      {
+  "type": "range",
+  "id": "padding_top",
+  "min": 0,
+  "max": 50,
+  "step": 1,
+  "unit": "rem",
+  "label": "Padding top",
+  "default": 0
+},
+      {
+  "type": "range",
+  "id": "padding_bottom",
+  "min": 0,
+  "max": 50,
+  "step": 1,
+  "unit": "rem",
+  "label": "Padding bottom",
+  "default": 0
+}
+],
+"presets": [
+    {
+      "name": "blog-landing-page-banner"
+      }
+]    
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+

@@ -1,0 +1,121 @@
+{% assign productHandle = settings.embroideryProductHandle %}
+{% assign product = all_products[productHandle] %}
+<div class='hghg embroidery-popup'>
+  <div class="embroidery-popup-inner" dataEmbroSelectedAttributes=""> 
+    <div class="popup_heaer">
+      <div class="popup_title">
+        {% render 'popup_svg' %}
+        <h3>ADD CUSTOM EMBROIDERY</h3>
+      </div>
+    <span class='popupbtn' data-close='true'> 
+    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<path d="M16 1L0.999998 16" stroke="#F4ECD0" stroke-width="1.97988" stroke-linecap="round"/>
+<path d="M16 16L1 1.00003" stroke="#F4ECD0" stroke-width="1.97988" stroke-linecap="round"/>
+</svg>
+    </span>
+      </div>
+  <div class="duplicate_varient_titles">
+      {% for variant in product.variants %}
+      	{% assign title = variant.title | downcase %}
+	  	{% assign compressedTitle = title | remove : ' ' %}
+     
+                 <div class="duplicate_varient_title" 	{% if compressedTitle == "customlogo" or compressedTitle == "mynameandcustomlogo" %}style="display:none;"{% endif %} data-id='{{ variant.id }}' data-for='{{variant.title}}'>
+      {% render "embroidery_title_svg" %}
+                  {% if variant.title contains "My Name and Icon" %}
+                    <p>Both</p>
+                    {% else %}
+                  <p>{{variant.title}}</p>
+                    {% endif %}
+                  </div>
+                
+        {% endfor %}
+</div>
+  <div class='popup-wrap'>
+    <div class='variants_wrap' id='embroidery-pop-variant-wrap'>
+      {% assign customLogoId = '' %}
+      {% assign customLogoPrice = '' %}
+	  {% assign nameAndLogoId = '' %}
+      {% assign nameAndLogoPrice = '' %}
+       
+      {% for variant in product.variants %}
+      	{% assign vtitle = variant.title | downcase | remove :' ' %}
+      		{% if vtitle == 'customlogo' %}
+      			{% assign customLogoId = variant.id %}
+      			{% assign customLogoPrice = variant.price | money_without_trailing_zeros %}
+      		{% endif %} 
+      		
+      		{% if vtitle == 'mynameandcustomlogo' %}
+      			{% assign nameAndLogoId = variant.id %}
+      			{% assign nameAndLogoPrice = variant.price | money_without_trailing_zeros %}
+      		{% endif %}
+      {% endfor %}
+
+       <div class="variant_box_wrapper upper-emb-{{ forloop }}">
+      {% for variant in product.variants %}
+      	{% assign title = variant.title | downcase %}
+	  	{% assign compressedTitle = title | remove : ' ' %}
+      		{% if compressedTitle != "mynameandcustomlogo" %}
+      			{% if compressedTitle != "customlogo" %}
+                 
+      			<div class='variant_box'
+                     data-open='false'
+                     data-id='{{variant.id}}'
+                     {% if compressedTitle == 'icon/logo' %} data-logo-variant-id='{{customLogoId}}' data-type-includes="icon or logo" data-logo-price="{{customLogoPrice}}" {% endif %}
+                     {% if compressedTitle == 'both' %} data-logo-variant-id='{{nameAndLogoId}}' data-type-includes="name/icon name/logo" data-logo-price="{{nameAndLogoPrice}}" {% endif %} 
+                     data-for='{{variant.title}}'> 
+        <div class='btn_row'>     
+          <div>
+          <input type='radio' id="variant_wrap-{{ forloop.index }}" class='variant_selection' name='variant_wrap' data-variantid='{{variant.id}}' data-price="{{variant.price | money }}" value='{{variant.title}}'/>
+            <label for="variant_wrap-{{ forloop.index }}">{{variant.title}}</label> 
+          </div>
+          <div>
+    
+          </div>
+        </div>
+     
+        <div class='variant_selection_wrap'>
+       {% if title contains 'name' %}
+    	{% render 'embroidery_bundle_container_forname', mainPrice:variant.price, proPww:proPww %}
+        {% endif %}
+        
+        
+        {% if title contains 'icon' %}
+         {% render 'embroidery_bundle_container_foricon', compressedTitle:compressedTitle, mainPrice:variant.price, logoPrice:customLogoPrice, proPww:proPww %}
+        {% endif %}
+        
+         
+        {% if title contains 'both' %}
+           {% render 'embroidery_bundle_container_forboth', compressedTitle:compressedTitle, mainPrice:variant.price, logoPrice:nameAndLogoPrice, proPww:proPww %}
+        {% endif %}
+        
+          
+        <div class='addition_btns'>
+          
+          <div class='wrap font-heebo-medium'>
+            
+            <h4 class='reset_btn '> Reset </h4>
+            
+            <h4 class='adtn_btn {% if title contains 'both' %} both-class {% elsif title contains 'icon' %} icon-class {% else %} name-class {% endif %}'>  Add </h4>
+            
+          </div>
+          
+          </div>
+          
+        </div>         
+      </div>
+				{% endif %}
+      		{% endif %}
+      {% endfor %}
+                        </div>
+
+      
+      <div class="embroidery-product-message font-heebo-regular">
+      <p>
+        {{settings.embroideryProductMessage}}
+      </p>
+    </div>
+      
+    </div>
+  </div>
+  </div>
+</div>

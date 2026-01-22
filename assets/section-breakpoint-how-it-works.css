@@ -1,0 +1,156 @@
+.breakpoint-how-it-works-section {
+  width: 100%;
+  padding: 56px 80px 0px 80px;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-heading {
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 64px;
+  letter-spacing: 0px;
+  color: #000000;
+}
+.breakpoint-how-it-works-section {
+  position: relative;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-parent {
+  position: relative;
+  width: 100%;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 36px;
+  position: relative;
+  padding: 36px 0 0 0;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-parent::before {
+  content: "";
+  position: absolute;
+  top: 71px;
+  left: -80px;
+  right: -80px;
+  width: calc(100% + 160px);
+  height: 0;
+  border-bottom: 12px solid #dcf343;
+  z-index: 0;
+  pointer-events: none;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step {
+  flex: 1 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  position: relative;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-number-circle {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background-color: var(--step-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-number {
+  font-family: Poppins-Regular;
+  font-weight: 300;
+  font-size: 54px;
+  line-height: 1;
+  color: var(--number-color);
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step-heading {
+  font-family: Poppins-SemiBold;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  letter-spacing: 0px;
+  color: var(--heading-color);
+  margin: 0 0 14px 0;
+  text-align: left;
+}
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step-subheading {
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: #616161;
+  margin: 0;
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .breakpoint-how-it-works-section {
+    padding: 36px 18px;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-heading {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-steps {
+    flex-direction: column;
+    gap: 22px;
+    padding: 36px 0;
+    position: relative;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-steps::before {
+    content: "";
+    position: absolute;
+    top: 64px;
+    left: 24.5px;
+    bottom: 96px;
+    width: 0;
+    border-left: 12px solid #dcf343;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-parent::before {
+    display: none;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 14px;
+    position: relative;
+  }
+  .breakpoint-how-it-works-section
+    .breakpoint-how-it-works-step:not(:last-child)::after {
+    display: none;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-number-circle {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-number {
+    font-size: 32px;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step-heading {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step-subheading {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+  }
+}

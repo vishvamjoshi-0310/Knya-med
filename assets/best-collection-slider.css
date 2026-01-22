@@ -1,0 +1,13 @@
+@media screen and (max-width: 640px) {
+  .content-home {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .main-collection-home {
+    padding-right:0px;
+  }
+}
+.dot-pagination {
+  bottom: -32px !important;
+}

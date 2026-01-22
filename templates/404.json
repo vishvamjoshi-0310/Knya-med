@@ -1,0 +1,89 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "custom_404_page_LkCkgQ": {
+      "type": "custom-404-page",
+      "blocks": {
+        "button_MGCWnt": {
+          "type": "button",
+          "settings": {
+            "page404_butontext": "SHop ALl Scrubs",
+            "page404_butonlink": "https:\/\/knyamed.com\/collections\/all"
+          }
+        },
+        "button_TwEXP3": {
+          "type": "button",
+          "settings": {
+            "page404_butontext": "4-Way Strech",
+            "page404_butonlink": "https:\/\/knyamed.com\/collections\/all-ecoflex"
+          }
+        },
+        "button_QBBzNm": {
+          "type": "button",
+          "settings": {
+            "page404_butontext": "2-Way Strech",
+            "page404_butonlink": "https:\/\/knyamed.com\/collections\/ecoflex-lite"
+          }
+        },
+        "button_Mn94UA": {
+          "type": "button",
+          "settings": {
+            "page404_butontext": "Lab Coat Aprons",
+            "page404_butonlink": "https:\/\/knyamed.com\/collections\/lab-coat"
+          }
+        },
+        "button_q6a39H": {
+          "type": "button",
+          "settings": {
+            "page404_butontext": "Underscrubs",
+            "page404_butonlink": "https:\/\/knyamed.com\/collections\/underscrubs"
+          }
+        },
+        "button_tx8Xaq": {
+          "type": "button",
+          "settings": {
+            "page404_butontext": "Navy Blue",
+            "page404_butonlink": "https:\/\/knyamed.com\/collections\/sbc-navy"
+          }
+        }
+      },
+      "block_order": [
+        "button_MGCWnt",
+        "button_TwEXP3",
+        "button_QBBzNm",
+        "button_Mn94UA",
+        "button_q6a39H",
+        "button_tx8Xaq"
+      ],
+      "settings": {
+        "page404_image": "shopify:\/\/shop_images\/Frame_427318493.png",
+        "page404_heading": "We lost this page!",
+        "page404_subheading": "Page not found, just like your favourite pen on a busy shift. ",
+        "return_button404text": "Return To Home Page",
+        "return_button_url": "https:\/\/knyamed.com\/",
+        "margin_top_desktop": 124,
+        "margin_bottom_desktop": 72,
+        "margin_top_mobile": 112,
+        "margin_bottom_mobile": 112
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_404_page_LkCkgQ"
+  ]
+}

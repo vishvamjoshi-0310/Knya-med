@@ -1,0 +1,187 @@
+{{ 'ecoflex-impact-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .main-flexthefit-container {max-width: 100%;margin-top:{{ section.settings.margintop_impact}}px;}
+  @media screen and (max-width: 640px){
+    .main-flexthefit-container{margin-top:{{ section.settings.margintop_impactmob}}px;}
+  }
+{%- endstyle -%}
+<div class="impact-big-container">
+  <div class="impact-container page-width">
+    <div class="impact-main-container  {% if section.settings.ecoflex_impact  %} page-padding-right page-padding-left{% endif %} {% if section.settings.ecoflex_impact_mob %}padding-right-mob padding-left-mob{% endif %}">
+      <div class="impact-image-container">
+        <div class="impact-heading">
+          <p class="font-heebo-medium">{{ section.settings.impact_heading }}</p>
+        </div>
+        <div class="impact-image-final">
+          <img
+            srcset="
+              {%- if section.settings.impact_image.width >= 165 -%}{{ section.settings.impact_image | img_url: '165x' }} 165w,{%- endif -%}
+              {%- if section.settings.impact_image.width >= 360 -%}{{ section.settings.impact_image | img_url: '214x' }} 360w,{%- endif -%}
+              {%- if section.settings.impact_image.width >= 533 -%}{{ section.settings.impact_image | img_url: '533x' }} 533w,{%- endif -%}
+              {%- if section.settings.impact_image.width >= 720 -%}{{ section.settings.impact_image | img_url: '720x' }} 720w,{%- endif -%}
+              {%- if section.settings.impact_image.width >= 940 -%}{{ section.settings.impact_image | img_url: '940x' }} 940w,{%- endif -%}
+              {%- if section.settings.impact_image.width >= 1066 -%}{{ section.settings.impact_image | img_url: '1066x' }} 1066w,{%- endif -%}
+              {{ section.settings.impact_image | img_url: '550x' }} {{ section.settings.impact_image.width }}w
+            "
+            src="{{ section.settings.impact_image | img_url: '550x' }}"
+            size="auto"
+            alt="{% if section.settings.impact_image.alt != blank %}{{ section.settings.impact_image.alt | escape }} {% else %} impact web {% endif %}"
+            loading="lazy"
+            class="impact-web-image"
+            width="{{ section.settings.impact_image.width }}"
+            height="{{ section.settings.impact_image.height }}"
+          >
+          <img
+            srcset="
+              {%- if section.settings.impact_mobile_image.width >= 165 -%}{{ section.settings.impact_mobile_image | img_url: '165x' }} 165w,{%- endif -%}
+              {%- if section.settings.impact_mobile_image.width >= 360 -%}{{ section.settings.impact_mobile_image | img_url: '214x' }} 360w,{%- endif -%}
+              {%- if section.settings.impact_mobile_image.width >= 533 -%}{{ section.settings.impact_mobile_image | img_url: '533x' }} 533w,{%- endif -%}
+              {%- if section.settings.impact_mobile_image.width >= 720 -%}{{ section.settings.impact_mobile_image | img_url: '720x' }} 720w,{%- endif -%}
+              {%- if section.settings.impact_mobile_image.width >= 940 -%}{{ section.settings.impact_mobile_image | img_url: '940x' }} 940w,{%- endif -%}
+              {%- if section.settings.impact_mobile_image.width >= 1066 -%}{{ section.settings.impact_mobile_image | img_url: '1066x' }} 1066w,{%- endif -%}
+              {{ section.settings.impact_mobile_image | img_url: '450x' }} {{ section.settings.impact_mobile_image.width }}w
+            "
+            src="{{ section.settings.impact_mobile_image | img_url: '450x' }}"
+            size="auto"
+            alt="{% if section.settings.impact_mobile_image.alt != blank %}{{ section.settings.impact_mobile_image.alt | escape }} {% else %} impact mobile {% endif %}"
+            loading="lazy"
+            class="impact-mobile-image"
+            width="{{ section.settings.impact_mobile_image.width }}"
+            height="{{ section.settings.impact_mobile_image.height }}"
+          >
+        </div>
+      </div>
+      <div class="impact-text-conatiner">
+        <div class="impact-text-subtext-conatiner">
+          <div class="main-text-conatiner">
+            <h2 class="font-heebo-SemiBold">{{ section.settings.heading_text_conatiner }}</h2>
+            <p class="text-para font-heebo-regular">{{ section.settings.para_text_conatiner }}</p>
+          </div>
+          <div class="sub-text-container">
+            <p class="sub-text-para font-heebo-medium">{{ section.settings.sub_text_container }}</p>
+          </div>
+        </div>
+        <div class="side-bg-container">
+          <img
+            srcset="
+              {%- if section.settings.side_bg_image.width >= 165 -%}{{ section.settings.side_bg_image | img_url: '165x' }} 165w,{%- endif -%}
+              {%- if section.settings.side_bg_image.width >= 360 -%}{{ section.settings.side_bg_image | img_url: '214x' }} 360w,{%- endif -%}
+              {%- if section.settings.side_bg_image.width >= 533 -%}{{ section.settings.side_bg_image | img_url: '533x' }} 533w,{%- endif -%}
+              {%- if section.settings.side_bg_image.width >= 720 -%}{{ section.settings.side_bg_image | img_url: '720x' }} 720w,{%- endif -%}
+              {%- if section.settings.side_bg_image.width >= 940 -%}{{ section.settings.side_bg_image | img_url: '940x' }} 940w,{%- endif -%}
+              {%- if section.settings.side_bg_image.width >= 1066 -%}{{ section.settings.side_bg_image | img_url: '1066x' }} 1066w,{%- endif -%}
+              {{ section.settings.side_bg_image | img_url: '550x' }} {{ section.settings.side_bg_image.width }}w
+            "
+            src="{{ section.settings.side_bg_image | img_url: '550x' }}"
+            size="auto"
+            alt="{% if section.settings.side_bg_image.alt != blank %}{{ section.settings.side_bg_image.alt | escape }} {% else %} side background {% endif %}"
+            loading="lazy"
+            width="{{ section.settings.side_bg_image.width }}"
+            height="{{ section.settings.side_bg_image.height }}"
+          >
+        </div>
+        <div class="mobile-para-container">
+          <p class="text-para-mobile">{{ section.settings.para_text_conatiner }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ecoflex Impact Section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "ecoflex_impact",
+      "label": "Padding for Section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "ecoflex_impact_mob",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    },
+    
+    {
+      "type": "range",
+      "id": "margintop_impact",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintop_impactmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+       "type": "text",
+        "id": "impact_heading",
+        "label": "Imapact Heading",
+        "default": "The Ecoflex impact"
+    },
+    {
+      "type": "image_picker",
+      "id": "impact_image",
+      "label": "Impact Web Image",
+      "info":"Dimensions 541px X 384px"
+    },
+    {
+      "type": "image_picker",
+      "id": "impact_mobile_image",
+      "label": "Impact Mobile Image",
+      "info":"Dimensions 189px X 262px"
+    },
+    {
+       "type": "text",
+        "id": "heading_text_conatiner",
+        "label": "Heading Text Heading",
+        "default": "Main Heading Text"
+    },
+    {
+       "type": "text",
+        "id": "para_text_conatiner",
+        "label": "Imapact Paragraph",
+        "default": "Impact Paragraph"
+    },
+    {
+       "type": "text",
+        "id": "sub_text_container",
+        "label": "Sub Paragraph",
+        "default": "Sub Paragraph"
+    },
+      {
+      "type": "image_picker",
+      "id": "side_bg_image",
+      "label": "Side Image",
+      "info":"Dimensions 495px X 513px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecoflex Impact Section"
+    }
+  ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

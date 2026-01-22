@@ -1,0 +1,143 @@
+{{ 'about-us-textslider.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+.main-textslider {max-width: 100%;margin-top:{{ section.settings.margintop_main-textslider}}px;}
+{%- endstyle -%}
+<div class="main-textslider">
+  <div>
+    <p  id="firstlinehold" class="firstline">{{ section.settings.textslider_desktopline1 }}</p>
+    <p  id="secondlinehold" class="secondline">{{ section.settings.textslider_desktopline2 }}</p>
+    <p id="thirdlinehold"  class="thirdline">{{ section.settings.textslider_desktopline3 }}</p>
+  </div>
+  <div  id="lastslide" class="last_slide">
+    <div class="innerdiv">
+      <div class="lastslide_heading"><span></span>{{ section.settings.lastslide_heading }}</div>
+      <div class="LastslideText">{{ section.settings.Last_slide_Text }}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "textslider",
+    "settings": [
+       {
+      "type": "range",
+      "id": "margintop_main-textslider",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+      {
+  "type": "text",
+  "id": "textslider_desktopline1",
+  "label": "Heading line 1",
+  "default": "line 1"
+},
+         {
+  "type": "text",
+  "id": "textslider_desktopline2",
+  "label": "Heading line 2",
+  "default": "line 2"
+},
+         {
+  "type": "text",
+  "id": "textslider_desktopline3",
+  "label": "Heading line 3",
+  "default": "line 3"
+},
+      {
+  "type": "richtext",
+  "id": "Last_slide_Text",
+  "label": "Lasth slide Text"
+} ,{
+  "type": "text",
+  "id": "lastslide_heading",
+  "label": "Lastslide heading",
+  "default": "Type Heading here"
+}
+
+
+    ],
+    "presets": [
+    {
+      "name": "textslider"
+    }
+  ]
+    
+  }
+{% endschema %}
+<script>
+// for first line
+const scrollElements = document.querySelector("#firstlinehold");
+const elementInView = (el, dividend = 1) => {
+const elementTop = el.getBoundingClientRect().top;
+return (
+elementTop <=
+(window.innerHeight || document.documentElement.clientHeight) /
+dividend
+);
+};
+const displayScrollElement = (element) => {
+  
+// for first line
+let firstlinehold =document.querySelector("#firstlinehold");
+element.classList.add("newline1");
+setTimeout(()=>{
+firstlinehold.classList.add("line_hold");
+},2000);
+  
+// for second line
+let secondlinehold =document.querySelector("#secondlinehold");
+secondlinehold.classList.add("newline2");
+setTimeout(()=>{
+secondlinehold.classList.add("line_hold");
+},4000);
+  
+// for thirdt line
+let thirdlinehold =document.querySelector("#thirdlinehold");
+thirdlinehold.classList.add("newline3");
+setTimeout(()=>{
+thirdlinehold.classList.add("line_hold");
+},6000);
+
+// for fourth slide
+let lastslide =document.querySelector("#lastslide");
+lastslide.classList.add("newline4");
+setTimeout(()=>{
+lastslide.classList.add("lastslide_hold");
+},12000);
+
+
+};
+const handleScrollAnimation = () => {
+if (elementInView(scrollElements, 1.0)) {
+displayScrollElement(scrollElements);
+}
+};
+window.addEventListener("scroll", () => {
+handleScrollAnimation();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</script>
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

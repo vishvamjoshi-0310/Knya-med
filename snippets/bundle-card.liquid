@@ -1,0 +1,18 @@
+{% assign bundleProducts = product.metafields.custom.bundle_product.value %}
+
+
+{% for value in bundleProducts %}
+<div class="pww_main-container_card {% unless forloop.last %} pww_main-container_card_border {% endunless %}" {% unless forloop.last %}style= "margin-bottom: 36px; border-bottom: 1px solid #fff; position: relative;" {% endunless %}>
+  
+  <div class="pww-card {{ block.id }}-{{ forloop.index }}">
+    {% render 'bundle-card_snippit',
+      card_product: value,
+      product: value,
+      block: block,
+      showColorTxt: true,
+      section: section,
+      index: forloop.index0
+    %}
+  </div>
+</div>
+{% endfor %}

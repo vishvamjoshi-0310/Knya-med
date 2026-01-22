@@ -1,0 +1,8 @@
+.shopify-policy__container{max-width: 90vw !important;}
+.shopify-policy__container p{font-size:1.288vw;    font-family: 'Heebo-Regular';line-height: normal;}
+.shopify-policy__body{margin-top:10px}
+.shopify-policy__body h1,h2{font-size:2.194vw;}
+@media screen and (max-width:767px){
+  .shopify-policy__container p{font-size:16px;}
+  .shopify-policy__body h1,h2{font-size:18px;}
+}

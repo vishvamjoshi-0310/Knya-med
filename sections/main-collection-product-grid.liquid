@@ -1,0 +1,943 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Custom Styles {% endcomment %}
+{{ 'custom-collection-product-grid.css' | asset_url | stylesheet_tag }}
+
+<link
+  rel="preload"
+  href="{{ 'component-rte.css' | asset_url }}"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+
+{%- if section.settings.enable_quick_add -%}
+  <link
+    rel="stylesheet"
+    href="{{ 'quick-add.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'"
+  >
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+
+{%- style -%}
+@media screen and (max-width: 989px) {
+    .grid--1-col-tablet-down .grid__item{max-width: 47%;}
+    .grid--1-col-tablet-down .grid__item .card__media .media img{width:100%;}
+}
+
+  
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+    {% if template.name == 'collection' %}
+      @media screen and (max-width: 500px) {
+
+      /*
+
+        .name-collection {
+          -webkit-line-clamp: unset;
+         }
+      */
+    }
+  {% endif %}
+{%- endstyle -%}
+
+{% assign imgMeta = collection.metafields.custom._brand_litrature_card.value %}
+{% assign imgMetamob = collection.metafields.custom.brand_literature_card_mobile.value %}
+
+{% assign imagemeta1 = '' %}
+{% for xyz in imgMeta %}
+  {% assign imagemeta = xyz | img_url: '' %}
+
+  {% assign imagemeta1 = imagemeta1 | append: imagemeta | append: ',' %}
+{% endfor %}
+
+{% assign imagemeta1mob = '' %}
+{% for xyz in imgMetamob %}
+  {% assign imagemetamob = xyz | img_url: '' %}
+
+  {% assign imagemeta1mob = imagemeta1mob | append: imagemetamob | append: ',' %}
+{% endfor %}
+
+
+{% assign tip_tiles = collection.metafields.custom.collection_tip_tiles_content %}
+{% assign recurring_position = collection.metafields.custom.tip_tile_recurring_position.value %}
+{% assign recurring_position_mobile = collection.metafields.custom.tip_tile_recurring_position_mobile.value %}
+{% assign tip_tiles_count = tip_tiles.value.size %}
+
+
+{% assign finalimg = imagemeta1 | split: ',' %}
+{% assign finalimgmob = imagemeta1mob | split: ',' %}
+{% assign urlMeta = collection.metafields.custom.url_literature_card.value %}
+{% assign urlmeta1 = '' %}
+{% for abc in urlMeta %}
+  {% assign urlmeta = abc %}
+  {% assign urlmeta1 = urlmeta1 | append: urlmeta | append: ',' %}
+{% endfor %}
+{% assign finalurl = urlmeta1 | split: ',' %}
+{% if collection.metafields.custom.quick_filter_hide_and_show.value == true %}
+  {% render 'custom-quick-filter', collection: collection %}
+{% endif %}
+{% if collection.metafields.custom.hide_gender_filter.value == true %}
+  {% render 'three-layer-quick-filter.liquid' %}
+{% endif %}
+<div class="section-{{ section.id }}-padding">
+  <h1 class="collectionpage_title">{{ collection.title }}</h1>
+  <div class="sort-right page-width">
+    <span class="devider-filter"> | </span>
+    <div class="sortingg">
+      <label
+        id="sorting_label"
+        class="sortby-txt"
+        for="dpbtn"
+      >
+        <div class="sort-lable">
+          {% comment %} {% render 'down_arr_collection' %} {% endcomment %}
+          {% render 'filter-arrow-icon' %}
+
+          {%- render 'facet-sort-icon' -%}
+          <span id="labelname" class="font-heebo-medium custom-sort custom-sort-mobile">
+            Sort by
+            <span class="extention-sort">: </span>
+          </span>
+        </div>
+      </label>
+      <span class="sorted-item font-heebo-medium custom-sort">MOST POPULAR</span>
+    </div>
+
+    <ul class="sorting_divs font-heebo-medium" id="divToHide">
+      <li class="sorting_list" data-values="manual">Most Popular</li>
+      <!-- <li class="sorting_list" data-values="best-selling"> Best Selling </li> -->
+      <li class="sorting_list" data-values="created-descending">New Release</li>
+      <!-- <li class="sorting_list" data-values="title-ascending"> Alphabetically A-Z </li> -->
+      <!-- <li class="sorting_list" data-values="title-descending">Alphabetically Z-A</li> -->
+      <li class="sorting_list" data-values="price-ascending">Price Low to High</li>
+      <li class="sorting_list" data-values="price-descending">Price High to Low</li>
+      <!-- <li class="sorting_list" data-values="created-ascending"> Date old to New </li> -->
+    </ul>
+    {% comment %} <span class="devider-filter"> | </span> {% endcomment %}
+  </div>
+  <hr class="plp-section-divider">
+  {% comment %}
+    <div class="pagination-loading-icon-container">
+      <svg
+        class="pagination-loading-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="42"
+        height="51"
+        viewBox="0 0 42 51"
+        fill="none"
+      >
+        <path d="M41.9193 26.2017V26.9163C40.8428 27.0223 39.8599 27.4408 39.078 28.1582C39.0092 28.2207 38.9431 28.2886 38.877 28.3566C38.866 28.3701 38.855 28.3837 38.8412 28.3973C38.7889 28.4544 38.7366 28.5087 38.6871 28.5685C38.6705 28.5875 38.654 28.6093 38.6375 28.6256C38.5934 28.6799 38.5494 28.7343 38.5053 28.7914C38.4888 28.8158 38.4723 28.8403 38.453 28.8647C38.4145 28.9191 38.3732 28.9734 38.3346 29.0305C38.3154 29.0576 38.2988 29.0848 38.2823 29.112C38.2465 29.1691 38.2107 29.2234 38.1749 29.2805C38.1584 29.3104 38.1419 29.343 38.1226 29.3729C38.0896 29.4299 38.0593 29.487 38.029 29.5441C38.0125 29.5767 37.996 29.612 37.9795 29.6446C37.9492 29.7017 37.9217 29.7642 37.8941 29.824C37.8776 29.8593 37.8611 29.8973 37.8473 29.9326C37.8198 29.9924 37.795 30.0549 37.7702 30.1174C37.7565 30.1555 37.7427 30.1935 37.7289 30.2316C37.7041 30.2968 37.6821 30.3593 37.6601 30.4218C37.6463 30.4626 37.6326 30.5033 37.6188 30.5441C37.5995 30.6093 37.5775 30.6745 37.561 30.7424C37.55 30.7832 37.539 30.8267 37.5279 30.8674C37.5114 30.9381 37.4922 31.006 37.4756 31.0767C37.4674 31.1174 37.4564 31.1636 37.4481 31.2071C37.4343 31.2778 37.4206 31.3511 37.4068 31.4272C37.3985 31.4707 37.393 31.5142 37.3848 31.5577C37.371 31.6337 37.36 31.7098 37.3517 31.7886C37.3462 31.8348 37.3407 31.8783 37.3352 31.9245C37.327 32.0033 37.3187 32.0848 37.3104 32.1664C37.3077 32.2098 37.3022 32.256 37.2994 32.3022C37.2939 32.3837 37.2884 32.4707 37.2857 32.5549C37.2857 32.6011 37.2829 32.6473 37.2801 32.6935C37.2774 32.8049 37.2719 32.9164 37.2719 33.0305C37.2609 34.093 37.2581 35.1772 37.2526 36.2425C37.2526 36.2723 37.2526 36.305 37.2526 36.3376V37.0495C37.2526 37.6582 37.2526 38.2533 37.2526 38.8267V40.9273V49.9653H23.8059V38.7561V32.5006C23.8389 30.7044 24.4392 26.4136 31.7489 26.2017H37.4949H38.9293H41.3494C41.5642 26.2017 41.7211 26.2017 41.9248 26.2017H41.9193Z" fill="#482F8F"/>
+        <path d="M23.2345 26.2014V26.9161C23.0417 27.0492 22.8518 27.1987 22.659 27.3618C22.637 27.3781 22.6177 27.3971 22.5985 27.4161C22.4002 27.5982 22.213 27.7965 22.034 28.0112C21.9762 28.0818 21.9157 28.1525 21.8606 28.2286C21.8028 28.302 21.745 28.3753 21.6927 28.4541C21.6403 28.5302 21.5853 28.609 21.5357 28.6905C21.4807 28.7721 21.4311 28.8536 21.3843 28.9378C21.3402 29.0139 21.2962 29.0927 21.2549 29.1688C21.2439 29.1878 21.2329 29.2069 21.2246 29.2259C21.1833 29.302 21.1448 29.3808 21.109 29.4569C21.109 29.4569 21.1062 29.4596 21.1062 29.4623C21.0649 29.552 21.0236 29.6416 20.9823 29.734C20.9438 29.8237 20.9052 29.9134 20.8694 30.0058C20.8694 30.0139 20.8639 30.0221 20.8612 30.0275C20.8364 30.09 20.8116 30.1579 20.7896 30.2232C20.7703 30.2721 20.7566 30.3183 20.74 30.3645C20.7345 30.3753 20.7318 30.3862 20.729 30.3998C20.6987 30.4813 20.6712 30.5683 20.6464 30.6552C20.6244 30.7286 20.6024 30.8047 20.5831 30.8808C20.5611 30.9623 20.5418 31.0465 20.5198 31.1308C20.4978 31.2123 20.4785 31.2965 20.4592 31.3835C20.4454 31.4487 20.4317 31.5139 20.4179 31.5819C20.4179 31.5846 20.4179 31.5873 20.4179 31.5927C20.4041 31.6743 20.3876 31.7531 20.3739 31.8373C20.3711 31.8482 20.3684 31.859 20.3656 31.8699C20.3656 31.8862 20.3629 31.8971 20.3601 31.9107C20.3463 32.0004 20.3326 32.0927 20.3188 32.1851C20.3133 32.2123 20.3105 32.2422 20.305 32.2721C20.3023 32.2993 20.2995 32.3237 20.2968 32.3482C20.2858 32.4433 20.2747 32.5411 20.2637 32.6389C20.2582 32.715 20.2527 32.7938 20.2445 32.8726C20.239 32.9514 20.2334 33.033 20.2279 33.1118C20.2252 33.1906 20.2197 33.2721 20.2169 33.3536L20.2114 33.5683C20.2114 33.6634 20.2087 33.7558 20.2087 33.8509C20.2087 35.7966 20.2087 37.4324 20.2087 38.7803V40.9488V49.9651H-0.00268555V45.9107C-0.00268555 45.9107 -0.00268555 40.2477 -0.00268555 38.4515C-0.00268555 29.0003 6.97672 26.2014 11.7343 26.2014H23.2345Z" fill="#482F8F"/>
+        <path d="M41.9159 23.7094V24.4241C41.7094 24.4241 41.5552 24.4241 41.3404 24.4241H38.9176H37.4832H32.0263C24.4439 24.3181 23.8272 19.9377 23.7942 18.117V11.867V0.657715H37.2409V9.69579V11.7963C37.2409 12.3697 37.2409 12.9648 37.2409 13.5735V14.2855C37.2409 14.3181 37.2409 14.3507 37.2409 14.3806C37.2436 15.4431 37.2491 16.53 37.2602 17.5871C37.2602 17.7067 37.2629 17.8181 37.2684 17.9295C37.2684 17.9757 37.2712 18.0219 37.2739 18.0681C37.2767 18.1551 37.2822 18.2393 37.2877 18.3208C37.2905 18.367 37.296 18.4132 37.2987 18.4567C37.307 18.5382 37.3125 18.6197 37.3235 18.6985C37.329 18.742 37.3345 18.7882 37.34 18.8344C37.3483 18.9132 37.362 18.9893 37.3731 19.0654C37.3813 19.1089 37.3868 19.1523 37.3951 19.1958C37.4088 19.2719 37.4226 19.3426 37.4364 19.4159C37.4446 19.4594 37.4556 19.5029 37.4639 19.5464C37.4804 19.617 37.4969 19.6877 37.5162 19.7556C37.5272 19.7964 37.5382 19.8398 37.5493 19.8806C37.5685 19.9485 37.5906 20.0138 37.6071 20.079C37.6208 20.1197 37.6346 20.1605 37.6484 20.2013C37.6704 20.2665 37.6924 20.329 37.7172 20.3942C37.731 20.4322 37.7447 20.4703 37.7585 20.5083C37.7833 20.5708 37.8108 20.6333 37.8356 20.6931C37.8494 20.7284 37.8659 20.7665 37.8824 20.8018C37.9099 20.8616 37.9375 20.9214 37.9677 20.9812C37.9843 21.0138 38.0008 21.0491 38.0173 21.0817C38.0476 21.1388 38.0806 21.1958 38.1109 21.2556C38.1302 21.2855 38.1467 21.3181 38.1632 21.348C38.1963 21.4051 38.2348 21.4594 38.2706 21.5165C38.2871 21.5437 38.3036 21.5735 38.3229 21.598C38.3615 21.6551 38.4 21.7094 38.4413 21.7638C38.4578 21.7882 38.4743 21.8127 38.4936 21.8371C38.5377 21.8942 38.5817 21.9485 38.6258 22.0029C38.6423 22.0219 38.6588 22.0437 38.6753 22.06C38.7249 22.117 38.7772 22.1741 38.8295 22.2312C38.8433 22.2447 38.8543 22.2583 38.8653 22.2719C38.9314 22.3399 38.9974 22.4051 39.0663 22.4703C39.8482 23.1904 40.8311 23.6062 41.9076 23.7121L41.9159 23.7094Z" fill="#482F8F"/>
+        <path d="M23.2345 23.7097V24.4243H14.4572C14.4572 24.4243 13.3284 24.4243 11.7343 24.4243C6.97672 24.4243 -0.00268555 21.6254 -0.00268555 12.1743V4.71232V0.657959H20.2087V9.67429V11.8428C20.2087 13.1906 20.2087 14.8265 20.2087 16.7721C20.2087 16.8672 20.2087 16.9596 20.2114 17.0548L20.2169 17.2694C20.2197 17.351 20.2252 17.4298 20.2279 17.5086C20.2334 17.5901 20.239 17.6689 20.2445 17.7504C20.2527 17.8265 20.2582 17.9053 20.2637 17.9841C20.2747 18.0819 20.2858 18.1798 20.2968 18.2749C20.2995 18.302 20.3023 18.3265 20.305 18.351C20.3078 18.3808 20.3133 18.4107 20.3188 18.4379C20.3298 18.5303 20.3436 18.6227 20.3601 18.7124C20.3601 18.726 20.3656 18.7395 20.3656 18.7531C20.3656 18.764 20.3684 18.7749 20.3739 18.7857C20.3876 18.8673 20.4014 18.9488 20.4179 19.0303C20.4179 19.033 20.4179 19.0357 20.4179 19.0412C20.4289 19.1091 20.4455 19.1743 20.4592 19.2395C20.4785 19.3265 20.4978 19.4107 20.5198 19.4923C20.5418 19.5765 20.5611 19.6607 20.5831 19.7423C20.6024 19.8183 20.6244 19.8944 20.6464 19.9678C20.6712 20.0548 20.6987 20.139 20.729 20.2232C20.729 20.2368 20.7345 20.2477 20.74 20.2586C20.7566 20.3048 20.7703 20.3537 20.7896 20.3999C20.8116 20.4651 20.8364 20.5303 20.8612 20.5955C20.8639 20.6037 20.8694 20.6091 20.8694 20.6173C20.9025 20.7097 20.941 20.7993 20.9823 20.889C21.0236 20.9814 21.0649 21.0711 21.1062 21.1607C21.1062 21.1607 21.1062 21.1635 21.109 21.1662C21.1448 21.2423 21.1861 21.3211 21.2246 21.3972C21.2329 21.4162 21.2439 21.4352 21.2549 21.4542C21.2962 21.5303 21.3402 21.6091 21.3843 21.6852C21.4311 21.7667 21.4807 21.851 21.5357 21.9298C21.5853 22.0113 21.6376 22.0901 21.6927 22.1662C21.745 22.245 21.8 22.3184 21.8606 22.3917C21.9157 22.4678 21.9762 22.5385 22.034 22.6091C22.213 22.8238 22.4002 23.0222 22.5985 23.2042C22.6177 23.2233 22.6398 23.2423 22.659 23.2586C22.8518 23.4216 23.0417 23.5711 23.2345 23.7042V23.7097Z" fill="#482F8F"/>
+      </svg>
+    </div>
+  {% endcomment %}
+
+  {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
+  {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
+    <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
+      <form class="facets-vertical-form" id="FacetSortForm">
+        <div class="facet-filters sorting caption for-custom">
+          <div class="facet-filters__field">
+            <p class="facet-filters__label caption-large text-body">
+              <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+            </p>
+            <div class="select">
+              {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+              <select
+                name="sort_by"
+                class="facet-filters__sort select__select caption-large"
+                id="SortBy"
+                aria-describedby="a11y-refresh-page-message"
+              >
+                {%- for option in collection.sort_options -%}
+                  <option
+                    class="optionValue"
+                    value="{{ option.value | escape }}"
+                    {% if option.value == sort_by %}
+                      selected="selected"
+                    {% endif %}
+                  >
+                    {{ option.name | escape }}
+                  </option>
+                {%- endfor -%}
+              </select>
+              {% render 'icon-caret' %}
+            </div>
+          </div>
+          <noscript>
+            <button type="submit" class="facets__button-no-js button button--secondary">
+              {{ 'products.facets.sort_button' | t }}
+            </button>
+          </noscript>
+        </div>
+
+        {% comment %}
+          <div class="product-count-vertical light" role="status">
+          <h2 class="product-count__text text-body">
+          <span id="ProductCountDesktop">
+          {%- if collection.results_count -%}
+          {{ 'templates.search.results_with_count' | t: terms: collection.terms, count: collection.results_count }}
+          {%- elsif collection.products_count == collection.all_products_count -%}
+          {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+          {%- else -%}
+          {{ 'products.facets.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}
+          {%- endif -%}
+          </span>
+          </h2>
+          <div class="loading-overlay__spinner">
+          <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+          </svg>
+          </div>
+          </div>
+        {% endcomment %}
+      </form>
+    </facet-filters-form>
+  {%- endif -%}
+  <div class="mobile-grid collection-page-section">
+    <div class="single">{% render 'rect-coll' %}</div>
+    <div class="double">{% render 'grid-coll' %}</div>
+  </div>
+
+  <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
+    {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+    {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+      <aside
+        aria-labelledby="verticalTitle"
+        class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+        id="main-collection-filters"
+        data-id="{{ section.id }}"
+      >
+        {% render 'facets',
+          results: collection,
+          enable_filtering: section.settings.enable_filtering,
+          enable_sorting: section.settings.enable_sorting,
+          filter_type: section.settings.filter_type
+        %}
+      </aside>
+    {%- endif -%}
+
+    <div class="product-grid-container" id="ProductGridContainer" quick-filter="{{ collection.metafields.custom.hide_gender_filter.value }}">
+      {%- paginate collection.products by section.settings.products_per_page -%}
+        {%- if collection.products.size == 0 -%}
+          <div
+            class="collection collection--empty page-width"
+            id="product-grid"
+            data-id="{{ section.id }}"
+          >
+            <div class="loading-overlay gradient"></div>
+            <div class="title-wrapper center">
+              <h2 class="title title--primary">
+                {{ 'sections.collection_template.empty' | t -}}
+                <br>
+                {{
+                  'sections.collection_template.use_fewer_filters_html'
+                  | t: link: collection.url, class: 'underlined-link link'
+                }}
+              </h2>
+            </div>
+          </div>
+        {%- else -%}
+          <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+            <div class="loading-overlay gradient"></div>
+
+            <ul
+              id="product-grid"
+              data-id="{{ section.id }}"
+              class="
+                grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+                grid--{{ section.settings.columns_desktop }}-col-desktop
+              "
+            >
+              {% assign counter = 0 %}          
+
+              
+              {%- for product in collection.products -%}
+                {% assign lazy_load = false %}
+                {%- if forloop.index > 2 -%}
+                  {%- assign lazy_load = true -%}
+                {%- endif -%}
+
+
+                 {% comment %} this is for desktop {% endcomment %}
+                {% if tip_tiles != blank and recurring_position != blank  %}
+                  
+                  {% assign current_offset = paginate.current_page | minus: 1 | times: section.settings.products_per_page %}
+                  {% assign total_index = forloop.index0 | plus: current_offset %}
+                  {% assign mod_check = total_index | modulo: recurring_position %}
+                  {% assign tile_index = total_index | divided_by: recurring_position | floor %}
+  
+                  {% if forloop.index0 != 0 and mod_check == 0 and tile_index <= tip_tiles_count %}
+                    
+                    {% assign get_tile_of_index = tile_index | minus: 1 %}
+                    
+                    <li class="grid__item coll-gridd-{{ total_index }} desktopgrid">
+                      {% render 'collection-tip-tile',
+                        tip_tiles_array: tip_tiles.value[get_tile_of_index],
+                        lazy_load: lazy_load,
+                        
+                      %}
+                    </li>
+                  {% endif %}
+                {% endif %}
+
+
+
+
+                {% comment %} this is for mobile {% endcomment %}
+                 {% if tip_tiles != blank and recurring_position_mobile != blank  %}
+                  
+                  {% assign current_offset = paginate.current_page | minus: 1 | times: section.settings.products_per_page %}
+                  {% assign total_index = forloop.index0 | plus: current_offset %}
+                  {% assign mod_check = total_index | modulo: recurring_position_mobile %}
+                  {% assign tile_index = total_index | divided_by: recurring_position_mobile | floor %}
+  
+                  {% if forloop.index0 != 0 and mod_check == 0 and tile_index <= tip_tiles_count %}
+                    
+                    {% assign get_tile_of_index = tile_index | minus: 1 %}
+                    
+                    <li class="grid__item coll-gridd-{{ total_index }} mobilegrid">
+                      {% render 'collection-tip-tile',
+                        tip_tiles_array: tip_tiles.value[get_tile_of_index],
+                        lazy_load: lazy_load,
+                        
+                      %}
+                    </li>
+                  {% endif %}
+                {% endif %}
+
+
+
+
+                <li class="grid__item coll-gridd">
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    lazy_load: lazy_load,
+                    show_quick_add: section.settings.enable_quick_add,
+                    section_id: section.id
+                  %}
+                </li>
+
+
+
+                {% comment %} this is for desktop {% endcomment %}
+                {% if tip_tiles != blank and recurring_position != blank  %}
+                  {% if forloop.index == section.settings.products_per_page  %}
+                    {% assign edge_case_total_index = forloop.index | plus: current_offset %}
+                    {% assign edge_case_mod_check = edge_case_total_index | modulo: recurring_position %}
+                    {% assign edge_case_tile_index = edge_case_total_index | divided_by: recurring_position | floor %}
+  
+                    {% if edge_case_mod_check == 0 and edge_case_tile_index <= tip_tiles_count %}
+  
+                      {% assign edge_case_get_tile_of_index = edge_case_tile_index | minus: 1 %}
+                      <li class="grid__item coll-gridd-{{ total_index }} desktopgrid">
+                        {% render 'collection-tip-tile',
+                          tip_tiles_array: tip_tiles.value[edge_case_get_tile_of_index],
+                          count: tip_tiles_count,
+                          x: tile_index
+                        %}
+                      </li>
+                    {% endif %}
+                    
+                  {% endif %}
+                {% endif %}      
+                
+                
+
+
+                 {% comment %} this is for mobile {% endcomment %}
+                 {% if tip_tiles != blank and recurring_position_mobile != blank  %}
+                  {% if forloop.index == section.settings.products_per_page  %}
+                    {% assign edge_case_total_index = forloop.index | plus: current_offset %}
+                    {% assign edge_case_mod_check = edge_case_total_index | modulo: recurring_position_mobile %}
+                    {% assign edge_case_tile_index = edge_case_total_index | divided_by: recurring_position_mobile | floor %}
+  
+                    {% if edge_case_mod_check == 0 and edge_case_tile_index <= tip_tiles_count %}
+  
+                      {% assign edge_case_get_tile_of_index = edge_case_tile_index | minus: 1 %}
+                      <li class="grid__item coll-gridd-{{ total_index }} mobilegrid">
+                        {% render 'collection-tip-tile',
+                          tip_tiles_array: tip_tiles.value[edge_case_get_tile_of_index],
+                          count: tip_tiles_count,
+                          x: tile_index
+                        %}
+                      </li>
+                    {% endif %}
+                    
+                  {% endif %}
+                {% endif %}   
+
+
+
+
+                {% comment %}
+                  {% assign x = forloop.index | modulo: 7 %}
+                  {% unless x != 0 %}
+                    {% if finalimg[counter] %}
+                      <li class="grid-banner grid__item coll-gridd ">
+                        <a class="desk-lit-url" href="{{ finalurl[counter] }}">
+                          <img
+                            class="desk-literature"
+                            src="{{ finalimg[counter]  }}"
+                            loading="lazy"
+                            width="200"
+                            height="auto"
+                          >
+                        </a>
+                        <a href="{{ finalurl[counter] }}">
+                          <img
+                            class="mob-literature"
+                            src="{{ finalimgmob[counter]  }}"
+                            loading="lazy"
+                            width="380"
+                            height="auto"
+                          >
+                        </a>
+                      </li>
+                    {% endif %}
+                    {% assign counter = counter | plus: 1 %}
+                  {% endunless %}
+                {% endcomment %}
+              {%- endfor -%}
+
+              {% if tip_tiles != blank and recurring_position != blank  %}
+                {% assign check_for_total_tems = paginate.items | modulo: recurring_position %}
+                {% if tile_index <= tip_tiles_count and paginate.current_page == paginate.pages and check_for_total_tems == 0 %}
+  
+                  {% assign get_tile_of_index = tile_index %}
+  
+                  <li class="grid__item coll-gridd-{{ total_index }}--{{ paginate.items }}">
+                    {% render 'collection-tip-tile',
+                      tip_tiles_array: tip_tiles.value[get_tile_of_index],
+                      count: tip_tiles_count,
+                      x: tile_index
+                    %}
+                  </li>
+                {% endif %}
+              {% endif %}
+                  
+              
+              
+            </ul>
+
+            {% comment %} Infinte Scroll JS   {% endcomment %}
+
+            <div id="product-grid-Pagination">
+              {% if paginate.next %}
+                <a
+                  class="btn btn-outline-primary d-inline-flex align-items-center mt-5 mb-0"
+                  href="{{ paginate.next.url }}"
+                  onclick="onClickCollectionPagination(this, window.event||event)"
+                >
+                  <div class="pagination-loading-icon-container">
+                    <svg
+                      class="pagination-loading-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="42"
+                      height="51"
+                      viewBox="0 0 42 51"
+                      fill="none"
+                    >
+                      <path d="M41.9193 26.2017V26.9163C40.8428 27.0223 39.8599 27.4408 39.078 28.1582C39.0092 28.2207 38.9431 28.2886 38.877 28.3566C38.866 28.3701 38.855 28.3837 38.8412 28.3973C38.7889 28.4544 38.7366 28.5087 38.6871 28.5685C38.6705 28.5875 38.654 28.6093 38.6375 28.6256C38.5934 28.6799 38.5494 28.7343 38.5053 28.7914C38.4888 28.8158 38.4723 28.8403 38.453 28.8647C38.4145 28.9191 38.3732 28.9734 38.3346 29.0305C38.3154 29.0576 38.2988 29.0848 38.2823 29.112C38.2465 29.1691 38.2107 29.2234 38.1749 29.2805C38.1584 29.3104 38.1419 29.343 38.1226 29.3729C38.0896 29.4299 38.0593 29.487 38.029 29.5441C38.0125 29.5767 37.996 29.612 37.9795 29.6446C37.9492 29.7017 37.9217 29.7642 37.8941 29.824C37.8776 29.8593 37.8611 29.8973 37.8473 29.9326C37.8198 29.9924 37.795 30.0549 37.7702 30.1174C37.7565 30.1555 37.7427 30.1935 37.7289 30.2316C37.7041 30.2968 37.6821 30.3593 37.6601 30.4218C37.6463 30.4626 37.6326 30.5033 37.6188 30.5441C37.5995 30.6093 37.5775 30.6745 37.561 30.7424C37.55 30.7832 37.539 30.8267 37.5279 30.8674C37.5114 30.9381 37.4922 31.006 37.4756 31.0767C37.4674 31.1174 37.4564 31.1636 37.4481 31.2071C37.4343 31.2778 37.4206 31.3511 37.4068 31.4272C37.3985 31.4707 37.393 31.5142 37.3848 31.5577C37.371 31.6337 37.36 31.7098 37.3517 31.7886C37.3462 31.8348 37.3407 31.8783 37.3352 31.9245C37.327 32.0033 37.3187 32.0848 37.3104 32.1664C37.3077 32.2098 37.3022 32.256 37.2994 32.3022C37.2939 32.3837 37.2884 32.4707 37.2857 32.5549C37.2857 32.6011 37.2829 32.6473 37.2801 32.6935C37.2774 32.8049 37.2719 32.9164 37.2719 33.0305C37.2609 34.093 37.2581 35.1772 37.2526 36.2425C37.2526 36.2723 37.2526 36.305 37.2526 36.3376V37.0495C37.2526 37.6582 37.2526 38.2533 37.2526 38.8267V40.9273V49.9653H23.8059V38.7561V32.5006C23.8389 30.7044 24.4392 26.4136 31.7489 26.2017H37.4949H38.9293H41.3494C41.5642 26.2017 41.7211 26.2017 41.9248 26.2017H41.9193Z" fill="#482F8F"/>
+                      <path d="M23.2345 26.2014V26.9161C23.0417 27.0492 22.8518 27.1987 22.659 27.3618C22.637 27.3781 22.6177 27.3971 22.5985 27.4161C22.4002 27.5982 22.213 27.7965 22.034 28.0112C21.9762 28.0818 21.9157 28.1525 21.8606 28.2286C21.8028 28.302 21.745 28.3753 21.6927 28.4541C21.6403 28.5302 21.5853 28.609 21.5357 28.6905C21.4807 28.7721 21.4311 28.8536 21.3843 28.9378C21.3402 29.0139 21.2962 29.0927 21.2549 29.1688C21.2439 29.1878 21.2329 29.2069 21.2246 29.2259C21.1833 29.302 21.1448 29.3808 21.109 29.4569C21.109 29.4569 21.1062 29.4596 21.1062 29.4623C21.0649 29.552 21.0236 29.6416 20.9823 29.734C20.9438 29.8237 20.9052 29.9134 20.8694 30.0058C20.8694 30.0139 20.8639 30.0221 20.8612 30.0275C20.8364 30.09 20.8116 30.1579 20.7896 30.2232C20.7703 30.2721 20.7566 30.3183 20.74 30.3645C20.7345 30.3753 20.7318 30.3862 20.729 30.3998C20.6987 30.4813 20.6712 30.5683 20.6464 30.6552C20.6244 30.7286 20.6024 30.8047 20.5831 30.8808C20.5611 30.9623 20.5418 31.0465 20.5198 31.1308C20.4978 31.2123 20.4785 31.2965 20.4592 31.3835C20.4454 31.4487 20.4317 31.5139 20.4179 31.5819C20.4179 31.5846 20.4179 31.5873 20.4179 31.5927C20.4041 31.6743 20.3876 31.7531 20.3739 31.8373C20.3711 31.8482 20.3684 31.859 20.3656 31.8699C20.3656 31.8862 20.3629 31.8971 20.3601 31.9107C20.3463 32.0004 20.3326 32.0927 20.3188 32.1851C20.3133 32.2123 20.3105 32.2422 20.305 32.2721C20.3023 32.2993 20.2995 32.3237 20.2968 32.3482C20.2858 32.4433 20.2747 32.5411 20.2637 32.6389C20.2582 32.715 20.2527 32.7938 20.2445 32.8726C20.239 32.9514 20.2334 33.033 20.2279 33.1118C20.2252 33.1906 20.2197 33.2721 20.2169 33.3536L20.2114 33.5683C20.2114 33.6634 20.2087 33.7558 20.2087 33.8509C20.2087 35.7966 20.2087 37.4324 20.2087 38.7803V40.9488V49.9651H-0.00268555V45.9107C-0.00268555 45.9107 -0.00268555 40.2477 -0.00268555 38.4515C-0.00268555 29.0003 6.97672 26.2014 11.7343 26.2014H23.2345Z" fill="#482F8F"/>
+                      <path d="M41.9159 23.7094V24.4241C41.7094 24.4241 41.5552 24.4241 41.3404 24.4241H38.9176H37.4832H32.0263C24.4439 24.3181 23.8272 19.9377 23.7942 18.117V11.867V0.657715H37.2409V9.69579V11.7963C37.2409 12.3697 37.2409 12.9648 37.2409 13.5735V14.2855C37.2409 14.3181 37.2409 14.3507 37.2409 14.3806C37.2436 15.4431 37.2491 16.53 37.2602 17.5871C37.2602 17.7067 37.2629 17.8181 37.2684 17.9295C37.2684 17.9757 37.2712 18.0219 37.2739 18.0681C37.2767 18.1551 37.2822 18.2393 37.2877 18.3208C37.2905 18.367 37.296 18.4132 37.2987 18.4567C37.307 18.5382 37.3125 18.6197 37.3235 18.6985C37.329 18.742 37.3345 18.7882 37.34 18.8344C37.3483 18.9132 37.362 18.9893 37.3731 19.0654C37.3813 19.1089 37.3868 19.1523 37.3951 19.1958C37.4088 19.2719 37.4226 19.3426 37.4364 19.4159C37.4446 19.4594 37.4556 19.5029 37.4639 19.5464C37.4804 19.617 37.4969 19.6877 37.5162 19.7556C37.5272 19.7964 37.5382 19.8398 37.5493 19.8806C37.5685 19.9485 37.5906 20.0138 37.6071 20.079C37.6208 20.1197 37.6346 20.1605 37.6484 20.2013C37.6704 20.2665 37.6924 20.329 37.7172 20.3942C37.731 20.4322 37.7447 20.4703 37.7585 20.5083C37.7833 20.5708 37.8108 20.6333 37.8356 20.6931C37.8494 20.7284 37.8659 20.7665 37.8824 20.8018C37.9099 20.8616 37.9375 20.9214 37.9677 20.9812C37.9843 21.0138 38.0008 21.0491 38.0173 21.0817C38.0476 21.1388 38.0806 21.1958 38.1109 21.2556C38.1302 21.2855 38.1467 21.3181 38.1632 21.348C38.1963 21.4051 38.2348 21.4594 38.2706 21.5165C38.2871 21.5437 38.3036 21.5735 38.3229 21.598C38.3615 21.6551 38.4 21.7094 38.4413 21.7638C38.4578 21.7882 38.4743 21.8127 38.4936 21.8371C38.5377 21.8942 38.5817 21.9485 38.6258 22.0029C38.6423 22.0219 38.6588 22.0437 38.6753 22.06C38.7249 22.117 38.7772 22.1741 38.8295 22.2312C38.8433 22.2447 38.8543 22.2583 38.8653 22.2719C38.9314 22.3399 38.9974 22.4051 39.0663 22.4703C39.8482 23.1904 40.8311 23.6062 41.9076 23.7121L41.9159 23.7094Z" fill="#482F8F"/>
+                      <path d="M23.2345 23.7097V24.4243H14.4572C14.4572 24.4243 13.3284 24.4243 11.7343 24.4243C6.97672 24.4243 -0.00268555 21.6254 -0.00268555 12.1743V4.71232V0.657959H20.2087V9.67429V11.8428C20.2087 13.1906 20.2087 14.8265 20.2087 16.7721C20.2087 16.8672 20.2087 16.9596 20.2114 17.0548L20.2169 17.2694C20.2197 17.351 20.2252 17.4298 20.2279 17.5086C20.2334 17.5901 20.239 17.6689 20.2445 17.7504C20.2527 17.8265 20.2582 17.9053 20.2637 17.9841C20.2747 18.0819 20.2858 18.1798 20.2968 18.2749C20.2995 18.302 20.3023 18.3265 20.305 18.351C20.3078 18.3808 20.3133 18.4107 20.3188 18.4379C20.3298 18.5303 20.3436 18.6227 20.3601 18.7124C20.3601 18.726 20.3656 18.7395 20.3656 18.7531C20.3656 18.764 20.3684 18.7749 20.3739 18.7857C20.3876 18.8673 20.4014 18.9488 20.4179 19.0303C20.4179 19.033 20.4179 19.0357 20.4179 19.0412C20.4289 19.1091 20.4455 19.1743 20.4592 19.2395C20.4785 19.3265 20.4978 19.4107 20.5198 19.4923C20.5418 19.5765 20.5611 19.6607 20.5831 19.7423C20.6024 19.8183 20.6244 19.8944 20.6464 19.9678C20.6712 20.0548 20.6987 20.139 20.729 20.2232C20.729 20.2368 20.7345 20.2477 20.74 20.2586C20.7566 20.3048 20.7703 20.3537 20.7896 20.3999C20.8116 20.4651 20.8364 20.5303 20.8612 20.5955C20.8639 20.6037 20.8694 20.6091 20.8694 20.6173C20.9025 20.7097 20.941 20.7993 20.9823 20.889C21.0236 20.9814 21.0649 21.0711 21.1062 21.1607C21.1062 21.1607 21.1062 21.1635 21.109 21.1662C21.1448 21.2423 21.1861 21.3211 21.2246 21.3972C21.2329 21.4162 21.2439 21.4352 21.2549 21.4542C21.2962 21.5303 21.3402 21.6091 21.3843 21.6852C21.4311 21.7667 21.4807 21.851 21.5357 21.9298C21.5853 22.0113 21.6376 22.0901 21.6927 22.1662C21.745 22.245 21.8 22.3184 21.8606 22.3917C21.9157 22.4678 21.9762 22.5385 22.034 22.6091C22.213 22.8238 22.4002 23.0222 22.5985 23.2042C22.6177 23.2233 22.6398 23.2423 22.659 23.2586C22.8518 23.4216 23.0417 23.5711 23.2345 23.7042V23.7097Z" fill="#482F8F"/>
+                    </svg>
+                  </div>
+                </a>
+              {% endif %}
+            </div>
+
+            {% comment %} Infinte Scroll JS   {% endcomment %}
+            {% comment %}
+              {%- if paginate.pages > 1 -%}
+                {% render 'pagination', paginate: paginate, anchor: '' %}
+              {%- endif -%}
+            {% endcomment %}
+          </div>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+</div>
+<script>
+  window.isInProgress = false;
+  
+  // Global variables
+
+  let tempFilterName = '';
+  let tempSortName = '';
+
+  // Function is called on DOMContentLoaded
+  // a) Infinite scroll logic
+  // b) limit color swatch on basis of viewport.
+  // c) show selected "sort option" on load in mobile sorting
+  document.addEventListener('DOMContentLoaded', (event) => {
+    {% comment %}infinteScroll();{% endcomment %}
+    // limitColorSwatch();
+
+    changeSelectdSortTextMobile();
+  });
+
+  if (window.innerWidth <= 640) {
+    document.querySelector('.mobile-search').style.visibility = 'visible';
+    document.querySelector('.mobile-search').style.position = 'unset';
+  }
+
+  document.querySelector('.search-modal__close-button').addEventListener('click', function () {
+    document.querySelector('.header__search').classList.remove('openSearch');
+    // document.querySelector('.mobile-facets__wrapper').style.width = '34%';
+    document.querySelector('.header__search').classList.remove('scrollsearch');
+  });
+
+  document.addEventListener('mouseup', function (event) {
+    let tarr = document.querySelector('.header__search');
+    if (event.target != tarr) {
+      document.querySelector('.header__search').classList.remove('openSearch');
+      // document.querySelector('.mobile-facets__wrapper').style.width = '34%';
+      document.querySelector('.header__search').classList.remove('scrollsearch');
+    }
+    let tarr1 = document.querySelector('.predictive-search-results-list');
+    if (event.target == tarr1) {
+      document.querySelector('.search-modal__close-button').click();
+    }
+  });
+
+  document.querySelector('.header__search span').addEventListener('click', function () {
+    if (window.scrollY > 50) {
+      document.querySelector('.header__search').classList.add('scrollsearch');
+      document.querySelector('.header__search').classList.add('openSearch');
+    } else {
+      document.querySelector('.header__search').classList.add('openSearch');
+    }
+    // document.querySelector('.mobile-facets__wrapper').style.width = '100%';
+  });
+
+  // function to open sorting option in mobile (PLP)
+  document.querySelector('.sortingg').addEventListener('click', function () {
+    document.querySelector('.sorting_divs').classList.toggle('activefilter');
+    document.body.classList.toggle('MobileFilterActive');
+    document.querySelector('.custom-mobile-facet-wrapper').classList.toggle('sorting-options');
+
+    if (document.querySelector('.custom-mobile-facet-wrapper').classList.contains('sorting-options')) {
+      document.querySelector('.custom-facet-filter-icon path').style.stroke = 'white';
+    } else {
+      document.querySelector('.custom-facet-filter-icon path').style.stroke = '#D4E167';
+    }
+
+    if (document.querySelector('.custom-mobile-facet-wrapper').classList.contains('sorting-optionss')) {
+      document.querySelector('.mobile-facets__open-label').click();
+    }
+    document.querySelector('.sort-right').classList.toggle('sorting-options');
+    document.querySelector('.header__search').classList.toggle('sorting-options');
+    document.querySelector('#labelname').classList.toggle('activelable');
+    if (window.innerWidth <= 750) {
+      // changeFacetsBtnTitle('sortmodal');
+    }
+  });
+
+  document.addEventListener('mouseup', function (event) {
+    var toHide = document.getElementById('divToHide');
+    if (event.target != toHide && toHide.className.includes('activefilter') && !event.target.closest('.sortingg')) {
+      document.querySelector('.sorting_divs').classList.remove('activefilter');
+      document.body.classList.remove('MobileFilterActive');
+      document.querySelector('.custom-mobile-facet-wrapper').classList.remove('sorting-options');
+      document.querySelector('#labelname').classList.remove('activelable');
+      document.querySelector('.sort-right').classList.remove('sorting-options');
+      document.querySelector('.header__search').classList.remove('sorting-options');
+      document.querySelector('#labelname').classList.remove('color-lable');
+    }
+  });
+
+  // Function for selecting sort option in modal
+  var sortss = document.querySelectorAll('.sorting_list');
+  sortss.forEach((sortval) => {
+    sortval.addEventListener('click', function () {
+      document.querySelector('.sorted-item').innerText = sortval.innerText;
+      console.log(sortval.innerText);
+      if (window.innerWidth <= 750) {
+        document.querySelector('.custom-sort-mobile').innerText = sortval.innerText;
+      }
+      let data_value = sortval.getAttribute('data-values');
+      let optionval = document.querySelector('.optionValue[value="' + data_value + '"]');
+      document.querySelector('.optionValue[selected="selected"]').removeAttribute('selected');
+      optionval.setAttribute('selected', 'selected');
+      document.querySelector('#SortBy').value = data_value;
+      document.querySelector('#FacetSortForm').dispatchEvent(new Event('input', { bubbles: true }));
+      $('.sorting_list').removeClass('actives');
+      this.classList.add('actives');
+    });
+  });
+
+  function changeFacetsBtnTitle(modalName) {
+    let active = '';
+
+    if (modalName == 'sortmodal') {
+      active = document.querySelector('.sort-right').classList.contains('sorting-options') ? true : false;
+    } else {
+      active = document.querySelector('.custom-mobile-facet-wrapper').classList.contains('sorting-optionss')
+        ? true
+        : false;
+    }
+
+    if (active) {
+      tempFilterName = document.querySelector('.mobile-filterbtn-label').innerText;
+      document.querySelector('.mobile-filterbtn-label').innerText = 'Filters';
+      document.querySelector('.mobile-filterbtn-label').style.textTransform = 'uppercase';
+
+      tempSortName = document.querySelector('.custom-sort-mobile').innerText;
+      document.querySelector('.custom-sort-mobile').innerText = 'Sort by';
+      document.querySelector('.custom-sort-mobile').style.textTransform = 'uppercase';
+    } else {
+      document.querySelector('.mobile-filterbtn-label').innerText = 'Filters';
+      document.querySelector('.mobile-filterbtn-label').style.textTransform = 'capitalize';
+
+      document.querySelector('.custom-sort-mobile').innerText = tempSortName.toLowerCase();
+      document.querySelector('.custom-sort-mobile').style.textTransform = 'capitalize';
+    }
+  }
+
+  //Function to show selected "sort option" on load in Mobile Sorting.
+  function changeSelectdSortTextMobile() {
+    // Your URL
+    const url = window.location.href;
+    const splittedHref = url.split('sort_by=');
+    if (splittedHref.length > 1) {
+      const sortValue = splittedHref[1].split('&')[0];
+      const sortText = document.querySelector(`.sorting_list[data-values="${sortValue}"]`).innerText;
+      if (window.innerWidth <= 749) {
+        document.querySelector('.custom-sort-mobile').innerText = sortText;
+      } else {
+        document.querySelector('.sort-right .sorted-item.custom-sort').innerText = sortText;
+      }
+    }
+  }
+  // Logic shows default 2 cards on screen if viewport is less than 989px.
+  if (window.innerWidth <= 989) {
+    window.addEventListener('load', function () {
+      document.querySelector('.double').click();
+    });
+  }
+  // function is use to show two cards in row on click of "double card icon".
+  document.querySelector('.double').addEventListener('click', function () {
+    document.querySelectorAll('.card__information').forEach((each) => {
+      each.classList.add('double-varient');
+    });
+    document.querySelectorAll('.card-shop-now').forEach((each) => {
+      each.classList.add('double-shop');
+      each.classList.remove('.card-shop-now');
+    });
+    document.querySelectorAll('.custom-color-swaatch').forEach((each) => {
+      each.classList.add('top-li-swatch');
+    });
+    document.querySelectorAll('.card__heading').forEach((each) => {
+      each.classList.add('single-liner');
+    });
+    document.querySelectorAll('.price').forEach((each) => {
+      each.classList.add('single-price');
+    });
+    document.querySelectorAll('.collection-category').forEach((each) => {
+      each.classList.add('category-color');
+    });
+    document.querySelectorAll('.coll-gridd').forEach((e) => {
+      if (750 < window.innerWidth < 891) {
+        e.style.width = '47%';
+      } else {
+        e.style.width = '49%';
+        e.style.maxWidth = '50%';
+      }
+    });
+  });
+  // function is use to show one card only in row on click of "single card icon".
+  document.querySelector('.single').addEventListener('click', function () {
+    document.querySelectorAll('.card__information').forEach((each) => {
+      each.classList.remove('double-varient');
+    });
+    document.querySelectorAll('.card-shop-now').forEach((each) => {
+      each.classList.remove('double-shop');
+    });
+    document.querySelectorAll('.custom-color-swaatch').forEach((each) => {
+      each.classList.remove('top-li-swatch');
+    });
+    document.querySelectorAll('.card__heading').forEach((each) => {
+      each.classList.remove('single-liner');
+    });
+    document.querySelectorAll('.collection-category').forEach((each) => {
+      each.classList.remove('category-color');
+    });
+    document.querySelectorAll('.price').forEach((each) => {
+      each.classList.remove('single-price');
+    });
+    document.querySelectorAll('.coll-gridd').forEach((e) => {
+      e.style.width = '100%';
+      e.style.maxWidth = '100%';
+    });
+  });
+
+  if (document.querySelector('.mobile-cross')) {
+    document.querySelector('.mobile-cross').addEventListener('click', function () {
+      document.querySelector('.mobile-hide').click();
+    });
+  }
+
+  window.infinteScroll = function() {
+    // select the element you want to observe
+    const target = document.querySelector('#product-grid-Pagination');
+
+    // create a new intersection observer instance
+    window.observer1 = new IntersectionObserver((entries) => {
+      // callback function called when the observed element intersects with the viewport
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // do something when the element is in view
+          if (document.querySelector('#product-grid-Pagination .btn'))
+            document.querySelector('#product-grid-Pagination .btn')?.click();
+        }
+      });
+    });
+
+    // start observing the target element
+    window.observer1.observe(target);
+
+    // Inifinite Pagination
+  
+  }
+    window.onClickCollectionPagination = async (link, event) => {
+      event.preventDefault();
+
+      //   link.style.width = `${link.offsetWidth}px`;
+      //   link.style.height = `${link.offsetHeight}px`;
+      //   link.innerHTML = `
+      //     <div class="spinner-border spinner-border-sm mx-auto" role="status" style="width: 1.2rem; height: 1.2rem">
+      //         <span class="visually-hidden">Loading...</span>
+      //     </div>
+      // `;
+
+      const response = await fetch(link.getAttribute('href'));
+      const data = await response.text();
+      const parser = new DOMParser();
+      const newDocument = parser.parseFromString(data, 'text/html');
+
+      document
+        .querySelector('.collection .product-grid')
+        .insertAdjacentHTML('beforeend', newDocument.querySelector('.collection .product-grid').innerHTML);
+
+      document
+        .querySelector('#product-grid-Pagination')
+        .replaceWith(newDocument.querySelector('#product-grid-Pagination'));
+
+      //limit color swatch
+      // limitColorSwatch();
+
+      // window.observer1.observe(document.querySelector('body'));
+
+      const customEvent = new CustomEvent('ks.collection.paginated');
+      link.dispatchEvent(customEvent);
+      typeof(updateProductCards)==='function' && updateProductCards();
+      isInProgress = false;
+      
+    };
+    window.addEventListener('scroll',()=>{
+      if (isInProgress) return;
+      isInProgress = true;
+      document.querySelector('#product-grid-Pagination .btn')?.click()
+    })
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-product-grid.name",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "new-color-bg",
+      "label": "tag background image"
+    },
+    {
+      "type": "text",
+      "id": "shop-now-cont",
+      "label": "shop now text"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.main-collection-product-grid.settings.columns_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+      "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.enable_quick_buy.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
+        },
+        {
+          "value": "vertical",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+        }
+      ],
+      "default": "horizontal",
+      "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
+      "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-collection-product-grid.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-collection-product-grid.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    
+{
+  "type": "checkbox",
+  "id": "three_layer_quickfilter",
+  "label": "Show three layer quickfilter",
+  "default": false
+}
+  ]
+}
+{% endschema %}

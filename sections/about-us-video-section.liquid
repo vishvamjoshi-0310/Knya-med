@@ -1,0 +1,117 @@
+{{ 'about-us-video-section.css' | asset_url | stylesheet_tag }}
+<style>
+ .main-div-vid-abt{margin-top:{{ section.settings.marginTopabtvid}}px;}
+ @media only screen and (max-width:640px){
+     .main-div-vid-abt{margin-top:{{ section.settings.marginTopmobabtvid}}px}
+   }
+</style>
+
+<div class="main-div-vid-abt">
+<p class="font-heebo-medium page-width over-text-mob">{{ section.settings.over-text-abt }}</p>
+{% if section.settings.vid_or_yvid == "video" %}
+
+
+{% if section.settings.desk-vid-abt != blank %}
+<div class="about-video">
+  <div class="inner-abt {% if section.settings.show_padding_vid_abt  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_vid_abt %}padding-right-mob padding-left-mob{% endif %}">
+    <video
+id="vid-desk-abt" class ="vid-desk-abt" width="100%"  height="auto" src="{{ section.settings.desk-vid-abt.sources[1].url }}" playsinline="playsinline" loading="lazy" preload="metadata" type="video/mp4" controls 
+loop="false"  autoplay="autoplay" muted="muted" >
+</video>
+  </div>
+</div>
+
+ {% endif %}
+  {% elsif section.settings.vid_or_yvid == "YouTubeVideo" %}
+{% if section.settings.you_tube_vid_abtUs != blank  %}
+<div class="youtube-vidd">
+<iframe 
+  width="100%" class="y-vid-abt"
+    itemprop="embedUrl"
+    src="https://www.youtube.com/embed/{{ section.settings.you_tube_vid_abtUs }}?rel=0&amp;showinfo=0"
+  frameborder="0"
+    allowfullscreen
+  ></iframe>
+  <p class="over-text font-heebo-medium page-width">{{ section.settings.over-text-abt }}</p>
+</div>
+{% endif %}  
+{% endif %}
+</div>
+{% schema %}
+  {
+    "name": "about video section",
+    "settings": [
+       {
+  "type": "checkbox",
+  "id": "show_padding_vid_abt",
+  "label": "padding for section",
+  "default": true
+},
+     
+    {
+  "type": "checkbox",
+  "id": "show_padding_mob_vid_abt",
+  "label": "padding for section in mobile",
+  "default": true
+},
+      
+      {
+  "type": "range",
+  "id": "marginTopabtvid",
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "margin from top for entire section",
+  "default": 0
+},
+      {
+  "type": "range",
+  "id": "marginTopmobabtvid",
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "margin from top for mobile entire section",
+  "default": 0
+},
+        {
+  "type": "text",
+  "id": "over-text-abt",
+  "label": "text over video"
+},{
+  "type": "video",
+  "id": "desk-vid-abt",
+  "label": "video for desktop"
+}  ,
+    {
+  "type": "text",
+  "id": "you_tube_vid_abtUs",
+  "label": "enter youtube embeded video id"
+},
+      {
+  "type": "radio",
+  "id": "vid_or_yvid",
+  "label": "choose video or youtube video",
+  "options": [
+    {
+      "value": "video",
+      "label": "video"
+    },
+    {
+      "value": "YouTubeVideo",
+      "label": "youtube-video"
+    }
+  ],
+  "default": "YouTubeVideo"
+}
+    ],
+    "presets":[{"name":"about video section"}]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,113 @@
+<style>
+  .top-mail{border-radius: 0 0 120px;background:#482f8f;}
+.email-custom{background:#482f8f;color:#fff}
+  .emailDiv{color:#fff}
+  .emailDiv,label.field__label{color:#fff}
+  .opacity-email{opacity:0.3}
+  .emailDiv{display:flex;left:0;top:0;margin-bottom: 20px;margin-top:{{section.settings.margintopemail}}}
+  .text-email{width:78%;}
+  .email-custom{font-size:19px;padding-top:30px!important}
+  .eMailForm{align-items:center;display:flex;width:50%}
+  .footer__newsletter{border-bottom:1px solid}
+  @media screen and (max-width:1103px){.eMailText{width:50%}}
+  @media screen and (max-width:750px){.eMailForm{width:100%}.emailDiv{display:block;height:152px}.newsletter-form{width:49%!important;}.text-email{width:100%;}}
+/*   @media screen and (max-width:800px){.text-email{margin-left:83px}} */
+  @media screen and (max-width:600px){
+    .newsletter-form{width:81%!important}
+   
+                                     }
+  @media screen and (max-width:500px){.text-email{padding-top:12px}.eMailText{width:100%!important}}
+</style>
+<div class="top-mail">
+<div class="emailDiv page-width {% if section.settings.show_padding_mail  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_mail %}padding-right-mob padding-left-mob{% endif %}">
+ <div class="eMailText font-heebo-SemiBold ">
+    <h3 class="text-email">{{ section.settings.subscribeEMailText }}</h3>
+  </div>
+  <div class="eMailForm ">
+    {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="newsletter-form__field-wrapper">
+                <div class="field ">
+                  <input
+                    id="NewsletterForm--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input email-custom"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="ContactFooter-error"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="ContactFooter-success"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                  >
+                  <label class="opacity-email field__label font-heebo-SemiBold" for="NewsletterForm--{{ section.id }}">
+                    {{ 'newsletter.label' | t }}
+                  </label>
+                  <button type="submit" class=" opacity-email newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+                    {% render 'icon-arrow' %}
+                  </button>
+                </div>
+                {%- if form.errors -%}
+                  <small class="newsletter-form__message form__message" id="ContactFooter-error">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="ContactFooter-success" tabindex="-1" autofocus>{% render 'icon-success' %}{{ 'newsletter.success' | t }}</h3>
+              {%- endif -%}
+            {%- endform -%}
+</div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Mail Section",
+    "settings": [
+       {
+  "type": "checkbox",
+  "id": "show_padding_mail",
+  "label": "padding for section",
+  "default": true
+},
+    {
+  "type": "checkbox",
+  "id": "show_padding_mob_mail",
+  "label": "padding for section in mobile",
+  "default": true
+},
+      {
+  "type": "range",
+  "id": "margintopemail",
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "margin from top for entire section",
+  "default": 0
+},
+      {
+  "type": "text",
+  "id": "subscribeEMailText",
+  "label": "enter text"
+}
+    ],
+  "presets": [
+    {
+      "name": "customEmailForm"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

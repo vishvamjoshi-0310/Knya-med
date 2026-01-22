@@ -1,0 +1,167 @@
+{% style %}
+  .our-fabric-section.{{ section.id }} {
+    padding-top: {{ section.settings.margin_top_desktop }}px;
+    padding-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  @media only screen and (max-width: 749px) {
+    .our-fabric-section.{{ section.id }} {
+      padding-top: {{ section.settings.margin_top_mobile }}px;
+      padding-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-right: 0;
+    }
+  }
+{% endstyle %}
+<style>
+  .fabric-image_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 24px;
+    margin-top: 12px;
+  }
+  h2.fabric-heading{
+    font-family: 'Heebo-Medium';
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 40px;
+    color: #462D8C;
+  }
+  p.fabric-subheading{
+    font-family: 'Heebo-Regular';
+    font-size: 14px;
+    line-height: 20px;
+    color: #4C5460;
+  }
+  .fabric-image_container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .inner-fabric-image{
+    line-height: 0;
+  }
+  @media only screen and (max-width: 749px) {
+    .fabric-image_container{
+        column-gap: 12px;
+        overflow-x: auto;
+    }
+    h2.fabric-heading{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    p.fabric-subheading{
+        font-size: 16px;
+        line-height: 24px;
+        display: none;
+    }
+    .fabric-image_container .inner-fabric-image {
+        min-width: 84.6155vw;
+    }
+  }
+</style>
+<div class="our-fabric-section {{ section.id }}">
+  <h2 class="fabric-heading page-width">{{ section.settings.fabricheading_text }}</h2>
+  <p class="fabric-subheading page-width">{{ section.settings.fabricsubheading_text }}</p>
+  <div class="fabric-image_container page-width">
+    {% for block in section.blocks %}
+      <div class="inner-fabric-image">
+        {% if block.settings.fabric_image != blank %}
+        <img
+          class="fabric_image"
+          srcset="
+                    {%- if block.settings.fabric_image.width >= 550 -%}{{ block.settings.fabric_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 1100 -%}{{ block.settings.fabric_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 1445 -%}{{ block.settings.fabric_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 1680 -%}{{ block.settings.fabric_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 2048 -%}{{ block.settings.fabric_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 2200 -%}{{ block.settings.fabric_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 2890 -%}{{ block.settings.fabric_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 3000 -%}{{ block.settings.fabric_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
+                    {%- if block.settings.fabric_image.width >= 3840 -%}{{ block.settings.fabric_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
+                    {{ block.settings.fabric_image | image_url }} {{ block.settings.fabric_image.width }}w
+                "
+          src="{{ block.settings.fabric_image | image_url: width: block.settings.fabric_image.width, format: 'webp' }}"
+          loading="lazy"
+          sizes="100vw"
+          alt="{% if block.settings.fabric_image.alt %} {{ block.settings.fabric_image.alt | escape }} {% else %}mobile-banner{% endif %}"
+          width="{{ block.settings.fabric_image.width }}"
+          height="{{ block.settings.fabric_image.height }}">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Our fabric Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "fabricheading_text",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "fabricsubheading_text",
+        "label": "Sub heading"
+      },
+      {
+        "type": "range",
+        "id": "margin_top_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Top Desktop",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Bottom Desktop",
+        "default": 24
+      }, {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Top Mobile",
+        "default": 12
+      }, {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Bottom Mobile",
+        "default": 12
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "image",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "fabric_image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Our fabric Section"
+      }
+    ]
+  }
+{% endschema %}

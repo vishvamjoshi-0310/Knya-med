@@ -1,0 +1,105 @@
+.pww_image_container {
+    display: flex;
+    align-items: flex-start;
+  gap: 24px;
+}
+@media(min-width: 600px){
+    .pww_image_container {    margin-bottom: 36px!important;}
+}
+.left_image_container img {
+width: 151px;
+height: 215px;
+flex-shrink: 0;
+}
+.left_image_container {
+    line-height: 0;
+}
+span.card_productPdp-catagory1.font-heebo-medium1 {
+    color: #282828;
+    font-family: Heebo-Medium;
+    font-size: clamp(20px, calc(22 * (100vw / 1440)), 24px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2727;
+    letter-spacing: 0.88px;
+}
+h1.card_product-heading1 {
+    color: var(--www-wearfigs-com-mine-shaft, #282828);
+    font-family: Heebo-Medium;
+    font-size: clamp(12px, calc(14 * (100vw / 1440)), 16px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.428;
+    letter-spacing: 0.014px;
+}
+p.card_product_rating-text1.card_product_caption {
+    color: var(--Knya-Palette-Primary, #462D8C);
+    font-family: 'Heebo-Medium';
+    font-size: clamp(20px, calc(22 * (100vw / 1440)), 24px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.88px;
+}
+.card_product-rating p{margin: 0;}
+p.card_product_rating-count.card_product_caption {
+    color: var(--www-wearfigs-com-dove-gray, #707070);
+    font-family: Heebo-Regular;
+    font-size: clamp(12px, calc(12 * (100vw / 1440)), 14px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.06px;
+}
+.card_product_containerRating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.card_product_variants_parent {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+.page-width-pdp-mob {
+  margin-bottom: 2.4rem;
+}
+@media(max-width: 600px){
+  .page-width-pdp-mob {
+  margin-bottom: 1.2rem;
+}
+  .card_product_variants_parent {gap: 1.2rem;}
+  ul.colorSwatchMarginStyle {gap: 14px!important;}
+
+  /* card */
+  .left_image_container img {
+    width: 121px;
+  height: 172px;
+  }
+  span.card_productPdp-catagory1.font-heebo-medium1 {
+    font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.024px;
+  }
+  p.card_product_rating-text1.card_product_caption {
+    font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.014px;
+  }
+}
+
+.pww_main-container_card_border::after {
+  content: " ";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 92%;
+    height: 1px;
+    background-color: #F5F5F5;
+}
+@media(min-width:600px){
+  .pww_main-container_card_border::after{
+    width: 100%;
+  }
+}

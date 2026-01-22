@@ -1,0 +1,117 @@
+{{ 'ecoflex-style-footer.css' | asset_url | stylesheet_tag }}
+<style>
+.top-container {max-width: 100%;margin-top:{{ section.settings.eco-style}}px;}
+  @media screen and (max-width: 640px){
+    .top-container{margin-top:{{ section.settings.eco-stylemob}}px;}
+  }
+</style>
+
+<div class="top-container">
+  <div class="page-width read-section-container {% if section.settings.show_padding_reads %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_reads %}padding-right-mob padding-left-mob{% endif %}">
+    <div class="read-first-text">
+      <div class="title-btn">
+        <h2 class="read-h1-main font-heebo-medium">{{ section.settings.main_text }}</h2>
+        <div class="read-buttons">
+          <img src = "{{ section.settings.background_image-flex | img_url }}" class="back-flex"  >
+          <span class="read-more-button font-heebo-medium">{{ section.settings.read_more_text }}</span>
+          <span class="read-less-button font-heebo-medium">{{ section.settings.read_less_text }}</span>
+        </div>
+      </div>
+      <div class="read-container font-heebo-regular">
+        <span class="read-content-container">{{ section.settings.content_text }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.querySelector(".read-more-button").addEventListener("click", function () {
+      document.querySelector(".read-container").style.display = "flex";
+      document.querySelector(".read-more-button").style.display = "none";
+      document.querySelector(".read-less-button").style.display = "flex";
+    });
+  document.querySelector(".read-less-button").addEventListener("click", function () {
+      document.querySelector(".read-container").style.display = "none";
+      document.querySelector(".read-more-button").style.display = "flex";
+      document.querySelector(".read-less-button").style.display = "none";
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Ecoflex Footer Section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_padding_reads",
+      "label": "Padding for Section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_reads",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    },
+   {
+      "type": "range",
+      "id": "eco-style",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+   {
+      "type": "range",
+      "id": "eco-stylemob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Heading for Main Text"
+    },
+    {
+      "type": "text",
+      "id": "content_text",
+      "label": "Content for Main Text"
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read More"
+    },
+    {
+      "type": "text",
+      "id": "read_less_text",
+      "label": "Read less"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image-flex",
+      "label": "Image for background",
+      "info":"Dimensions 145px X 33px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecoflex Footer Section"
+    }
+  ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

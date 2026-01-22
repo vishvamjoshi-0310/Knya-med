@@ -1,0 +1,395 @@
+/* Custom CSS */
+
+/* Sorting */
+
+/* .sort-right .sortingg :is(.sortby-txt #labelname, .sorted-item) {
+  text-transform: uppercase;
+  font-family: Heebo-Bold;
+  font-size: 12px;
+  line-height: 20.4px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #282828;
+} */
+
+.sortingg .sort-lable .filter-arrow-icon path {
+  stroke: #282828;
+}
+.nector-websdk-widget .nector-rewards-widget-container {
+  z-index: 1 !important;
+}
+
+.sorting-options .sorting_list {
+  padding: 12px 30px;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.64px;
+}
+
+.sorting-options .sorting_list:hover {
+  background: #f4ecd0;
+}
+
+.plp-section-divider {
+  margin: 0;
+  border: 1px solid #e5e5e5;
+}
+
+.sort-right .sorting_divs {
+  background: #f9f3e4;
+}
+.sort-right .sorting_divs .actives {
+  background: #f4eacf;
+}
+
+/* Filters */
+
+.facets-vertical .active-facets-desktop {
+  margin-bottom: 8px;
+}
+
+.facets__form-vertical #verticalTitle {
+  font-size: clamp(22px, calc(24 * (100vw / var(--viewportDesktop))), 26px);
+  line-height: clamp(30px, calc(32 * (100vw / var(--viewportDesktop))), 34px);
+  letter-spacing: 0.96px;
+  color: #000;
+  margin-bottom: 0;
+}
+
+/* change colors */
+
+.facets__form-vertical .desktop-filter-tab-details .desktop-filter-tab {
+  /* padding: 0; */
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.facets__form-vertical
+  .desktop-filter-tab-details
+  summary
+  .desktop-filter-tab-div
+  .filter-title-icon {
+  transform: rotate(180deg);
+}
+
+.facets__form-vertical .active-facets-desktop ~ .filter-type-divider {
+  margin: 12px 24px 24px 0;
+}
+
+.facets__form-vertical
+  .active-facets-desktop
+  ~ .filter-type-divider:first-of-type {
+  display: none;
+}
+
+.sort-right .sort-lable .filter-arrow-icon {
+  width: initial;
+  height: initial;
+}
+
+.facets__form-vertical
+  .desktop-filter-tab-details[open]
+  summary
+  .filter-title-icon {
+  transform: rotate(0deg);
+}
+
+.facets__form-vertical .desktop-filter-tab-div {
+  padding-right: 8px;
+  margin-bottom: 12px;
+}
+
+.desktop-filter-tab-div .filter-options {
+  text-transform: capitalize;
+  font-size: clamp(14px, calc(16 * (100vw / var(--viewportDesktop))), 18px);
+  line-height: clamp(22px, calc(24 * (100vw / var(--viewportDesktop))), 26px);
+  letter-spacing: 0.016px;
+}
+
+.facets__form-vertical .facets-wrap-vertical {
+  padding: 0 24px 0 0;
+}
+
+.facets__form-vertical .facets__display-vertical {
+  padding-bottom: 0;
+}
+
+.facets__form-vertical .facets__display-vertical .button-show-more {
+  margin-top: 0;
+  padding-bottom: 12px;
+  color: #000;
+}
+
+.facets-wrap-vertical .facet-checkbox {
+  padding: 0 0 12px 0;
+}
+
+.facets-wrap-vertical .facet-checkbox span.desktop-filter-option {
+  font-size: 14px;
+}
+
+.facets-container .swatch-filter {
+  margin-right: 8px;
+  width: initial !important;
+  border: 0.01px solid #23232320;
+  border-radius: 50%;
+}
+
+.facets-container .swatch-filter .swatch-filter-img {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.facets-wrap-vertical .facet-checkbox .checkbox-tickmark-icon {
+  left: unset !important;
+  right: 0.7rem;
+  z-index: 2;
+  width: initial;
+}
+
+.facets-wrap-vertical .facet-checkbox > svg {
+  margin-right: 0;
+}
+
+.facets-wrap-vertical .facet-checkbox--disabled {
+  /* display: none; */
+}
+
+.facets-wrap-vertical .facet-checkbox--disabled .desktop-filter-option {
+  color: lightgray;
+}
+
+.facets-wrap-vertical .facet-checkbox--disabled .checkbox-svg-icon path {
+  fill: lightgray;
+}
+
+.facets-wrapper .facets__form-vertical {
+  min-width: 182px;
+  width: 12.9%;
+}
+
+/* -------------------MEDIA QUERIES------------------- */
+
+/* Large screen */
+@media screen and (min-width: 750px) {
+  /* sorting */
+
+  .sort-right .sortingg {
+    margin-bottom: 12px;
+  }
+
+  .sort-right .sortingg :is(.sortby-txt #labelname, .sorted-item) {
+    text-transform: uppercase;
+    font-family: "Heebo-Medium", sans-serif;
+    font-size: 12px;
+    /* font-style: normal; */
+    /* font-weight: 700; */
+    line-height: 20.4px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #282828;
+  }
+
+  .sorting-options .sorting_divs {
+    right: var(--desktop-padding);
+  }
+
+  .sort-right .sort-lable .facet-sort-icon {
+    display: none;
+  }
+
+  /* collection card grid */
+
+  .facets-vertical .product-grid-container {
+    margin-top: 8px;
+  }
+
+  .collection .loading-overlay {
+    position: fixed;
+  }
+}
+
+/* ---------MEDIA QUERIES---------- */
+
+/* Tab and mobile screen */
+@media screen and (max-width: 750px) {
+  .plp-section-divider {
+    display: none;
+  }
+
+  .facets-vertical .facets-container {
+    z-index: 2;
+  }
+
+  .facets-container .mobile-facets__wrapper {
+    justify-content: center;
+  }
+
+  .facets-container .mobile-facets__wrapper,
+  .sort-right {
+    background-color: #482f8f;
+  }
+
+  .drawer_sorting .custom-filter-mobile-drawer .mobile-facets__main {
+    background-color: #f9f3e4 !important;
+  }
+
+  .custom-filter-mobile-drawer .mobile-filter-left-side {
+    background-color: #f9f3e4;
+  }
+
+  .custom-filter-mobile-drawer .high-left {
+    background-color: #f4eacf;
+  }
+
+  .sort-right {
+    right: 0;
+    justify-content: center;
+    z-index: 3;
+  }
+
+  .sort-right .sorting_divs {
+    padding: 6px 0;
+    background: #f9f3e4;
+  }
+
+  .sort-right .sorting_divs .actives {
+    background: #f4eacf;
+  }
+
+  .sort-right .devider-filter {
+    position: absolute;
+    left: 0;
+    color: white;
+  }
+
+  .sort-lable .facet-sort-icon {
+    display: block;
+  }
+
+  .sort-right .sort-lable {
+    gap: 5px;
+  }
+
+  .custom-mobile-facet-wrapper .mobile-facets__open {
+    gap: 5px;
+  }
+
+  .facets-container .active-facets.active-facets-mobile {
+    display: none;
+  }
+
+  .custom-filter-mobile-drawer .filters-value-title {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .custom-filter-mobile-drawer
+    .mobile-facets__label
+    > input[type="checkbox"]:checked
+    ~ .icon-checkmark {
+    visibility: visible;
+    display: block;
+    right: 36.5px;
+    left: initial;
+  }
+
+  .custom-filter-mobile-drawer .mobile-facets__summary {
+    padding: 12px 10px 12px 30px;
+  }
+
+  .custom-mobile-facet-wrapper .mobile-facets__summary span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .custom-filter-mobile-drawer .mobile-facets__label .filters-value-title {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .custom-mobile-facet-wrapper .mobile-facets__list {
+    overflow-y: initial;
+    margin-top: 10px;
+  }
+
+  .custom-mobile-facet-wrapper
+    .mobile-facets__label
+    :is(.checkbox-svg-icon, .checkbox-tickmark-icon) {
+    background-color: initial;
+    margin-right: 0;
+  }
+
+  .custom-mobile-facet-wrapper .mobile-facets__label .checkbox-svg-icon path {
+    stroke: unset;
+  }
+
+  .custom-mobile-facet-wrapper
+    .mobile-facets__label
+    .checkbox-tickmark-icon
+    path {
+    stroke: #000;
+  }
+
+  /* :is(
+      .custom-mobile-facet-wrapper.sorting-options,
+      .custom-mobile-facet-wrapper.sorting-optionss
+    )
+    .mobile-filterbtn-label,
+  :is(.sort-right.sorting-options, .sort-right.sorting-optionss)
+    .custom-sort-mobile {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19.2px;
+    letter-spacing: 1.5px;
+  } */
+
+  /* :is(.sort-right.sorting-options, .sort-right.sorting-optionss)
+    .facet-sort-icon {
+    display: none;
+  } */
+
+  /* :is(
+      .custom-mobile-facet-wrapper.sorting-options,
+      .custom-mobile-facet-wrapper.sorting-optionss
+    )
+    .custom-facet-filter-icon {
+    display: none;
+  } */
+
+  .custom-mobile-facet-wrapper .mobile-filterbtn-label,
+  .sort-right .custom-sort-mobile {
+    /* text-transform: capitalize; */
+  }
+
+  .mobile-facets__open .mobile-facets__open-label,
+  .sort-right .custom-sort {
+    color: #d4e167 !important;
+    font-family: "Heebo-Regular", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.048px;
+  }
+
+  .sort-right .sortingg .color-lable {
+    color: #fff !important;
+  }
+
+  .sorting-options .button-label {
+    color: #fff !important;
+  }
+
+  .custom-mobile-facet-wrapper .mobile-facets__submenu {
+    background: #fdfbf6;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .collection .loading-overlay {
+    position: fixed;
+    z-index: 2;
+  }
+}

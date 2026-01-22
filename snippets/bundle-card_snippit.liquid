@@ -1,0 +1,80 @@
+<div class="pww_mainComtainer" data-varientSelected = "{{ card_product.selected_or_first_available_variant.id }}">
+  <div class="pww_subcontainer" data-ProductAvailable = "{{ card_product.available }}" {% unless forloop.last %}style= "margin-bottom: 36px;"{% endunless %}>
+    <div class="pww_image_container page-width-pdp-mob">
+      <div class="left_image_container">
+        <img
+          srcset="
+            {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+            {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+          "
+          src="{{ card_product.featured_media | image_url: width: 533 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+          alt="{{ card_product.featured_media.alt | escape }}"
+          class="motion-reduce"
+          {% unless lazy_load == false %}
+            loading="lazy"
+          {% endunless %}
+          width="{{ card_product.featured_media.width }}"
+          height="{{ card_product.featured_media.height }}"
+        >
+      </div>
+      <div class="right_information">
+        <div class="card_product__title1">
+          <span class="card_productPdp-catagory1 font-heebo-medium1">
+            {{ card_product.metafields.custom.product_catagory -}}
+          </span>
+          <a class="no-underline full-unstyled-link" href ="{{ card_product.url }}" style="pointer-events: none; cursor: default;">
+          <h1 class="card_product-heading1"> {{ card_product.title | escape }}</h1></a>
+        </div>
+        <div class="card_product-rating">
+{%- if card_product.metafields.reviews.rating.value != blank -%}
+  {% liquid
+    assign rating_decimal = 0
+    assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
+    if decimal >= 0.3 and decimal <= 0.7
+      assign rating_decimal = 0.5
+    elsif decimal > 0.7
+      assign rating_decimal = 1
+    endif
+  %}
+  <div
+    class="card_product_rating"
+    role="img"
+    aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}"
+  >
+    <div class="card_product_containerRating">
+     <p class="card_product_rating-text1 card_product_caption">
+    <span>
+      {{- card_product.metafields.reviews.rating.value }}
+    </span>
+  </p>
+    <span
+      aria-hidden="true"
+      class="rating-star color-icon-{{ settings.accent_icons }}"
+      style="--rating: {{ card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+    ></span>
+    </div>
+    <a href="#main-div-review">
+                    <p class="card_product_rating-count card_product_caption">
+    <span aria-hidden="true">({{ card_product.metafields.reviews.rating_count }} Reviews)</span>
+    <span class="visually-hidden">
+      {{- card_product.metafields.reviews.rating_count }}
+      {{ 'accessibility.total_reviews' | t -}}
+    </span>
+  </p>
+    </a>
+  </div>
+ 
+
+{%- endif -%}
+        </div>
+      </div>
+    </div>
+    {% render 'varient-bundle', product: card_product, block: block, showColorTxt:true, section: section,index:index %}
+  </div>
+</div>

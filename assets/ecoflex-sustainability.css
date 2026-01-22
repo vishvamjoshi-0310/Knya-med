@@ -1,0 +1,44 @@
+  .video-container {width: 100%;height: auto;}
+  .sustainability-section-content {position: relative;width: 50%;height: auto;}
+  .sustainability-section-image {width: 100%;}
+  .sustainability-section-image img {width: 100%;height: auto;}
+  .sustain-text-section {width: 28.797vw;position: absolute;left: 11.7vw;bottom: 4.2vw;}
+  .paragraph-section {color:#000303; font-style: normal;font-weight: 400;font-size: 1.250vw;line-height: 1.484vw; font-family: 'Heebo-Regular' !important;}
+  .heading-section {width: 100%;color: #482F8F;font-family: 'Heebo-SemiBold' !important;}
+  .mobile-heading-section {display: none;}
+  .video-image-container img {width: 100%;height: auto;}
+  .video-container {width: 50%;height: 100%;}
+  @media(max-width:767px) {
+    .sustainability-section.page-width.font-heebo-medium {padding: unset;} 
+    .video-image-container {margin: 0 auto;width: 100%;}
+    .sustainability-section {display: block !important;width: 100% !important;height: auto !important;}
+    .sustain-text-section {width: 70%;margin-left: 45px !important;bottom: 10vw !important;}
+    .sustainability-section-content {width: 100%;padding:0 2rem;background-color: #fbf8ee;}
+    .video-container {padding-top: 0;}
+    .sustainability-section-image {width: 325px;height: auto;}
+    .heading-section {display: none;}
+    .video-container {width: 100%;height: 100%;}
+    .video-image-container img {width: 100%;height: 100%;}
+    .sustainability-section-image img {width: 100%;height: auto;margin-top: 10vw;margin-bottom: 9vw;}
+    .paragraph-section {font-weight: 400;font-size: 14px;line-height: 16.8px;opacity: 0.7; padding-left: 26px;}
+    .mobile-heading-section {display: block;font-weight: 600;font-size: 18px;line-height: 22px;text-align: center;color: #482F8F;background: #FBF8EE;margin-top: -12px;
+  	padding-top: 12px;padding-bottom: 51px;margin-bottom: -51px !important;}
+  }
+  @media (min-width: 767px) and (max-width:1024px) {
+    .paragraph-section {font-size: 12px;}
+    .video-image-container img {width: 100%;height: 100%;}
+    .sustainability-section-image {width: 90%;}
+    .sustainability-section-image img {width: 100%;height: auto;}
+    .sustain-text-section {position: absolute;left: 28%;top: 21%;}
+    .video-image-container {width: 100%;height: auto;margin: 0;}
+    .video-container {width: 40%;height: 100%;bottom: 1vw;}
+  }
+  @media (min-width:1025px) and (max-width:1300px) {
+    .sustain-text-section {left: 27%;bottom: 14%;}
+  }
+  @media (min-width:2100px) and (max-width:2400px){
+    .sustain-text-section{left: 8.7vw;}
+  }
+  @media (min-width:2401px)and (max-width:2500px){
+    .sustain-text-section{left: 5.7vw;bottom: 2.2vw;}
+  }

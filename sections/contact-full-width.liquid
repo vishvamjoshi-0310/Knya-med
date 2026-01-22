@@ -1,0 +1,149 @@
+{{ 'contact-full-width-banner.css' | asset_url | stylesheet_tag }}
+<style>
+ .full-width-div{margin-top:{{section.settings.margintopcg}}px}
+  @media screen and (max-width: 640px){
+    .full-width-div{margin-top:{{section.settings.margintopcgmob}}px}
+  }
+</style>
+
+
+<div class="full-width-div {% if section.settings.show_padding_cg  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_cg%}padding-right-mob padding-left-mob{% endif %}">
+  <div class="image-full">
+    {% if section.settings.image_for_desk != blank  %}
+    <img class="desktop-image"
+srcset="{%- if section.settings.image_for_desk.width >= 375 -%}{{ section.settings.image_for_desk | image_url: width: 375 }} 375w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 550 -%}{{ section.settings.image_for_desk | image_url: width: 550 }} 550w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 750 -%}{{ section.settings.image_for_desk | image_url: width: 750 }} 750w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 1100 -%}{{ section.settings.image_for_desk | image_url: width: 1100 }} 1100w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 1500 -%}{{ section.settings.image_for_desk | image_url: width: 1500 }} 1500w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 1780 -%}{{ section.settings.image_for_desk | image_url: width: 1780 }} 1780w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 2000 -%}{{ section.settings.image_for_desk | image_url: width: 2000 }} 2000w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 3000 -%}{{ section.settings.image_for_desk | image_url: width: 3000 }} 3000w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 3840 -%}{{ section.settings.image_for_desk | image_url: width: 3840 }} 3840w,{%- endif -%}
+{{ section.settings.image_for_desk | image_url }} {{ section.settings.image_for_desk.width }}w"
+sizes="100vw"
+src="{{ section.settings.image_for_desk | img_url:"1600x" }}"
+alt="{{ section.settings.image_for_desk.alt | escape }}"
+width="{{ section.settings.image_for_desk.width }}"
+height="{{ section.settings.image_for_desk.height }}"
+>
+    {% endif %}
+    {% if section.settings.image_for_mobile != blank  %}
+    <img class="mob-image"
+srcset="{%- if section.settings.image_for_mobile.width >= 375 -%}{{ section.settings.image_for_mobile | image_url: width: 375 }} 375w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 550 -%}{{ section.settings.image_for_mobile | image_url: width: 550 }} 550w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 750 -%}{{ section.settings.image_for_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 1100 -%}{{ section.settings.image_for_mobile | image_url: width: 1100 }} 1100w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 1500 -%}{{ section.settings.image_for_mobile | image_url: width: 1500 }} 1500w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 1780 -%}{{ section.settings.image_for_mobile | image_url: width: 1780 }} 1780w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 2000 -%}{{ section.settings.image_for_mobile | image_url: width: 2000 }} 2000w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 3000 -%}{{ section.settings.image_for_mobile | image_url: width: 3000 }} 3000w,{%- endif -%}
+{%- if section.settings.image_for_mobile.width >= 3840 -%}{{ section.settings.image_for_mobile | image_url: width: 3840 }} 3840w,{%- endif -%}
+{{ section.settings.image_for_mobile | image_url }} {{ section.settings.image_for_mobile.width }}w"
+sizes="100vw"
+src="{{ section.settings.image_for_mobile | img_url:"600x" }}"
+loading="lazy"
+alt="{{ section.settings.image_for_mobile.alt | escape }}"
+width="{{ section.settings.image_for_mobile.width }}"
+height="{{ section.settings.image_for_mobile.height }}"
+>
+    
+    {% else %}
+         <img class="mob-image"
+srcset="{%- if section.settings.image_for_desk.width >= 375 -%}{{ section.settings.image_for_desk | image_url: width: 375 }} 375w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 550 -%}{{ section.settings.image_for_desk | image_url: width: 550 }} 550w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 750 -%}{{ section.settings.image_for_desk | image_url: width: 750 }} 750w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 1100 -%}{{ section.settings.image_for_desk | image_url: width: 1100 }} 1100w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 1500 -%}{{ section.settings.image_for_desk | image_url: width: 1500 }} 1500w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 1780 -%}{{ section.settings.image_for_desk | image_url: width: 1780 }} 1780w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 2000 -%}{{ section.settings.image_for_desk | image_url: width: 2000 }} 2000w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 3000 -%}{{ section.settings.image_for_desk | image_url: width: 3000 }} 3000w,{%- endif -%}
+{%- if section.settings.image_for_desk.width >= 3840 -%}{{ section.settings.image_for_desk | image_url: width: 3840 }} 3840w,{%- endif -%}
+{{ section.settings.image_for_desk | image_url }} {{ section.settings.image_for_desk.width }}w"
+sizes="100vw"
+src="{{ section.settings.image_for_desk | img_url:"1600x" }}"
+alt="{{ section.settings.image_for_desk.alt | escape }}"
+width="{{ section.settings.image_for_desk.width }}"
+height="{{ section.settings.image_for_desk.height }}"
+>
+     <div class="full-width-text mob-image font-heebo-medium"><h1 class="full-width-h1 mobile-text">{{ section.settings.text-mob }}</h1></div>
+{% endif %}
+    {% if section.settings.image_for_desk != blank  %}
+    <div class="full-width-text text-desk font-heebo-medium"><h2 class="full-width-h1">{{ section.settings.text-desk }}</h2></div>
+   {% endif %}
+{% if section.settings.image_for_mobile != blank  %}    
+     <div class="full-width-text text-mob font-heebo-medium"><h2 class="full-width-h1 mobile-text">{{ section.settings.text-mob }}</h2></div>
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "contact-page full width",
+    "settings": [
+       {
+  "type": "checkbox",
+  "id": "show_padding_cg",
+  "label": "padding for section",
+  "default": true
+},
+    {
+  "type": "checkbox",
+  "id": "show_padding_mob_cg",
+  "label": "padding for section in mobile",
+  "default": true
+},
+     {
+  "type": "range",
+  "id": "margintopcg",
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "label": "margin from top for entire section",
+  "default": 0
+},
+    {
+  "type": "range",
+  "id": "margintopcgmob",
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "label": "margin from top for entire section",
+  "default": 0
+},
+      {
+  "type": "image_picker",
+  "id": "image_for_desk",
+  "label": "Image for desktop"
+},
+      {
+  "type": "text",
+  "id": "text-desk",
+  "label": "Heading"
+},
+      {
+  "type": "text",
+  "id": "text-mob",
+  "label": "Heading"
+},
+        {
+  "type": "image_picker",
+  "id": "image_for_mobile",
+  "label": "Image for mobile"
+}
+    ],
+    "presets": [
+    {
+      "name": "full width contact"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

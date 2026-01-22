@@ -1,0 +1,667 @@
+<style>
+   .swatch-ic-active .is-active img{outline: 1px solid black;
+      border: 1px solid transparent;padding: 1px;}
+    .swatch-img{    border: 1px solid transparent;
+          border-radius: 0px 0px 0px 4px !important;
+      width: 34%;
+      height: auto;
+      margin-top: 0px;cursor:pointer;}
+
+    .swatch-img:hover{
+      outline: 1px solid black;
+      border: 1px solid transparent;
+      padding:1px;
+    }
+    ul.colorSwatchMarginStyle {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items:center; 
+      flex-wrap: wrap;
+      margin-top: 0px;
+      margin-bottom: 2px;
+      min-height: 2rem;
+  }
+  {% if template.name == "product" %}
+    ul.colorSwatchMarginStyle {gap: 17px;}
+  {% else %}
+      ul.colorSwatchMarginStyle {gap: 15px;}
+  {% endif %}
+    label.ColorSwatch.ColorSwatch--small.onclickcolorvar {
+      display: inline-block;
+      width: auto;
+  height: auto;
+      border-radius: 40rem;
+  }
+    .swatch-img {
+      /* border: 1px solid #000; */
+      border-radius: 30px;
+          width: 100%;
+      height: auto;
+      margin-top: 0px;
+  }
+    input.ColorSwatch__Radio {
+      display: none;
+  }
+    .plus-swatch{display: none;}
+   @media screen and (max-width:750px){
+       {% if template.name != "product" %}
+         .plus-swatch a{display: inline-block;position: relative;}
+       {% endif %}
+       {% if template.name == "index" %}
+     .plus-swatch a{bottom:2px;}
+       {% endif %}
+   }
+  @media screen and (max-width: 495px){
+      ul.colorSwatchMarginStyle{ align-items: center;}
+  /*     .swatch-img{width: 164% !important;} */
+  }
+  /*   @media screen and (max-width: 361px){gap: 0 9px !important;} */
+     @media screen and (min-width: 1700px){
+       label.ColorSwatch.ColorSwatch--small.onclickcolorvar{width: 25px;height: 26px;}
+     }
+     @media screen and (min-width: 1500px) and (max-width:1699px){
+       label.ColorSwatch.ColorSwatch--small.onclickcolorvar{width: 20px;height: 22px;}
+     }
+     @media screen and (min-width: 990px) and (max-width:1662px){
+       ul.colorSwatchMarginStyle{
+  /*        justify-content:unset; */
+       }
+     }
+    @media screen and (max-width: 989px){
+      .HorizontalList--spacingTight li, span.Replace-Image{
+        width:19px
+      }
+    ul.colorSwatchMarginStyle{gap: 12px ;
+  /*                             justify-content: unset ; */
+                             }
+  }
+    @media screen and (min-width: 499px) and (max-width:600px){
+      label.ColorSwatch.ColorSwatch--small.onclickcolorvar{
+          width: 2rem;
+      }
+    }
+    @media screen and (min-width: 1700px){
+      span.Replace-Image{width:25px; height:26px;;}
+    }
+     @media screen and (min-width: 318px) and (max-width:375px){
+       ul.colorSwatchMarginStyle{    gap: 0px 9px !important;}
+     }
+     .swatch-titlee{display:none;}
+    .imaged-swatch:hover .swatch-titlee{
+      position:absolute;
+      display:block;
+      text-transform: capitalize;
+      bottom: 37px;
+      left: 0;
+      background: #482F8F;
+      color: #F4ECD0;
+      z-index: 5;
+      font-weight: 400;
+      -webkit-box-shadow: 0 2px 12px 1px rgb(0 0 0 / 22%);
+      -moz-box-shadow: 0 2px 12px 1px rgba(0,0,0,.22);
+      box-shadow: 0 2px 12px 1px rgb(0 0 0 / 22%);
+      padding: 7px 8px;
+      font-size: 14px;
+      line-height: 1.2;
+      border-radius: 4px;}
+    .swatch-titlee:after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      right: 0;
+      margin: 0 auto;
+      border-width: 12px 12px 0;
+      border-style: solid;
+      border-color: #482F8F transparent;
+      display: block;
+      width: 0;
+      left: -50%;
+  }
+  .ColorSwatch{position:relative;}
+</style>
+
+{%- assign allcolor_custom = settings.colortextarea | upcase -%}
+{%- assign allcolor_custom_arr = allcolor_custom | split: ',' -%}
+
+{%- assign variantColor = product.metafields.my_fields.color_variants | upcase -%}
+{%- assign variantColor_arr = variantColor | split: ',' -%}
+{%- assign variantColor_size = variantColor_arr.size -%}
+{%- assign variantHandleArr = product.metafields.my_fields.color_variant_handle | downcase | split: ',' -%}
+{%- assign currentHandle = product.handle | downcase -%}
+  {% if variantHandleArr.size > 0 %}
+    {% if showColorTxt %}
+    <div class="color-click1 font-heebo-regular" id="colorr-clickk">
+      <span class="font-heebo-medium clor-option-size1">Color</span>
+      <span class="varient-title-color nhb"> </span>
+    </div>
+      {% endif %}
+  {% endif %}
+<ul class="HorizontalList HorizontalList--spacingTight colorSwatchMarginStyle {{template}}-swatch-class {% if template contains 'product' %} for-product {% endif %} {% if variantHandleArr.size > 0 %}shall-appear{% endif %}">
+  {% assign swatchCount = 0 | plus: 0 %}
+  {%- for vColor in variantColor_arr  -%}
+    {% assign swatchCount = swatchCount | plus: 1 %}
+    {% assign selected-variant-bg-color = settings.swatchDefaultColor %}
+    {% assign loopindexo = forloop.index0 %}
+
+    {% assign imageFileName = vColor | strip | append: '.jpg' | downcase | replace: ' ', '-' %}
+
+    {% assign imgURL = imageFileName | asset_url %}
+
+    <li
+      class="HorizontalList__Item {{ imageFileName }} swatch-ic-active custom-color-swaatch {% if forloop.index > 5 %} desktopcolorhide{% endif %} {% if forloop.index > 4 %} mobilecolorhide{% endif %} {% if forloop.index > 3 %} extrasmallhide{% endif %}"
+      data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+      data-colorvalue="{{ vColor }}" onclick="fetchProductDetails(this)" data-Handle="{{ variantHandleArr[loopindexo] }}"
+      {% for color in allcolor_custom_arr %}
+        {% assign colorName = color | split: '=' | first | upcase %}
+        {% if colorName == vColor %}
+          {% assign selected-variant-bg-color = color | split: '=' | last %}
+          data-color-code="{{ selected-variant-bg-color }}"
+          data-color="{{ vColor }}"
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    >
+
+      <input
+        {% comment %}  id="option-{{ forloop.index }}"  {% endcomment %}
+        class="ColorSwatch__Radio"
+        type="radio"
+        name="colorSwatch"
+        value="{{ vColor }}"
+        data-option-position="{{ option.position }}"
+        {% if variantHandleArr[loopindexo] == currentHandle %}
+          checked="checked"
+        {% endif %}
+      >
+
+      <label
+        data-handle="{{ variantHandleArr[loopindexo] }}"
+        {% comment %} for="option-{{ forloop.index }}" {% endcomment %}
+        class="ColorSwatch {% if template.name contains 'product' %}ColorSwatch--large {% else %} ColorSwatch--small {% endif %} onclickcolorvar {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} is-active  {% endif %}"
+        data-bgColor="{{selected-variant-bg-color}}"
+      >
+        <span class="imaged-swatch">
+          <img
+            class="swatch-img"
+            src="{{imgURL}}"
+            loading="lazy"
+            alt="{{vColor}} COLOR"
+            width="100"
+            height="100"
+            onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"
+          >
+          <span class="Replace-Image" style="background-color:{{selected-variant-bg-color}}"></span>
+          <span class="swatch-titlee">{{ vColor | downcase }}</span>
+        </span>
+        <span class="u-visually-hidden">{{ colorNameCode[0] }}</span>
+      </label>
+    </li>
+  {% endfor %}
+  <li class=" plus-swatch {% if swatchCount > 7 %} show-plus-desktop {% endif %} {% if swatchCount > 5 %} show-plus-mobile {% endif %}">
+    <a href="{{ product.url }}" aria-label="{{ product.url }}"> {% render 'plus-collection' %}</a>
+  </li>
+</ul>
+
+<div>
+  {% if forloop.last == true %}
+    {%- unless vColor == colorName -%}
+      <li
+        class="a1 HorizontalList__Item "
+        data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+        data-colorvalue="{{ colorNameCode[0] }}"
+      >
+        <input
+          id="option-{{ section.id }}"
+          class="ColorSwatch__Radio"
+          type="radio"
+          data-option-position="{{ option.position }}"
+          {% if variantHandleArr[loopindexo] == currentHandle %}
+            checked="checked"
+          {% endif %}
+        >
+        <label
+          for="option-{{ section.id }}"
+          data-handle="{{currentHandle}}"
+          class="ColorSwatch {% comment %} ColorSwatch--large {% endcomment %} ColorSwatch--small  {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} active  {% endif %}"
+          style="background-color:#cccccc; {% if colorNameCode[1] == blank %}background-color:#cccccc {% endif %}"
+        >
+          <span class="u-visually-hidden color-value font-heebo-regular">{{ colorNameCode[0] }}</span>
+        </label>
+      </li>
+    {% endunless %}
+    {%- if vColor == colorName -%}
+      <li
+        class="a2 HorizontalList__Item "
+        data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+        data-colorvalue="{{ colorNameCode[0] }}"
+        data-color="{{ colorNameCode[0] }}"
+      >
+        <input
+          id="option-{{ section.id }}"
+          class="ColorSwatch__Radio"
+          type="radio"
+          data-option-position="{{ option.position }}"
+          value="{{ colorNameCode[0] }}"
+          {% if variantHandleArr[loopindexo] == currentHandle %}
+            checked="checked"
+          {% endif %}
+        >
+        <label
+          data-handle="{{variantHandleArr[loopindexo]}}"
+          for="option-{{ section.id }}"
+          class="ColorSwatch {% comment %} ColorSwatch--large {% endcomment %} ColorSwatch--small  onclickcolorvar {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} active  {% endif %}"
+          style="background-color: {{ colorNameCode[1] | downcase }}; {% if colorNameCode[1] == blank %}background-color:#cccccc{% endif %}"
+        >
+          <span class="u-visually-hidden">{{ colorNameCode[0] }}</span>
+        </label>
+      </li>
+    {% endif %}
+  {% else %}
+    {%- if vColor == colorName -%}
+      <li
+        class="a3 HorizontalList__Item"
+        data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+        data-colorvalue="{{ colorNameCode[0] }}"
+      >
+        <input
+          id="option-{{ section.id }}"
+          class="ColorSwatch__Radio"
+          type="radio"
+          data-option-position="{{ option.position }}"
+          {% if variantHandleArr[loopindexo] == currentHandle %}
+            checked="checked"
+          {% endif %}
+        >
+        <label
+          data-handle="{{variantHandleArr[loopindexo]}}"
+          onclick="location.href='/products/{{variantHandleArr[loopindexo]}}';"
+          for="option-{{ section.id }}"
+          class="ColorSwatch {% comment %} ColorSwatch--large {% endcomment %} ColorSwatch--small  onclickcolorvar {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} active  {% endif %}"
+          style="background-color: {{ colorNameCode[1] | downcase }}; {% if colorNameCode[1] == blank %}background-color:#cccccc{% endif %}"
+        >
+          <span class="imaged-swatch">
+            <img
+              src="{{imgURL}}"
+              alt="{{ vColor }} COLOR"
+              width="100"
+              height="100"
+              onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"
+            >
+            <span class="Replace-Image" style="background-color:{{selected-variant-bg-color}}"></span>
+          </span>
+
+          <span class="u-visually-hidden">{{ colorNameCode[0] }}</span>
+        </label>
+      </li>
+      {% break %}
+    {% endif %}
+  {% endif %}
+</div>
+
+<script>
+
+  function fetchProductDetails(event){
+   window.productbundleObject;
+    let activeElement = event.querySelector(".ColorSwatch");
+      if (activeElement) {
+       activeElement.closest(".color_custom_container").querySelectorAll(".ColorSwatch").forEach(element => {
+        element.classList.remove('is-active');
+    });
+    }
+    activeElement.classList.toggle('is-active');
+    
+    let ProHandle = event.getAttribute("data-Handle")
+    console.log("ProHandle",ProHandle)
+
+    const myHeaders = new Headers();
+myHeaders.append("X-Shopify-Storefront-Access-Token", "e9f13c0309cf5de25acdb486a21d5a13");
+myHeaders.append("Content-Type", "application/json");
+
+const graphql = JSON.stringify({
+  query: `{\r\n  productByHandle(handle: \"${ProHandle}\") {\r\n    availableForSale\r\n    compareAtPriceRange {\r\n      maxVariantPrice {\r\n        amount\r\n        currencyCode\r\n      }\r\n      minVariantPrice {\r\n        amount\r\n        currencyCode\r\n      }\r\n    }\r\n    featuredImage {\r\n      src\r\n    }\r\n    id\r\n    handle\r\n   ab: metafield(key: \"product_catagory\", namespace: \"custom\") {\r\n      value\r\n    }\r\n    cd:  metafield(key: \"rating\", namespace: \"reviews\") {\r\n      value\r\n    }\r\n    ef:  metafield(key: \"rating_count\", namespace: \"reviews\") {\r\n        value\r\n    }\r\n    priceRange {\r\n      maxVariantPrice {\r\n        amount\r\n      }\r\n      minVariantPrice {\r\n        amount\r\n      }\r\n    }\r\n    title\r\n    options(first: 2) {\r\n      values\r\n      name\r\n    }    totalInventory\r\n    variants(first: 100) {\r\n      nodes {\r\n        availableForSale\r\n         id\r\n        sku\r\n        title\r\n        quantityAvailable\r\n   currentlyNotInStock\r\n     }\r\n    }\r\n  }\r\n}\r\n`,
+  variables: {}
+})
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: graphql,
+  redirect: "follow"
+};
+
+fetch("https://knya-med.myshopify.com/api/2024-04/graphql.json", requestOptions)
+  .then((response) => response.json())
+  .then((result) => {
+
+  console.log("Rishabh",result)
+    productbundleObject = result.data.productByHandle;
+const ratingData = productbundleObject.cd?.value ? JSON.parse(productbundleObject.cd.value) : null;
+const ratingValue = ratingData ? ratingData.value : null;
+     // const ratingValue = ratingData.value;
+        console.log('rd123', productbundleObject);
+
+    // event.closest(".pww_mainComtainer").querySelector(".card_product_rating-count").innerText = `( ${productbundleObject.ef?.value} Reviews )`;
+    event.closest(".pww_mainComtainer").querySelector(".card_productPdp-catagory1").innerText = productbundleObject.ab?.value;
+    event.closest(".pww_mainComtainer").querySelector(".card_product-heading1").innerText = productbundleObject.title;
+    event.closest(".pww_mainComtainer").querySelector(".card_product__title1 a").href = productbundleObject.handle;
+    // event.closest(".pww_mainComtainer").querySelector(".card_product_rating-text1 span").innerText = ratingValue;
+    event.closest(".pww_mainComtainer").querySelector(".left_image_container").innerHTML =  `<img class="motion-reduce" src="${productbundleObject.featuredImage?.src}&width=533">`;
+    const ratingCountElement = event.closest(".pww_mainComtainer").querySelector(".card_product_rating-count");
+    if (ratingCountElement) {
+        ratingCountElement.innerText = `( ${productbundleObject.ef?.value} Reviews )`;
+    }
+    const ratingValueElement = event.closest(".pww_mainComtainer").querySelector(".card_product_rating-text1 span");
+    if (ratingValueElement) {
+        ratingValueElement.innerText = ratingValue;
+    }
+
+    console.log("hihihi",event)
+
+    let productbundleObjectID = productbundleObject.id.split("/")[4];
+console.log("productbundleObjectID",productbundleObjectID)
+if (productbundleObject.options.length == 2){
+  const VArientContent = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Top");
+  VArientContent.innerHTML = '';
+  const VArientContent1 = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Bottom");
+  VArientContent1.innerHTML = '';
+  
+  // Create options
+  productbundleObject.options.forEach((x, index1) => { // Add index parameter
+    if (x.name == "Top Size" || x.name == "Top Style") {
+      x.values.forEach((y, index2)=> {
+        let VArientHTML = `
+          <input type="radio" class="size_varient removeDisabled" data-available="true" id=${productbundleObjectID +"-" +  index2 +"-"+ index1} name="Top Size-${productbundleObjectID + "-" + index1}" value="${y}" form="" onclick="selectBundleVar(this)" optionname="topsize">
+          <label class="custom-swatch" for=${productbundleObjectID +"-" +  index2 +"-"+ index1}>${y}</label>`; // Used index here
+        VArientContent.innerHTML += VArientHTML;
+      });
+    } else if (x.name == "Bottom Size"|| x.name == "Bottom Style") {
+      x.values.forEach((y, index2) => {
+        let VArientHTML1 = `
+          <input type="radio" class="size_varient removeDisabled" data-available="true" id=${productbundleObjectID +"-" +  index2 +"-"+ index1} name="Bottom Size-${productbundleObjectID + "-" + index1}" value="${y}" form="" onclick="selectBundleBtmVar(this)" optionname="bottomsize">
+          <label class="custom-swatch" for=${productbundleObjectID +"-" +  index2 +"-"+ index1}>${y}</label>`; // Used index here
+        VArientContent1.innerHTML += VArientHTML1;
+      });
+    }
+  });
+}
+
+ 
+
+        let sizeElements1 = event.closest(".pww_mainComtainer").querySelectorAll(".size_varient[optionName='bottomsize']");
+    let sizeValues1 = Array.from(sizeElements1).map(element => element.getAttribute("value"));
+
+topUpdate(event, productbundleObject)
+bottomUpdate(event, productbundleObject)
+
+
+
+})
+  .catch((error) => console.error(error));
+  }
+  
+  function topUpdate(event, productbundleObject){
+      let sizeElements = event.closest(".pww_mainComtainer").querySelectorAll(".size_varient[optionName='topsize']");
+    let sizeValues = Array.from(sizeElements).map(element => element.getAttribute("value"));
+  sizeValues.forEach(ele => {
+  let sum = 0;
+  productbundleObject.variants.nodes.forEach(x => {
+    if (x.title.split("/")[0].replace(/\s/g, '') === ele) {
+      sum += x.quantityAvailable;
+
+  sizeElements.forEach(element => {
+    if (sum === 0 && element.getAttribute("value") === x.title.split("/")[0].replace(/\s/g, '')) {
+      element.setAttribute("data-available", "false");
+    } else if (sum !== 0 && element.getAttribute("value") === x.title.split("/")[0].replace(/\s/g, '')) {
+      element.setAttribute("data-available", "true");
+    }
+  });
+    } 
+  });
+  })
+}
+
+    function bottomUpdate(event, productbundleObject){
+      let sizeElements1 = event.closest(".pww_mainComtainer").querySelectorAll(".size_varient[optionName='bottomsize']");
+    let sizeValues1 = Array.from(sizeElements1).map(element => element.getAttribute("value"));
+  sizeValues1.forEach(ele => {
+
+  let sum1 = 0;
+  productbundleObject.variants.nodes.forEach(y => {
+    if (y.title.split("/")[1].trim().replace(/\s/g, '') === ele) {
+      sum1 += y.quantityAvailable;
+
+  sizeElements1.forEach(element => {
+    if (sum1 === 0 && element.getAttribute("value") === y.title.split("/")[1].trim().replace(/\s/g, '')) {
+      element.setAttribute("data-available", "false");
+    } else if (sum1 !== 0 && element.getAttribute("value") === y.title.split("/")[1].trim().replace(/\s/g, '')) {
+      element.setAttribute("data-available", "true");
+    }
+  });
+    } 
+  });
+  })
+}
+
+function  selectBundleVar(event){
+  window.topVarient=[];
+  let elementstp = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Bottom").querySelectorAll("input") 
+  let tpVAr = event.getAttribute("value")
+
+ event.closest(".pww_mainComtainer").querySelector(".varient-title-SizeSwatchList-selected-value-1").innerText = tpVAr;
+  
+  productbundleObject.variants.nodes.forEach(x => {
+  let rd = x.title.split("/")[0].replace(/\s/g, '');
+  if (rd === tpVAr) {
+if(x.availableForSale){
+  topVarient.push(x.title.split("/")[1].trim().replace(/\s/g, ''))
+}
+
+  }
+
+})
+
+
+  elementstp.forEach(input => {
+    let sandy = input.getAttribute("value");
+    let match = false;
+    for (let i = 0; i < topVarient.length; i++) {
+        if (topVarient[i] == sandy) {
+            match = true;
+            break;
+        }
+    }
+    if (match) {
+        input.setAttribute("data-available", "true");
+    } else {
+        input.setAttribute("data-available", "false");
+    }
+});
+    console.log("hihihi",event)
+bundleSelectedVarientID(event)
+  
+}
+
+  function  selectBundleBtmVar(event){
+  window.btmVarient=[];
+  let elementsBtm = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Top").querySelectorAll("input") 
+  let btmVAr = event.getAttribute("value")
+
+   event.closest(".pww_mainComtainer").querySelector(".varient-title-SizeSwatchList-selected-value-2").innerText = btmVAr;
+  productbundleObject.variants.nodes.forEach(x => {
+  let rdBTM = x.title.split("/")[1].trim().replace(/\s/g, '');
+  if (rdBTM === btmVAr) {
+if(x.availableForSale){
+  btmVarient.push(x.title.split("/")[0].replace(/\s/g, ''))
+}
+
+  }
+
+})
+      elementsBtm.forEach(input => {
+    let sanBTM = input.getAttribute("value");
+    let matchBTM = false;
+    for (let i = 0; i < btmVarient.length; i++) {
+        if (btmVarient[i] == sanBTM) {
+            matchBTM = true;
+            break;
+        }
+    }
+    if (matchBTM) {
+        input.setAttribute("data-available", "true");
+    } else {
+        input.setAttribute("data-available", "false");
+    }
+});
+  bundleSelectedVarientID(event)
+}
+
+  
+  // pre rerender
+function prerenderVarientoptionsBtm(event) {
+  window.btmVarient1 = [];
+  let elementsBtm1 = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Top").querySelectorAll("input");
+  let btmVAr1 = event.getAttribute("value");
+  let RproductJSon = event.closest("variant-radios").querySelector("script").innerHTML;
+
+   event.closest(".pww_mainComtainer").querySelector(".varient-title-SizeSwatchList-selected-value-2").innerText = btmVAr1;
+
+  let RSelectedProduct = JSON.parse(RproductJSon);
+  RSelectedProduct.variants.forEach((x) => {
+    let rdBTM1 = x.option2;
+    if (rdBTM1 == btmVAr1) {
+      if (x.available) {
+        btmVarient1.push(x.option1);
+      }
+    }
+  });
+  elementsBtm1.forEach((input) => {
+    let sanBTMpre = input.getAttribute("value");
+    let matchBTM1 = false;
+    for (let i = 0; i < btmVarient1.length; i++) {
+      if (btmVarient1[i] == sanBTMpre) {
+        matchBTM1 = true;
+        break;
+      }
+    }
+    if (matchBTM1) {
+      input.setAttribute("data-available", "true");
+    } else {
+      input.setAttribute("data-available", "false");
+    }
+  });
+  handleSwatchStateUpdatepre(event);
+}
+
+  function prerenderVarientoptions(event){
+      window.tpVarient2 = [];
+  let elementstp1 = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Bottom").querySelectorAll("input");
+  let tpVAr1 = event.getAttribute("value");
+  let RproductJSontp = event.closest("variant-radios").querySelector("script").innerHTML;
+
+   event.closest(".pww_mainComtainer").querySelector(".varient-title-SizeSwatchList-selected-value-1").innerText = tpVAr1;
+
+  let RSelectedProducttp = JSON.parse(RproductJSontp);
+  RSelectedProducttp.variants.forEach((x) => {
+    let rdTP1 = x.option1;
+    if (rdTP1 == tpVAr1) {
+      if (x.available) {
+        console.log(x)
+        tpVarient2.push(x.option2);
+      }
+    }
+  });
+  elementstp1.forEach((input) => {
+    let sanTPpre = input.getAttribute("value");
+    let matchtp1 = false;
+    for (let i = 0; i < tpVarient2.length; i++) {
+      if (tpVarient2[i] == sanTPpre) {
+        matchtp1 = true;
+        break;
+      }
+    }
+    if (matchtp1) {
+      input.setAttribute("data-available", "true");
+    } else {
+      input.setAttribute("data-available", "false");
+    }
+  });
+      handleSwatchStateUpdatepre(event)
+  }
+
+
+  // add to cart
+
+  function bundleSelectedVarientID(event){
+  handleSwatchStateUpdate(event)
+
+  }
+
+function findIndexNoChecked(event) {
+    const fieldsets = event.closest(".product__info-wrapper").querySelectorAll('.pww_main-container_card');
+    const fieldsetsArray = Array.from(fieldsets);
+    const index = fieldsetsArray.indexOf(event.closest('.pww_main-container_card'));
+  return index;
+}
+
+  
+window.handleSwatchStateUpdate = (event) =>{
+try{
+if(event.closest(".pww_mainComtainer").querySelectorAll('fieldset input:checked').length  == 2){
+  let concatenatedVariantValue = event.closest(".pww_mainComtainer").querySelectorAll('fieldset')[0]?.querySelector('input:checked')?.value + ' / ' + event.closest(".pww_mainComtainer").querySelectorAll('fieldset')[1]?.querySelector('input:checked')?.value 
+  let selectedParts = concatenatedVariantValue.split(" / "); 
+  let selectedWithoutUndefined = selectedParts.map(part => part !== "undefined" ? part : null) 
+   console.log('selectedWithoutUndefined',selectedWithoutUndefined)
+  filteredObjects = productbundleObject.variants.nodes.filter(variant => {
+    console.log(productbundleObject)
+    let variantParts = variant.title.split(" / "); // Split the variant title into parts
+    return variantParts.every((part, index) => {
+        return selectedWithoutUndefined[index] === null || part === selectedWithoutUndefined[index]; // Compare each part or null (for "undefined")
+    });
+});
+   console.log('filteredObjects',filteredObjects)
+  // varientcontainer.push(filteredObjects[0].id.split("/")[4])
+        const indexNoChecked = findIndexNoChecked(event);
+        console.log('indexNoChecked',indexNoChecked)
+  varientcontainer[indexNoChecked] = filteredObjects[0].id.split("/")[4];
+event.closest(".pww_main-container_card").querySelector(".pww_mainComtainer").setAttribute("data-varientselected",filteredObjects[0].id.split("/")[4])
+  event.closest(".pww_main-container_card").querySelector(".embroidery-box")?.setAttribute("data-product-pair",filteredObjects[0].sku)
+}
+  
+ }catch(err){
+      console.log('error',err)
+    }
+      
+    }
+
+  window.handleSwatchStateUpdatepre = (event) =>{
+try{
+if(event.closest(".pww_mainComtainer").querySelectorAll('fieldset input:checked').length  == 2){
+  let concatenatedVariantValue1 = event.closest(".pww_mainComtainer").querySelectorAll('fieldset')[0]?.querySelector('input:checked')?.value + ' / ' + event.closest(".pww_mainComtainer").querySelectorAll('fieldset')[1]?.querySelector('input:checked')?.value 
+  let selectedParts1 = concatenatedVariantValue1.split(" / "); 
+  let selectedWithoutUndefined1 = selectedParts1.map(part => part !== "undefined" ? part : null) 
+   console.log('selectedWithoutUndefined',selectedWithoutUndefined1)
+    let preselproductJSon = event.closest("variant-radios").querySelector("script").innerHTML;
+
+  let PRERSelectedProduct = JSON.parse(preselproductJSon);
+  filteredObjects1 = PRERSelectedProduct.variants.filter(variant => {
+    let variantParts1 = variant.title.split(" / "); // Split the variant title into parts
+    return variantParts1.every((part, index) => {
+        return selectedWithoutUndefined1[index] === null || part === selectedWithoutUndefined1[index]; // Compare each part or null (for "undefined")
+    });
+});
+   console.log('filteredObjects',filteredObjects1)
+        const indexNoChecked1 = findIndexNoChecked(event);
+        console.log('indexNoChecked',indexNoChecked1)
+    // varientcontainer.push(filteredObjects1[0].id)
+  varientcontainer[indexNoChecked1] = filteredObjects1[0].id;
+event.closest(".pww_main-container_card").querySelector(".pww_mainComtainer").setAttribute("data-varientselected",filteredObjects1[0].id)
+event.closest(".pww_main-container_card").querySelector(".embroidery-box")?.setAttribute("data-product-pair",filteredObjects1[0].sku)
+}
+  
+ }catch(err){
+      console.log('error',err)
+    }
+      
+    }
+</script>
+

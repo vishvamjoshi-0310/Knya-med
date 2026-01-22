@@ -1,0 +1,15 @@
+{% assign product1_price = product.selected_or_first_available_variant.price
+  | money_without_currency
+  | replace: ',', ''
+%}
+{% assign compare_at_price = product.selected_or_first_available_variant.compare_at_price
+  | money_without_currency
+  | replace: ',', ''
+%}
+
+{% assign discount = compare_at_price | minus: product1_price %}
+{% assign discount_percentage = discount | times: 100 | divided_by: compare_at_price | round %}
+
+{% if discount_percentage > 0 %}
+  <p class="card-discount">SAVE {{ discount_percentage }}%</p>
+{% endif %}

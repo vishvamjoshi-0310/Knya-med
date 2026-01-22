@@ -1,0 +1,39 @@
+.test-swiper1 {
+  width: 100% !important;
+  height: auto;
+  margin-top: 0;
+}
+.desk-vid {
+  padding: 0;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ctm_claims_logo_section {
+  margin: 0 auto !important;
+}
+.mob-vid {
+  display: none;
+}
+.desk-vid {
+  width: 100% !important;
+  display: flex;
+}
+@media screen and (max-width: 750px) {
+  .mob-vid {
+    line-height: 0;
+    display: block;
+    padding: 0;
+  }
+  .desk-vid {
+    display: none;
+  }
+}
+.desk-vid-inner a {
+  width: 100% !important;
+  display: flex;
+  position: relative;
+  height: auto;
+}

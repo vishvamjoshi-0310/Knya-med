@@ -1,0 +1,150 @@
+{{ 'home-full-width.css' | asset_url | stylesheet_tag }}
+<style>
+    .firstMainDiv{
+      margin-top:{{ section.settings.marginTopfull }}px;
+      margin-bottom:{{ section.settings.marginBottomfull }}px;
+    }
+    @media screen and (max-width:640px){
+      .firstMainDiv{
+          margin-top:{{ section.settings.marginTopfullmob }}px;
+          margin-bottom:{{ section.settings.marginBottomfullmob }}px;
+      }
+    }
+
+  /*    .shop-now{background-image:url('{{ 'VectorFullWidth.svg' | asset_url }}')} */
+</style>
+
+<div class="firstMainDiv {% if section.settings.show_padding_full  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_full %}padding-right-mob padding-left-mob{% endif %}">
+  <div class="full-div">
+    <div class="img-div">
+      <a href="{{ section.settings.shopNowurl }}" aria-label="{{ section.settings.shopNowurl }}">
+        {{
+          section.settings['desk-img']
+          | image_url: width: 1600, format: 'webp'
+          | image_tag:
+            class: 'imageFordesk',
+            loading: 'lazy',
+            widths: '15, 990, 1200, 1600',
+            sizes: '(max-width: 600px) 15px, (max-width: 990px) 990px, (max-width: 1200px) 1200px, (min-width: 1200px) 1600px'
+        }}
+        {{
+          section.settings['mob-img']
+          | image_url: width: 480, format: 'webp'
+          | image_tag: class: 'imageForMob', loading: 'lazy'
+        }}
+      </a>
+    </div>
+    <div class=" content-full page-width mobilecontentoverlaponimage">
+      <p class="first-text font-heebo-regular">{{ section.settings.headerText }}</p>
+      <h2 class="second-text font-heebo-medium">{{ section.settings.second }}</h2>
+      <a href="{{ section.settings.shopNowurl }}" aria-label="{{ section.settings.shopNowurl }}">
+        <div class="img-div-full">
+          {% if section.settings['img-back-full'] != blank %}
+            <img src="{{ section.settings.img-back-full | img_url }}" loading="lazy">
+          {% endif %}
+          <span class="shop-now font-heebo-medium">{{ section.settings.shopNow }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "banner section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_padding_full",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_full",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "marginTopfull",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottomfull",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginTopfullmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottomfullmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "desk-img",
+      "label": "Image for desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob-img",
+      "label": "Image for mobile"
+    },
+    {
+      "type": "text",
+      "id": "headerText",
+      "label": "first text"
+    },
+    {
+      "type": "text",
+      "id": "second",
+      "label": "second text"
+    },
+    {
+      "type": "image_picker",
+      "id": "img-back-full",
+      "label": "back image"
+    },
+    {
+      "type": "text",
+      "id": "shopNow",
+      "label": "shopNow"
+    },
+    {
+      "type": "text",
+      "id": "shopNowurl",
+      "label": "link for shopNow"
+    }
+  ],
+  "presets": [
+    {
+      "name": "banner"
+    }
+  ]
+}
+{% endschema %}

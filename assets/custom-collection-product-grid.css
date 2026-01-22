@@ -1,0 +1,124 @@
+/* Custom CSS */
+
+.mobile-grid.collection-page-section {
+  display: none;
+}
+
+.product-grid-container
+  :is(
+    li.grid__item.coll-gridd:nth-last-child(1),
+    li.grid__item.coll-gridd:nth-last-child(2),
+    li.grid__item.coll-gridd:nth-last-child(3),
+    li.grid__item.coll-gridd:nth-last-child(4)
+  ) {
+  padding-bottom: 0px;
+}
+
+/* Collection grid infinite scroll loader */
+.product-grid-container #product-grid-Pagination {
+  display: flex;
+  justify-content: center;
+}
+.product-grid-container .pagination-loading-icon-container {
+  width: 20px;
+  height: 20px;
+}
+
+.product-grid-container
+  .pagination-loading-icon-container
+  .pagination-loading-icon {
+  width: 100%;
+  height: auto;
+  animation: rotate 1s linear infinite; /* Rotate animation with a 2-second duration, linear timing, and infinite loop */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.plus-swatch.show-plus-desktop {
+  display: flex;align-items:center;
+}
+.plus-swatch.show-plus-desktop a{
+    width:20px;height:20px !important;
+    height:100%;
+    display: flex;
+    align-items: center;
+}
+
+
+/* --------------MEDIA QUERIES-------------- */
+
+/* tab and mobile screen */
+
+@media screen and (max-width: 989px) {
+  .plus-swatch.show-plus-desktop a{width:16px;height:17px !important;}
+}
+@media screen and (max-width: 768px) {
+  .collection .HorizontalList :is(.desktopcolorhide, .mobilecolorhide) {
+    display: none;
+  }
+
+  .plus-swatch.show-plus-mobile {
+    display: block;
+  }
+}
+@media screen and (max-width: 350px) {
+   .collection .HorizontalList :is(.desktopcolorhide, .mobilecolorhide, .extrasmallhide) {
+    display: none;
+  }
+}
+
+/* resolved issue related to cards - in tab mode (overridden base.css) (only 1 card show) */
+@media screen and (min-width: 749px) and (max-width: 768px) {
+  .facets-vertical .grid--1-col-tablet-down .grid__item {
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .product-grid-container
+    :is(
+      li.grid__item.coll-gridd:nth-last-child(3),
+      li.grid__item.coll-gridd:nth-last-child(4)
+    ) {
+    padding-bottom: 58px;
+  }
+
+  .product-grid-container
+    :is(
+      li.grid__item.coll-gridd:nth-last-child(1),
+      li.grid__item.coll-gridd:nth-last-child(2)
+    ) {
+    padding-bottom: 10px;
+  }
+}
+
+/* Small screen */
+@media screen and (max-width: 640px) {
+  .product-grid-container
+    :is(
+      li.grid__item.coll-gridd:nth-last-child(3),
+      li.grid__item.coll-gridd:nth-last-child(4)
+    ) {
+    padding-bottom: 32px;
+  }
+}
+
+/* Large screen */
+@media screen and (min-width: 750px) {
+  .product-grid-container
+    :is(
+      li.grid__item.coll-gridd:nth-last-child(1),
+      li.grid__item.coll-gridd:nth-last-child(2),
+      li.grid__item.coll-gridd:nth-last-child(3),
+      li.grid__item.coll-gridd:nth-last-child(4)
+    ) {
+    padding-bottom: 16px;
+  }
+}

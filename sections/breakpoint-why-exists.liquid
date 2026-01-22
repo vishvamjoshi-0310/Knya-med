@@ -1,0 +1,384 @@
+{{ 'section-breakpoint-why-exists.css' | asset_url | stylesheet_tag }}
+
+<section class="breakpoint-why-exists-section">
+  {%- if section.settings.background_image_desktop != blank or section.settings.background_image_mobile != blank -%}
+    <div class="breakpoint-why-exists-background">
+      <picture>
+        {%- if section.settings.background_image_mobile != blank -%}
+          <source
+            media="(max-width: 768px)"
+            srcset="{{ section.settings.background_image_mobile | image_url: width: 2000 }}"
+          >
+        {%- endif -%}
+        {%- if section.settings.background_image_desktop != blank -%}
+          <source
+            media="(min-width: 769px)"
+            srcset="{{ section.settings.background_image_desktop | image_url: width: 2000 }}"
+          >
+        {%- endif -%}
+        {%- liquid
+          if section.settings.background_image_desktop != blank
+            assign bg_image = section.settings.background_image_desktop
+          else
+            assign bg_image = section.settings.background_image_mobile
+          endif
+        -%}
+        {{
+          bg_image
+          | image_url: width: 2000
+          | image_tag: loading: 'lazy', width: bg_image.width, height: bg_image.height, alt: bg_image.alt
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="breakpoint-why-exists-content">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="breakpoint-why-exists-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="breakpoint-why-exists-layout">
+      <div class="breakpoint-why-exists-left">
+        <div class="breakpoint-why-exists-slider embla" id="Embla-{{ section.id }}">
+          <div class="breakpoint-why-exists-slider-wrapper embla__container">
+            {%- for block in section.blocks -%}
+              <div
+                class="stat-card embla__slide"
+                data-index="{{ forloop.index0 }}"
+                style="--bg-primary: {{ block.settings.primary_background_color }}; --bg-secondary: {{ block.settings.secondary_background_color }};"
+              >
+                <div class="stat-card-content">
+                  <div class="stat-top-row">
+                    {%- if block.settings.left_svg != blank -%}
+                      <div class="stat-icon-left">{{ block.settings.left_svg }}</div>
+                    {%- endif -%}
+                    <div class="stat-number">{{ block.settings.percentage }}</div>
+                    <div class="stat-meta">
+                      <div class="stat-percent-symbol">{{ block.settings.symbol }}</div>
+                      {%- if block.settings.right_svg != blank -%}
+                        <div class="stat-icon-right">{{ block.settings.right_svg }}</div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                  <div class="stat-description">{{ block.settings.description }}</div>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+          <div class="breakpoint-why-exists-slider-pagination"></div>
+        </div>
+      </div>
+
+      <div class="breakpoint-why-exists-right">
+        {%- if section.settings.description_text_before != blank -%}
+          <div class="breakpoint-why-exists-description-before">{{ section.settings.description_text_before }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.vitals_logo_desktop != blank or section.settings.vitals_logo_mobile != blank -%}
+          <div class="breakpoint-why-exists-vitals">
+            <picture>
+              {%- if section.settings.vitals_logo_mobile != blank -%}
+                <source
+                  media="(max-width: 768px)"
+                  srcset="{{ section.settings.vitals_logo_mobile | image_url: width: 800 }}"
+                >
+              {%- endif -%}
+              {%- if section.settings.vitals_logo_desktop != blank -%}
+                <source
+                  media="(min-width: 769px)"
+                  srcset="{{ section.settings.vitals_logo_desktop | image_url: width: 2000 }}"
+                >
+              {%- endif -%}
+              {%- liquid
+                if section.settings.vitals_logo_desktop != blank
+                  assign vitals_image = section.settings.vitals_logo_desktop
+                  assign vitals_width = 2000
+                else
+                  assign vitals_image = section.settings.vitals_logo_mobile
+                  assign vitals_width = 800
+                endif
+                assign vitals_height = vitals_width | divided_by: vitals_image.aspect_ratio | round
+              -%}
+              <img
+                loading="lazy"
+                src="{{ vitals_image | image_url: width: vitals_width }}"
+                width="{{ vitals_width }}"
+                height="{{ vitals_height }}"
+                alt="{{ vitals_image.alt | escape }}"
+              >
+            </picture>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.description_text_after != blank -%}
+          <div class="breakpoint-why-exists-description-after">{{ section.settings.description_text_after }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.breakpoint_statement != blank -%}
+          <div class="breakpoint-why-exists-statement">{{ section.settings.breakpoint_statement }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.action_text != blank -%}
+          <div class="breakpoint-why-exists-action">
+            <a href="{{ section.settings.action_link }}" class="breakpoint-why-exists-link">
+              {{ section.settings.action_text }}
+              {%- if section.settings.action_icon_svg != blank -%}
+                {{ section.settings.action_icon_svg }}
+              {%- endif -%}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const emblaId = 'Embla-{{ section.id }}';
+    const emblaNode = document.getElementById(emblaId);
+
+    // Safety check
+    if (!emblaNode) return;
+    if (typeof EmblaCarousel === 'undefined') return;
+
+    // ===== FIX #1: Updated options to prevent container movement =====
+    const OPTIONS = {
+      align: 'start',
+      loop: true,
+      containScroll: false,
+      dragFree: false, // Prevents free dragging
+      draggable: true, // Keep swipe/drag enabled
+      slidesToScroll: 1, // Snap to one slide at a time
+    };
+    const emblaApi = EmblaCarousel(emblaNode, OPTIONS);
+
+    // ===== FIX #2: Updated updateSlideClasses to handle loop correctly =====
+    const updateSlideClasses = () => {
+      const allSlides = emblaNode.querySelectorAll('.embla__slide');
+      const scrollSnaps = emblaApi.scrollSnapList();
+      const selectedIndex = emblaApi.selectedScrollSnap();
+
+      // Calculate next index with proper wrap-around
+      const nextIndex = (selectedIndex + 1) % scrollSnaps.length;
+
+      allSlides.forEach((slide) => {
+        const slideIndex = parseInt(slide.getAttribute('data-index'));
+
+        // Remove all classes first
+        slide.classList.remove('is-snapped', 'next');
+
+        // Reset styles
+        slide.style.zIndex = '1';
+        slide.style.opacity = '0';
+        slide.style.pointerEvents = 'none';
+
+        // Apply classes based on position
+        if (slideIndex === selectedIndex) {
+          // Current active slide
+          slide.classList.add('is-snapped');
+          slide.style.zIndex = '10';
+          slide.style.opacity = '1';
+          slide.style.pointerEvents = 'auto';
+        } else if (slideIndex === nextIndex) {
+          // Next slide (60% visible behind)
+          slide.classList.add('next');
+          slide.style.zIndex = '5';
+          slide.style.opacity = '1';
+          slide.style.pointerEvents = 'auto';
+        }
+      });
+    };
+
+    // Click to scroll functionality
+    const addSlideClickListeners = () => {
+      const slides = emblaApi.slideNodes();
+      slides.forEach((slide) => {
+        slide.addEventListener('click', () => {
+          const index = parseInt(slide.getAttribute('data-index'));
+          if (!isNaN(index)) emblaApi.scrollTo(index);
+        });
+        slide.style.cursor = 'pointer';
+      });
+    };
+
+    // Pagination
+    const pagination = emblaNode.querySelector('.breakpoint-why-exists-slider-pagination');
+
+    const createPagination = () => {
+      if (!pagination) return;
+      pagination.innerHTML = '';
+      const scrollSnaps = emblaApi.scrollSnapList();
+      scrollSnaps.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.className = 'breakpoint-why-exists-pagination-dot';
+        dot.addEventListener('click', () => emblaApi.scrollTo(index));
+        pagination.appendChild(dot);
+      });
+      updatePagination();
+    };
+
+    const updatePagination = () => {
+      if (!pagination) return;
+      const dots = pagination.querySelectorAll('.breakpoint-why-exists-pagination-dot');
+      const selectedIndex = emblaApi.selectedScrollSnap();
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === selectedIndex);
+      });
+    };
+
+    // ===== FIX #3: Updated event listeners =====
+    emblaApi.on('init', () => {
+      addSlideClickListeners();
+      createPagination();
+      updateSlideClasses();
+    });
+
+    emblaApi.on('select', () => {
+      updatePagination();
+      updateSlideClasses();
+    });
+
+    // Removed 'scroll' event to prevent jerky behavior during drag
+
+    emblaApi.on('settle', () => {
+      updateSlideClasses();
+    });
+
+    emblaApi.on('reInit', () => {
+      createPagination();
+      updateSlideClasses();
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Breakpoint Why Exists",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Why Breakpoint exists"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_desktop",
+      "label": "Background Image Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background Image Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "vitals_logo_desktop",
+      "label": "Vitals Logo Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "vitals_logo_mobile",
+      "label": "Vitals Logo Mobile"
+    },
+    {
+      "type": "textarea",
+      "id": "description_text_before",
+      "label": "Description Text (Before Logo)",
+      "default": "In 2025, Knya conducted,"
+    },
+    {
+      "type": "textarea",
+      "id": "description_text_after",
+      "label": "Description Text (After Logo)",
+      "default": "a nationwide study built on responses from 10,000+ medical professionals across India."
+    },
+    {
+      "type": "textarea",
+      "id": "breakpoint_statement",
+      "label": "Breakpoint Statement (Bold Text)",
+      "default": "Breakpoint is our way of acting on what we observed and heard."
+    },
+    {
+      "type": "text",
+      "id": "action_text",
+      "label": "Action Link Text",
+      "default": "Read Vital 2025"
+    },
+    {
+      "type": "url",
+      "id": "action_link",
+      "label": "Action Link URL"
+    },
+    {
+      "type": "html",
+      "id": "action_icon_svg",
+      "label": "Action Icon SVG",
+      "info": "Paste SVG code for the arrow icon"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_card",
+      "name": "Statistic Card",
+      "settings": [
+        {
+          "type": "color",
+          "id": "primary_background_color",
+          "label": "Primary Background Color",
+          "default": "#5E5EEC"
+        },
+        {
+          "type": "color",
+          "id": "secondary_background_color",
+          "label": "Secondary Background Color",
+          "default": "#6767A5"
+        },
+        {
+          "type": "number",
+          "id": "percentage",
+          "label": "Percentage",
+          "default": 83
+        },
+        {
+          "type": "text",
+          "id": "symbol",
+          "label": "Symbol",
+          "default": "%"
+        },
+        {
+          "type": "html",
+          "id": "left_svg",
+          "label": "Left SVG Icon"
+        },
+        {
+          "type": "html",
+          "id": "right_svg",
+          "label": "Right SVG Icon"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "of medicos report feeling emotionally or mentally fatigued from work"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breakpoint Why Exists",
+      "blocks": [
+        {
+          "type": "stat_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} 1-1-1-2-3--4-5-676-76-76-7-6-68- {% endcomment %}

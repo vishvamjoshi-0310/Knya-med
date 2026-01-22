@@ -1,0 +1,123 @@
+{{ 'stethoscope-feature-cards.css' | asset_url | stylesheet_tag }}
+
+<section class="feature-card-section-wrapper">
+  {% for block in section.blocks %}
+    <div class="feature-card">
+      <div class="feature-image-wrapper">
+        {{ block.settings.feature_card_image | image_url: width: 300 , format: 'webp' | image_tag:
+          loading: 'lazy',
+          fetchpriority: 'low', 
+          width: "300",
+          height: "auto",
+          class: "feature-card-image",
+          widths: '375, 550, 750, 1100, 1500, 1780, 2000',
+          alt: block.settings.feature_name
+        }}
+          <div class="feature-card-content font-heebo-regular">
+            <div class="heading-with-svg">
+              <h3>{{ block.settings.feature_name }}</h3>
+              <div class="icon-wrapper svg-{{ forloop.index0 }}">{% render 'cross-svg' %}</div>
+            </div>
+            <p>{{ block.settings.feature_description }}</p>
+          </div>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+  // Mobile Behavior (Click to Expand Text & Rotate Icon)
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll(".feature-card-content").forEach(card => {
+      card.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent bubbling to parent elements
+        
+        const paragraph = this.querySelector("p");
+        const svg = this.querySelector(".heading-with-svg svg");
+
+        const isVisible = paragraph.classList.contains("visible");
+
+        // Close all other open cards
+        document.querySelectorAll(".feature-card-content p.visible").forEach(openParagraph => {
+          if (openParagraph !== paragraph) {
+            openParagraph.classList.remove("visible");
+            const openCard = openParagraph.closest(".feature-card-content");
+            const openSvg = openCard.querySelector(".heading-with-svg svg");
+            if (openSvg) openSvg.style.transform = "rotate(45deg)";
+          }
+        });
+
+        // Toggle the clicked card
+        paragraph.classList.toggle("visible", !isVisible);
+        if (svg) svg.style.transform = isVisible ? "rotate(45deg)" : "rotate(0deg)";
+      });
+    });
+
+    // Optional: Close any open card when clicking outside
+    document.addEventListener("click", function () {
+      document.querySelectorAll(".feature-card-content p.visible").forEach(openParagraph => {
+        openParagraph.classList.remove("visible");
+        const openCard = openParagraph.closest(".feature-card-content");
+        const openSvg = openCard.querySelector(".heading-with-svg svg");
+        if (openSvg) openSvg.style.transform = "rotate(45deg)";
+      });
+    });
+  }
+
+  // Desktop Behavior (Hide SVG on Hover Inside .feature-card-content)
+  if (window.innerWidth > 768) {
+    document.querySelectorAll(".feature-card").forEach((card, index) => {
+      const iconWrapper = card.querySelector(`.svg-${index}`);
+      const cardContent = card.querySelector(".feature-card-content");
+
+      if (iconWrapper && cardContent) {
+        cardContent.addEventListener("mouseenter", function () {
+          iconWrapper.style.display = "none";
+        });
+
+        cardContent.addEventListener("mouseleave", function () {
+          iconWrapper.style.display = "flex";
+        });
+      }
+    });
+  }
+});
+
+</script>
+
+{% schema %}
+  {
+    "name": "Stethoscope Feature Cards",
+    "class": "stethoscope-feature-card-parent",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Feature Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "feature_card_image",
+            "label": "Feature Card Image"
+          },
+          {
+            "type": "text",
+            "id": "feature_name",
+            "label": "Feature Name"
+          },
+          {
+            "type": "text",
+            "id": "feature_description",
+            "label": "Feature Description"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Stethoscope Feature Cards"
+      }
+    ]
+  }
+{% endschema %}

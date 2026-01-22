@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "new_store_locator_section_YTWHt9": {
+      "type": "new-store-locator-section",
+      "settings": {
+        "margin_bottom_desktop": 31,
+        "margin_top_desktop": 48,
+        "margin_top_mobile": 24,
+        "margin_bottom_mobile": 24,
+        "desk-image": "shopify://shop_images/Why_Visit_Our_Store.jpg",
+        "mob-image": "shopify://shop_images/Why_Visit_Our_Stores.jpg",
+        "mainheading": "Our Stores",
+        "submainheading": "Now we are available in",
+        "submainheading2": "Cities",
+        "sectionmainheading": "Browse By Cities",
+        "viewonmap": "View On Map",
+        "cantfoundstore": "We’re excited to be here soon for you!"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "new_store_locator_section_YTWHt9"
+  ]
+}

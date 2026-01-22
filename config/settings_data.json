@@ -1,0 +1,727 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "account_page_order_info": "",
+    "noordercollectionlink": "mandarincollar",
+    "colors_solid_button_labels": "#ffffff",
+    "colors_accent_1": "#482f8f",
+    "gradient_accent_1": "",
+    "colors_accent_2": "#7ea7d6",
+    "gradient_accent_2": "",
+    "colors_text": "#121212",
+    "colors_outline_button_labels": "#482f8f",
+    "colors_background_1": "#ffffff",
+    "gradient_background_1": "",
+    "colors_background_2": "#f4ecd0",
+    "gradient_background_2": "",
+    "type_header_font": "sans-serif",
+    "heading_scale": 100,
+    "type_body_font": "sans-serif",
+    "body_scale": 100,
+    "page_width": 1780,
+    "page_padding_left": 80,
+    "page_padding_left_mob": 9,
+    "page_padding_right": 4,
+    "page_padding_right_mob": 8,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 24,
+    "spacing_grid_vertical": 24,
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "card",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "background-1",
+    "card_border_thickness": 0,
+    "card_border_opacity": 25,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "card",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "background-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "card",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "background-1",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 0,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "accent-2",
+    "sold_out_badge_color_scheme": "inverse",
+    "accent_icons": "text",
+    "social_twitter_link": "https://twitter.com/knyamed",
+    "social_facebook_link": "https://www.facebook.com/Knyamed/",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https://www.instagram.com/knyamed/",
+    "social_tiktok_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "https://www.youtube.com/@KNYAMed",
+    "social_linkdin_link": "https://in.linkedin.com/company/knyamed",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "favicon": "shopify://shop_images/MicrosoftTeams-image_96x_f0b5b22e-3146-4770-995b-07276b304711.jpg",
+    "currency_code_enabled": true,
+    "cart_type": "drawer",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "empy_cart_collection": "atc-unisex",
+    "show_giftCArd": true,
+    "gift_box_product": "gift-box",
+    "gift_box_large_product": "gift-box-lab-coats",
+    "bg-color-id": "#482f8f",
+    "font_color_id": "#ffffff",
+    "rich-txt-id": "<p>₹100 OFF On Orders Above ₹1999  Code - SAVE100</p>",
+    "colortextarea": "navy=#000080,dark green=#006400,maroon=#800000,black=#000000,marble grey=#bababa,midnight blue=#2f314e,steel grey=#71797E,dusty pink=#f7cde0,pastel lilac=#e5d8f4,ciel blue=#84afe2,galaxy blue=#2760b5,navy blue=#191970,white=#FFFFFF,wine=#3e2231,hot pink=#db669f,rust=#b63d44,peacock blue=#15324D,forest green=#2D4A5E,walnut=#773f1a",
+    "color-new": "",
+    "color-new-text": "",
+    "EmbroideryLeftImage": "shopify://shop_images/Untitled-1_1_900x_88007668-0b2d-4539-a6a7-f036f0d34c57.jpg",
+    "embroideryProductHandle": "custom-embroidery",
+    "EmbroideryIconNames": "White Caduceus##Red Caduceus##New Caduceus##RN##Happy Tooth##Tooth##Red Stethoscope##Heart##Scalpel##EKG##Proud Indian##Laryngoscope##Microscope##Dogs",
+    "embroideryProductMessage": "Note: Embroidered items are final sale. They can not be returned or exchanged. Please note, embroidered items take upto 3 - 5 days to dispatch.",
+    "embroideryHiddenMessage": "",
+    "producttype": "Stethoscope",
+    "leftsidetext": "30-day free trial",
+    "rightsidetext": "",
+    "product-handle": "knya-med-gift-card",
+    "cart_drawer_collection": "",
+    "checkout_logo_image": "shopify://shop_images/KNYA-logo_edaa1c1e-7409-4433-90ce-45bf7042b4d1.png",
+    "checkout_accent_color": "#482f8f",
+    "checkout_button_color": "#482f8f",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement_NGePbt": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "Flat ₹100 OFF on your first order | Code: FIRST100",
+              "text_alignment": "center",
+              "color_scheme": "accent-1",
+              "link": "shopify://collections/all-neet-pg"
+            }
+          }
+        },
+        "block_order": [
+          "announcement_NGePbt"
+        ],
+        "settings": {}
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "8e54bcb7-ff8e-4f95-a212-1693b3557260": {
+            "type": "storemap",
+            "settings": {
+              "storehead": "Our Stores",
+              "storename": "Find a Store",
+              "storeurl": "https://knyamed.com/pages/store-locator-new",
+              "storemapping": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"20\" viewbox=\"0 0 13 20\" fill=\"none\">\n<path d=\"M0.48999 18.1306L2.25999 19.9006L12.16 10.0006L2.25999 0.100586L0.48999 1.87059L8.61999 10.0006L0.48999 18.1306Z\" fill=\"white\"></path>\n</svg>"
+            }
+          },
+          "958f5d0d-0d1c-4b9e-bfa5-c1dbc145bdc9": {
+            "type": "storemap",
+            "disabled": true,
+            "settings": {
+              "storehead": "",
+              "storename": "Parel, Mumbai",
+              "storeurl": "https://google.com/maps/place/Knya+Store+-+Parel,+Mumbai/@19.0056551,72.8450126,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf5a50db3b7b:0x8db8747cf705be46!8m2!3d19.0056551!4d72.8450126!16s%2Fg%2F11v5xxsndy?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
+              "storemapping": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"20\" viewbox=\"0 0 13 20\" fill=\"none\">\n<path d=\"M0.48999 18.1306L2.25999 19.9006L12.16 10.0006L2.25999 0.100586L0.48999 1.87059L8.61999 10.0006L0.48999 18.1306Z\" fill=\"white\"></path>\n</svg>"
+            }
+          },
+          "storemap_DJL7y7": {
+            "type": "storemap",
+            "disabled": true,
+            "settings": {
+              "storehead": "",
+              "storename": "Md Ali Road, Mumbai",
+              "storeurl": "https://www.google.com/maps/place/Knya+Store+-+Mohammad+Ali+Road,+Mumbai/@18.9595536,72.8316294,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cfd87bea5983:0xc070a985ce73648c!8m2!3d18.9595536!4d72.8316294!16s%2Fg%2F11wxphfs__?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
+              "storemapping": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"20\" viewbox=\"0 0 13 20\" fill=\"none\">\n<path d=\"M0.48999 18.1306L2.25999 19.9006L12.16 10.0006L2.25999 0.100586L0.48999 1.87059L8.61999 10.0006L0.48999 18.1306Z\" fill=\"white\"></path>\n</svg>"
+            }
+          },
+          "storemap_EzYiUM": {
+            "type": "storemap",
+            "disabled": true,
+            "settings": {
+              "storehead": "",
+              "storename": "Somwar Peth, Pune",
+              "storeurl": "https://www.google.com/maps/place/Knya+Store+-+Parel,+Mumbai/@19.0056551,72.8450126,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7cf5a50db3b7b:0x8db8747cf705be46!8m2!3d19.0056551!4d72.8450126!16s%2Fg%2F11v5xxsndy?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
+              "storemapping": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"20\" viewbox=\"0 0 13 20\" fill=\"none\">\n<path d=\"M0.48999 18.1306L2.25999 19.9006L12.16 10.0006L2.25999 0.100586L0.48999 1.87059L8.61999 10.0006L0.48999 18.1306Z\" fill=\"white\"></path>\n</svg>"
+            }
+          },
+          "storemap_6MDBWt": {
+            "type": "storemap",
+            "disabled": true,
+            "settings": {
+              "storehead": "",
+              "storename": "Ahmedabad, Gujarat",
+              "storeurl": "https://www.google.com/maps/place/Knya+Store+-+Shahibaug,+Ahmedabad/@23.054759,72.6002941,17z/data=!3m1!4b1!4m6!3m5!1s0x395e8540d4f67375:0xee9419aa4b9c5572!8m2!3d23.054759!4d72.6002941!16s%2Fg%2F11wnttdwn6?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
+              "storemapping": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"13\" height=\"20\" viewbox=\"0 0 13 20\" fill=\"none\">\n<path d=\"M0.48999 18.1306L2.25999 19.9006L12.16 10.0006L2.25999 0.100586L0.48999 1.87059L8.61999 10.0006L0.48999 18.1306Z\" fill=\"white\"></path>\n</svg>"
+            }
+          },
+          "05a89c34-a1db-450c-8a80-981ce35e27d8": {
+            "type": "menuimg",
+            "settings": {
+              "navhandle": "Men",
+              "navimg": "shopify://shop_images/Megamenu-Drift_jacket-mens_1.png",
+              "navurl": "shopify://products/drift-mens-black-jacket"
+            }
+          },
+          "menuimg_Lr3Ag3": {
+            "type": "menuimg",
+            "settings": {
+              "navhandle": "Women",
+              "navimg": "shopify://shop_images/Megamenu-Drift_jacket-womens_1.png",
+              "navurl": "shopify://collections/shop-womens-drift-jacket"
+            }
+          }
+        },
+        "block_order": [
+          "8e54bcb7-ff8e-4f95-a212-1693b3557260",
+          "958f5d0d-0d1c-4b9e-bfa5-c1dbc145bdc9",
+          "storemap_DJL7y7",
+          "storemap_EzYiUM",
+          "storemap_6MDBWt",
+          "05a89c34-a1db-450c-8a80-981ce35e27d8",
+          "menuimg_Lr3Ag3"
+        ],
+        "settings": {
+          "color_scheme": "accent-1",
+          "logo": "shopify://shop_images/knya_logo_500x150_10e3d37e-4db1-4821-8a43-cd9d80c87dce.png",
+          "logo_width": 100,
+          "logo_position": "middle-left",
+          "menu": "test-desktop-menu",
+          "menu-mobile": "test-mobile-menu",
+          "appmsg": "GET THE Knya APP",
+          "appurl": "https://knyamed.page.link/web23",
+          "appimg": "shopify://shop_images/2c2274e0394246b40bd0b7f9f847e44c.png",
+          "appiosurl": "https://knyamed.page.link/web23",
+          "appiosimg": "shopify://shop_images/aa46dd3113f789df4a6903e7c473a132.png",
+          "menu_type_desktop": "mega",
+          "show_line_separator": false,
+          "enable_sticky_header": true,
+          "mobile_logo_position": "center",
+          "margin_bottom": 0,
+          "padding_top": 20,
+          "padding_bottom": 20
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Company",
+              "menu": "company-new"
+            }
+          },
+          "footer-1": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Support",
+              "menu": "support-2-0"
+            }
+          },
+          "51e4d5c6-58b2-4c20-b34d-43ec476fde7d": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "quick-links"
+            }
+          },
+          "footer-2": {
+            "type": "text",
+            "settings": {
+              "heading": "Contact",
+              "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>",
+              "url-text-1": "",
+              "icon-1": "shopify://shop_images/call.png",
+              "text-1": "<a href=\"tel:+919987200005\"><strong>+91 9987200005</strong></a>",
+              "url-text-2": "https://wa.me/919987200005?text=Hi%20there,%20can%20you%20help?",
+              "icon-2": "shopify://shop_images/ic_baseline-whatsapp.svg",
+              "text-2": "+91 9987200005",
+              "url-text-3": "mailto:support@knya.in",
+              "icon-3": "shopify://shop_images/Mail.svg",
+              "text-3": "support@knya.in"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1",
+          "51e4d5c6-58b2-4c20-b34d-43ec476fde7d",
+          "footer-2"
+        ],
+        "settings": {
+          "what-link": false,
+          "show_padding_foot": false,
+          "show_padding_mob_foot": false,
+          "margintopemail": 0,
+          "margintopemailmob": 0,
+          "subscribeEMailText": "Our emails are like our scrubs. Focused on you!",
+          "corporate_office": "Corporate Office",
+          "adressText": "Knya Enterprise Pvt. Ltd. 401, Todi Building, Mathuradas  Mill Compound, Lower Parel  Mumbai 400013, MH, India",
+          "findastore_btn": "Find a Store",
+          "findastore_url": "shopify://pages/store-locator",
+          "copyright_text": "<p><a href=\"https://knyamed.com/pages/privacy-terms\" title=\"Privacy & Terms\">Privacy Policy</a>/ Copyright 2024. All Rights Reserved. Knya</p>",
+          "footertext_conatiner": "",
+          "logoImag": "shopify://shop_images/oie_IyJ8X9lPimF6.png",
+          "color_scheme": "accent-1",
+          "newsletter_enable": true,
+          "newsletter_heading": "Subscribe to our emails",
+          "show_social": true,
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "payment_enable": true,
+          "margin_top": 0,
+          "padding_top": 36,
+          "padding_bottom": 36
+        }
+      },
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo": "{{ shop.brand.logo }}",
+          "logo_max_width": 100,
+          "color_scheme": "background-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "background-1"
+        }
+      },
+      "pop-reward": {
+        "type": "pop-reward",
+        "settings": {}
+      },
+      "marquee": {
+        "type": "marquee",
+        "blocks": {
+          "marquee_text_UNYMxq": {
+            "type": "marquee_text",
+            "disabled": true,
+            "settings": {
+              "text": "Buy 2, Get 12% Off on Everything Black & Grey | BLACK12"
+            }
+          }
+        },
+        "block_order": [
+          "marquee_text_UNYMxq"
+        ],
+        "settings": {
+          "mobile_text": "Get 12% Off | Use code: FLASH12"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "12120936241911852800": {
+        "type": "shopify://apps/judge-me-product-reviews/blocks/reviews_tab/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {
+          "position": "right"
+        }
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-product-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "16939059205007799882": {
+        "type": "shopify://apps/quinn-shoppable-videos/blocks/app-embed/150d2781-732b-4020-a9fb-1368e974e6bb",
+        "disabled": false,
+        "settings": {
+          "custom_swatch_code": "<script></script>"
+        }
+      },
+      "18281310450600262962": {
+        "type": "shopify://apps/clevertap/blocks/app-embed/2566991a-cd89-49d8-997d-74717582b9ed",
+        "disabled": false,
+        "settings": {}
+      },
+      "18228966181090706294": {
+        "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+        "disabled": false,
+        "settings": {
+          "storefrontAccessToken": "730579cdf4dab65185d4e647a04167d6"
+        }
+      },
+      "319724205969189013": {
+        "type": "shopify://apps/hulk-form-builder/blocks/app-embed/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+        "disabled": false,
+        "settings": {}
+      },
+      "13768625480086291342": {
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": true,
+        "settings": {}
+      },
+      "7147999719060634790": {
+        "type": "shopify://apps/gsc-countdown-timer/blocks/countdown-bar/58dc5b1b-43d2-4209-b1f3-52aff31643ed",
+        "disabled": false,
+        "settings": {}
+      },
+      "8218531531362863771": {
+        "type": "shopify://apps/kite-discount-free-gift/blocks/app-embed/2c7302c4-455d-4078-a829-48563ba26089",
+        "disabled": false,
+        "settings": {}
+      },
+      "3576686563519644491": {
+        "type": "shopify://apps/vwo/blocks/vwo-smartcode/2ce905b2-3842-4d20-b6b0-8c51fc208426",
+        "disabled": false,
+        "settings": {
+          "vwoAccountId": "1113323",
+          "codeType": "ASYNC",
+          "settingsTolerance": 2000,
+          "enableThemeTesting": false
+        }
+      },
+      "17676059084223943535": {
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "14403025053867589211": {
+        "type": "shopify://apps/mobile-app-builder-appbrew/blocks/download-banner/2879e6c8-bdd2-4938-9f0b-cfba31d8616b",
+        "disabled": false,
+        "settings": {
+          "textColour": "#000000",
+          "backgroundColour": "#f8f5f5",
+          "buttonBackgroundColour": "#000000",
+          "buttonTextColour": "#ffffff",
+          "heading": "Get the app now",
+          "description": "Enjoy exclusive offers on app",
+          "downloadButtonText": "Open in app",
+          "position": "top",
+          "playstoreurl": "https://play.google.com/store/apps/details?id=com.knyamed&hl=en_IN&gl=US",
+          "appstoreurl": "https://apps.apple.com/in/app/knya-scrubs-aprons-online/id6451436473",
+          "enableOnSafari": false,
+          "enableOnDesktop": false,
+          "desktopHeading": "Get our app now!",
+          "desktopDescription": "Scan the QR code below!",
+          "desktopButtonText": "DOWNLOAD APP",
+          "desktopPosition": "bottomleft",
+          "desktopTextColour": "#f8f5f5",
+          "desktopBackgroundColour": "#000000"
+        }
+      },
+      "1173261918193615741": {
+        "type": "shopify://apps/geo-pro-geolocation/blocks/geopro/16fc5313-7aee-4e90-ac95-f50fc7c8b657",
+        "disabled": false,
+        "settings": {}
+      },
+      "14591349720731162389": {
+        "type": "shopify://apps/koin/blocks/app-embed/02895843-ca31-4ee5-82a1-bfd81a36a58d",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "colors_solid_button_labels": "#ffffff",
+      "colors_accent_1": "#121212",
+      "gradient_accent_1": "",
+      "colors_accent_2": "#334fb4",
+      "gradient_accent_2": "",
+      "colors_text": "#121212",
+      "colors_outline_button_labels": "#121212",
+      "colors_background_1": "#ffffff",
+      "gradient_background_1": "",
+      "colors_background_2": "#f3f3f3",
+      "gradient_background_2": "",
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "background-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "background-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "background-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 0,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "accent-2",
+      "sold_out_badge_color_scheme": "inverse",
+      "accent_icons": "text",
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "announcement-bar-0": {
+              "type": "announcement",
+              "settings": {
+                "text": "Welcome to our store",
+                "text_alignment": "center",
+                "color_scheme": "background-1",
+                "link": ""
+              }
+            }
+          },
+          "block_order": [
+            "announcement-bar-0"
+          ],
+          "settings": {}
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "color_scheme": "background-1",
+            "logo": "{{ shop.brand.logo }}",
+            "logo_width": 90,
+            "logo_position": "middle-left",
+            "menu": "main-menu",
+            "menu_type_desktop": "dropdown",
+            "show_line_separator": true,
+            "enable_sticky_header": true,
+            "mobile_logo_position": "center",
+            "margin_bottom": 0,
+            "padding_top": 20,
+            "padding_bottom": 20
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Quick links",
+                "menu": "footer"
+              }
+            },
+            "footer-1": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Info",
+                "menu": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "text",
+              "settings": {
+                "heading": "Our mission",
+                "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+            "color_scheme": "background-1",
+            "newsletter_enable": true,
+            "newsletter_heading": "Subscribe to our emails",
+            "show_social": true,
+            "enable_country_selector": false,
+            "enable_language_selector": false,
+            "payment_enable": true,
+            "margin_top": 48,
+            "padding_top": 36,
+            "padding_bottom": 36
+          }
+        },
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "logo": "{{ shop.brand.logo }}",
+            "logo_max_width": 100,
+            "color_scheme": "background-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "background-1"
+          }
+        }
+      }
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".response-extra img {height: 20px !important; width: 20px !important;}",
+      ".delivery-check-label {font-family: \"Heebo-Medium\", sans-serif;}",
+      ".clickpost-edd__drop_pincode-input {font-family: \"Heebo-Medium\", sans-serif;}",
+      ".clickpost-edd__heading {font-family: \"Heebo-Medium\", sans-serif;}",
+      "..clickpost-edd__submit-button {font-family: \"Heebo-Medium\", sans-serif;}",
+      ".response-edd {font-family: \"Heebo-Medium\", sans-serif;}",
+      ".response-cod {font-family: \"Heebo-Medium\", sans-serif;}"
+    ]
+  }
+}

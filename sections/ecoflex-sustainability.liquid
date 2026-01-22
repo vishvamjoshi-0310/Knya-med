@@ -1,0 +1,152 @@
+{{ 'ecoflex-sustainability.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .sustainability-section {display: flex;width: 100%;height: auto;gap: 92px;margin-bottom: 5rem;margin-top: {{section.settings.margintop_sustainability}}px;}
+ @media screen and (max-width: 640px){
+     .sustainability-section{margin-top:{{ section.settings.margintop_sustainabilitymob}}px;}
+  }
+  {%- endstyle -%}
+
+<div class="sustainability-section page-width font-heebo-medium">
+  <div class="sustainability-section-content {% if section.settings.ecoflex_sustainability  %} page-padding-right page-padding-left{% endif %} {% if section.settings.ecoflex_sustainability_mob %}padding-right-mob padding-left-mob{% endif %}">
+    <div class="sustainability-section-image">
+      <img
+        srcset="
+          {%- if section.settings.sustainability_image.width >= 165 -%}{{ section.settings.sustainability_image | img_url: '165x' }} 165w,{%- endif -%}
+          {%- if section.settings.sustainability_image.width >= 360 -%}{{ section.settings.sustainability_image | img_url: '214x' }} 360w,{%- endif -%}
+          {%- if section.settings.sustainability_image.width >= 533 -%}{{ section.settings.sustainability_image | img_url: '533x' }} 533w,{%- endif -%}
+          {%- if section.settings.sustainability_image.width >= 720 -%}{{ section.settings.sustainability_image | img_url: '720x' }} 720w,{%- endif -%}
+          {%- if section.settings.sustainability_image.width >= 940 -%}{{ section.settings.sustainability_image | img_url: '940x' }} 940w,{%- endif -%}
+          {%- if section.settings.sustainability_image.width >= 1066 -%}{{ section.settings.sustainability_image | img_url: '1066x' }} 1066w,{%- endif -%}
+          {{ section.settings.sustainability_image | img_url: '550x' }} {{ section.settings.sustainability_image.width }}w
+        "
+        src="{{ section.settings.sustainability_image | img_url: '550x' }}"
+        size="auto"
+        alt="{{ section.settings.sustainability_image.alt | escape }}"
+        loading="lazy"
+        class="sustainability-image"
+        width="{{ section.settings.sustainability_image.width }}"
+        height="{{ section.settings.sustainability_image.height }}"
+      >
+    </div>
+    <div class="sustain-text-section ">
+      <div class="sustain-text-section-paragraph">
+        <p class="paragraph-section">{{ section.settings.sustainability_paragraph_title }}</p>
+      </div>
+      <h3 class="heading-section">{{ section.settings.sustainability_heading_title }}</h3>
+    </div>
+  </div>
+
+  {% if section.settings.video_url != blank or section.settings.sustain_right_image != blank -%}
+    <div class="video-container snippetshidevideo">
+      {% render 'ecoflex-video-image-snippets' %}
+    </div>
+  {% endif %}
+
+  <h3 class="mobile-heading-section">{{ section.settings.sustainability_mobile_heading_title }}</h3>
+</div>
+
+{% schema %}
+{
+  "name": "Ecoflex Sustainability",
+  "settings": [
+     {
+      "type": "checkbox",
+      "id": "ecoflex_sustainability",
+      "label": "Padding for Section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "ecoflex_sustainability_mob",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintop_sustainability",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintop_sustainabilitymob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "sustainability_image",
+      "label": "Sustainability Image",
+      "info":"Dimensions 460.28px X 284.27px"
+    },
+    {
+      "type": "text",
+      "id": "sustainability_paragraph_title",
+      "label": "Sustainability Paragraph",
+      "default": "Sustainability Paragraph"
+    },
+     {
+      "type": "text",
+      "id": "sustainability_heading_title",
+      "label": "Sustainability Heading",
+      "default": "Sustainability Heading"
+    },
+    {
+      "type": "video",
+      "id": "video_url",
+      "label": "Sustainability Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "sustain_right_image",
+      "label": "Sustain Right Image",
+      "info":"Dimensions 489px X 348px"
+    },
+    {
+      "type": "radio",
+      "id": "choose_option",
+      "label": "Choose Image/Video",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "video"
+    },
+    {
+      "type": "text",
+      "id": "sustainability_mobile_heading_title",
+      "label": "Sustainability Mobile Heading",
+      "default": "Sustainability Mobile Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecoflex Sustainability"
+    }
+  ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

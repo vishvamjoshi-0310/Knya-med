@@ -1,0 +1,397 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'custom-article-card.css' | asset_url | stylesheet_tag }}
+<style>
+    .tag-{{ section.id }} {margin-top:{{ section.settings.margintoptag}}px;}
+    .tag-{{ section.id }}{background: {{section.settings.bg-color-article}};}
+   .tag-{{ section.id }} .cust-card{background-color:{{ section.settings.bg-color-card }}; }
+  .tag-{{ section.id }} .card__information{background:{{ section.settings.bg-color-content }}!important; }
+   .tag-{{ section.id }} .upper-title-article{padding-top:{{section.settings.title-padding-top}}px;}
+    .tag-{{ section.id }} .inner-tag-div{padding-bottom:{{section.settings.title-padding-bottom}}px;}
+     @media screen and (max-width: 640px){
+    .tag-{{ section.id }} {margin-top:{{ section.settings.margintoptagmob}}px;}
+  }
+    .tag-{{ section.id }} .upper-title-article {
+      color: {{ section.settings.title-col }};
+    }
+    .tag-{{ section.id }} .sub-title-article {
+      color: {{ section.settings.sub-title-col }};
+    }
+   .tag-{{ section.id }} .tag-blogg{
+  background-color: {{section.settings.tag-bg}};
+      color: {{section.settings.tag-col}};
+   }
+   .tag-{{ section.id }} .custom-title-article{
+     color:{{section.settings.article-title-color}}
+   }
+   .tag-{{ section.id }} .article-card__info span{
+     color:{{section.settings.author-color}}
+   }
+   .tag-{{ section.id }} .blog-auth{
+     border-right: 1px solid {{border-color}};
+   }
+   .tag-{{ section.id }} .article-next{
+   top: -13%;
+   display:{{ section.settings.display-next }} !important;
+   rotate: 180deg;
+   left: auto !important;
+   right: 50px !important;
+   }
+   .tag-{{ section.id }} .article-prev{top: -13%;display:{{ section.settings.display-prev }} !important; rotate: 180deg;left: auto;
+      right: 90px;
+  }
+   .tag-{{ section.id }} .view-all-article{display:{{ section.settings.viewall-btn }};
+   padding-top: 50px;
+   color: #F4ECD0;}
+
+    @media screen and (max-width:767px){
+      .tag-{{ section.id }} .article-prev{display:none !important;}
+       .tag-{{ section.id }} .article-next{display:none !important;}
+    }
+</style>
+
+{% assign articles_custom = ""  %}
+{% assign slidAvail = false  %}
+{%- for article in section.settings.blog.articles -%}
+  {% if article.tags contains section.settings.tagname %}
+        {% assign articles_custom = articles_custom | append:article.handle | append:","  %}
+        {% assign slidAvail = true  %}
+  {% endif %}
+{%- endfor -%}
+{% assign articles_custom1 = articles_custom | remove_last: "," %}
+{% assign articles_display = articles_custom1 | split: "," %}      
+
+{% if slidAvail %}
+<div class="upper-tag-div conditional-class tag-{{ section.id }}">
+  <div class="page-width">
+    <div class="inner-tag-div {% if section.settings.show_padding_tag  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_tag %}padding-right-mob padding-left-mob{% endif %}">
+      <div class="one-line-art">
+        <h2 class="upper-title-article font-heebo-medium">{{ section.settings['title-article'] }}</h2>
+        <span class="view-all-article">{{ section.settings['view-all'] }}</span>
+      </div>
+      <span class="sub-title-article font-heebo-regular">{{ section.settings['cont-article'] }}</span>
+
+      {% assign tag-article = section.settings['tag-article'] | split: '##' %}
+      {% assign url-article = section.settings['url-tag-article'] | split: '##' %}
+      {% if tag-article != blank %}
+        <div class="tag-container">
+          {% for tag-art in tag-article %}
+            <div class="tag-blogg font-heebo-regular">
+              <span>{{ tag-art }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="swipertag-{{ section.id }} swiper swipertag blogtagother">
+        <div class="swiper-wrapper">
+          {%- for article in articles_display limit:section.settings.sliderrang -%}  
+              {% assign article_obj = articles[article] %}
+              <div class="swiper-slide">
+                {%- render 'article-card-featureimage',
+                  article: article_obj,
+                  media_height: section.settings.image_height1,
+                  media_aspect_ratio: article.image.aspect_ratio,
+                  show_image: section.settings.show_image1,
+                  show_date: section.settings.show_date1,
+                  show_author: section.settings.show_author1,
+                  show_excerpt: true
+                -%}
+              </div>           
+          {%- endfor -%}
+        </div>
+        <div class="swiper-button-next article-next">{% render 'next-icon-home' %}</div>
+        <div class="swiper-button-prev article-prev">{% render 'prev-icon-home' %}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        var swiper = new Swiper(".swipertag-{{ section.id }}", {
+          slidesPerView: {{ section.settings.slides-per-view }},
+          spaceBetween: 56,
+          slidesPerGroup: 1,
+          loop: true,
+          loopFillGroupWithBlank: true,
+
+            breakpoints: {
+              0: {
+                slidesPerView: 1.5,
+                spaceBetween: 20
+              },
+                  640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+              },
+              1000: {
+                slidesPerView: {{ section.settings.slides-per-view }},
+                spaceBetween: 56
+              }
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Articles based other tags",
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_height1",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg-img-article1",
+      "label": "reading background"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image1",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date1",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author1",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+   {
+      "type": "range",
+      "id": "sliderrang",
+      "min": 0,
+      "max": 15,
+      "step": 1,      
+      "label": "Number of grid slider",
+      "default": 0
+    },    
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "t:sections.featured-blog.settings.blog.label"
+    },
+    {
+      "type": "text",
+      "id": "tagname",
+      "label": "tag name"
+    },
+    {
+      "type": "text",
+      "id": "view-all",
+      "label": "View All text"
+    },
+    {
+      "type": "url",
+      "id": "view-all-url",
+      "label": "View All url"
+    },
+    {
+      "type": "text",
+      "id": "title-article",
+      "label": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "cont-article",
+      "label": "Section content"
+    },
+    {
+      "type": "text",
+      "id": "tag-article",
+      "label": "tags"
+    },
+    {
+      "type": "text",
+      "id": "url-tag-article",
+      "label": "url for tags"
+    },
+    {
+      "type": "text",
+      "id": "bg-color-article",
+      "label": "container backgground color",
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "bg-color-card",
+      "label": "card backgground color",
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "bg-color-content",
+      "label": "content backgground color",
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "title-col",
+      "label": "main title color",
+      "default": "#482F8F"
+    },
+    {
+      "type": "text",
+      "id": "sub-title-col",
+      "label": "sub title color",
+      "default": "#000303"
+    },
+    {
+      "type": "text",
+      "id": "tag-bg",
+      "label": "tag background color",
+      "default": "#482F8F"
+    },
+    {
+      "type": "text",
+      "id": "tag-col",
+      "label": "tag color",
+      "default": "#F4ECD0"
+    },
+    {
+      "type": "text",
+      "id": "article-title-color",
+      "label": "Article Title color",
+      "default": "#482F8F"
+    },
+    {
+      "type": "text",
+      "id": "author-color",
+      "label": "author and date color",
+      "default": "#000303"
+    },
+    {
+      "type": "text",
+      "id": "border-color",
+      "label": "border color",
+      "default": "#000303"
+    },
+
+    {
+      "type": "number",
+      "id": "slides-per-view",
+      "label": "slides-per-view",
+      "default": 3
+    },
+    {
+      "type": "text",
+      "id": "display-next",
+      "label": "display of next btn(enter block or none)",
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "display-prev",
+      "label": "display of prev btn(enter block or none)",
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "viewall-btn",
+      "label": "display of view all(enter block or none)",
+      "default": "none"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_padding_tag",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_tag",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "title-padding-top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "padding-top-for-title",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "title-padding-bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "padding-bottom-for-title",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintoptag",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintoptagmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "tag wise card"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

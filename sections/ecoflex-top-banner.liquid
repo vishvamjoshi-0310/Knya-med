@@ -1,0 +1,87 @@
+{{ 'ecoflex-top-banner.css' | asset_url | stylesheet_tag }}
+<a href="{{ section.settings.eco-top-url }}">
+<div class="top-banner-section {% if section.settings.ecoflex_banner  %} page-padding-right page-padding-left{% endif %} {% if section.settings.ecoflex_banner_mob %}padding-right-mob padding-left-mob{% endif %}">
+  <img
+    srcset="
+      {%- if section.settings.banner_logo_image.width >= 165 -%}{{ section.settings.banner_logo_image | img_url: '165x' }} 165w,{%- endif -%}
+      {%- if section.settings.banner_logo_image.width >= 360 -%}{{ section.settings.banner_logo_image | img_url: '214x' }} 360w,{%- endif -%}
+      {%- if section.settings.banner_logo_image.width >= 533 -%}{{ section.settings.banner_logo_image | img_url: '533x' }} 533w,{%- endif -%}
+      {%- if section.settings.banner_logo_image.width >= 720 -%}{{ section.settings.banner_logo_image | img_url: '720x' }} 720w,{%- endif -%}
+      {%- if section.settings.banner_logo_image.width >= 940 -%}{{ section.settings.banner_logo_image | img_url: '940x' }} 940w,{%- endif -%}
+      {%- if section.settings.banner_logo_image.width >= 1066 -%}{{ section.settings.banner_logo_image | img_url: '1066x' }} 1066w,{%- endif -%}
+      {{ section.settings.banner_logo_image | img_url: '1440x' }} {{ section.settings.banner_logo_image.width }}w
+    "
+    src="{{ section.settings.banner_logo_image | img_url: '1440x' }}"
+    size="auto"
+    alt="{% if section.settings.banner_logo_image.alt != blank %}{{ section.settings.banner_logo_image.alt | escape }} {% else %} home banner {% endif %}"
+    class="logo-image"
+    width="{{ section.settings.banner_logo_image.width }}"
+    height="{{ section.settings.banner_logo_image.height }}"
+  >
+  <img
+    srcset="
+      {%- if section.settings.mobile_banner_logo_image.width >= 165 -%}{{ section.settings.mobile_banner_logo_image | img_url: '165x' }} 165w,{%- endif -%}
+      {%- if section.settings.mobile_banner_logo_image.width >= 360 -%}{{ section.settings.mobile_banner_logo_image | img_url: '214x' }} 360w,{%- endif -%}
+      {%- if section.settings.mobile_banner_logo_image.width >= 533 -%}{{ section.settings.mobile_banner_logo_image | img_url: '533x' }} 533w,{%- endif -%}
+      {%- if section.settings.mobile_banner_logo_image.width >= 720 -%}{{ section.settings.mobile_banner_logo_image | img_url: '720x' }} 720w,{%- endif -%}
+      {%- if section.settings.mobile_banner_logo_image.width >= 940 -%}{{ section.settings.mobile_banner_logo_image | img_url: '940x' }} 940w,{%- endif -%}
+      {%- if section.settings.mobile_banner_logo_image.width >= 1066 -%}{{ section.settings.mobile_banner_logo_image | img_url: '1066x' }} 1066w,{%- endif -%}
+      {{ section.settings.mobile_banner_logo_image | img_url: '550x' }} {{ section.settings.mobile_banner_logo_image.width }}w
+    "
+    src="{{ section.settings.mobile_banner_logo_image | img_url: '550x' }}"
+    size="auto"
+    alt="{% if section.settings.mobile_banner_logo_image.alt != blank %}{{ section.settings.mobile_banner_logo_image.alt | escape }} {% else %} home banner mobile {% endif %}"
+    class="mobile-image"
+    width="{{ section.settings.mobile_banner_logo_image.width }}"
+    height="{{ section.settings.mobile_banner_logo_image.height }}"
+  >
+</div>
+</a>
+{% schema %}
+{
+  "name": "Ecoflex Top Banner",
+  "settings": [
+     {
+      "type": "checkbox",
+      "id": "ecoflex_banner",
+      "label": "Padding for Section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "ecoflex_banner_mob",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    },
+    {
+  "type": "url",
+  "id": "eco-top-url",
+  "label": "banner link"
+},
+    {
+      "type": "image_picker",
+      "id": "banner_logo_image",
+      "label": "Logo Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_banner_logo_image",
+      "label": "Mobile Logo Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecoflex Top Banner"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

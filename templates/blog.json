@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "80a56a09-efb9-4b30-ba73-f20bdbda03c6": {
+      "type": "blog-landing-page-banner",
+      "disabled": true,
+      "settings": {
+        "backgroundImage1": "shopify://shop_images/Rectangle_18851_1.png",
+        "backgroundImage2": "shopify://shop_images/Rectangle_18851.png",
+        "backgroundImagetwo1": "shopify://shop_images/Blog-Landing-Page-Top-banner-1920x466-beige.jpg",
+        "backgroundImagetwo2": "shopify://shop_images/Blog-Landing-Page-Top-banner-600x400-beige.jpg",
+        "subtitle": "Stories From Our Community",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1289c8f0-b00c-40a6-b1dd-64260b23d0f4": {
+      "type": "breadcrumb",
+      "settings": {
+        "margintopbread": 0,
+        "margintopbreadmob": 0,
+        "margintopbread_collection": 0,
+        "margintopbreadmob_collection": 0
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "f3161732-150e-4bb5-a637-68bc4f39d709": {
+      "type": "blog-tag-other-section",
+      "disabled": true,
+      "settings": {
+        "image_height1": "medium",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "sliderrang": 0,
+        "blog": "",
+        "tagname": "Others",
+        "view-all": "",
+        "view-all-url": "",
+        "title-article": "Other Articles",
+        "cont-article": "",
+        "tag-article": "",
+        "url-tag-article": "",
+        "bg-color-article": "none",
+        "bg-color-card": "none",
+        "bg-color-content": "none",
+        "title-col": "#482F8F",
+        "sub-title-col": "#000303",
+        "tag-bg": "#482F8F",
+        "tag-col": "#F4ECD0",
+        "article-title-color": "#482F8F",
+        "author-color": "#000303",
+        "border-color": "#000303",
+        "slides-per-view": 2,
+        "display-next": "block",
+        "display-prev": "block",
+        "viewall-btn": "none",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 0,
+        "title-padding-bottom": 0,
+        "margintoptag": 15,
+        "margintoptagmob": 17
+      }
+    },
+    "a0776533-33d9-4d99-9b01-213dd489d020": {
+      "type": "blog-tags-section",
+      "disabled": true,
+      "settings": {
+        "showcustomblog": false,
+        "blogs_per_page": 6,
+        "image_height1": "medium",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "blog": "",
+        "tagname": "Others",
+        "view-all": "",
+        "view-all-url": "",
+        "title-article": "Others Article",
+        "cont-article": "",
+        "tag-article": "",
+        "url-tag-article": "",
+        "bg-color-article": "none",
+        "bg-color-card": "none",
+        "bg-color-content": "none",
+        "title-col": "#482F8F",
+        "sub-title-col": "#000303",
+        "tag-bg": "#482F8F",
+        "arrowscolor": "#482F8F",
+        "tag-col": "#F4ECD0",
+        "article-title-color": "#482F8F",
+        "author-color": "#000303",
+        "border-color": "#000303",
+        "slides-per-view": 2,
+        "display-next": "none",
+        "display-prev": "none",
+        "viewall-btn": "none",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 0,
+        "title-padding-bottom": 0,
+        "margintoptag": 100,
+        "margintoptagmob": 0
+      }
+    },
+    "924bf2d5-5e91-4008-891d-c245528a9d92": {
+      "type": "slider",
+      "settings": {
+        "shop-now-cont": "ADD TO CART",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "marginTopslidd": 57,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 25,
+        "marginBottomsliddmob": 0,
+        "headText": "In the Spotlight",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "Shop our bestsellers",
+        "collection": "all-best-seller-linked-to-homepage"
+      }
+    }
+  },
+  "order": [
+    "80a56a09-efb9-4b30-ba73-f20bdbda03c6",
+    "1289c8f0-b00c-40a6-b1dd-64260b23d0f4",
+    "main",
+    "f3161732-150e-4bb5-a637-68bc4f39d709",
+    "a0776533-33d9-4d99-9b01-213dd489d020",
+    "924bf2d5-5e91-4008-891d-c245528a9d92"
+  ]
+}

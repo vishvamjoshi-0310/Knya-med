@@ -1,0 +1,184 @@
+{{ 'aboutus-how-focusonyou.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .main_focuson_you {max-width: 100%;margin-top:{{ section.settings.margintop_focuson_you}}px;
+                        background: #F4ECD0;}
+{%- endstyle -%}
+<div class="main_focuson_you page-width ">
+  <div class=" main_bg{% if section.settings.how_wefocus_desktop  %} page-padding-right page-padding-left{% endif %} {% if section.settings.how_wefocus_mob %}padding-right-mob padding-left-mob{% endif %}">
+    <p class="main_heading">{{ section.settings.main_heading }}</p>
+    <div class="aboutus_focuson_you">
+      <div class="swiper mySwiper_focusonyou">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide ">
+              <div class=" center_div">
+                <div>
+                  {{
+                    block.settings.howwe_focus_image_desktop
+                    | image_url: width: 480
+                    | image_tag: class: 'how_wefocus_Desktopimg', loading: 'lazy'
+                  }}
+
+                  {{
+                    block.settings.howwe_focus_image_mobile
+                    | image_url: width: 480
+                    | image_tag: class: 'how_wefocus_mobileimg', loading: 'lazy'
+                  }}
+                </div>
+                <div class="card_title">{{ block.settings.card_title }}</div>
+                <div class="card_description">{{ block.settings.card_Description }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Initialize Swiper -->
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      if (screen.width > 750) {
+        var mySwiper_focusonyou = new Swiper('.mySwiper_focusonyou', {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          slidesPerGroup: 1,
+          loop: true,
+          freeMode: false,
+          loopFillGroupWithBlank: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          },
+        });
+      } else {
+        var mySwiper_focusonyou = new Swiper('.mySwiper_focusonyou', {
+          slidesPerView: 1.5,
+          spaceBetween: 10,
+          slidesPerGroup: 1,
+          loop: true,
+          freeMode: false,
+          autoplay: {
+            delay: 2000,
+          },
+          loopFillGroupWithBlank: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.2,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+          },
+
+          effect: 'coverflow',
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: 'auto',
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 80,
+            depth: 300,
+            modifier: 1,
+            slideShadows: false,
+          },
+        });
+      }
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "How we focus on you",
+  "settings": [
+    {
+      "type": "range",
+      "id": "margintop_focuson_you",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": " Heading",
+      "default": " Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "how_wefocus_desktop",
+      "label": "Padding for Section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "how_wefocus_mob",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "slider ",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "howwe_focus_image_desktop",
+          "label": "image for desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "howwe_focus_image_mobile",
+          "label": "image for mobile"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": " Title",
+          "default": " Title"
+        },
+        {
+          "type": "text",
+          "id": "card_Description",
+          "label": " card Description",
+          "default": " Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How we focus"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,139 @@
+<style>
+#announcent-{{ section.id }}:not(.swiper-initialized) .swiper-slide{display:none;}
+#announcent-{{ section.id }}:not(.swiper-initialized) .swiper-slide:first-child{display:block;} 
+ .swiper--top{overflow:hidden;background:#7ea7d6!important}#shopify-section-announcement-bar .swiper-container .swiper-slide{margin-right:10px}.announcement-bar__message{font-weight:400;font-size:1.094vw;line-height:120%;letter-spacing:.05em;color:#000303;flex:none;order:2;flex-grow:0;display:flex;align-items:center;gap:10px}.swiper-container{width:100%;height:100%;position:relative}.swiper--top .swiper-wrapper{-webkit-transition-timing-function:linear!important;transition-timing-function:linear!important;position:relative}.swiper--top .swiper-slide{text-align:center;font-size:33px;display:flex;justify-content:center;align-items:center;width:auto;position:relative;overflow:hidden;background-color:#7ea7d6}@keyframes line-slide{0%{background-position:-5% 0}100%{background-position:100% 0}}@media screen and (min-width:641px) and (max-width:1024px){.swiper--top .swiper-slide{font-size:1.367vw}.announcement-bar__message{font-size:1.367vw!important}}@media screen and (max-width:640px){.swiper--top .swiper-slide{font-size:14px}.announcement-bar__message{font-size:14px!important}}
+</style>
+<div class="swiper-container swiper--top" id="announcent-{{ section.id }}">
+  <div class="swiper-wrapper">
+    {%- for block in section.blocks -%}
+      {%- if block.settings.text != blank -%}
+        <div class="swiper-slide">
+          {%- if block.settings.link != blank -%}
+            <a
+              href="{{ block.settings.link }}"
+              class="announcement-bar__link link link--text focus-inset animate-arrow"
+            >
+          {%- endif -%}
+          <p class="announcement-bar__message {{ block.settings.text_alignment }} h5 font-heebo-regular">
+            {{ block.settings.text | escape }}
+          </p>
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% if section.blocks.size > 1 %}
+ 
+  <script>
+    window.addEventListener(
+      'DOMContentLoaded',
+      () => {
+        let SwiperTop = new Swiper('.swiper--top', {
+          spaceBetween: 10,
+          slidesPerView: 4,
+          centeredSlides: true,
+          speed: 6000,
+          autoplay: {
+            delay: 1,
+          },
+          loop: true,
+          slidesPerView: 'auto',
+          allowTouchMove: false,
+          disableOnInteraction: true,
+        });
+      },
+      { once: true }
+    );
+  </script>
+ 
+  <style>
+    .announcement-bar__message::after {content: ' ';width: 5px;height: 5px;background: #000303;flex: none;order: 7;flex-grow: 0;border-radius: 5px;}
+  </style>
+{% else %}
+  <style>
+    .swiper--top .swiper-wrapper {width: 100% !important;display: flex;justify-content: center;}
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.options__3.label"
+            }
+          ],
+          "default": "center",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.label"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
+            {
+              "value": "accent-1",
+              "label": "t:sections.all.colors.accent_1.label"
+            },
+            {
+              "value": "accent-2",
+              "label": "t:sections.all.colors.accent_2.label"
+            },
+            {
+              "value": "background-1",
+              "label": "t:sections.all.colors.background_1.label"
+            },
+            {
+              "value": "background-2",
+              "label": "t:sections.all.colors.background_2.label"
+            },
+            {
+              "value": "inverse",
+              "label": "t:sections.all.colors.inverse.label"
+            }
+          ],
+          "default": "accent-1",
+          "label": "t:sections.all.colors.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}

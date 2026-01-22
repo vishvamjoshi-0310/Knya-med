@@ -1,0 +1,159 @@
+{{ 'home-brand-slider.css' | asset_url | stylesheet_tag }}
+<style>
+    .brand-test{
+      margin-top: {{ section.settings.marginTopbrands }}px;
+      margin-bottom: {{ section.settings.marginBottombrands }}px;
+    }
+  @media screen and (max-width:640px){
+    .brand-test{
+      margin-top: {{ section.settings.marginTopbrandsmob }}px;
+      margin-bottom: {{ section.settings.marginBottombrandsmob }}px;
+    }
+  }
+</style>
+<div class="top-brands">
+  <div class="page-width swiper test-swiper2 brand-test mySwiper mySwiper1 {% if section.settings.show_padding_brand  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_brand %}padding-right-mob padding-left-mob{% endif %}">
+    <div class="swiper-wrapper custom-wraper1">
+      {%- for block in section.blocks -%}
+        <div class="swiper-slide brand-slide" data-swiper-autoplay="0">
+          <img
+            srcset="
+              {%- if block.settings.brandImage.width >= 375 -%}{{ block.settings.brandImage | image_url: width: 375 , format: 'webp' }} 375w,{%- endif -%}
+              {{ block.settings.brandImage | image_url }} {{ block.settings.brandImage.width }}w
+            "
+            sizes="100vw"
+            src="{{ block.settings.brandImage | image_url: width: 250 }}"
+            loading="lazy"
+            alt="{{ block.settings.brandImage.alt | escape }}"
+            width="200"
+            height="auto"
+          >
+        </div>
+      {% endfor %}
+    </div>
+    <!--
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    -->
+    <!-- <div class="swiper-scrollbar"></div> -->
+  </div>
+</div>
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      const swiperbrand = new Swiper('.mySwiper1', {
+        loop: true,
+        speed: 10000,
+        slidesPerView: 8,
+        spaceBetween: 46,       
+        scrollbar: {
+          el: '.swiper-scrollbar',
+          draggable: false,
+        },
+        allowTouchMove: false,
+        breakpoints: {
+          0: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 8,
+            spaceBetween: 46,
+          },
+        },
+      });
+
+
+function startAutoplay2() {
+      if (swiperbrand) {
+          swiperbrand.autoplay.start();                
+      }
+  }
+document.addEventListener('mousemove', startAutoplay2);
+document.addEventListener('touchstart', startAutoplay2);
+
+
+      
+    },
+    { once: true }
+  );
+</script>
+{% schema %}
+{
+  "name": "Brand Slider",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_padding_brand",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_brand",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "marginTopbrands",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottombrands",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginTopbrandsmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottombrandsmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brandImage",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "brand slider"
+    }
+  ]
+}
+{% endschema %}

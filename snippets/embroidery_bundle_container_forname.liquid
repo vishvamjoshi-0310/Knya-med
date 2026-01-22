@@ -1,0 +1,105 @@
+
+
+    <div class='form_content 1'>
+      
+      <div class='form_wrapper'> 
+        <div class="form_wrapper_header font-heebo-medium">
+          <h3>ADD YOUR name</h3>
+
+          <p> {{ mainPrice | money_without_trailing_zeros }}</p>
+        </div>
+      <p class="popup_steps">STEP 1</p>
+          <div class='optionbox swatch container_one font-heebo-medium ' >
+           
+            <h4> Name Pacement: </h4>
+            
+            <div class='option_row option_row'>
+           <input type='radio' id="embriodary-position" name='nameposition' data-class='position' value='Left Chest' checked='checked'  > <label for="embriodary-position"> Left Chest</label>
+            
+            </div>
+            
+          </div>
+         <p class="popup_steps">STEP 2</p>
+           <div class='optionbox name-box'>
+          
+            <h4>My Name </h4>
+            
+            <div class='name box option_row fullnameInput'>  
+             <div class="firstname"> 
+
+               <input type='text' class="firstname1" placeholder='Full Name' value="" maxlength="20" required onclick ="display()"/>
+               <p class="error_embroideryFieldf ">Please Fill The Field</p>
+
+             </div>
+              <div class="lastName">
+             <input type='text' class="secondname1" placeholder='Designation (Optional)' maxlength="20"/>
+              </div>
+               
+             </div>
+            
+          </div>
+           
+          <div class='optionbox swatch optionbox-color'>
+            <p class="popup_steps">STEP 3</p>
+            <div class="color-box">
+            <h4>Color of embroidery: <span class="colorName"></span> </h4>
+            
+            <div class="OptionBox-Inner colorBox" >
+
+<!--               Black : #000000 -->
+
+             <div class='option_row color {% if request.path  contains 'black' or request.path  contains 'wine' or request.path  contains 'maroon' or request.path  contains 'navy-blue' or request.path  contains 'navy' or request.path  contains 'dark-green' %}color_match {% else %}color_not_match{% endif %}'>  
+             <span class="swatch-titlee-emb">Black</span>
+               <input type='radio' class="emb-col" name='namecolor'data-textColor="#000000" data-class='color' value='Black' id="colorBlack-{{ proPww.id }}" required/> <label for="colorBlack-{{ proPww.id }}" class="colorBoxB colorEmbroidery"> </label>
+             </div>
+              
+<!--               White : #FFFFFF -->
+              <div class='option_row color {% if product.tags contains 'Lab Coat' %}color_match {% else %}color_not_match{% endif %}'>  
+              <span class="swatch-titlee-emb">White</span>
+                <input type='radio' class="emb-col" name='namecolor' data-textColor="#FFFFFF" data-class='color' value='White' id="colorWhite-{{ proPww.id }}" class="emb-col-hoverd" required/> <label for="colorWhite-{{ proPww.id }}" class="colorBoxW colorEmbroidery"> </label>
+             </div>
+<!--               Wild Pink : #EE90A0 -->
+              <div class='option_row color {% if request.path  contains 'dusty-pink' or request.path  contains 'hot-pink' or request.path  contains 'pastel-lilac'%}color_match {% else %}color_not_match{% endif %}'>  
+             <span class="swatch-titlee-emb">Wild Pink</span>
+                <input type='radio' class="emb-col" name='namecolor' data-textColor="#EE90A0" data-class='color' value='Wild Pink' id="colorWildPink-{{ proPww.id }}" class="emb-col-hoverd" required/> <label for="colorWildPink-{{ proPww.id }}" class="colorBoxWP colorEmbroidery"> </label>
+             </div>
+<!--               Scholastic Gold : #FCC201 -->
+            <div class='option_row color'>  
+             <span class="swatch-titlee-emb">Scholastic Gold</span>
+              <input type='radio' name='namecolor' class="emb-col" data-textColor="#FCC201" data-class='color' value='Scholastic Gold' id="colorGold-{{ proPww.id }}" class="emb-col-hoverd" required/> <label for="colorGold-{{ proPww.id }}" class="colorBoxSG colorEmbroidery"> </label>
+             </div>
+<!--               Red : #FF0000 -->
+             <div class='option_row name box {% if request.path  contains 'maroon' or request.path  contains 'hot-pink' or request.path  contains 'dusty-pink'%}color_match {% else %}color_not_match{% endif %}'>  
+             <span class="swatch-titlee-emb">Red</span>
+               <input type='radio' name='namecolor' class="emb-col" data-textColor="#FF0000" data-class='color' value='Red' id="colorRed-{{ proPww.id }}" class="emb-col-hoverd" class="emb-col-hoverd" requiredrequired/> <label for="colorRed-{{ proPww.id }}" class="colorBoxR colorEmbroidery"> </label>
+             </div>
+               
+            </div>
+            
+          </div>
+
+              <p class="error_embroideryFieldc">Please Select The Color</p>
+
+          </div>
+          <p class="popup_steps">STEP 4</p>
+           
+             <div class='optionbox swatch font-group'>
+          
+            <h4>  Font:<span class="font_name">Block</span></h4>
+            <div class="OptionBox-Inner">
+            <div class='option_row font font_wrapper icon_change font-heebo-Bold'>  
+              <input type='radio' name='namefont-{{ proPww.id }}' data-class='font' value='block' id="fontBlack-{{ proPww.id }}" checked='checked' /> 
+              <label for="fontBlack-{{ proPww.id }}">{% render 'embroidery_title_svg' %} Block </label>
+              
+             </div>
+             <div class='option_row  name box font_wrapper font-Fraunces-Italic'>  
+              
+              <input type='radio' name='namefont-{{ proPww.id }}' data-class='font' value='script' id="fontScript-{{ proPww.id }}"/> <label class="VarsityScriptJF" for="fontScript-{{ proPww.id }}"> {% render 'embroidery_title_svg' %} Script </label>
+              
+             </div>
+               </div>
+          </div>
+          
+      </div>  
+        
+        </div>

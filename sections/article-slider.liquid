@@ -1,0 +1,198 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'custom-article-card.css' | asset_url | stylesheet_tag }}
+<style>
+  {% if request.path contains "tagged" %}
+    .conditional-class{ display:none;}
+  {% else %}
+    .conditional-class{display: block;}
+  {% endif %}
+</style>
+{% if request.path contains 'tagged' %}
+  {% render 'tag-condition' %}
+{% endif %}
+
+<div class="conditional-class">
+  <div class="page-width">
+    <h1 class="title--primary font-heebo-medium font-title">{{ section.settings['main-title'] | escape }}</h1>
+    <div class="swiper swiperarticle">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          {% assign article = block.settings['article-slide'] %}
+          {% assign tags = block.settings['tags-slider'] | split: '##' %}
+          <div class="swiper-slide">
+            {%-
+              render 'custom-article-card',
+              article: article,
+              media_height: section.settings.image_height1,
+              media_aspect_ratio: article.image.aspect_ratio,
+              show_image: section.settings.show_image1,
+              show_date: section.settings.show_date1,
+              show_author: section.settings.show_author1,
+              show_excerpt: true,
+              block_tags: tags,
+              block_imagepick:block.settings.desktopimageslide,
+              block_imagepickmob:block.settings.mobimageslide,
+            -%}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination1 article-paginnate"></div>
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swiperarticle = new Swiper('.swiperarticle', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: '.swiper-pagination1',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+{% schema %}
+{
+  "name": "custom article slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main-title",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "image_height2",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg-img-article",
+      "label": "reading background"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image2",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date3",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author4",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_article",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_article",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintoparticle",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintoparticlemob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "articles",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article-slide",
+          "label": "Article"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktopimageslide",
+          "label": "DeskTop Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobimageslide",
+          "label": "mobile Image "
+        },
+        {
+          "type": "text",
+          "id": "tags-slider",
+          "label": "tags to show"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "article-slide"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

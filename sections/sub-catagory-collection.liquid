@@ -1,0 +1,205 @@
+{{ 'collection-sub-category.css' | asset_url | stylesheet_tag }}
+<style>
+  .section-{{ section.id }}-margin {
+    margin-top: {{ section.settings.margintopcb }}px;
+    margin-bottom: {{ section.settings.marginbottomcb }}px;
+  }
+  .mySwipers-{{ section.id }}:not(.swiper-initialized) .main-category{display:flex;}
+   /* .join-swipp{margin-top:{{ section.settings.margintopvcb}}px;} */
+    @media only screen and (max-width:640px){
+      /* .join-swipp{margin-top:{{ section.settings.margintopcbmob}}px} */
+      .section-{{ section.id }}-margin {
+      margin-top: {{ section.settings.margintopcbmob }}px;
+      margin-bottom: {{ section.settings.marginbottomcbmob }}px;
+    }
+    }
+</style>
+{% assign meta-subb = collection.metafields.custom.plp_subcategory.value %}
+{% assign titles = meta-subb.category_name.value %}
+{% assign imgg = meta-subb.image.value %}
+{% assign link = meta-subb.link.value %}
+{% assign tDimg1 = meta-subb.three_d_image.value %}
+{% assign sizes = imgg.size | minnus: 1 %}
+
+{% assign imagemeta11 = '' %}
+{% for xyz1 in tDimg1 %}
+  {% assign imagemeta1 = xyz1 | img_url: '350x' %}
+
+  {% assign imagemeta11 = imagemeta11 | append: imagemeta1 | append: ',' %}
+{% endfor %}
+{% assign finalimg1 = imagemeta11 | split: ',' %}
+
+{% if imgg != blank %}
+  <div class="page-width section-{{ section.id }}-margin sub-category-collection">
+    <div class="swiper mySwipers- mySwipers-{{ section.id }} sub-category {% if section.settings.show_padding_cb  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_cb %}padding-right-mob padding-left-mob{% endif %}">
+      <div class="main-category swiper-wrapper">
+        {% for images in imgg %}
+          {% if forloop.index0 < 2 %}
+            {% assign lazy = 'eager' %}
+          {% else %}
+            {% assign lazy = 'lazy' %}
+          {% endif %}
+          <div class="swiper-slide slide-to-class">
+            {% assign linkname = link[forloop.index0] | split: 'collections/' | last %}
+            <a
+              href="{{ link[forloop.index0] }}"
+              class="sub-url {% if request.path contains linkname  %} noredirect {% endif %}"
+              data-name="{{ linkname }}"
+            >
+              {% assign highlightImgUrl = finalimg1[forloop.index0] %}
+
+              <div class="main-dic-sub">
+                <div class="categgory-img swiper-slide">
+                  <img
+                    class="highlited-img"
+                    src="{{ finalimg1[forloop.index0] | format: 'webp' }}"
+                    loading="{{ lazy }}"
+                    width="350"
+                    height="auto"
+                    alt="Collection category"
+                  >
+                  {{ images | image_url: width: 350, format: 'webp' | image_tag: class: 'normal-img', loading: lazy }}
+                </div>
+
+                <div class="title-sub font-heebo-medium ">
+                  <span class="sub-content">{{ titles[forloop.index0] | downcase }}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swipersubcategory = new Swiper('.mySwipers-{{ section.id }}', {
+        slidesPerView: 4,
+        spaceBetween: 35,
+        freeMode: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          100: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 4,
+            spaceBetween: 35,
+          },
+        },
+      });
+    },
+    { once: true }
+  );
+
+  window.addEventListener('load', (event) => {
+    let indexx = document
+      .querySelector('.to-show-highlited')
+      ?.closest('.slide-to-class')
+      .getAttribute('aria-label')
+      .split('/')[0];
+    if (indexx > 2) {
+      swipersubcategory.slideTo(indexx);
+    }
+  });
+
+  let wurl = window.location.href.split('/').pop();
+
+  document.querySelectorAll('.sub-url').forEach((each) => {
+    if (each.getAttribute('href').split('/').pop() == wurl) {
+      each.classList.add('to-show-highlited');
+    }
+  });
+</script>
+{% schema %}
+{
+  "name": "collection category",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_padding_cb",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_cb",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintopcb",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginbottomcb",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintopcbmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginbottomcbmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin Bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "collection category"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+{% if template.name == 'collection' %}
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      if (window.innerWidth < 640) {
+        document.querySelectorAll('.sub-category.mySwipers .swiper-slide a.sub-url').forEach((slider) => {
+          if (slider.getAttribute('href').includes(window.location.href)) {
+            let sliderNumber = slider.parentElement.getAttribute('aria-label').split('/')[0].trim();
+            swiper.slideTo(parseInt(sliderNumber - 1), 100, false);
+          }
+        });
+      }
+    });
+  </script>
+{% endif %}

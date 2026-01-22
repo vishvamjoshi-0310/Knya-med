@@ -1,0 +1,42 @@
+<div class="video-image-container">
+  {% if section.settings.choose_option == 'video' %}
+    {% if section.settings.video_url != blank %}
+      <video
+        id="homevideo"
+        width="100%"
+        controls="controls"
+        controlsList="nodownload"
+        autoplay="autoplay"
+        muted="muted"
+        loop="loop"
+        playsinline=""
+        preload="metadata"
+        data-aos="fade-up"
+        allowfullscreen
+      >
+        <source src="{{ section.settings.video_url }}" id="videoId">
+      </video>
+    {% endif %}
+  {% else %}
+    {% if section.settings.sustain_right_image != blank %}
+      <img
+        srcset="
+          {%- if section.settings.sustain_right_image.width >= 165 -%}{{ section.settings.sustain_right_image | img_url: '165x' }} 165w,{%- endif -%}
+          {%- if section.settings.sustain_right_image.width >= 360 -%}{{ section.settings.sustain_right_image | img_url: '214x' }} 360w,{%- endif -%}
+          {%- if section.settings.sustain_right_image.width >= 533 -%}{{ section.settings.sustain_right_image | img_url: '533x' }} 533w,{%- endif -%}
+          {%- if section.settings.sustain_right_image.width >= 720 -%}{{ section.settings.sustain_right_image | img_url: '720x' }} 720w,{%- endif -%}
+          {%- if section.settings.sustain_right_image.width >= 940 -%}{{ section.settings.sustain_right_image | img_url: '940x' }} 940w,{%- endif -%}
+          {%- if section.settings.sustain_right_image.width >= 1066 -%}{{ section.settings.sustain_right_image | img_url: '1066x' }} 1066w,{%- endif -%}
+          {{ section.settings.sustain_right_image | img_url: '550x' }} {{ section.settings.sustain_right_image.width }}w
+        "
+        src="{{ section.settings.sustain_right_image | img_url: '550x' }}"
+        size="auto"
+        loading="lazy"
+        alt="{{ section.settings.sustain_right_image.alt | escape }}"
+        class="sustain-right-container"
+        width="{{ section.settings.sustain_right_image.width }}"
+        height="{{ section.settings.sustain_right_image.height }}"
+      >
+    {% endif %}
+  {% endif %}
+</div>

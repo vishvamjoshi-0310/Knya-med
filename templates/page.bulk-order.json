@@ -1,0 +1,424 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "bulk-order-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "breadcrum_new_HNdLVp": {
+      "type": "breadcrum-new",
+      "disabled": true,
+      "custom_css": [
+        "@media (min-width: 768px) {.breadcrumbs {margin-bottom: 18px; }}"
+      ],
+      "name": "breadcrumbs-new",
+      "settings": {
+        "margintopbread": 18,
+        "margintopbreadmob": 0,
+        "margintopbread_collection": 0,
+        "margintopbreadmob_collection": 0
+      }
+    },
+    "banner_with_text1_qgrm6e": {
+      "type": "banner-with-text1",
+      "blocks": {
+        "text_cwCAda": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/bulk-order-banner.png",
+            "image_2": "shopify://shop_images/bulk-order-mob-banner.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "https://jpk1r94h9ow.typeform.com/to/YQIdTObt",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "",
+            "button-color": "",
+            "hpbox1": "B2B-26thdec"
+          }
+        }
+      },
+      "block_order": [
+        "text_cwCAda"
+      ],
+      "settings": {
+        "checkforautoslide": false,
+        "margin-top-desktop": 0,
+        "margin-bottom-desktop": 0,
+        "margin-top-mobile": 0,
+        "margin-bottom-mobile": 0,
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "text-backgroundcolor": "",
+        "text-color": "",
+        "box-padding": 0,
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "institutions_carousel_mT6jxh": {
+      "type": "institutions-carousel",
+      "blocks": {
+        "logo_HJPEx9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/apollo.png"
+          }
+        },
+        "logo_Bj6HKB": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/fortis-logo.png"
+          }
+        },
+        "logo_a8jFA7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/meril-logo.png"
+          }
+        },
+        "logo_M6ndLm": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/wockhardt_1.png"
+          }
+        },
+        "logo_qKKyNy": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/spine-clinic.png"
+          }
+        },
+        "logo_XUXz43": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/narayana-logo.png"
+          }
+        },
+        "logo_M8deDf": {
+          "type": "logo",
+          "name": "HN Reliance",
+          "settings": {
+            "image": "shopify://shop_images/HN_Reliance_66e5e41a-ba94-4b10-81f6-2a08da8519c5.png"
+          }
+        },
+        "logo_KQcmFc": {
+          "type": "logo",
+          "name": "Vantara",
+          "settings": {
+            "image": "shopify://shop_images/Vantara_ae753507-97b1-4871-a7f9-f7159cbcc0eb.png"
+          }
+        },
+        "logo_RXWnji": {
+          "type": "logo",
+          "name": "Super tails",
+          "settings": {
+            "image": "shopify://shop_images/SuperTails_87ff1082-67e7-4d75-a5f8-4971292c0c0c.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_HJPEx9",
+        "logo_Bj6HKB",
+        "logo_a8jFA7",
+        "logo_M6ndLm",
+        "logo_qKKyNy",
+        "logo_XUXz43",
+        "logo_M8deDf",
+        "logo_KQcmFc",
+        "logo_RXWnji"
+      ],
+      "name": "Institutions Carousel",
+      "settings": {
+        "heading": "Institutions we have served",
+        "subheading": "We’ve suited up the best"
+      }
+    },
+    "interactive_card_grid_BhwkPG": {
+      "type": "interactive-card-grid",
+      "blocks": {
+        "card_gihCHw": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/growing-together-1.png",
+            "title": "500+",
+            "description": "Customised Orders Delivered ",
+            "hidden_text": "Across hospitals, colleges, clinics & more. "
+          }
+        },
+        "card_aXapEw": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/growing-together-2.png",
+            "title": "4.7",
+            "description": "Customer Satisfaction Score",
+            "hidden_text": "Rated by medicos across India."
+          }
+        },
+        "card_6UQFGm": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Component_12.png",
+            "title": "72%",
+            "description": "Repeat Order Rate",
+            "hidden_text": "Because one set is never enough."
+          }
+        },
+        "card_fAXRMr": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Why_bulk_order_desktop.png",
+            "title": "10% - 40%",
+            "description": "Unlock exclusive tailored discount..",
+            "hidden_text": "based on order volume and customization"
+          }
+        }
+      },
+      "block_order": [
+        "card_gihCHw",
+        "card_aXapEw",
+        "card_6UQFGm",
+        "card_fAXRMr"
+      ],
+      "name": "Interactive Card Grid",
+      "settings": {
+        "heading": "Growing Together with the best",
+        "subheading": "Worn with pride. Loved by thousands."
+      }
+    },
+    "bulk_order_steps_jDpnDT": {
+      "type": "bulk-order-steps",
+      "blocks": {
+        "step_grzDWr": {
+          "type": "step",
+          "settings": {
+            "title": "Fill out the form with details"
+          }
+        },
+        "step_PAm3xr": {
+          "type": "step",
+          "settings": {
+            "title": "Receive a call within 24 hours"
+          }
+        },
+        "step_mFgwWJ": {
+          "type": "step",
+          "settings": {
+            "title": "Build your custom order with us "
+          }
+        },
+        "step_N4tahc": {
+          "type": "step",
+          "settings": {
+            "title": "Get seamless, end-to-end delivery"
+          }
+        }
+      },
+      "block_order": [
+        "step_grzDWr",
+        "step_PAm3xr",
+        "step_mFgwWJ",
+        "step_N4tahc"
+      ],
+      "name": "Bulk Order Steps",
+      "settings": {
+        "heading": "Bulk Ordering Made Simple",
+        "subheading": "Fill out the form, and we'll take care of the rest.",
+        "button_text": "Start Your Order Now",
+        "button_link": "https://jpk1r94h9ow.typeform.com/to/YQIdTObt"
+      }
+    },
+    "count_ticker_section_ankVxq": {
+      "type": "count-ticker-section",
+      "blocks": {
+        "count_ticker_f3YQCJ": {
+          "type": "count-ticker",
+          "settings": {
+            "block-heading": "Partnered with",
+            "ticker-content": "600",
+            "enable-ticker": true,
+            "block-subheading": "Hospitals and Clinics"
+          }
+        },
+        "count_ticker_pkUJN8": {
+          "type": "count-ticker",
+          "settings": {
+            "block-heading": "Delivered",
+            "ticker-content": "1Lakh",
+            "enable-ticker": false,
+            "block-subheading": "Units to clients annually "
+          }
+        },
+        "count_ticker_6APCFH": {
+          "type": "count-ticker",
+          "settings": {
+            "block-heading": "Supplied to",
+            "ticker-content": "50",
+            "enable-ticker": true,
+            "block-subheading": "Medical Institutions and Colleges"
+          }
+        }
+      },
+      "block_order": [
+        "count_ticker_f3YQCJ",
+        "count_ticker_pkUJN8",
+        "count_ticker_6APCFH"
+      ],
+      "name": "Count Ticker Section",
+      "settings": {
+        "heading": "Impact, stitched in every set.",
+        "subheading": "Serving hospitals, clinics, and future medicos."
+      }
+    },
+    "bulk_registration_form_pdpQCf": {
+      "type": "bulk-registration-form",
+      "disabled": true,
+      "name": "Bulk Registration Form",
+      "settings": {
+        "form_desktop_image": "shopify://shop_images/form-desktop.png",
+        "form_mobile_image": "shopify://shop_images/form-mobile.png",
+        "form_heading": "Registration Form",
+        "form_subheading": "Start Your Bulk Order Journey with Us",
+        "form_step1_text": "Personal Information",
+        "form_step2_text": "Order Requirement"
+      }
+    },
+    "bulk_order_testimonial_F6f88e": {
+      "type": "bulk-order-testimonial",
+      "blocks": {
+        "testimonial_MpUJG8": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_image": "shopify://shop_images/feline_foundation.png",
+            "testimonial_heading": "Perfect Fit & Easy Care",
+            "testimonial_description": "Scrubs are true to size, good quality & pet hair comes off easily. Logo size, format & color were done perfectly.",
+            "testimonial_rating": 5,
+            "testimonial_date": "26/12/2024"
+          }
+        },
+        "testimonial_h4mMiE": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_image": "shopify://shop_images/meril_1.png",
+            "testimonial_heading": "Generous Support",
+            "testimonial_description": "We always place orders with Knya bulk team; they’re generous & helpful. Best material scrubs, perfect for daily wear.",
+            "testimonial_rating": 5,
+            "testimonial_date": "13/01/2025"
+          }
+        },
+        "testimonial_pDairC": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_image": "shopify://shop_images/pathway-hospital.png",
+            "testimonial_heading": "Super Comfy & Reliable",
+            "testimonial_description": "Very nice scrubs, super comfy & reliable. As always, bulk order team was extremely helpful throughout the process.",
+            "testimonial_rating": 5,
+            "testimonial_date": "16/01/2025"
+          }
+        },
+        "testimonial_GnyAJE": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_image": "shopify://shop_images/q1spineClinic.png",
+            "testimonial_heading": "Smart & Professional Look",
+            "testimonial_description": "We give Knya scrubs to our doctors & love the quality & finish. They look smart, get compliments, & service is excellent.",
+            "testimonial_rating": 5,
+            "testimonial_date": "11/02/2025"
+          }
+        },
+        "testimonial_GTUtqV": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_image": "shopify://shop_images/sion_hospital_1.png",
+            "testimonial_heading": "Smoother Process",
+            "testimonial_description": "Big thanks to Knya bulk order team for handling our scrub orders perfectly! Everyone’s happy & delivery was smooth & on time.",
+            "testimonial_rating": 5,
+            "testimonial_date": "03/04/2025"
+          }
+        },
+        "testimonial_3DWxcY": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial_image": "shopify://shop_images/supertails_1.jpg",
+            "testimonial_heading": "Top-Notch Scrubs",
+            "testimonial_description": "Knya is our go-to for scrubs. Exceptional quality, top-notch service, fast delivery & great for bulk vet team orders.",
+            "testimonial_rating": 5,
+            "testimonial_date": "26/12/2024"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_MpUJG8",
+        "testimonial_h4mMiE",
+        "testimonial_pDairC",
+        "testimonial_GnyAJE",
+        "testimonial_GTUtqV",
+        "testimonial_3DWxcY"
+      ],
+      "name": "Bulk Order Testimonials",
+      "settings": {
+        "heading": "Testimonials",
+        "subheading": "Hear What Our Partners Have to Say."
+      }
+    },
+    "floating_bulk_order_cta_BEf8UH": {
+      "type": "floating-bulk-order-cta",
+      "name": "Floading Bulk Order Cta",
+      "settings": {
+        "button-text": "Place a Bulk Order",
+        "button-link": "https://jpk1r94h9ow.typeform.com/to/YQIdTObt"
+      }
+    },
+    "accordion_with_meta_6RQzye": {
+      "type": "accordion-with-meta",
+      "settings": {
+        "margin-top-desktop": 0,
+        "margin-bottom-desktop": 0,
+        "margin-top-mobile": 0,
+        "margin-bottom-mobile": 0,
+        "heading": "FAQs",
+        "bgcolor": "#ffffff",
+        "show_text_box": true,
+        "buttontext": "Start Your Order",
+        "urlcta": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "breadcrum_new_HNdLVp",
+    "banner_with_text1_qgrm6e",
+    "institutions_carousel_mT6jxh",
+    "interactive_card_grid_BhwkPG",
+    "bulk_order_steps_jDpnDT",
+    "count_ticker_section_ankVxq",
+    "bulk_registration_form_pdpQCf",
+    "bulk_order_testimonial_F6f88e",
+    "floating_bulk_order_cta_BEf8UH",
+    "accordion_with_meta_6RQzye"
+  ]
+}

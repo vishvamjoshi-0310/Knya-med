@@ -1,0 +1,243 @@
+<style>
+  .embroideryBothIconsWrap {
+    position: relative;
+  }
+  .embroideryBothIconsWrap .myembbothSwiper {
+    margin-left: 20px;
+    width: 94%;
+  }
+  .embroideryBothIconsWrap .swiper-button-prev {
+    left: -10px;
+  }
+  .embroideryBothIconsWrap .swiper-button-next,
+  .embroideryBothIconsWrap .swiper-button-prev {
+    display: flex;
+    top: 0 !important;
+  }
+  .embroideryBothIconsWrap .swiper-button-next {
+    right: -10px;
+  }
+  .embroideryBothIconsWrap .swiper-button-next:after,
+  .embroideryBothIconsWrap .swiper-button-prev:after {
+    color: #482f8f;
+    font-size: 22px;
+  }
+  @media screen and (max-width: 749px) {
+    .embroideryBothIconsWrap .myembbothSwiper {
+      width: 90%;
+    }
+  }
+</style>
+<div class="form_content">
+  <div class="form_wrapper">
+    <div class="form_wrapper_header">
+      <p>ADD Name & ICON/LOGO</p>
+
+      <p>{{ mainPrice | money }} - {{ logoPrice }}</p>
+    </div>
+    <p class="popup_steps">STEP 1</p>
+    <div class="optionbox swatch bothPlacement">
+      <h4>Name Position:</h4>
+
+      <div class="option_row position">
+        <input type="radio" name="nameposition_both" data-class="position" value="Left Chest" checked>
+        <label> Left Chest</label>
+      </div>
+    </div>
+
+    <div class="optionbox swatch bothPlacement ">
+      <h4>Icon Placement:</h4>
+
+      <div class="option_row swatch">
+        <input type="radio" name="iconposition_both" data-class="position" value="Right Chest" checked>
+        <label> Right Chest </label>
+      </div>
+    </div>
+    <p class="popup_steps">STEP 2</p>
+    <div class="optionbox">
+      <h4>My Name</h4>
+
+      <div class="name box option_row fullnameInput">
+        <div class="firstname">
+          <input type="text" placeholder="First Name" class="firstnameb" required onclick="displayb()">
+          <p class="error_embroideryFieldb ">Please Fill The Field</p>
+        </div>
+
+        <div class="lastName">
+          <input type="text" placeholder="Designation (Optional)">
+        </div>
+      </div>
+    </div>
+    <p class="popup_steps">STEP 3</p>
+    <div class="optionbox swatch optionbox-color">
+      <h4>Colour of embroidery: <span class="bothColorName"></span></h4>
+      <div class="OptionBox-Inner jhgjhgj">
+        <!-- Black : #000000 -->
+        <div class="option_row option-row-both color {% if request.path  contains 'black' or request.path  contains 'midnight-blue' or request.path  contains 'wine' or request.path  contains 'maroon' or request.path  contains 'navy-blue' or request.path  contains 'dark-green' %}color_match {% else %}color_not_match{% endif %}">
+          <span class="swatch-titlee-emb">Black</span>
+          <input
+            type="radio"
+            name="namecolor_both"
+            data-textColor="#000000"
+            data-class="color"
+            value="Black"
+            id="colorBlack-{{ proPww.id }}"
+          >
+          <label for="colorBlack-{{ proPww.id }}" class="colorBoxB colorEmbroidery"> </label>
+        </div>
+        <!-- White : #FFFFFF -->
+        <div class="option_row color option-row-both">
+          <span class="swatch-titlee-emb">White</span>
+          <input
+            type="radio"
+            name="namecolor_both"
+            data-textColor="#FFFFFF"
+            data-class="color"
+            value="White"
+            id="colorWhite-{{ proPww.id }}"
+          >
+          <label for="colorWhite-{{ proPww.id }}" class="colorBoxW colorEmbroidery"> </label>
+        </div>
+        <!-- Wild Pink : #EE90A0 -->
+        <div class="option_row option-row-both color {% if request.path  contains 'dusty-pink' or request.path  contains 'hot-pink' or request.path  contains 'pastel-lilac'%}color_match {% else %}color_not_match{% endif %}">
+          <span class="swatch-titlee-emb">Wild Pink</span>
+          <input
+            type="radio"
+            name="namecolor_both"
+            data-textColor="#EE90A0"
+            data-class="color"
+            value="Wild Pink"
+            id="colorWildPink-{{ proPww.id }}"
+          >
+          <label for="colorWildPink-{{ proPww.id }}" class="colorBoxWP colorEmbroidery"> </label>
+        </div>
+        <!-- Scholastic Gold : #FCC201 -->
+        <div class="option_row color option-row-both">
+          <span class="swatch-titlee-emb">Scholastic Gold</span>
+          <input
+            type="radio"
+            name="namecolor_both"
+            data-textColor="#FCC201"
+            data-class="color"
+            value="Scholastic Gold"
+            id="colorGold-{{ proPww.id }}"
+          >
+          <label for="colorGold-{{ proPww.id }}" class="colorBoxSG colorEmbroidery"> </label>
+        </div>
+        <!-- Red : #FF0000 -->
+        <div class="option_row option-row-both name box {% if request.path  contains 'maroon' or request.path  contains 'hot-pink' or request.path  contains 'dusty-pink'%}color_match {% else %}color_not_match{% endif %}">
+          <span class="swatch-titlee-emb">Red</span>
+          <input
+            type="radio"
+            name="namecolor_both"
+            data-textColor="#FF0000"
+            data-class="color"
+            value="Red"
+            id="colorRed-{{ proPww.id }}"
+          >
+          <label for="colorRed-{{ proPww.id }}" class="colorBoxR colorEmbroidery"> </label>
+        </div>
+      </div>
+      <p class="error_embroideryFieldcb ">Please Select The Color</p>
+    </div>
+    <p class="popup_steps">STEP 4</p>
+    <div class="optionbox swatch">
+      <h4>Font <span class="bothFont"></span></h4>
+      <div class="OptionBox-Inner">
+        <div class="option_row font font_wrapper1 icon_change">
+          <input type="radio" name="namefont_both" data-class="font" id="block-{{ proPww.id }}" value="block" checked>
+          <label for="block-{{ proPww.id }}"> {% render 'embroidery_title_svg' %} Block </label>
+        </div>
+        <div class="option_row name box font_wrapper1">
+          <input type="radio" name="namefont_both" data-class="font" id="script-{{ proPww.id }}" value="script">
+          <label for="script-{{ proPww.id }}" class="VarsityScriptJF"> {% render 'embroidery_title_svg' %} Script </label>
+        </div>
+      </div>
+    </div>
+    <p class="popup_steps">STEP 5</p>
+    <div class="form_wrapper-icon">
+      <div class="optionbox swatch">
+        <h4 class="iconPlacement">
+          Icon &nbsp;({{ mainPrice | money }})<span class="choosedIconPlacement"></span>
+          <p class="error_embroideryFieldib ">Please Select The Icon</p>
+        </h4>
+        <div class="icon_swatches icon_swatches_for_both">
+          {% assign IconNames = product.metafields.custom.embroidery_icon_name %}
+          {% assign arrayOfIconNames = IconNames | split: '##' %}
+          <!-- icon_swatches -->
+          <div class="icon-swatches iconWrap-no-bg embroideryIconsWrap embroideryBothIconsWrap" data-icons>
+            <div class="swiper myembbothSwiper">
+              <div class="swiper-wrapper">
+                {% for icon in arrayOfIconNames %}
+                  {% assign iconName = icon | capitalize %}
+                  {% assign iconUrl = icon | downcase | replace: ' ', '-' | append: '.png' %}
+                  <div class="icon_box option_row embroideryIcon iconsName both-icon swiper-slide">
+                    <input
+                      type="radio"
+                      id="{{ iconName | remove:" " }}-both-{{ proPww.id }}"
+                      name="icon"
+                      value="{{iconName}}"
+                      data-icon-url="{{iconUrl | asset_img_url: '100x'}}"
+                      data-class="icon"
+                    >
+                    <label for="{{iconName | remove:" " }}-both-{{ proPww.id }}" class="embroidery-icon" data-iconName="{{iconName}}">
+                      <img
+                        data-name="{{ iconUrl }} {{iconName}}"
+                        src="{{iconUrl | asset_img_url: '100x'}}"
+                        loading="lazy"
+                      >
+                    </label>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <p class="popup_steps changeStep">OR</p>
+          <div class="customLogosss">
+            <h4 class="lableForTitle">Add custom logo</h4>
+
+            <div class="icon_box option_row customImageUploadDivision customUploadImageEmbroidery">
+              <input type="radio" name="icon" value="customupload" data-class="icon">
+              <label for="option-iconCustomUpload">{% render 'uploadIcon' %} Either PNG or JPG/JPEG </label>
+              <span class="custom-image-value"></span>
+              <div style="margin:.5rem 0;" class="custon_icon_guide">
+                Minimum resolution: 200 px by 200 px. Maximum size: 5 mb.
+              </div>
+            </div>
+          </div>
+          {% comment %}
+          {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swiper = new Swiper('.myembbothSwiper', {
+        slidesPerView: 4,
+        navigation: {
+          nextEl: '.embroideryBothIconsWrap .swiper-button-next',
+          prevEl: '.embroideryBothIconsWrap .swiper-button-prev',
+        },
+        breakpoints: {
+          490: {
+            slidesPerView: 5,
+          },
+          650: {
+            slidesPerView: 6,
+          },
+          1024: {
+            slidesPerView: 7,
+          },
+        },
+      });
+    },
+    { once: true }
+  );
+</script>

@@ -1,0 +1,99 @@
+<style>
+  .embroideryIconssliderWrap {
+    position: relative;
+  }
+  .embroideryIconssliderWrap .myembSwiper {
+    margin-left: 20px;
+    width: 94%;
+  }
+  .embroideryIconssliderWrap .swiper-button-prev {
+    left: -10px;
+  }
+  .embroideryIconssliderWrap .swiper-button-next,
+  .embroideryIconssliderWrap .swiper-button-prev {
+    display: flex;
+    top: 0 !important;
+  }
+  .embroideryIconssliderWrap .swiper-button-next {
+    right: -10px;
+  }
+  .embroideryIconssliderWrap .swiper-button-next:after,
+  .embroideryIconssliderWrap .swiper-button-prev:after {
+    color: #482f8f;
+    font-size: 22px;
+  }
+  @media screen and (max-width: 749px) {
+    .embroideryIconssliderWrap .myembSwiper {
+      width: 90%;
+    }
+  }
+</style>
+{% assign IconNames = product.metafields.custom.embroidery_icon_name %}
+{% assign arrayOfIconNames = IconNames | split: '##' %}
+<!-- icon_swatches -->
+<div class="icon-swatches iconWrap-no-bg embroideryIconsWrap embroideryIconssliderWrap" data-icons>
+  <div class="swiper myembSwiper">
+    <div class="swiper-wrapper">
+      {% for icon in arrayOfIconNames %}
+        {% assign iconName = icon | capitalize %}
+        {% assign iconUrl = icon | downcase | replace: ' ', '-' | append: '.png' %}
+        <div class="icon_box option_row embroideryIcon iconsName swiper-slide">
+          <input
+            type="radio"
+            id="{{ iconName | remove:" " }}"
+            name="icon"
+            class="icon-emb-for"
+            value="{{iconName}}"
+            data-icon-url="{{iconUrl | asset_img_url: '100x'}}"
+            data-class="icon"
+          >
+          <label for="{{iconName | remove:" " }}" class="embroidery-icon" data-iconName="{{iconName}}">
+            <img data-name="{{ iconUrl }} {{iconName}}" src="{{iconUrl | asset_img_url: '100x'}}" loading="lazy">
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<p class="popup_steps changeStep">OR</p>
+<div class="customLogosss">
+  <h4 class="lableForTitle">Add custom logo</h4>
+  <div class="icon_box option_row customImageUploadDivision customUploadImageEmbroidery">
+    <input type="radio" name="icon" value="customupload" data-class="icon" id="inputClickedd">
+
+    <label for="option-iconCustomUpload">{% render 'uploadIcon' %} Either PNG or JPG/JPEG </label>
+    <span class="custom-image-value"></span>
+    <div style="margin:.5rem 0;" class="custon_icon_guide">
+      Minimum resolution: 200 px by 200 px. Maximum size: 5 mb.
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swiper = new Swiper('.myembSwiper', {
+        slidesPerView: 4,
+        navigation: {
+          nextEl: '.embroideryIconssliderWrap .swiper-button-next',
+          prevEl: '.embroideryIconssliderWrap .swiper-button-prev',
+        },
+        breakpoints: {
+          490: {
+            slidesPerView: 5,
+          },
+          650: {
+            slidesPerView: 6,
+          },
+          1024: {
+            slidesPerView: 7,
+          },
+        },
+      });
+    },
+    { once: true }
+  );
+</script>

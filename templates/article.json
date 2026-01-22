@@ -1,0 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": false,
+            "blog_show_author": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "share",
+        "content"
+      ],
+      "settings": {
+      }
+    },
+    "f24448c3-ebcb-48c9-95ce-af5ab26fb772": {
+      "type": "blog-faq-section",
+      "settings": {
+        "heading": "FAQ's",
+        "button": "",
+        "button_link": ""
+      }
+    },
+    "a8698c44-7956-4013-b7cf-f99c00a32620": {
+      "type": "blog-tag-other-section",
+      "settings": {
+        "image_height1": "medium",
+        "bg-img-article1": "shopify:\/\/shop_images\/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "sliderrang": 6,
+        "blog": "resources",
+        "tagname": "Others",
+        "view-all": "",
+        "view-all-url": "",
+        "title-article": "Other Article",
+        "cont-article": "",
+        "tag-article": "",
+        "url-tag-article": "",
+        "bg-color-article": "none",
+        "bg-color-card": "none",
+        "bg-color-content": "none",
+        "title-col": "#482F8F",
+        "sub-title-col": "#000303",
+        "tag-bg": "#482F8F",
+        "tag-col": "#F4ECD0",
+        "article-title-color": "#482F8F",
+        "author-color": "#000303",
+        "border-color": "#000303",
+        "slides-per-view": 2,
+        "display-next": "block",
+        "display-prev": "block",
+        "viewall-btn": "none",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 0,
+        "title-padding-bottom": 51,
+        "margintoptag": 0,
+        "margintoptagmob": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f24448c3-ebcb-48c9-95ce-af5ab26fb772",
+    "a8698c44-7956-4013-b7cf-f99c00a32620"
+  ]
+}

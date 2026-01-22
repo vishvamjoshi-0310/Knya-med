@@ -1,0 +1,59 @@
+<style>
+  
+  div#shopify-section-template--16709726634240__b4586280-c181-446b-816a-bf1a83c72390{background:#d4e167}
+  .tikker-1{overflow:hidden;width:100%;display:inline-block;height:27px;white-space:nowrap;margin:-6px 0}
+  #containerr{margin:5px;width:100%;display:flex;gap:34px;flex-wrap:nowrap;animation:12s linear infinite move}
+  .inner-text{margin:0}
+   .sliderCont .slideCont{height:100px;width:450px;margin:0!important} 
+@keyframes move {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes scroll {
+	 0% {
+		 transform: translateX(0);
+	}
+	 100% {
+		 transform: translateX(calc(-250px * 7));
+	}
+}
+  .slider{background:#fff;box-shadow:0 10px 20px -5px rgba(0,0,0,.125);height:100px;margin:auto;overflow:hidden;position:relative;width:100%!immportant;}
+  .slider::after,.slider::before{background:linear-gradient(to right,#fff 0,rgba(255,255,255,0) 100%);content:"";height:100px;position:absolute;width:200px;z-index:2}
+  .slider::after{right:0;top:0;transform:rotateZ(180deg)}
+  .slider::before{left:0;top:0}
+  .slider .slide-track{animation:40s linear infinite scroll;display:flex;width:calc(250px * 14)}
+  .slider .slide{height:100px;width:250px}
+ .sliderCont .slideCont { height: 100px; width: 316px;  margin: 0!important;}
+    </style>
+
+<div class="tikker-1 slider">
+        <div id="containerr slide-track">
+            {% for block in section.blocks %}
+              <h3 class="inner-text slide">
+              {{ block.settings.text }}
+            </h3>
+            {% endfor %}
+        </div>
+    </div> 
+
+{% schema %}
+  {
+    "name": "Ticker text",
+    "settings": [],
+  "blocks": [
+    {
+      "type": "Text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Enter Text"
+        }
+      ]
+    }
+  ],
+"presets":[{"name":"Ticker text"}]
+  }
+{% endschema %}

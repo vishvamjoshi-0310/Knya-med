@@ -1,0 +1,112 @@
+.first-div {
+  background: #d4e167;
+}
+.page-width-right-section {
+  padding-right: 0;
+}
+.better-scrub-section {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 23px;
+}
+.better-swiper-section {
+  width: 70%;
+}
+video#homevideo {
+  width: 100%;
+  height: auto;
+}
+.scrub-heading .scrub-main-heading {
+  font-style: normal;
+  line-height: 100%;
+  color: #482f8f;
+  font-size: 3.594vw;
+}
+.image-container-scrub {
+  background: #d4e167;
+  padding: 20px 0;
+  text-align: center;
+}
+.test-swiper {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+.image-div-container {
+  width: 100% !important;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d4e167;
+  padding-bottom: 18px;
+}
+.better-swiper-section {
+  display: flex;
+}
+.mySwiperScrub .swiper-slide {
+  background: transparent !important;
+}
+.anchor-link {
+  text-decoration: none;
+}
+.link-name {
+  font-weight: 600;
+  font-size: 1.719vw;
+  line-height: 2.031vw;
+  letter-spacing: 0.05em;
+  color: #482f8f;
+  background: #d4e167;
+  margin: 0;
+  font-family: 'Heebo-SemiBold' !important;
+}
+
+.better-swiper-section .swiper-wrapper .swiper-slide {
+  width: calc(335 * (100vw / 1440));
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 650px) {
+  .main-scrub-section {
+    flex-direction: column;
+  }
+  .link-name {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    font-family: 'Heebo-Medium' !important;
+  }
+  .scrub-heading .scrub-main-heading {
+    font-size: 42px;
+  }
+  .image-div-container {
+    width: 100% !important;
+  }
+  .better-swiper-section {
+    width: 100%;
+  }
+  .better-scrub-section {
+    width: 90%;
+    display: flex;
+    margin-top: 41px;
+    padding: 0;
+  }
+  h2.scrub-main-heading {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px !important;
+    line-height: 42px;
+    color: #482f8f;
+  }
+  .image-div-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .better-swiper-section .swiper-wrapper .swiper-slide {
+    width: calc(250 * (100vw / 400));
+  }
+}

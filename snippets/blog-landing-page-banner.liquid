@@ -1,0 +1,99 @@
+{%  if section.settings.backgroundImage1 != blank %}
+<style>
+  .blog-lading-page-banner-{{ section.id }}{padding-top:{{ section.settings.padding_top }}rem;padding-bottom:{{section.settings.padding_bottom}}rem; }
+</style>
+  <div class="blog-lading-page-banner blog-lading-page-banner-{{ section.id }} blog-full-banner-wrapper">
+<div class="container-fluid">
+  	
+       <div class="blog-banner-fullImage">
+  {% if request.path contains 'capes' %}
+    <div class="blog-banner-imgWrapper">
+                    <img srcset="{%- if  section.settings.backgroundImage1.width >= 550 -%}{{ section.settings.backgroundImage1 | img_url: '550x' }} 550w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage1.width >= 1100 -%}{{ section.settings.backgroundImage1 | img_url: '1100x' }} 1100w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage1.width >= 1445 -%}{{ section.settings.backgroundImage1 | img_url: '1445x' }} 1445w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage1.width >= 1680 -%}{{ section.settings.backgroundImage1 | img_url: '1680x' }} 1680w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage1.width >= 2048 -%}{{ section.settings.backgroundImage1 | img_url: '2048x' }} 2048w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage1.width >= 2200 -%}{{ section.settings.backgroundImage1 | img_url: '2200x' }} 2200w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage1.width >= 2890 -%}{{  section.settings.backgroundImage1 | img_url: '2890x' }} 2890w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage1.width >= 4096 -%}{{  section.settings.backgroundImage1 | img_url: '4096x' }} 4096w,{%- endif -%}
+                           {{ section.settings.backgroundImage1 | img_url: 'master' }} {{ section.settings.backgroundImage1.width }}w"
+                   src="{{ section.settings.backgroundImage1 | img_url: '' }}"
+                   sizes="100vw"
+                   alt="{{ section.settings.backgroundImage1.alt | escape }}"
+                   loading="lazy" class="desktopimage"
+                   width="{{ section.settings.backgroundImage1.width }}"
+                   height="{{ section.settings.backgroundImage1.height }}"    
+                   >	
+
+            <img srcset="{%- if  section.settings.backgroundImage2.width >= 550 -%}{{ section.settings.backgroundImage2 | img_url: '550x' }} 550w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage2.width >= 1100 -%}{{ section.settings.backgroundImage2 | img_url: '1100x' }} 1100w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage2.width >= 1445 -%}{{ section.settings.backgroundImage2 | img_url: '1445x' }} 1445w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage2.width >= 1680 -%}{{ section.settings.backgroundImage2 | img_url: '1680x' }} 1680w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage2.width >= 2048 -%}{{ section.settings.backgroundImage2 | img_url: '2048x' }} 2048w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage2.width >= 2200 -%}{{ section.settings.backgroundImage2 | img_url: '2200x' }} 2200w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage2.width >= 2890 -%}{{  section.settings.backgroundImage2 | img_url: '2890x' }} 2890w,{%- endif -%}
+                           {%- if  section.settings.backgroundImage2.width >= 4096 -%}{{  section.settings.backgroundImage2 | img_url: '4096x' }} 4096w,{%- endif -%}
+                           {{ section.settings.backgroundImage2 | img_url: 'master' }} {{ section.settings.backgroundImage2.width }}w"
+                   src="{{ section.settings.backgroundImage2 | img_url: '' }}"
+                   sizes="100vw"
+                   alt="{{ section.settings.backgroundImage2.alt | escape }}"
+                   loading="lazy" class="mobileimage"
+                   width="{{ section.settings.backgroundImage2.width }}"
+                   height="{{ section.settings.backgroundImage2.height }}"    
+                   >	
+              </div>
+    {% elsif request.path contains 'tagged' %}
+<div class="blog-banner-imgWrapper">
+                    <img srcset="{%- if  section.settings.backgroundImagetwo1.width >= 550 -%}{{ section.settings.backgroundImagetwo1 | img_url: '550x' }} 550w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo1.width >= 1100 -%}{{ section.settings.backgroundImagetwo1 | img_url: '1100x' }} 1100w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo1.width >= 1445 -%}{{ section.settings.backgroundImagetwo1 | img_url: '1445x' }} 1445w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo1.width >= 1680 -%}{{ section.settings.backgroundImagetwo1 | img_url: '1680x' }} 1680w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo1.width >= 2048 -%}{{ section.settings.backgroundImagetwo1 | img_url: '2048x' }} 2048w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo1.width >= 2200 -%}{{ section.settings.backgroundImagetwo1 | img_url: '2200x' }} 2200w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwotwo1.width >= 2890 -%}{{  section.settings.backgroundImagetwo1 | img_url: '2890x' }} 2890w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo1.width >= 4096 -%}{{  section.settings.backgroundImagetwo1 | img_url: '4096x' }} 4096w,{%- endif -%}
+                           {{ section.settings.backgroundImagetwo1 | img_url: 'master' }} {{ section.settings.backgroundImagetwo1.width }}w"
+                   src="{{ section.settings.backgroundImagetwo1 | img_url: '' }}"
+                   sizes="100vw"
+                   alt="{{ section.settings.backgroundImagetwo1.alt | escape }}"
+                   loading="lazy" class="desktopimage"
+                   width="{{ section.settings.backgroundImagetwo1.width }}"
+                   height="{{ section.settings.backgroundImagetwo1.height }}"    
+                   >	
+
+            <img srcset="{%- if  section.settings.backgroundImagetwo2.width >= 550 -%}{{ section.settings.backgroundImagetwo2 | img_url: '550x' }} 550w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo2.width >= 1100 -%}{{ section.settings.backgroundImagetwo2 | img_url: '1100x' }} 1100w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo2.width >= 1445 -%}{{ section.settings.backgroundImagetwo2 | img_url: '1445x' }} 1445w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo2.width >= 1680 -%}{{ section.settings.backgroundImagetwo2 | img_url: '1680x' }} 1680w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo2.width >= 2048 -%}{{ section.settings.backgroundImagetwo2 | img_url: '2048x' }} 2048w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo2.width >= 2200 -%}{{ section.settings.backgroundImagetwo2 | img_url: '2200x' }} 2200w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo2.width >= 2890 -%}{{  section.settings.backgroundImagetwo2 | img_url: '2890x' }} 2890w,{%- endif -%}
+                           {%- if  section.settings.backgroundImagetwo2.width >= 4096 -%}{{  section.settings.backgroundImagetwo2 | img_url: '4096x' }} 4096w,{%- endif -%}
+                           {{ section.settings.backgroundImagetwo2 | img_url: 'master' }} {{ section.settings.backgroundImagetwo2.width }}w"
+                   src="{{ section.settings.backgroundImagetwo2 | img_url: '' }}"
+                   sizes="100vw"
+                   alt="{{ section.settings.backgroundImagetwo2.alt | escape }}"
+                   loading="lazy" class="mobileimage"
+                   width="{{ section.settings.backgroundImagetwo2.width }}"
+                   height="{{ section.settings.backgroundImagetwo2.height }}"    
+                   >	
+              </div>
+  
+    {% else %}
+         
+   {% endif %}
+         <div class="blog-banner-text-over-image">
+           <div class="blog-banner-textSubtitle">           
+ {% if request.path contains 'tagged' %}
+     <h1 class="blog-banner-subtitle tagged">{{current_tags }}  </h1>
+   {% else %}
+                <h2 class="blog-banner-subtitle">{{section.settings.subtitle}}  </h2>
+          {% endif %}
+           </div>
+          
+         </div>
+         
+    </div>
+  </div>
+</div>
+  {% endif %}

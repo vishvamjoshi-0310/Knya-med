@@ -1,0 +1,133 @@
+<link
+  rel="stylesheet"
+  href="{{ 'bulk-registration-form-stylesheet.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
+
+<div class="bulk-registration-form-wrapper">
+  <div class="bulk-registration-form-image-container">
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcset="{{ section.settings.form_desktop_image | image_url: width: 1000, format: 'webp' }}"
+        type="image/webp"
+      >
+      <source
+        media="(max-width: 767px)"
+        srcset="{{ section.settings.form_mobile_image | image_url: width: 700, format: 'webp' }}"
+        type="image/webp"
+      >
+      <img
+        src="{{ section.settings.form_mobile_image | image_url: width: 700, format: 'webp' }}"
+        loading="lazy"
+        fetchpriority="low"
+        width="700"
+        height="auto"
+        class="bulk-registration-form-image"
+        alt="{{ section.settings.form_heading | escape }}"
+      >
+    </picture>
+  </div>
+  <div class="bulk-registration-form-container">
+    <div class="bulk-registration-form-content">
+      <h2 class="bulk-registration-form-heading">{{ section.settings.form_heading }}</h2>
+      <p class="bulk-registration-form-subheading">{{ section.settings.form_subheading }}</p>
+    </div>
+    <div class="bulk-registration-form-steps">
+      <div class="bulk-registration-form-border"></div>
+      <div class="bulk-registration-form-step step1 active">
+        <span>1</span>
+        <p>{{ section.settings.form_step1_text }}</p>
+      </div>
+      <div class="bulk-registration-form-step step2">
+        <span>2</span>
+        <p>{{ section.settings.form_step2_text }}</p>
+      </div>
+    </div>
+    <div class="bulk-registration-form">
+      <form>
+        <div class="bulk-registration-form-field bulk-registration-form-name">
+          <label for="input-name">Name</label>
+          <input type="text" id="input-name" name="name" placeholder="John Doe" autocomplete="name" required>
+        </div>
+        <div class="bulk-registration-form-field bulk-registration-form-email">
+          <label for="input-email">Email</label>
+          <input
+            type="email"
+            id="input-email"
+            name="email"
+            placeholder="johndoe@mail.com"
+            autocomplete="email"
+            required
+          >
+        </div>
+        <div class="bulk-registration-form-field bulk-registration-form-phone">
+          <label for="input-phone">Phone No.</label>
+          <input type="text" id="input-phone" name="phone" placeholder="0000-0000-00" autocomplete="tel" required>
+        </div>
+        <div class="bulk-registration-form-field bulk-registration-form-institution_name">
+          <label for="input-institution_name">Institution Name</label>
+          <input
+            type="text"
+            id="input-institution_name"
+            name="institution_name"
+            placeholder="Hospital/ College/ Clinic/ NGO"
+            autocomplete="organization"
+            required
+          >
+        </div>
+        <div class="bulk-registration-form-button-container">
+          <span class="bulk-registration-form-button previous-button">Previous</span>
+          <span class="bulk-registration-form-button next-submit-button">Next</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'bulk-registration-form-javascript.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "bulk-registration-form",
+  "class": "bulk-registration-form-parent",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "form_desktop_image",
+      "label": "Form Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "form_mobile_image",
+      "label": "Form Image"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form Heading"
+    },
+    {
+      "type": "text",
+      "id": "form_subheading",
+      "label": "Form Subheading"
+    },
+    {
+      "type": "text",
+      "id": "form_step1_text",
+      "label": "Step 1 Text"
+    },
+    {
+      "type": "text",
+      "id": "form_step2_text",
+      "label": "Step 2 Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bulk Registration Form"
+    }
+  ]
+}
+{% endschema %}

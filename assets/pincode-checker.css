@@ -1,0 +1,124 @@
+span.pdp_pincode_heading {
+  color: var(--Primary-Colour-Violet, #482f8f);
+  font-family: Heebo-Medium;
+  font-size: clamp(20px, calc(22 * (100vw / 1440)), 24px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2727;
+  letter-spacing: 0.88px;
+}
+.pincode_div {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid grey;
+  padding: 0px 0px 0px 16px;
+}
+input.pincode_input {
+  flex-grow: 2;
+  border: none;
+  color: #707070;
+  font-family: Heebo-Regular;
+  font-size: clamp(14px, calc(14 * (100vw / 1440)), 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.428; /* 142.857% */
+  letter-spacing: 0.07px;
+  padding: 13px 0;
+  height: 46px;
+}
+button.pincode_submit {
+  color: var(--Knya-Palette-Primary, #462d8c);
+  text-align: center;
+  font-family: Heebo-Regular;
+  font-size: clamp(14px, calc(14 * (100vw / 1440)), 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.428;
+  letter-spacing: 0.07px;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.pincode_submitContainer {
+  display: flex;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  cursor: pointer;
+}
+.pincode_submitContainer:hover {
+    background: #6750A414;
+}
+
+input.pincode_input,
+input.pincode_input {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input.pincode_input[type="number"] {
+  -moz-appearance: textfield;
+}
+input.pincode_input::-webkit-outer-spin-button,
+input.pincode_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+p.input-message {
+  color: var(--Knya-Palette-ref-error-error50, #dc362e);
+  font-family: Heebo-Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+}
+p.success-message__Heading {
+  color: #008002;
+  font-family: Heebo-Regular;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+  margin: 0;
+}
+.pinMsg.success-message-24Delivery,
+.pinMsg.success-message-ExpressDelivery {
+  margin-bottom: 8px;
+}
+p.success-message__date {
+  color: var(--Knya-Palette-ref-neutral-neutral30, #48464c);
+  font-family: Heebo-Regular;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.06px;
+  margin: 4px 0 0 0;
+}
+.pinMsg.success-message-digits-container.page-width-pdp-mob,.error-message-container.page-width-pdp-mob, .error-message-digits-container.page-width-pdp-mob {
+    margin-top: 12px;
+}
+p.input-message-digits-error,p.pinMsg.error {
+    color: var(--Knya-Palette-ref-error-error50, #DC362E);
+    font-family: 'Heebo-Regular';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.07px;
+  margin-top: 12px;
+}
+
+@media (max-width: 600px) {
+  span.pdp_pincode_heading {
+    color: #000;
+    font-size: 14px;
+    line-height: 20px; /* 142.857% */
+    text-transform: capitalize;
+  }
+  input.pincode_input{height: 40px;padding: 10px 0;}
+}

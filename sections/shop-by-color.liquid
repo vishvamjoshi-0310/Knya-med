@@ -1,0 +1,133 @@
+{{ 'shop-by-color.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .shop-by-color-parent{
+    margin-top:{{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  @media screen and (max-width: 768px){
+    .shop-by-color-parent{
+      margin-top:{{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+
+  }
+</style>
+
+<div class="shop-by-color-parent">
+  <h2 class="sbc-heading">{{ section.settings.section_heading }}</h2>
+  <div class="sbc-cards">
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.color_collection.url }}" class="collection-card-container">
+        <div class="collection_image_container">
+          {% if block.settings.label_text != blank %}
+            <span class="collection-label" style="color: {{ block.settings.label_color }};">
+              {{- block.settings.label_text -}}
+            </span>
+          {% endif %}
+
+          {{
+            block.settings.collection_image
+            | image_url: width: 260
+            | image_tag: widths: '150, 260', loading: 'lazy', height: '100px', class: 'sbc-image'
+          }}
+        </div>
+        <span class="collection_text">{{ block.settings.collection_title }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop by color",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Shop By Colours"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "name": "collection",
+      "type": "collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "color_collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "collection_image",
+          "label": "Collection Image"
+        },
+        {
+          "type": "text",
+          "id": "label_text",
+          "label": "Label Text",
+          "default": "New"
+        },
+        {
+          "type": "color",
+          "id": "label_color",
+          "label": "Label Color",
+          "default": "#202020"
+        },
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by color"
+    }
+  ]
+}
+{% endschema %}

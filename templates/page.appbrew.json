@@ -1,0 +1,221 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "appbrew",
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "9220b398-99ff-4711-9ee5-e246966e28c5": {
+      "type": "contact-full-width",
+      "settings": {
+        "show_padding_cg": false,
+        "show_padding_mob_cg": false,
+        "margintopcg": 0,
+        "margintopcgmob": 0,
+        "image_for_desk": "shopify://shop_images/1280x310.png",
+        "text-desk": "Focused  Assistance is  on standby",
+        "text-mob": "Focused  Assistance is  on standby",
+        "image_for_mobile": "shopify://shop_images/imageedit_1_3270616833.png"
+      }
+    },
+    "43840b54-cf2c-4148-b045-cb62535e3ba0": {
+      "type": "contact-get-right",
+      "blocks": {
+        "3acd0ecc-5f2e-4fbb-991a-eeb673ac20ae": {
+          "type": "text",
+          "settings": {
+            "get-image": "shopify://shop_images/Tracking.png",
+            "gettitle": "Tracking & Shipping",
+            "getcontent": "If you have queries about your order’s whereabouts, we can address them immediately via our WhatsApp chat feature.",
+            "geturltext": "TRACK ORDER",
+            "geturl": "https://knyamed.clickpost.ai/"
+          }
+        },
+        "d9bd81a3-b08e-4b19-89b1-b0d653718ab3": {
+          "type": "text",
+          "settings": {
+            "get-image": "shopify://shop_images/Returns.png",
+            "gettitle": "Returns & Exchanges",
+            "getcontent": "We ensure your returns and exchanges are as seamless as your ordering process. For a detailed guide, please check our FAQs.",
+            "geturltext": "RETURN/EXCHANGE",
+            "geturl": "https://knyamed.com/apps/return_prime"
+          }
+        },
+        "90134ae3-198b-465a-81b2-44a5d6038327": {
+          "type": "text",
+          "settings": {
+            "get-image": "shopify://shop_images/Product_Queries.png",
+            "gettitle": "Product Queries",
+            "getcontent": "How should I wash my scrubs? Can I customise them? For immediate assistance with any queries, please reach us via WhatsApp.",
+            "geturltext": "WHATSAPP US",
+            "geturl": "https://api.whatsapp.com/send/?phone=919987200005&text=Hi+there%2C+can+you+help%3F&type=phone_number&app_absent=0"
+          }
+        },
+        "53770038-358d-4213-ab28-4b6e72f23ebc": {
+          "type": "text",
+          "settings": {
+            "get-image": "shopify://shop_images/Bulk.png",
+            "gettitle": "Bulk and Custom Orders",
+            "getcontent": "We love working with institutions! If you are one and would like to partner with us, please head to our Bulk Order page.",
+            "geturltext": "ORDER FOR YOUR TEAM",
+            "geturl": "https://forms.office.com/Pages/ResponsePage.aspx?id=SmYqZN04j0uF1LfYx9s2BkyPlk30tr5DqmkOvq8MQxhUMFhTRzJUVlZZRzk4N1RVQ1NDWlRBVUQzSy4u"
+          }
+        }
+      },
+      "block_order": [
+        "3acd0ecc-5f2e-4fbb-991a-eeb673ac20ae",
+        "d9bd81a3-b08e-4b19-89b1-b0d653718ab3",
+        "90134ae3-198b-465a-81b2-44a5d6038327",
+        "53770038-358d-4213-ab28-4b6e72f23ebc"
+      ],
+      "settings": {
+        "show_padding_get": false,
+        "show_padding_mob_get": false,
+        "margintopget": 0,
+        "margintopgetmob": 0,
+        "rightseth1": "Let's get right to it"
+      }
+    },
+    "03d43d0d-0dd2-428a-a85e-0e284f3b5ab9": {
+      "type": "contact-faq",
+      "blocks": {
+        "49883c31-1932-41c1-8b37-d3d72c2950f1": {
+          "type": "text",
+          "settings": {
+            "faq-img": "shopify://shop_images/Group_29472_94bfe094-41ec-4336-804d-2ab3ce4a4c2d.png",
+            "faq-title": "Tracking and shipping",
+            "questions": "Where is my order?##Can I change the shipping address for my order?##Can I cancel my order?##Can I modify my order?##Do you ship Overseas?",
+            "answers": "<p>You can track your order using Order ID or AWB no. here: <a class=\"RD_track\" href=\"https://knyamed.clickpost.ai/\" target=\"_blank\">Track Order</a> <br>You can also find your Order ID and AWB no. in the confirmation email or Whatsapp Message you sent to you earlier.</p>##Yes, sure! You can change the shipping address within 48 hrs for Embroidery Order, however for Non-Embroidery order, we can change the address if it is not dispatched. We generally try to dispatch your order within 12 hours to deliver your product to you asap. Please drop us an email at <a href=\"mailto:support@knya.in\" target=\"_blank\" style=\"color:blue;text-decoration:underline;\">support@knya.in</a> or WhatsApp us on +91 99872 00005.##<ul>\n<li>Yes! In case of non-embroidery products, we accept order cancellation requests if the order is not dispatched from our warehouse. </li>  <li>In the case of embroidery products, we are so sorry, we would not be able to cancel the order as our team would have already started the custom embroidery process. Embroidery products are specially customized for you and cannot be resold. </li> <li> Please email us at <a href=\"mailto:support@knya.in\" target=\"_blank\" style=\"color:blue;text-decoration:underline;\">support@knya.in</a> or Whatsapp us with your Order ID on  +91 99872 00005.</li>\n</ul>##For non-embroidery orders, we can modify your order if the order is not yet dispatched from our warehouse and for embroidery orders, we would not be able to modify the order as our team would have already started the custom embroidery process. Embroidery products are specially customized for you and cannot be resold, however, please drop us an email on support@knya.in or Whatsapp us on +91 99872 00005.##We are currently unable to ship orders outside India. But we’re looking forward to serving you in the future. Please fill in the form <a href=\"https://forms.gle/ATWgsogrFEmh9RC79\" style=\"color:blue;text-decoration:underline;\">here</a> and we will get back to you soon when we start shipping overseas."
+          }
+        },
+        "18eeefc2-7640-4533-bb98-5f2b56604a12": {
+          "type": "text",
+          "settings": {
+            "faq-img": "shopify://shop_images/Group_29470.png",
+            "faq-title": "Product & Product customisation",
+            "questions": "What is Ecoflex? Is it really sustainable?##What are Knya products made of?##Are Knya products tested for color bleeding and fabric quality?##Which size of products would fit me?##What options are available for custom embroidered products?##Can I get the custom embroidery done on a Lab Coat?##Why does it take 3-5 days to dispatch custom embroidery orders?",
+            "answers": "Ecoflex is our specially developed fabric. The fabric is prepared from 100% recycled polyester made from recycled PET bottles found in the ocean waste. Yes, it is really sustainable and it has one of the lowest carbon footprints. The manufacturing process is traceable and can be validated with a Global Recycling Standard (GRS) certification.##<ul>\n<li>The KNYA Med Classic Scrubs are made of Polyester Viscose blend fabric. The fabric is lighter and comfortable to wear for long hours. </li> <li> The KNYA Med Ecoflex Scrubs are made from our special Ecoflex fabric which is prepared from 100% recycled polyester made from recycled PET bottles found in the ocean waste. The Ecoflex fabric is super soft, auto-clavable and sustainable. </li> <li> Our shortsleeve and long sleeve underscrubs are made of 100% Pima Cotton.</li>\n</ul>##All our fabrics are lab tested by <a href=\"https://www.testtex.com/\" style=\"color:blue;text-decoration:underline;\">Testtex</a> &amp; <a href=\"https://www.btraindia.com/\" style=\"color:blue;text-decoration:underline;\">Bombay Textile Research Association (BTRA)</a> for important parameters such as color bleeding, pilling and yarn composition to name a few. We would be happy to share any certification and test reports with our customer, feel free to ask for it!##<ul>\n<li>Please check the size chart for KNYA Med lab coats and for scrub suits. </li>\n<li> If you’re between the sizes and if you like wearing a loose fitting scrub or a lab coat, we recommend the bigger size, otherwise we recommend you go for the smaller one.</li>\n</ul>##<ol style=\"list-style-type:lower-roman\">We offer following options for custom embroidered products  <li> Single Line: Name of the medical professional.</li> <li>Double Line: Name of the medical professional with designation, department or medical institution, totally up to our Superhero!!. </li> <li> Icons/Logo: We have 6 pre-defined options available for icons with an option for an institutional logo of your choice.</li>\n</ol>##Yes, why not!##Custom embroidery orders take a bit more time to perfect, we also perform quality checks to make sure they’re good for dispatch. This is why we take slightly longer to dispatch embroidery orders so you receive the best possible product from our end."
+          }
+        },
+        "cbb07378-5aa8-4962-8170-69a1c5aa641b": {
+          "type": "text",
+          "settings": {
+            "faq-img": "shopify://shop_images/Layer_1_58a1c154-4189-4cce-91af-27256023f0ec.png",
+            "faq-title": "Returns, Refunds and Exchanges",
+            "questions": "What is your Returns & Exchange Policy?##How can I place a return or exchange request?##How are return requests processed?##What is the return policy for items bought during a sale period? ##How will I receive the refund for my returned product? ##When will the refund amount be credited to my account?  ##I placed a COD order, how will I get my refund? ##What will happen if I do not accept my order while it is out for delivery?##How long does it take to exchange my product?##Can I do more than 1 exchange?",
+            "answers": "We offer a hassle-free 7-days return and exchange policy from the date of delivery. Refunds are initiated within 5 days after the return items are picked up. Please note that embroidery orders are not eligible for returns and exchanges. ##To place a return or exchange request, please visit <a class=\"RD_track\" href=\"https://knyamed.com/pages/returns-exchanges\" target=\"_blank\">Return &amp; Exchange Page.</a> Our team will review and approve your request within 3 working days. Once approved, we will arrange pick up for the items within 2 working days.##Once your return request is approved, our logistics partner will pick up the items within 2 working days. The returned item will undergo quality checks, and refunds will be initiated within 5 days after the items are picked up.##Any items bought during the sale period do not qualify for a return. They are final sale items.##For prepaid orders, the refund amount will be credited back to the original payment method after a deduction of FLAT Rs 100 as a reverse shipment fee. For Cash on Delivery orders, you will receive store credits in the form of a Knya gift card sent to your registered email address.##Refunds are typically initiated within 5 days after the returned item passes quality checks. The entire process usually takes 7-10 working days. ##For COD orders, you will receive store credits in the form of a Knya gift card, which will be sent to your registered email address. Please note that COD handling charges paid at the time of placing the order are non-refundable.##As a standard practice, we attempt delivery 3 times, and we try reaching out to you. In case the order is not accepted, a standard deduction of INR 150 towards shipping charges will be applied during the refund process. This refund will be credited to you in the form of a Gift card. ##The exchange process starts after the pickup of the old order. Typically, the entire process, from placing the exchange request to receiving the new product, takes 7-10 working days.##Due to operational difficulties, we will only be able to exchange your order once. Our customer service agents are there to help you choose the right fit for you."
+          }
+        },
+        "d3fe1dd7-266c-455b-859b-f12e14af6c84": {
+          "type": "text",
+          "settings": {
+            "faq-img": "shopify://shop_images/Group_29469.png",
+            "faq-title": "Miscellaneous",
+            "questions": "How can I wash my scrubs?##How are Knya Scrubs different from other scrubs?##How does knya ensure secure communication with customers?",
+            "answers": "<ul>\n<li>We recommend washing your scrubs at 40°C  for 30 minutes with like colors and not with dark colors.</li> <li>  Please do not use bleach </li>\n<li>Tumble Dry</li> <li>Warm Iron</li> <li>Our fabrics are tested and certified by <a href=\"https://www.testtex.com/\" style=\"color:blue;text-decoration:underline;\">Testtex</a> &amp; <a href=\"https://www.btraindia.com/\" style=\"color:blue;text-decoration:underline;\">Bombay Textile Research Association (BTRA)</a>, hence these washing conditions are tested.</li>\n</ul>##<ul>\n<li>At KNYA Med, our scrub suits are made of high quality poly viscose fabric. This blend of the fabric is durable, light weight , breathable and comfortable. </li> <li>Further, our Ecoflex fabric is as perfect for the planet as it is for you!</li>\n<li> Ecoflex scrubs are 100% recycled polyester made from PET bottles. The fabric has a 4-way stretch unlike other fabrics. It is wrinkle-free and durable.</li>\n</ul>##At knya, your security is our priority. We only communicate through our official phone number, +91-9987200005, and email address, <a href=\"mailto:support@knya.in\" target=\"_blank\" style=\"color:blue;text-decoration:underline;\">support@knya.in</a> All payment requests are made securely via our website and RBI-approved gateways. If you receive suspicious messages, please do not respond. Instead, verify with us using our official contact details."
+          }
+        }
+      },
+      "block_order": [
+        "49883c31-1932-41c1-8b37-d3d72c2950f1",
+        "18eeefc2-7640-4533-bb98-5f2b56604a12",
+        "cbb07378-5aa8-4962-8170-69a1c5aa641b",
+        "d3fe1dd7-266c-455b-859b-f12e14af6c84"
+      ],
+      "settings": {
+        "faq-heading": "FAQs",
+        "show_padding_faq": false,
+        "show_paddingfaq_mob": false,
+        "margintopfaq": 42,
+        "margintopfaqmob": 0
+      }
+    },
+    "f3d4286a-b04a-4317-a1e8-27449edae967": {
+      "type": "contact-focus-hq",
+      "blocks": {
+        "9f74424a-4326-4ba7-9064-f43c19760db7": {
+          "type": "text",
+          "settings": {
+            "social-img": "shopify://shop_images/Insta_1.png",
+            "social-text": "Knya",
+            "social-url": "https://in.linkedin.com/company/knya"
+          }
+        },
+        "93036219-5a95-46da-8bfb-2024b82a9c48": {
+          "type": "text",
+          "settings": {
+            "social-img": "shopify://shop_images/INNS_1.png",
+            "social-text": "@knyamed",
+            "social-url": "https://www.instagram.com/knyamed/"
+          }
+        },
+        "cbb52ae8-7e6d-45d0-a892-744441974075": {
+          "type": "text",
+          "settings": {
+            "social-img": "shopify://shop_images/YOOO.png",
+            "social-text": "@KNYAMed",
+            "social-url": "https://www.youtube.com/@KNYAMed"
+          }
+        },
+        "9de0ce10-211a-4d92-b4b1-2464358a98b8": {
+          "type": "text",
+          "settings": {
+            "social-img": "shopify://shop_images/TWIT_2.png",
+            "social-text": "@knyamed",
+            "social-url": "https://twitter.com/knyamed"
+          }
+        }
+      },
+      "block_order": [
+        "9f74424a-4326-4ba7-9064-f43c19760db7",
+        "93036219-5a95-46da-8bfb-2024b82a9c48",
+        "cbb52ae8-7e6d-45d0-a892-744441974075",
+        "9de0ce10-211a-4d92-b4b1-2464358a98b8"
+      ],
+      "settings": {
+        "show_padding_cf": false,
+        "show_paddingcf_mob": false,
+        "margintopcontact": 90,
+        "margintopcontactmob": 0,
+        "main-heading": "Come find us at our Focus HQ",
+        "adress-text": "401, 4th Floor, Todi Building, Mathuradas Mill Compound, Lower Parel (West) Mumbai - 400013, Maharashtra, India",
+        "mail-text": "support@knya.in",
+        "mail-focus": "mailto:support@knya.in",
+        "call-text": "+91 9987200005",
+        "call-focus": "tel:+91 9987200005",
+        "time-text": "8 am to 8 pm (Monday to Sunday)",
+        "background-img": "shopify://shop_images/Rectangle_18906_1.png"
+      }
+    },
+    "a03a2bdf-51bd-4d14-8397-9ed6a34623b1": {
+      "type": "contact-best-to-help",
+      "settings": {
+        "show_padding_help": false,
+        "show_padding_mob_help": false,
+        "margintophelp": 100,
+        "margintophelpmob": 50,
+        "image_for_desk1": "shopify://shop_images/Contact_Us_Section_Desktop.png",
+        "text-desk1": "",
+        "image_for_mobile1": "shopify://shop_images/Contact_Us_Section_Mobile.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "9220b398-99ff-4711-9ee5-e246966e28c5",
+    "43840b54-cf2c-4148-b045-cb62535e3ba0",
+    "03d43d0d-0dd2-428a-a85e-0e284f3b5ab9",
+    "f3d4286a-b04a-4317-a1e8-27449edae967",
+    "a03a2bdf-51bd-4d14-8397-9ed6a34623b1"
+  ]
+}

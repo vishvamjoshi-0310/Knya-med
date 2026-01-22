@@ -1,0 +1,14 @@
+<script>
+  window.HomeBannerGTMEvent = function(event) {
+    try{
+     const dataAttrValue = event.getAttribute("dataAttr");
+      dataLayer.push({
+        event: "Home page Banner GTM",
+        HP_items: dataAttrValue
+      }); 
+    }catch(error){
+      console.log("An error occurred:",error) 
+    }
+  };
+
+</script>

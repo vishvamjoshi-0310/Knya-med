@@ -1,0 +1,251 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+.relatedarticle-{{ section.id }}{width:100%;position:relative;overflow:hidden;}  
+.relatedArticle{width:100%;height:auto; overflow:hidden;}
+.relatedArticle .related-heading{
+  font-family: Heebo-Regular !important;color:#000000 !important;
+  font-size: clamp(24px,calc(24 * (100vw / 1440)),34px) !important;
+  line-height:clamp(133.33%,calc(133 * (100vw / 1440)),130%) !important;
+  font-style: normal;font-weight: 500;margin-bottom:30px;margin-top:0px; padding-top:24px;
+}
+.relatedArticle .card__information{background:unset !important;margin:0px !important; padding:0px !important;} 
+.relatedArticle .article-card .card__heading,.relatedArticle .article-card .card__heading a{margin:0px; padding:0px;font-family: Heebo-Regular !important;color:#000000 !important;
+  font-size: clamp(16px,calc(20 * (100vw / 1440)),24px) !important;
+  line-height:clamp(23.5px,calc(29.38 * (100vw / 1440)),36px) !important;
+  font-style: normal;font-weight: 500;margin-bottom:0px;  
+   }                                                                                            
+.blog-articles .card-wrapper{padding:30px 20px 0px 0px !important;} 
+.blog-articles {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 108.5px;
+    row-gap: 25px;
+}
+.relatedArticle .forbgcolor{background:#ffffff;}
+.relatedArticle .card__media{border-radius:0px !important;}
+
+@media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+@media screen and (max-width: 750px){
+      .relatedArticle .related-heading{padding-bottom:35px;margin-bottom:0px;}
+      .relatedArticle .article-card .card__heading,.relatedArticle .article-card .card__heading a{margin:0px !important; padding:0px !important;}
+      .relatedArticle h3.card__heading{padding-top:0px !important;}
+      .card-wrapper{width:100%!important;}
+     .relatedArticle .page-width{width:100%;padding:0px;}
+  .relatedArticle .forbgcolor{width:100%;padding: 0 var(--mobile-padding); }
+}                                                                                            
+{%- endstyle -%}
+<div class="relatedArticle section-{{ section.id }}-padding">
+
+                   <div class="page-width">
+                    <div class="forbgcolor">
+                    <h3 class="related-heading">{{ section.settings.heading }}</h3>
+
+                   <div class="relatedarticle-{{ section.id }}">
+                     
+                    <div id="blog-articles" class=' swiper-wrapper'>
+                    {% assign relatedBlogExist = false %}  
+                    {% for tag in article.tags %}
+                    {% assign counter = 0 %}
+                    {% assign skip_articles = article.handle | split: '.....' %}
+                    {% for related_article in blog.articles %}
+                    {% if related_article.tags contains tag and counter < 6 %}
+                      {% unless skip_articles contains related_article.handle %}
+                        {% assign counter = counter | plus: 1 %}
+                        {% assign temp = related_article.handle | split: '.....' %}
+                        {% assign skip_articles = skip_articles | concat: temp %}
+                           <div class="blog-articles__article article swiper-slide">
+                              {%- render 'article-card',
+                                article: related_article,
+                                media_height: section.settings.image_height,
+                                media_aspect_ratio: article.image.aspect_ratio,
+                                show_image: section.settings.show_image,
+                                show_date: section.settings.show_date,
+                                show_author: section.settings.show_author,
+                                show_excerpt: true 
+                              -%}
+                            </div> 
+                        {% assign relatedBlogExist = true %}  
+                      {% endunless %}
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    </div>
+
+                   </div>
+              </div>
+            </div>
+</div>
+
+
+
+
+<style>
+ .section-{{ section.id }}-padding{
+   {% unless relatedBlogExist %}
+     display:none;
+   {% endunless %}
+ }
+</style>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", (event) => { 
+
+ let relatedArticle = new Swiper(".relatedarticle-{{ section.id }}", {
+    slidesPerView: 1.1,
+    spaceBetween:24,     
+    breakpoints: {
+      640: {
+       slidesPerView: 1.1,
+        spaceBetween: 24,
+      },
+      768: {
+       slidesPerView: 1.1,
+        spaceBetween: 24,
+      },
+      1024: {
+       slidesPerView: 1.1,
+        spaceBetween: 24,
+      },
+    },
+  }); 
+
+   if (window.innerWidth > 750 ){
+     relatedArticle.destroy( true, true );
+     document.getElementById("blog-articles").classList.add("blog-articles");
+   }
+     
+  
+});    
+
+  </script>
+
+{% schema %}
+  {
+    "name": "Related Article",
+    "settings": [
+      {
+      "type":"text",
+      "id":"heading",
+      "label":"section heading"
+      },
+ {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main-blog.settings.layout.options__1.label"
+        },
+        {
+          "value": "collage",
+          "label": "t:sections.main-blog.settings.layout.options__2.label"
+        }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label",
+      "info": "t:sections.main-blog.settings.layout.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+
+
+
+
+
+
+
+
+
+
+
+      
+       {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+      
+    ],
+    "presets": [
+    {
+      "name": "Related Article"
+     
+    }
+  ]
+  }
+{% endschema %}

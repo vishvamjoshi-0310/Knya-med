@@ -1,0 +1,553 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "8aa16d38-ca6d-42a3-ad83-a5416eab6179": {
+      "type": "blog-landing-page-banner",
+      "settings": {
+        "backgroundImage1": "shopify://shop_images/Blog-Landing-Page-Top-banner-1920x466-purple.jpg",
+        "backgroundImage2": "shopify://shop_images/Blog-Landing-Page-Top-banner-600x400-purple.jpg",
+        "backgroundImagetwo1": "shopify://shop_images/Blog-Landing-Page-Top-banner-1920x466-beige.jpg",
+        "backgroundImagetwo2": "shopify://shop_images/Blog-Landing-Page-Top-banner-600x400-beige.jpg",
+        "subtitle": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1289c8f0-b00c-40a6-b1dd-64260b23d0f4": {
+      "type": "breadcrumb",
+      "settings": {
+        "margintopbread": 25,
+        "margintopbreadmob": 28,
+        "margintopbread_collection": 0,
+        "margintopbreadmob_collection": 0
+      }
+    },
+    "image_with_text_E3nDkA": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_yPRdUQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Ultimate Comfort Guide for Medical Scrubs",
+            "heading_size": "h1"
+          }
+        },
+        "text_thQAfg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For medical professionals, comfort is paramount when it comes to workwear. After all, healthcare workers often spend long shifts on their feet, moving from one patient to another, with barely...</p>",
+            "text_style": "body"
+          }
+        },
+        "button_kxXriX": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read More",
+            "button_link": "https://knyamed.com/blogs/resources/the-ultimate-comfort-guide-for-medical-scrubs"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yPRdUQ",
+        "text_thQAfg",
+        "button_kxXriX"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/Blog_images_a6.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "eae55438-ad22-457e-962e-7d3c40ca8346": {
+      "type": "article-slider",
+      "blocks": {
+        "199194c4-bc22-439c-acfe-1a3f49780aab": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "article-slide": "resources/the-ultimate-comfort-guide-for-medical-scrubs",
+            "desktopimageslide": "shopify://shop_images/WhatsApp_Image_2024-11-18_at_3.17.51_PM_1.jpg",
+            "mobimageslide": "shopify://shop_images/WhatsApp_Image_2024-11-18_at_3.17.51_PM.jpg",
+            "tags-slider": ""
+          }
+        },
+        "64083ccc-9e88-401a-8101-01af01bf0b2b": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "article-slide": "resources/accessories-for-black-medical-scrubs-for-men",
+            "desktopimageslide": "shopify://shop_images/Accessories-for-Black-Medical-Scrubs-for-Men-1600x643.jpg",
+            "mobimageslide": "shopify://shop_images/Accessories-for-Black-Medical-Scrubs-for-Men-600x400.jpg",
+            "tags-slider": ""
+          }
+        },
+        "36ce10c8-6ad1-43ce-9a87-ca6ba790c71b": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "article-slide": "resources/the-role-of-colored-scrubs-in-patient-care-building-rapport-and-enhancing-communication",
+            "desktopimageslide": "shopify://shop_images/The-Role-of-Colored-Scrubs-in-Patient-Care-Building-Rapport-and-Enhancing-Communication-1600x643.jpg",
+            "mobimageslide": "shopify://shop_images/The-Role-of-Colored-Scrubs-in-Patient-Care-Building-Rapport-and-Enhancing-Communication-600x400.jpg",
+            "tags-slider": ""
+          }
+        },
+        "c0d053df-ac3f-49bd-9df2-ebb81ac05903": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "article-slide": "difference-between/crack-vs-fracture",
+            "desktopimageslide": "shopify://shop_images/crack_vs_fracture_-_desktop_b6cb3341-aef5-49ae-9814-d8f95d86f819.png",
+            "mobimageslide": "shopify://shop_images/crack_vs_fracture_-_mobile_d713373a-665c-4cc5-a7b0-83d7665d8e25.png",
+            "tags-slider": ""
+          }
+        }
+      },
+      "block_order": [
+        "199194c4-bc22-439c-acfe-1a3f49780aab",
+        "64083ccc-9e88-401a-8101-01af01bf0b2b",
+        "36ce10c8-6ad1-43ce-9a87-ca6ba790c71b",
+        "c0d053df-ac3f-49bd-9df2-ebb81ac05903"
+      ],
+      "disabled": true,
+      "settings": {
+        "main-title": "Featured Articles",
+        "image_height2": "medium",
+        "bg-img-article": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image2": true,
+        "show_date3": false,
+        "show_author4": false,
+        "show_padding_article": true,
+        "show_padding_mob_article": false,
+        "margintoparticle": 40,
+        "margintoparticlemob": 31
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": true,
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "e6013412-d22c-4b64-8f72-209a7c3a3656": {
+      "type": "blog-tags-section",
+      "blocks": {
+        "blog_mK4T7j": {
+          "type": "blog",
+          "settings": {
+            "customblog": "capes/center-meet-dr-jay-mehta-obstetrician-and-gynaecologist-center"
+          }
+        },
+        "blog_PyxDNi": {
+          "type": "blog",
+          "settings": {
+            "customblog": "capes/center-meet-dr-devayani-barve-plastic-and-cosmetic-surgeon-center"
+          }
+        },
+        "blog_iMWpAH": {
+          "type": "blog",
+          "settings": {
+            "customblog": "capes/center-meet-dr-ritu-hinduja-center"
+          }
+        },
+        "a16567f3-2f5e-468e-8efa-0c4d027b7330": {
+          "type": "blog",
+          "settings": {
+            "customblog": "capes/meet-dr-tanya-agarwal"
+          }
+        },
+        "0b95a421-b68d-47f8-aab9-322eed1b099c": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/how-to-select-the-best-scrub-cap-for-your-needs"
+          }
+        },
+        "4f8ee1a6-5b3b-402c-bb43-16b716991bcb": {
+          "type": "blog",
+          "disabled": true,
+          "settings": {
+            "customblog": "resources/why-are-mandarin-scrubs-growing-in-popularity"
+          }
+        },
+        "8a37adfe-8a64-494b-a270-62e2f2b19aa1": {
+          "type": "blog",
+          "disabled": true,
+          "settings": {
+            "customblog": "resources/chinese-collar-scrubs-a-stylish-twist-to-traditional-medical-apparel"
+          }
+        },
+        "5f74eb87-e3e1-4b9c-a610-76c1b71ee8db": {
+          "type": "blog",
+          "disabled": true,
+          "settings": {
+            "customblog": "resources/the-role-of-colored-scrubs-in-patient-care-building-rapport-and-enhancing-communication"
+          }
+        },
+        "09b85de4-ad92-4e49-983e-69d6a74a57d2": {
+          "type": "blog",
+          "disabled": true,
+          "settings": {
+            "customblog": "capes/center-meet-dr-snehil-chauhan-dentist-center"
+          }
+        }
+      },
+      "block_order": [
+        "blog_mK4T7j",
+        "blog_PyxDNi",
+        "blog_iMWpAH",
+        "a16567f3-2f5e-468e-8efa-0c4d027b7330",
+        "0b95a421-b68d-47f8-aab9-322eed1b099c",
+        "4f8ee1a6-5b3b-402c-bb43-16b716991bcb",
+        "8a37adfe-8a64-494b-a270-62e2f2b19aa1",
+        "5f74eb87-e3e1-4b9c-a610-76c1b71ee8db",
+        "09b85de4-ad92-4e49-983e-69d6a74a57d2"
+      ],
+      "disabled": true,
+      "settings": {
+        "showcustomblog": false,
+        "blogs_per_page": 6,
+        "image_height1": "medium",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "blog": "capes",
+        "tagname": "CapesOfIndia",
+        "view-all": "View All",
+        "view-all-url": "https://knyamed.com/blogs/capes",
+        "title-article": "Stories from our community",
+        "cont-article": "Learn the fundamentals of the medical field, by reading the blogs by experts of the industry.",
+        "tag-article": "Medical##Others",
+        "url-tag-article": "https://knyamed.com/blogs/resources/tagged/medical##https://knyamed.com/blogs/resources/tagged/others",
+        "bg-color-article": "#482F8F",
+        "bg-color-card": "#482F8F",
+        "bg-color-content": "#482F8F",
+        "title-col": "#D4E167",
+        "sub-title-col": "#F4ECD0",
+        "tag-bg": "#F4ECD0",
+        "arrowscolor": "#FFF",
+        "tag-col": "#482F8F",
+        "article-title-color": "#F4ECD0",
+        "author-color": "#F4ECD0",
+        "border-color": "#F4ECD0",
+        "slides-per-view": 3,
+        "display-next": "block",
+        "display-prev": "block",
+        "viewall-btn": "block",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 50,
+        "title-padding-bottom": 50,
+        "margintoptag": 51,
+        "margintoptagmob": 51
+      }
+    },
+    "a0776533-33d9-4d99-9b01-213dd489d020": {
+      "type": "blog-tags-section",
+      "blocks": {
+        "58c96126-9ae7-4e61-a87d-2b5bbe225d19": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/which-fabric-is-used-for-hospital-scrubs"
+          }
+        },
+        "57781dbb-57d7-4568-b7dd-1f5a53bb12b7": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/how-to-remove-stain-from-lab-coat"
+          }
+        },
+        "ef19793f-549e-4d05-a9af-2e1eb64f8973": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/the-professional-look-guidelines-for-medical-students-wearing-lab-coats"
+          }
+        },
+        "314f94b5-4e10-4115-944f-e5208789c681": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/which-fabric-is-used-for-hospital-scrubs"
+          }
+        },
+        "659dc625-663b-4276-a131-852fee925ae4": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/tips-for-choosing-the-right-nursing-uniforms"
+          }
+        },
+        "blog_6GbAzV": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/importance-of-self-care-how-to-stay-motivated-and-avoid-burnout-in-the-medical-field"
+          }
+        }
+      },
+      "block_order": [
+        "58c96126-9ae7-4e61-a87d-2b5bbe225d19",
+        "57781dbb-57d7-4568-b7dd-1f5a53bb12b7",
+        "ef19793f-549e-4d05-a9af-2e1eb64f8973",
+        "314f94b5-4e10-4115-944f-e5208789c681",
+        "659dc625-663b-4276-a131-852fee925ae4",
+        "blog_6GbAzV"
+      ],
+      "disabled": true,
+      "settings": {
+        "showcustomblog": false,
+        "blogs_per_page": 6,
+        "image_height1": "medium",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "blog": "resources",
+        "tagname": "Medical",
+        "view-all": "View All",
+        "view-all-url": "",
+        "title-article": "Medical",
+        "cont-article": "",
+        "tag-article": "Medical",
+        "url-tag-article": "https://knyamed.com/blogs/resources/tagged/medical",
+        "bg-color-article": "#F4ECD0",
+        "bg-color-card": "#F4ECD0",
+        "bg-color-content": "none",
+        "title-col": "#482F8F",
+        "sub-title-col": "#000303",
+        "tag-bg": "#482F8F",
+        "arrowscolor": "#482F8F",
+        "tag-col": "#FFF",
+        "article-title-color": "#482F8F",
+        "author-color": "#000303",
+        "border-color": "#000303",
+        "slides-per-view": 3,
+        "display-next": "block",
+        "display-prev": "block",
+        "viewall-btn": "none",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 50,
+        "title-padding-bottom": 55,
+        "margintoptag": 100,
+        "margintoptagmob": 50
+      }
+    },
+    "c12905e5-cc3c-4e03-a1d0-71dd64f04f4f": {
+      "type": "blog-tags-section",
+      "blocks": {
+        "1c22d6cd-8102-4f6b-9084-062e436e48db": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/top-tips-for-college-students-wearing-lab-coats"
+          }
+        },
+        "ede5fbbf-c2e5-4ad5-8715-f221c78ae7d2": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/5-things-medical-professionals-should-know-to-make-their-shifts-easier"
+          }
+        },
+        "469a0500-c413-4afb-83e3-2f9e0b52ca21": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/choosing-the-best-ot-scrubs-materials-styles-and-comfort"
+          }
+        },
+        "f0eccbb3-d124-4038-9963-dbd5722cfca8": {
+          "type": "blog",
+          "settings": {
+            "customblog": "resources/choosing-the-best-ot-scrubs-materials-styles-and-comfort"
+          }
+        }
+      },
+      "block_order": [
+        "1c22d6cd-8102-4f6b-9084-062e436e48db",
+        "ede5fbbf-c2e5-4ad5-8715-f221c78ae7d2",
+        "469a0500-c413-4afb-83e3-2f9e0b52ca21",
+        "f0eccbb3-d124-4038-9963-dbd5722cfca8"
+      ],
+      "disabled": true,
+      "settings": {
+        "showcustomblog": false,
+        "blogs_per_page": 6,
+        "image_height1": "medium",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "blog": "resources",
+        "tagname": "Career",
+        "view-all": "View All",
+        "view-all-url": "",
+        "title-article": "Career",
+        "cont-article": "",
+        "tag-article": "Medical##Career",
+        "url-tag-article": "https://knyamed.com/blogs/resources/tagged/medical##https://knyamed.com/blogs/resources/tagged/career",
+        "bg-color-article": "#F4ECD0",
+        "bg-color-card": "#F4ECD0",
+        "bg-color-content": "none",
+        "title-col": "#482F8F",
+        "sub-title-col": "#000303",
+        "tag-bg": "#482F8F",
+        "arrowscolor": "#482F8F",
+        "tag-col": "#F4ECD0",
+        "article-title-color": "#482F8F",
+        "author-color": "#000303",
+        "border-color": "#000303",
+        "slides-per-view": 3,
+        "display-next": "block",
+        "display-prev": "block",
+        "viewall-btn": "none",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 50,
+        "title-padding-bottom": 55,
+        "margintoptag": 100,
+        "margintoptagmob": 50
+      }
+    },
+    "7abf3b2a-f4a3-43a6-b2c5-fc162727a043": {
+      "type": "blog-tag-other-section",
+      "disabled": true,
+      "settings": {
+        "image_height1": "medium",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "sliderrang": 0,
+        "blog": "resources",
+        "tagname": "Others",
+        "view-all": "",
+        "view-all-url": "",
+        "title-article": "Other  Articles",
+        "cont-article": "",
+        "tag-article": "",
+        "url-tag-article": "",
+        "bg-color-article": "none",
+        "bg-color-card": "none",
+        "bg-color-content": "none",
+        "title-col": "#482F8F",
+        "sub-title-col": "#000303",
+        "tag-bg": "#482F8F",
+        "tag-col": "#F4ECD0",
+        "article-title-color": "#482F8F",
+        "author-color": "#000303",
+        "border-color": "#000303",
+        "slides-per-view": 2,
+        "display-next": "block",
+        "display-prev": "block",
+        "viewall-btn": "none",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 0,
+        "title-padding-bottom": 0,
+        "margintoptag": 100,
+        "margintoptagmob": 50
+      }
+    },
+    "03af4bc6-7a8b-41ab-9a29-a630b5a1c3f0": {
+      "type": "blog-tags-section",
+      "disabled": true,
+      "settings": {
+        "showcustomblog": false,
+        "blogs_per_page": 6,
+        "image_height1": "medium",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
+        "show_image1": true,
+        "show_date1": true,
+        "show_author1": true,
+        "blog": "",
+        "tagname": "Others",
+        "view-all": "View All",
+        "view-all-url": "",
+        "title-article": "Other Articles",
+        "cont-article": "",
+        "tag-article": "Others##Blogs",
+        "url-tag-article": "",
+        "bg-color-article": "none",
+        "bg-color-card": "none",
+        "bg-color-content": "none",
+        "title-col": "#482F8F",
+        "sub-title-col": "#000303",
+        "tag-bg": "#482F8F",
+        "arrowscolor": "#482F8F",
+        "tag-col": "#F4ECD0",
+        "article-title-color": "#482F8F",
+        "author-color": "#000303",
+        "border-color": "#000303",
+        "slides-per-view": 2,
+        "display-next": "block",
+        "display-prev": "block",
+        "viewall-btn": "none",
+        "show_padding_tag": false,
+        "show_padding_mob_tag": false,
+        "title-padding-top": 0,
+        "title-padding-bottom": 0,
+        "margintoptag": 100,
+        "margintoptagmob": 50
+      }
+    },
+    "6c1b66e9-f523-4111-85e3-20f1a3ddf387": {
+      "type": "slider",
+      "settings": {
+        "shop-now-cont": "ADD TO CARD",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 100,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 0,
+        "marginBottomsliddmob": 0,
+        "headText": "In the spotlight",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "Shop our bestsellers",
+        "collection": "all-mens-scrubs"
+      }
+    },
+    "45f3dc1f-894f-4c85-b525-2d310571e1ab": {
+      "type": "top-margin-section",
+      "settings": {
+        "margintopuni": 100,
+        "margintopunimob": 64
+      }
+    }
+  },
+  "order": [
+    "8aa16d38-ca6d-42a3-ad83-a5416eab6179",
+    "1289c8f0-b00c-40a6-b1dd-64260b23d0f4",
+    "image_with_text_E3nDkA",
+    "eae55438-ad22-457e-962e-7d3c40ca8346",
+    "main",
+    "e6013412-d22c-4b64-8f72-209a7c3a3656",
+    "a0776533-33d9-4d99-9b01-213dd489d020",
+    "c12905e5-cc3c-4e03-a1d0-71dd64f04f4f",
+    "7abf3b2a-f4a3-43a6-b2c5-fc162727a043",
+    "03af4bc6-7a8b-41ab-9a29-a630b5a1c3f0",
+    "6c1b66e9-f523-4111-85e3-20f1a3ddf387",
+    "45f3dc1f-894f-4c85-b525-2d310571e1ab"
+  ]
+}

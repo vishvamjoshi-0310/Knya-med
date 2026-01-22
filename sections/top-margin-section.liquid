@@ -1,0 +1,44 @@
+<style>
+.margin-top-universal{margin-top:{{section.settings.margintopuni}}px;}
+  @media only screen and (max-width: 640px) {
+    .margin-top-universal{margin-top:{{section.settings.margintopunimob}}px;}
+  }
+  
+</style>
+
+<div class="margin-top-universal">
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Universal top margin",
+    "settings": [
+      {
+  "type": "range",
+  "id": "margintopuni",
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "margin from top for entire section",
+  "default": 0
+},
+    {
+  "type": "range",
+  "id": "margintopunimob",
+  "min": 0,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "margin from top for entire section mobile",
+  "default": 0
+}
+    ],
+  "presets": [
+    {
+      "name": "top margin universal"
+    }
+  ]
+  }
+{% endschema %}

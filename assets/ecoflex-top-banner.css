@@ -1,0 +1,9 @@
+.top-banner-section{width: 100%;height: auto; line-height:0px;}
+img.logo-image {width: 100%;height: auto;}
+.mobile-image {display: none}
+.side-bg-container img{width: 100%;height: auto;}
+  
+@media only screen and (max-width: 768px){
+  .mobile-image {display: block;width: 100%;height: auto;}
+  img.logo-image {display: none;}
+}

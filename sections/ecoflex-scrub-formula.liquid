@@ -1,0 +1,179 @@
+{{ 'ecoflex-scrub-formula.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .main-scrub-section {width: 100%;heigth: auto;display: flex;background: #D4E167;padding-right: 0px;margin-top:{{ section.settings.margintop_scrub_formula}}px;}
+  @media screen and (max-width: 640px){
+    .main-scrub-section{margin-top:{{ section.settings.margintop_scrub_formulamob}}px;}
+  }
+{%- endstyle -%}
+
+<div class="first-div">
+  <div class="page-width page-width-right-section">
+    <div class="main-scrub-section font-heebo-medium  {% if section.settings.ecoflex_scrub_formula  %} page-padding-right page-padding-left{% endif %} {% if section.settings.ecoflex_scrub_formula_mob %}padding-right-mob padding-left-mob{% endif %}">
+      <div class="better-scrub-section">
+        <div class="scrub-heading ">
+          <h2 class="scrub-main-heading">
+            {{ section.settings.scrub_formula_title }}
+          </h2>
+        </div>
+      </div>
+      <div class="better-swiper-section">
+        <div class="swiper test-swiper mySwiperScrub-{{section.id}}">
+          <div class="swiper-wrapper">
+            {%- for block in section.blocks -%}
+              <div class="swiper-slide" data-swiper-autoplay="2000">
+                <div class="image-container-scrub">
+                  <div class="image-div-container">
+                    <video
+                      id="homevideo"
+                      width="100%"
+                      controlsList="nodownload"
+                      autoplay="autoplay"
+                      muted="muted"
+                      loop="loop"
+                      playsinline=""
+                      preload="metadata"
+                      data-aos="fade-up"
+                      allowfullscreen
+                    >
+                      <source src="{{ block.settings.scrub_formula_video.sources[1].url }}" id="videoId">
+                    </video>
+                  </div>
+                  <div>
+                    <a href="{{ block.settings.scrub_link }} " class="anchor-link">
+                      <p class="link-name">{{ block.settings.link_name }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swiper = new Swiper('.mySwiperScrub-{{section.id}}', {
+        slidesPerView: 2.7,
+        spaceBetween: 15,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        autoplay: {
+          delay: 1000,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.5,
+          },
+          640: {
+            slidesPerView: 2.7,
+          },
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+
+{% schema %}
+{
+  "name": "Ecoflex Scrub Formula",
+  "settings": [
+    {
+      "type": "text",
+      "id": "scrub_formula_title",
+      "label": "Scrub Formula Heading",
+      "default": "Scrub Formula Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "ecoflex_scrub_formula",
+      "label": "Padding for Section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "ecoflex_scrub_formula_mob",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintop_scrub_formula",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintop_scrub_formulamob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Formula Image",
+      "settings": [
+        {
+          "type": "video",
+          "id": "scrub_formula_video",
+          "label": "Scrup Video"
+        },
+        {
+          "type": "image_picker",
+          "id": "gif_for_section",
+          "label": "Gif For Section"
+        },
+        {
+          "type": "text",
+          "id": "scrub_link",
+          "label": "Product Link"
+        },
+        {
+          "type": "text",
+          "id": "link_name",
+          "label": "Provide Link Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ecoflex Scrub Formula"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["page"]
+  }
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

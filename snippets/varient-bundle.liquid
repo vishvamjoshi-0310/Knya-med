@@ -1,0 +1,386 @@
+ <!-- custom color start -->
+              {%- assign variantHandleArray = product.metafields.my_fields.color_variant_handle
+                | downcase
+                | split: ','
+              -%}
+              {% if variantHandleArray != blank %}
+                <div class="page-width-pdp-mob">
+                <div class="color_custom_container colorSwatchWrapperDivision {% if template contains 'product' %} for-product {% endif %} {% if variantHandleArray.size > 0 %} appear-next-line {% endif %}">
+                  {% render 'bundle-colorSwatch', showColorTxt:true, product: product %}
+                </div>
+                </div>
+              {% endif %}
+              <!-- custom color end -->
+              {%- unless product.has_only_default_variant -%}
+                {%- if block.settings.picker_type == 'button' -%}
+                  {% assign variants_available_arr = product.variants | where: 'available', true | map: 'title' %}
+                  {% assign variantTitleValueArr = '' %}
+                  {% for variantTitleValue in variants_available_arr %}
+                    {% assign variantTitleValueArr = variantTitleValueArr | append: '#' | append: variantTitleValue %}
+                  {% endfor %}
+                  {% assign finalUnavailableVaraintsTitle = variantTitleValueArr | split: '#' %}
+
+                  {% assign firstNameValueArr = '' %}
+                  {% assign secondNameValueArr = '' %}
+                  {% assign thirdNameValueArr = '' %}
+                  {% for unavailbleVariantValue in finalUnavailableVaraintsTitle %}
+                    {% assign values = unavailbleVariantValue | split: '/' %}
+                    {% assign firstNameValueArr = firstNameValueArr | append: values[0] | append: '#' | remove: ' ' %}
+                    {% assign secondNameValueArr = secondNameValueArr | append: values[1] | append: '#' | remove: ' ' %}
+                    {% assign thirdNameValueArr = thirdNameValueArr | append: values[2] | append: '#' %}
+                  {% endfor %}
+                  {% assign firstNameValueArrfinal = firstNameValueArr | split: '#' %}
+                  {% assign secondNameValueArrfinal = secondNameValueArr | split: '#' %}
+                  {% assign thirdNameValueArrfinal = thirdNameValueArr | split: '#' | strip %}
+
+                  <variant-radios
+                    class="no-js-hidden card_product_variants_parent swiper-filter page-width-pdp-mob {{ block.id }}-{{ product.id }}"
+                    data-section="{{ product.id }}"
+                    data-url="{{ product.url }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- assign allcolor_custom = settings.colortextarea | downcase -%}
+                    {%- assign allcolor_custom_arr = allcolor_custom | split: ',' -%}
+                    {%- for option in product.options_with_values -%}
+                      <fieldset class="js product-form__input swatch-cust ">
+                        {% if option.name == 'Color' %}
+                          <div class="color_topBox">
+                            <legend class="form__label abcgfiyuio font-heebo-regular">{{ option.name }}</legend> 
+                            <span class="color_name font-heebo-regular"></span>
+                          </div>
+                        {% else %}
+                          <div class="varient_top_container1">
+                            <legend class="form__label  font-heebo-medium clor-option-size1 ">
+                              {{ option.name }}:
+                              <span class="varient-title-SizeSwatchList-selected-value-{{ forloop.index }} font-heebo-medium clor-option-size1"></span>
+                            </legend>
+                            {% assign optionName = option.name %}
+                            {% assign optionName1 = option.name |downcase %}
+                            {% if optionName1 == 'bottom size' %}
+                              {% if product.metafields.custom.size_guide_bottom.value %}
+                                {% assign sizeCart_bottom = product.metafields.custom.size_guide_bottom.value %}
+                               <span class="size_guide_new font-heebo-medium" {% if sizeCart_bottom.heading_of_size_chart != blank %} onclick="sizeGuideModalOpenTopBottom({{ product.id }})" {% endif %} > Size Chart </span>
+                              {% endif %}
+                            {% elsif optionName1 == "top size" %}
+                              {% if product.metafields.custom.size_guide.value %}
+                                {% assign sizeCart_top = product.metafields.custom.size_guide.value %}
+                                <span class="size_guide_new font-heebo-medium" {% if sizeCart_top.heading_of_size_chart != blank %} onclick="sizeGuideModalOpenTop({{ product.id }})" {% endif %}> Size Chart </span>                              
+                              {% endif %}
+                            {% endif %}
+                          </div>
+                        {% endif %}
+
+                        <p>{{ value }}</p>
+                        <div class="varient_bundle_{{ option.name }}">
+                        {%- for value in option.values -%}
+                          {% for color in allcolor_custom_arr %}
+                            {% assign color_name_compressed = value | downcase | replace: ' ', '' %}
+                            {% assign colorName = color | split: '=' %}
+                            {% assign color_compressed = colorName[0] | replace: ' ', '' %}
+                            {% if color_name_compressed == color_compressed %}
+                              {% assign currentColorHashcode = colorName[1] %}
+                              {% break %}
+                            {% endif %}
+                          {% endfor %}
+                          {% if option.name == 'Color' %}
+                            <input
+                              type="radio"
+                              id="{{ product.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                              name="{{ option.name }}-{{ index }}"
+                              value="{{ value | escape }}"
+                              form="{{ product_form_id }}"
+                              {% assign variant = product.variants | where: 'option1', value %}
+
+                              {% if option.selected_value == value %}
+                                checked
+                              {% endif %}
+                            >
+
+                            {% assign colorswatch = value | downcase %}
+                            {% assign assetname = colorswatch | append: '.jpg' | downcase | replace: ' ', '-' %}
+                            {% assign assetFolder = assetname | asset_url %}
+
+                            <label
+                              data-color="{{ value }}"
+                              {% assign variant = product.variants | where: 'option1', value %}
+                              {% for v in variant %}
+                                variant-id="{{ v.id }}"
+                              {% endfor %}
+                              class="custom-swatch default-artt color_varient {{ value }}"
+                              style="{%  if currentColorHashcode != '' %}background-color: {{ currentColorHashcode }} ;{% else %}background-color: {{ value | replace: ' ', '' | downcase }};{% endif %} padding: 0 0 !important;width: 25px; height: 25px;background-image:url('{{assetFolder}}'); background-color:{{ value }}"
+                              for="{{ product.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                            >
+                              <span class="swatch-titlee">{{ value | downcase }}</span>
+                            </label>
+                          {% else %}
+                            <input
+                              type="radio"
+                              {% assign optionName = option.name | downcase | remove: ' ' %}
+
+                              {% if optionName == 'topsize' %}
+                                class="size_varient PointerNone removeDisabled"
+                                {% if variantHandleArray != blank %} 
+                                   onclick="prerenderVarientoptions(this)"
+                                  {% else %}
+                               onclick="selectBundleVarwithoutcolor(this)"
+                                  {% endif %}
+                                {% if firstNameValueArrfinal contains value -%}
+                                  data-available="true"
+                                {% else %}
+                                  data-available="false"
+                                {% endif %}
+                              {% elsif optionName == 'bottomsize' %}
+                                class="size_varient1 PointerNone removeDisabled"
+                                 {% if variantHandleArray != blank %}
+                                   onclick="prerenderVarientoptionsBtm(this)"
+                                  {% else %}
+                                onclick="selectBundleBtmVarwithoutcolor(this)"
+                                   {% endif %}
+                                {% if secondNameValueArrfinal contains value -%}
+                                  data-available="true"
+                                {% else %}
+                                  data-available="false"
+                                {% endif %}
+                              {% else %}
+                                class="size_varient2 PointerNone removeDisabled"
+                                {% if thirdNameValueArrfinal contains value -%}
+                                  data-available="true"
+                                {% else %}
+                                  data-available="false"
+                                {% endif %}
+                              {% endif %}
+
+                              id="{{ product.id }}-{{ option.position }}-{{ forloop.index0 }}-{{ index }}"
+                              name="{{ option.name }}-{{ product.id }}-{{ index }}"
+                              value="{{ value | escape }}"
+                              form="{{ product_form_id }}"
+                            optionName ="{{ optionName }}"
+                            >
+                            <label
+                              class="custom-swatch disableBtn"
+                              for="{{ product.id }}-{{ option.position }}-{{ forloop.index0 }}-{{ index }}"
+                            >
+                              {{ value }}
+                            </label>
+                          {% endif %}
+                        {%- endfor -%}
+                        </div>
+                      </fieldset>
+                    {%- endfor -%}
+                    <script type="application/json">
+                     {{ product | json }}
+                    </script>
+                  </variant-radios>
+
+                {%- else -%}
+                  <variant-selects
+                    class="no-js-hidden"
+                    data-section="{{ product.id }}"
+                    data-url="{{ product.url }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {%- for option in product.options_with_values -%}
+                      <div class="product-form__input product-form__input--dropdown">
+                        <label class="form__label" for="Option-{{ product.id }}-{{ forloop.index0 }}">
+                          {{ option.name }}
+                        </label>
+                        <div class="select">
+                          <select
+                            id="Option-{{ product.id }}-{{ forloop.index0 }}"
+                            class="select__select"
+                            name="options[{{ option.name | escape }}]"
+                            form="{{ product_form_id }}"
+                          >
+                            {%- for value in option.values -%}
+                              <option
+                                value="{{ value | escape }}"
+                              >
+                                {{ value }}
+                              </option>
+                            {%- endfor -%}
+                          </select>
+                          {% render 'icon-caret' %}
+                        </div>
+                      </div>
+                    {%- endfor -%}
+
+                    <script type="application/json">
+                       {{ product.variants | json }}
+                    </script>
+                  </variant-selects>
+                {%- endif -%}
+              {%- endunless -%}
+
+              <noscript class="product-form__noscript-wrapper-{{ product.id }}">
+                <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
+                  <label class="form__label" for="Variants-{{ product.id }}">
+                    {{- 'products.product.product_variants' | t -}}
+                  </label>
+                  <div class="select">
+                    <select
+                      name="id"
+                      id="Variants-{{ product.id }}"
+                      class="select__select"
+                      form="{{ product_form_id }}"
+                    >
+                      {%- for variant in product.variants -%}
+                        <option
+                          {% if variant == product.selected_or_first_available_variant %}
+                            selected="selected"
+                          {% endif %}
+                          {% if variant.available == false %}
+                            disabled
+                          {% endif %}
+                          value="{{ variant.id }}"
+                        >
+                          {{ variant.title }}
+                          {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                          - {{ variant.price | money | strip_html }}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                    {% render 'icon-caret' %}
+                  </div>
+                </div>
+              </noscript>
+              <div class="stock-availability">
+                <span class="availability-Notice"></span>
+              </div>
+              <!-- embroidery code -->
+              {% if template != 'index' %}
+                {% for tag in product.tags %}
+                  {% assign downCaseTag = tag | downcase %}
+                  {% if downCaseTag contains 'embroidery' %}
+                    <div class="embroidery-box Embroired_box">
+                      <div class="loading-overlay__spinner pdpLoader">
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          class="spinner"
+                          viewBox="0 0 66 66"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </div>
+                      {% render 'embroidery-box-bundle' %}
+                    </div>
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
+              <!-- emnroidery close -->
+              {% if template != 'index' %}
+                {% for tag in product.tags %}
+                  {% assign downCaseTag = tag | downcase %}
+                  {% if downCaseTag contains 'embroidery' %}
+                    {% render 'embroidery-popup-bundle',proPww:product %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
+
+<script>
+function prerenderVarientoptionswithoutcolor(event) {
+    let tpVArntcolor = event.getAttribute("value");
+    let RproductJSontpntcolor = event.closest("variant-radios").querySelector("script").innerHTML;
+    let RSelectedProducttpntcolor = JSON.parse(RproductJSontpntcolor);
+    if (RSelectedProducttpntcolor.options.length == 1) {
+        const filteredObjectsntcolor = RSelectedProducttpntcolor.variants.filter(variant => variant.title == tpVArntcolor);
+        event.closest(".pww_main-container_card").querySelector(".pww_mainComtainer").setAttribute("data-varientselected", filteredObjectsntcolor[0].id)
+        event.closest(".pww_main-container_card").querySelector(".embroidery-box")?.setAttribute("data-product-pair", filteredObjectsntcolor[0].sku)
+    } else if (RSelectedProducttpntcolor.options.length == 2) {
+        let concatenatedVariantValuentcolor = event.closest(".pww_mainComtainer").querySelectorAll('fieldset')[0]?.querySelector('input:checked')?.value + ' / ' + event.closest(".pww_mainComtainer").querySelectorAll('fieldset')[1]?.querySelector('input:checked')?.value
+        let selectedParts1 = concatenatedVariantValuentcolor.split(" / ");
+        let selectedWithoutUndefined1 = selectedParts1.map(part => part !== "undefined" ? part : null)
+        filteredObjects1 = RSelectedProducttpntcolor.variants.filter(variant => {
+            let variantParts1 = variant.title.split(" / "); // Split the variant title into parts
+            return variantParts1.every((part, index) => {
+                return selectedWithoutUndefined1[index] === null || part === selectedWithoutUndefined1[index]; // Compare each part or null (for "undefined")
+            });
+        });
+        event.closest(".pww_main-container_card").querySelector(".pww_mainComtainer").setAttribute("data-varientselected", filteredObjects1[0].id)
+        event.closest(".pww_main-container_card").querySelector(".embroidery-box")?.setAttribute("data-product-pair", filteredObjects1[0].sku)
+
+    }
+
+}
+
+
+function selectBundleVarwithoutcolor(event) {
+    window.tpVarientwtclr2 = [];
+    let tpVAr1 = event.getAttribute("value");
+    let RproductJSontp = event.closest("variant-radios").querySelector("script").innerHTML;
+
+    event.closest(".pww_mainComtainer").querySelector(".varient-title-SizeSwatchList-selected-value-1").innerText = tpVAr1;
+
+    let RSelectedProducttp = JSON.parse(RproductJSontp);
+    if (RSelectedProducttp.options.length == 2) {
+        let elementstp1 = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Bottom").querySelectorAll("input");
+        RSelectedProducttp.variants.forEach((x) => {
+            let rdTP1 = x.option1;
+            if (rdTP1 == tpVAr1) {
+                if (x.available) {
+                    tpVarientwtclr2.push(x.option2);
+                }
+            }
+        });
+        elementstp1.forEach((input) => {
+            let sanTPpre = input.getAttribute("value");
+            let matchtp1 = false;
+            for (let i = 0; i < tpVarientwtclr2.length; i++) {
+                if (tpVarientwtclr2[i] == sanTPpre) {
+                    matchtp1 = true;
+                    break;
+                }
+            }
+            if (matchtp1) {
+                input.setAttribute("data-available", "true");
+            } else {
+                input.setAttribute("data-available", "false");
+            }
+        });
+
+    }
+    prerenderVarientoptionswithoutcolor(event)
+
+}
+
+function selectBundleBtmVarwithoutcolor(event) {
+    window.btmVarientwtclr1 = [];
+    let elementsBtm1 = event.closest(".pww_mainComtainer").querySelector(".varient_bundle_Top").querySelectorAll("input");
+    let btmVAr1 = event.getAttribute("value");
+    let RproductJSon = event.closest("variant-radios").querySelector("script").innerHTML;
+
+    event.closest(".pww_mainComtainer").querySelector(".varient-title-SizeSwatchList-selected-value-2").innerText = btmVAr1;
+
+    let RSelectedProduct = JSON.parse(RproductJSon);
+    RSelectedProduct.variants.forEach((x) => {
+        let rdBTM1 = x.option2;
+        if (rdBTM1 == btmVAr1) {
+            if (x.available) {
+                btmVarientwtclr1.push(x.option1);
+            }
+        }
+    });
+    elementsBtm1.forEach((input) => {
+        let sanBTMpre = input.getAttribute("value");
+        let matchBTM1 = false;
+        for (let i = 0; i < btmVarientwtclr1.length; i++) {
+            if (btmVarientwtclr1[i] == sanBTMpre) {
+                matchBTM1 = true;
+                break;
+            }
+        }
+        if (matchBTM1) {
+            input.setAttribute("data-available", "true");
+        } else {
+            input.setAttribute("data-available", "false");
+        }
+    });
+    prerenderVarientoptionswithoutcolor(event)
+}
+</script>

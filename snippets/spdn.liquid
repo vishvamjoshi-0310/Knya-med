@@ -1,0 +1,110 @@
+<script>
+  var _listeners = [];
+  (EventTarget.prototype.addEventListenerBase = EventTarget.prototype.addEventListener),
+    (EventTarget.prototype.addEventListener = function (e, t, p) {
+      _listeners.push({ target: this, type: e, listener: t }), this.addEventListenerBase(e, t, p);
+    }),
+    (EventTarget.prototype.removeEventListeners = function (e) {
+      for (var t = 0; t != _listeners.length; t++) {
+        var r = _listeners[t],
+          n = r.target,
+          s = r.type,
+          i = r.listener;
+        n == this && s == e && this.removeEventListener(s, i);
+      }
+    });
+</script>
+<script type="text/worker" id="spdnworker">
+  onmessage = function (e) {
+    var t = new Request('https://' + "{{ 'spdn.js' | asset_url }}", { redirect: 'follow' });
+    fetch(t)
+      .then((e) => e.text())
+      .then((e) => {
+        postMessage(e);
+      });
+  };
+</script>
+<script type="text/javascript">
+  var spdnx = new Worker('data:text/javascript;base64,' + btoa(document.getElementById('spdnworker').textContent));
+  (spdnx.onmessage = function (t) {
+    var e = document.createElement('script');
+    (e.type = 'text/javascript'), (e.textContent = t.data), document.head.appendChild(e);
+  }),
+    spdnx.postMessage('init');
+</script>
+<script type="text/javascript" data-spdn="1">
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach(({ addedNodes }) => {
+      addedNodes.forEach((node) => {
+        if (node.tagName === 'SCRIPT' && node.innerHTML.includes('asyncLoad')) {
+          node.type = 'text/spdnscript';
+        }
+
+        if (node.nodeType === 1 && node.tagName === 'SCRIPT') {
+          if (
+            node.src.includes('globo.preorder') ||
+            node.src.includes('hotjar') ||
+            node.src.includes('https://www.clarity.ms/s/0.7.10/clarity.js') ||
+            node.src.includes('checkout-web') ||
+            node.src.includes('limechat') ||
+            node.src.includes('reward.js') ||
+            node.src.includes('judge') ||
+            node.src.includes('yotpo') ||
+            node.src.includes('polyfill') ||
+            node.src.includes('boomerang') ||
+            node.src.includes('mousewheel.js') ||
+            node.src.includes('dom7.esm.js') ||
+            node.src.includes('eco') ||
+            node.src.includes('onTouchMove.js') ||
+            node.src.includes('storefront') ||
+            node.src.includes('google-analytics') ||
+            node.src.includes('googlet') ||
+            node.src.includes('googletagmanager') ||
+            node.src.includes('gtag') ||
+            node.src.includes('graphql') ||
+
+
+            {% if template.name != "product" and template.name != "product.new-combo-product" and template.name != "product.scrub" and template.name != "account" %}
+              node.src.includes('reward-widget') ||
+            {% endif %}
+            node.src.includes('clarity.ms') ||
+            // node.src.includes('quinn') ||
+            // node.src.includes('nector') ||
+            node.src.includes('fontawesome') ||
+            node.dataset.Blockspdn == '1' ||
+            node.id == 'globaleScript'
+          ) {
+            node.type = 'text/spdnscript';
+          }
+        }
+
+        if (node.nodeType === 1 && node.tagName === 'SCRIPT') {
+          if (node.src.includes('quinn') || node.src.includes('reward-widget') || node.src.includes('gokwik')) {
+            node.defer = true;
+          }
+        }
+
+        if (node.nodeType === 1 && node.tagName === 'LINK') {
+          if (node.className.includes('jdgm-prefetch')) {
+            node.defer = true;
+          }
+        }
+
+        if (node.tagName === 'SCRIPT' && node.dataset.blockspdn == '1') {
+          node.type = 'text/spdnscript';
+        }
+
+        if (node.tagName === 'SCRIPT' && node.className == 'analytics') {
+          node.type = 'text/spdnscript';
+        }
+      });
+    });
+  });
+  var ua = navigator.userAgent.toLowerCase();
+  if (
+    (ua.indexOf('chrome') > -1 || ua.indexOf('firefox') > -1) &&
+    window.location.href.indexOf('no-optimization') === -1
+  ) {
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+</script>

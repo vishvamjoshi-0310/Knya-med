@@ -1,0 +1,307 @@
+<style>
+
+  .image-container-404 {
+    width: 600px;
+    height: 247px;
+    margin: auto auto 124px;
+    position: relative;
+  }
+
+  .return-button-404 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.4rem;
+  }
+
+  .button-container-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+  }
+
+  .return-button-404 {
+    text-align: center;
+  }
+
+  .button-container-404 a,
+  .return-button-404 a {
+    border: 1px solid #79747E;
+    width: 164px;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: #482F8F;
+  }
+
+  .return-button-404 a {
+    width: 215px;
+    background: #482F8F;
+  }
+
+  .button-container-404 a span,
+  .return-button-404 a span {
+    font-family: 'Heebo-Medium';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15.84px;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: #482F8F;
+  }
+
+  .return-button-404 a span {
+    color: #FFFFFF;
+  }
+
+  .image-container-404 img {
+    width: 100%;
+    height: 100%;
+  }
+    .heading-subheading-container404 h2 {
+        font-family: 'Heebo-Medium';
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 40px;
+        text-align: center;
+        color: #000000;
+    }
+    .heading-subheading-container404 p {
+        font-family: 'Heebo-Regular';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        margin: 0;
+        letter-spacing: 0;
+    }
+    .heading-subheading-container404 {
+        position: absolute;
+        bottom: 76px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+    }
+    @media only screen and (min-width: 601px) and (max-width: 1399px) {
+        .custom-404-page{
+            margin-top: 60px !important;
+        }
+        .image-container-404{
+            margin-bottom: 60px;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        .custom-404-page{
+            padding: 0 18px;
+        }
+        .return-button-404 a{
+            width: 100%;
+        }
+        .button-container-404 {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 1.2rem;
+        }
+        .return-button-404{
+            margin-bottom: 1.2rem;
+        }
+        .image-container-404{
+            max-width: 314px;
+            width: 100%;
+            height: 131px;
+            margin-bottom: 57px;
+        }
+        .heading-subheading-container404{
+            bottom: 32px;
+        }
+        .heading-subheading-container404 p {
+            font-size: 12px;
+            line-height: 18px;
+        }
+        .heading-subheading-container404 h2 {
+            font-size: 22px;
+            line-height: 28px;
+        }
+        .button-container-404 a{
+            width: 43.8465vw;
+            max-width: 171px;
+            height: 42px;
+        }
+        .return-button-404 a {
+            width: 100%;
+            max-width: 100%;
+            height: 42px;
+        }
+        .return-button-404 a span {
+            color: #F4ECD0;
+        }
+    }
+</style>
+{% style %}
+  .section-{{ section.id }}{
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  @media only screen and (max-width: 600px){
+    .section-{{ section.id }}{
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+{% endstyle %}
+<div class="custom-404-page page-width section-{{ section.id }}">
+  <div class="inner-container-404">
+    <div class="image-container-404">
+      {% if section.settings.page404_image != blank %}
+        <img
+          class="image-desktop404"
+          srcset="
+        {%- if section.settings.page404_image.width >= 550 -%}{{ section.settings.page404_image | image_url: width: 550, format: 'webp' }} 550w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 1100 -%}{{ section.settings.page404_image | image_url: width: 1100, format: 'webp' }} 1100w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 1445 -%}{{ section.settings.page404_image | image_url: width: 1445, format: 'webp' }} 1445w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 1680 -%}{{ section.settings.page404_image | image_url: width: 1680, format: 'webp' }} 1680w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 2048 -%}{{ section.settings.page404_image | image_url: width: 2048, format: 'webp' }} 2048w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 2200 -%}{{ section.settings.page404_image | image_url: width: 2200, format: 'webp' }} 2200w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 2890 -%}{{ section.settings.page404_image | image_url: width: 2890, format: 'webp' }} 2890w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 3000 -%}{{ section.settings.page404_image | image_url: width: 3000, format: 'webp' }} 3000w,{%- endif -%}
+        {%- if section.settings.page404_image.width >= 3840 -%}{{ section.settings.page404_image | image_url: width: 3840, format: 'webp' }} 3840w,{%- endif -%}
+        {{ section.settings.page404_image | image_url }} {{ section.settings.page404_image.width }}w
+    "
+          src="{{ section.settings.page404_image | image_url: width: section.settings.page404_image.width, format: 'webp' }}"
+          {% if forloop.index0==0 %}
+          loading="eager"
+          {% else %}
+          loading="lazy"
+          {% endif %}
+          sizes="100vw"
+          alt="{% if section.settings.page404_image.alt %} {{ section.settings.page404_image.alt | escape }} {% else %}mobile-banner{% endif %}"
+          width="{{ section.settings.page404_image.width }}"
+          height="{{ section.settings.page404_image.height }}">
+        {% if section.settings.page404_heading != blank and section.settings.page404_subheading != blank %}
+          <div class="heading-subheading-container404">
+            {% if section.settings.page404_heading != blank %}
+              <h2>{{ section.settings.page404_heading }}</h2>
+            {% endif %}
+            {% if section.settings.page404_subheading != blank %}
+              <p>{{ section.settings.page404_subheading }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="404-button-container">
+        {% if section.settings.return_button404text != blank %}
+            <div class="return-button-404">
+                <a href="{{ section.settings.return_button_url }}">
+                    <span>{{ section.settings.return_button404text }}</span>
+                </a>
+            </div>
+        {% endif %}
+      <div class="button-container-404">
+        {% for block in section.blocks %}
+          {% if block != blank %}
+            <a href="{{ block.settings.page404_butonlink }}">
+              <span>{{ block.settings.page404_butontext }}</span>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "custom 404 page",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "page404_image",
+        "label": "Image"
+      }, {
+        "type": "text",
+        "id": "page404_heading",
+        "label": "Heading",
+        "default": "We lost this page!"
+      }, {
+        "type": "text",
+        "id": "page404_subheading",
+        "label": "Sub Heading",
+        "default": "Page not found, just like your favourite pen on a busy shift. "
+      },
+      {
+        "type": "text",
+        "id": "return_button404text",
+        "label": "Return Button Text",
+        "default": "Return To Home Page"
+      },
+      {
+        "type": "url",
+        "id": "return_button_url",
+        "label": "Return Button Url"
+      },
+      {
+        "type": "range",
+        "id": "margin_top_desktop",
+        "label": "Margin Top Desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "default": 124
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_desktop",
+        "label": "Margin Bottom Desktop",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "default": 72
+      },
+      {
+        "type": "range",
+        "id": "margin_top_mobile",
+        "label": "Margin Top mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "default": 112
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom_mobile",
+        "label": "Margin Bottom mobile",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "default": 112
+      }
+    ],
+    "blocks": [
+      {
+        "type": "button",
+        "name": "button",
+        "settings": [
+          {
+            "type": "text",
+            "id": "page404_butontext",
+            "label": "Text"
+          }, {
+            "type": "url",
+            "id": "page404_butonlink",
+            "label": "URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "custom-404-page"
+      }
+    ]
+  }
+{% endschema %}

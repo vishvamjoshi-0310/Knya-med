@@ -1,0 +1,288 @@
+{{ 'swiper.css' | asset_url | stylesheet_tag }}
+{{ 'shop-ecoflex-range.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'best-collection-slider.css' | asset_url | stylesheet_tag }}
+<style>
+  /*    .new-color{background-image:url('{{ 'Vector.svg' | asset_url }}');} */
+    .main-collection-home{margin-top:{{section.settings.marginTopslidd}}px;}
+   @media screen and (max-width: 640px){
+
+          .main-collection-home{margin-top:{{section.settings.marginTopsliddmob}}px;}
+      {% if template.name == "page" %}
+  .div-padding{display:none;}
+      {% endif %}
+
+         }
+   .main-grid-div{margin-top:{{ section.settings.margintopshop}}px;}
+      @media only screen and (max-width:640px){
+        .content-shop{width:100% important}
+        .content-shop .mobile-grid{padding-right: 0 !important; gap: 8px;}
+       .main-grid-div{margin-top:{{ section.settings.margintopshopmob}}px}
+     }
+</style>
+<link
+  rel="preload"
+  href="{{ 'component-rte.css' | asset_url }}"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+>
+
+{%- if section.settings.enable_quick_add -%}
+  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{% if section.settings.collection != blank %}
+  <div class="main-collection-home page-width coll-home conditional-class">
+    <div class="content-home content-shop">
+      <h1 class="first-line-home font-heebo-medium">{{ section.settings.headText }}</h1>
+      <div class="second-line-shop">
+        <p class="second-line-home font-heebo-regular">{{ section.settings.secondText }}</p>
+        <div class="mobile-grid">
+          <div class="single-shop">{% render 'rect-coll' %}</div>
+          <div class="double-shop">{% render 'grid-coll' %}</div>
+        </div>
+      </div>
+    </div>
+    <div class="div-padding{% if section.settings.show_padding_slidd  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_slidd %}padding-right-mob padding-left-mob{% endif %}">
+      <div class="swiper mySwiper-{{ section.id }} home-slider ">
+        <div class="swiper-wrapper">
+          {%- for product in section.settings.collection.products limit: 6 -%}
+            <div class="swiper-slide">
+              <div class="main-div">
+                {% assign card_index = forloop.index0 %}
+                {%
+                  render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  show_quick_add: section.settings.enable_quick_add,
+                  section_id: section.id,
+                  card_index: card_index,
+                %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-next home-next">{% render 'next-icon-home' %}</div>
+        <div class="swiper-button-prev home-prev">{% render 'prev-icon-home' %}</div>
+        {% if section.settings.pagination %}
+          <div class="swiper-pagination"></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="main-grid-div page-width">
+    <div class="grid-for-mob ">
+      {%- for product in section.settings.collection.products limit: 10 -%}
+        <div class="inner-shop">
+          {% render 'card-product',
+            card_product: product,
+            media_aspect_ratio: section.settings.image_ratio,
+            show_secondary_image: section.settings.show_secondary_image,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            show_quick_add: section.settings.enable_quick_add,
+            section_id: section.id
+          %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var swiper = new Swiper('.mySwiper-{{ section.id }}', {
+        slidesPerView: 4.5,
+        spaceBetween: 30,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.5,
+            spaceBetween: 5,
+          },
+          500: {
+            slidesPerView: 1.5,
+            spaceBetween: 5,
+          },
+          660: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+          },
+          900: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,
+          },
+          1100: {
+            slidesPerView: 4.5,
+            spaceBetween: 20,
+          },
+          2100: {
+            slidesPerView: 3.5,
+            spaceBetween: 20,
+          },
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    },
+    { once: true }
+  );
+
+  window.addEventListener('load', (event) => {
+    document.querySelectorAll('.card-information .HorizontalList').forEach((each) => {
+      each.querySelectorAll('.card-information .HorizontalList__Item').forEach((each1, eachIndex) => {
+        if (window.innerWidth <= 1157) {
+          if (eachIndex > 4) {
+            each1.style.display = 'none';
+            each1.nextElementSibling.style.display = 'block';
+            each.lastElementChild.style.display = 'block';
+          }
+        }
+        if (eachIndex > 7) {
+          each1.style.display = 'none';
+          each1.nextElementSibling.style.display = 'block';
+          each.lastElementChild.style.display = 'block';
+        }
+      });
+    });
+  });
+  if (window.innerWidth <= 989) {
+    window.addEventListener('load', function () {
+      document.querySelector('.double-shop').click();
+    });
+  }
+
+  document.querySelector('.single-shop').addEventListener('click', function () {
+    document.querySelectorAll('.card__information').forEach((each) => {
+      each.classList.remove('double-varient');
+    });
+    document.querySelector('.grid-for-mob ').style.gridTemplateColumns = 'auto';
+    document.querySelectorAll('.HorizontalList').forEach((each) => {
+      each.querySelectorAll('.HorizontalList__Item').forEach((each1, eachIndex) => {
+        if (eachIndex > 4) {
+          each1.style.display = 'block';
+          document.querySelectorAll('.plus-swatch').forEach((eache) => {
+            eache.style.display = 'none';
+          });
+        }
+      });
+    });
+  });
+  document.querySelector('.double-shop').addEventListener('click', function () {
+    document.querySelectorAll('.card__information').forEach((each) => {
+      each.classList.add('double-varient');
+    });
+    document.querySelector('.grid-for-mob ').style.gridTemplateColumns = 'auto auto';
+    document.querySelectorAll('.HorizontalList').forEach((each) => {
+      each.querySelectorAll('.HorizontalList__Item').forEach((each1, eachIndex) => {
+        if (window.innerWidth >= 376) {
+          if (eachIndex > 4) {
+            each1.style.display = 'none';
+            each1.nextElementSibling.style.display = 'block';
+            each.lastElementChild.style.display = 'block';
+          }
+        }
+        if (eachIndex > 2) {
+          each1.style.display = 'none';
+          each1.nextElementSibling.style.display = 'block';
+          each.lastElementChild.style.display = 'block';
+        }
+      });
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "In The Spotlight",
+  "settings": [
+    {
+      "type": "text",
+      "id": "shop-now-cont",
+      "label": "Shop now text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_slidd",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pagination",
+      "label": "show dot on slider",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_slidd",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "marginTopslidd",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginTopsliddmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "margin from top for entire section mobile",
+      "default": 0
+    },
+
+    {
+      "type": "image_picker",
+      "id": "new-color-bg",
+      "label": "tag background image"
+    },
+
+    {
+      "type": "text",
+      "id": "headText",
+      "label": "enter heading"
+    },
+    {
+      "type": "text",
+      "id": "secondText",
+      "label": "enter content"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "In The Spotlight"
+    }
+  ]
+}
+{% endschema %}

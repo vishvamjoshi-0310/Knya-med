@@ -1,0 +1,19 @@
+.full-width-text {position: absolute;top: 0;width: 100%;display: flex;align-items: center;justify-content: center;height: 100%;}
+  .image-full {position: relative;width: 100%;height: auto;line-height: 0;}
+  img.desktop-image {width: 100%;height: auto;}
+  h2.full-width-h1 {color: #F4ECD0;}
+  .mob-image{display:none;}
+      .text-mob{display:none;}
+    .text-desk{display:flex;}
+  @media screen and (max-width: 640px){
+    .full-width-div { display: flex; text-align: center;}
+    .mob-image{display:block;}
+    .desktop-image{display:none;}
+    .text-mob{display:flex;}
+    .text-desk{display:none;}
+    .mobile-text{font-size:28px}
+  }
+  .mob-image {
+    width: 100%;
+    height: auto;
+}

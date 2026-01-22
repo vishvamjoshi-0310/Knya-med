@@ -1,0 +1,352 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "banner_with_text_6T4FK3": {
+      "type": "banner-with-text",
+      "blocks": {
+        "text_YbEEJz": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Web_Banner_Steth_Desktop.png",
+            "image_2": "shopify://shop_images/Web_Banner_Steth_Mobile.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "https://knyamed.com/collections/shop-6sense-stethoscope?utm_source=website&utm_medium=steth-page&utm_campaign=4thsept-herobanner",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "",
+            "button-color": "",
+            "hpbox1": "steth-25thNov"
+          }
+        }
+      },
+      "block_order": [
+        "text_YbEEJz"
+      ],
+      "settings": {
+        "enable_autoplay": false,
+        "margin-top-desktop": 0,
+        "margin-bottom-desktop": 0,
+        "margin-top-mobile": 0,
+        "margin-bottom-mobile": 0,
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "text-backgroundcolor": "",
+        "text-color": "",
+        "box-padding": 0,
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "stethoscope_features_dHzAmK": {
+      "type": "stethoscope-features",
+      "blocks": {
+        "block_ggBHpb": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Superior Acoustics ",
+            "feature_heading": "Hight acoustic sensitivity and <strong>noise cancellation</strong>"
+          }
+        },
+        "block_GFqEmn": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Enhanced Performance ",
+            "feature_heading": "Crafted alongside top Indian medicos, with <strong> excellence </strong> and <strong>precision </strong>"
+          }
+        },
+        "block_paPfn7": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Scratch Resistant ",
+            "feature_heading": "Anodised aluminium enhances  <strong> scratch resistance </strong> and <strong> longevity </strong>"
+          }
+        },
+        "block_wizpRa": {
+          "type": "block",
+          "settings": {
+            "feature_name": "High Flexibility ",
+            "feature_heading": "Engineered for optimal flexibility with <strong> latex-free PVC material </strong>"
+          }
+        },
+        "block_gE96eC": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Long Durability",
+            "feature_heading": "Designed to withstand daily demands with <strong> durability </strong> and <strong> comfort </strong>"
+          }
+        },
+        "block_6A9PLp": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Made in India",
+            "feature_heading": "Built for modern healthcare professionals, proudly <strong> made in India.</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "block_ggBHpb",
+        "block_GFqEmn",
+        "block_paPfn7",
+        "block_wizpRa",
+        "block_gE96eC",
+        "block_6A9PLp"
+      ],
+      "settings": {
+        "feature_subheading": "Reinventing the Stethoscope",
+        "stetho-preorder-count": "126+",
+        "stetho-preorder-text": "Hurry! The first 1500 pre-bookings get FREE engraving.",
+        "stetho-preorder-url": "shopify://collections"
+      }
+    },
+    "6sence_me8tJB": {
+      "type": "6sence",
+      "name": "6sense",
+      "settings": {
+        "sence_logo": "shopify://shop_images/Group_1_93754e4e-37a6-40bd-9df5-a558f3111e09.png",
+        "premium_title": "<p>High precision. <br/>Lets you hear every beat.</p>",
+        "premium_price": "₹2249/-",
+        "premium_shop_text": "Shop Now",
+        "premium_shop_link": "shopify://collections/shop-6sense",
+        "premium_image": "shopify://shop_images/homepod__eam53jjm772a_large_jpg_049962c3-8b94-4a2e-924b-dafe8ab08d5d.png",
+        "secondary_logo": "shopify://shop_images/Group_eceab7f8-3b73-49e7-a96b-05d41c34b639.png",
+        "lite_title": "<p>Light in weight.<br/>More affordable.</p>",
+        "lite_price": "₹1999/-",
+        "lite_shop_text": "Shop Now",
+        "lite_shop_link": "shopify://collections/shop-6sense-lite",
+        "lite_learn_link": "https://knyamed.com/blogs/resources",
+        "lite_image": "shopify://shop_images/Steth_Lite_2X_99c401ad-ff18-4898-93ad-b76ee1e20870.png"
+      }
+    },
+    "stethoscope_feature_cards_pB9Dqi": {
+      "type": "stethoscope-feature-cards",
+      "blocks": {
+        "block_fUn6CN": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/Chest_Piece_1.png",
+            "feature_name": "Chest Piece ",
+            "feature_description": "Diaphragm that easily switches between adult and paediatric diaphragm to hear high and low frequency sounds. "
+          }
+        },
+        "block_tcteBP": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/Ear_Piece.png",
+            "feature_name": "Earpieces",
+            "feature_description": "Soft-sealing earpieces make for a comfortable fit, providing sound occlusion and blocking out external noise. "
+          }
+        },
+        "block_Rb48az": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/Engraving_2.png",
+            "feature_name": "Engraving",
+            "feature_description": "Customisation option with engraving on the anodised aluminium chest piece gives the stethoscope a personal look. "
+          }
+        },
+        "block_YGyTMg": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/Tubes.png",
+            "feature_name": "Tubes ",
+            "feature_description": "Tubing provides a high-quality sound transmission by minimising interference, ensuring clear auscultation. "
+          }
+        }
+      },
+      "block_order": [
+        "block_fUn6CN",
+        "block_tcteBP",
+        "block_Rb48az",
+        "block_YGyTMg"
+      ],
+      "settings": {}
+    },
+    "slider_eqymtk": {
+      "type": "slider",
+      "custom_css": [
+        ".content-home h2 {}"
+      ],
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": true,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 0,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 0,
+        "marginBottomsliddmob": 35,
+        "headText": "Shop 6sense",
+        "secondText": "High Precision. Lets you hear every beat.",
+        "collection": "shop-6sense"
+      }
+    },
+    "slider_HePJEd": {
+      "type": "slider",
+      "custom_css": [],
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": true,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 32,
+        "marginBottomslidd": 56,
+        "marginTopsliddmob": 32,
+        "marginBottomsliddmob": 32,
+        "headText": "Shop 6sense Lite",
+        "secondText": "Light in weight. More affordable.",
+        "collection": "shop-6sense-lite"
+      }
+    },
+    "preorder_popup_pG4kae": {
+      "type": "preorder-popup",
+      "custom_css": [],
+      "settings": {
+        "enable_preorder_counter": false,
+        "present_count": 126,
+        "update_interval": 5,
+        "update_count": 30,
+        "upper_limit": 500,
+        "preorder_content": "Medicos are loving 6sense. Get custom engraving.",
+        "button_text": "Shop Now",
+        "preorder_button_url": "shopify://collections/shop-6sense-stethoscope"
+      }
+    },
+    "stethoscope_video_xUbgxn": {
+      "type": "stethoscope-video",
+      "settings": {
+        "headline": "Never miss a Beat",
+        "description": "Experience precision like never before with the 6sense stethoscope.",
+        "video_url": "shopify://files/videos/KNYA_Stethoscope_Landscape_a338b56a-fb45-4918-acbe-49f8a3e12eb4.mp4",
+        "thumbnail": "shopify://shop_images/video-thumbnail_jpg.png",
+        "button_text": "Watch the film",
+        "button_link": "https://youtu.be/D8KViqHnRr0"
+      }
+    },
+    "faq_accordion_gfHXT6": {
+      "type": "faq-accordion",
+      "blocks": {
+        "faq_dkxc7y": {
+          "type": "faq",
+          "settings": {
+            "question": "What makes the Knya 6sense stethoscope stand out?·",
+            "answer": "· Made in India with global quality standards.\n\n· Noise cancellation for clearer sound in noisy environments.\n\n· Chest piece for both adult and pediatric use.\n\n· Engraving option for personalization."
+          }
+        },
+        "faq_pPQamx": {
+          "type": "faq",
+          "settings": {
+            "question": "Who can use the 6sense stethoscope?",
+            "answer": "It’s designed for medical professionals of all levels-from students to senior physicians."
+          }
+        },
+        "faq_mDrbMK": {
+          "type": "faq",
+          "settings": {
+            "question": "What comes in the box?",
+            "answer": "· 1 Pc. Stethoscope\n\n· 1 Extra adult & pediatric diaphragm\n\n· 2 Extra ear knobs\n\n· Instruction & warranty card"
+          }
+        },
+        "faq_dgVBTW": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "question": "How does the dual-sided chest piece work?",
+            "answer": "· Adult diaphragm (4.4 cm): For clear auscultation in adults.\n\n· Pediatric diaphragm (3.3 cm): For precise assessments in children."
+          }
+        },
+        "faq_dTVdWP": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "question": "What is dual-lumen tubing?",
+            "answer": "It features two sound channels in a single tube, reducing external noise interference for clearer auscultation."
+          }
+        },
+        "faq_9g9L4W": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the warranty coverage?",
+            "answer": "· 3-year warranty covering material and manufacturing defects.\n\n· Accidental damage or misuse is not covered."
+          }
+        }
+      },
+      "block_order": [
+        "faq_dkxc7y",
+        "faq_pPQamx",
+        "faq_mDrbMK",
+        "faq_dgVBTW",
+        "faq_dTVdWP",
+        "faq_9g9L4W"
+      ],
+      "settings": {
+        "heading": "FAQs"
+      }
+    },
+    "read_more_section_QyjyeR": {
+      "type": "read-more-section",
+      "settings": {
+        "show_padding_read": false,
+        "show_padding_mob_read": false,
+        "margintopread": 0,
+        "marginbottomread": 0,
+        "margintopreadmob": 0,
+        "marginbottomreadmob": 32,
+        "main-text": "Knya’s 6sense Stethoscope: Precision meets style with a custom-engraved stethoscope for doctors - Built for daily performance.",
+        "content-text-before": "<h2>Introduction:</h2><p>The stethoscope is one of the most recognizable symbols of the medical profession.</p>",
+        "content-text": "<p>Introducing the Knya's 6sense Stethoscope, a high-performance diagnostic instrument meticulously engineered for discerning medical professionals like you. This isn't just a stethoscope; it's a precision tool designed to deliver superior acoustics, enabling you to capture subtle sounds with unparalleled clarity. Experience enhanced performance in every auscultation, leading to more accurate diagnoses and ultimately, improved patient care.<br>Built with durability in mind, the Knya's 6sense Stethoscope is a reliable companion for your demanding practice. Its ergonomic design ensures comfort during extended use, making it an indispensable instrument for precise auscultation, day after day.</p><h2>Looking for the Best Stethoscope?</h2><p>The Knya's 6sense stands out with its advanced features and quality construction. For doctors and healthcare professionals who demand accuracy and reliability, the 6sense is a compelling choice. </p><h2>Make it Your Own: Engraved and Personalized Stethoscopes:</h2> <p>Elevate your professional identity with our engraved stethoscope option. Add a personal touch with your name or initials, making your Knya 6sense truly unique. Explore our custom stethoscope services for a personalized instrument that reflects your dedication.</p><h2>Understanding Stethoscope Price:</h2><p>Investing in a high-quality stethoscope is an investment in your practice and your patients. The Knya 6sense offers exceptional value for its advanced acoustic performance and durability. Explore our pricing options to discover a stethoscope price that aligns with its superior quality.</p> <h2> The Stethoscope for Doctors Who Demand Precision:</h2><p> The Knya 6sense is specifically designed with the needs of doctors in mind. Its advanced acoustic technology allows for confident diagnoses across various medical specialties.</p><h2>Your Personalized Diagnostic Tool:</h2><p> Beyond engraving, explore options for a truly personalized stethoscope with Knya. Choose from various colors and finishes to match your individual style and professional preference. <br>Experience the difference with the Knya 6sense Stethoscope – where superior acoustics meet enhanced performance and lasting durability. Elevate your practice, one auscultation at a time.</p>",
+        "read-more-text": "READ MORE",
+        "read-less-text": "READ LESS",
+        "back-img": "shopify://shop_images/Vector_e3c241a2-7b11-44f6-8e63-6dcca5fa809c.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_with_text_6T4FK3",
+    "stethoscope_features_dHzAmK",
+    "6sence_me8tJB",
+    "stethoscope_feature_cards_pB9Dqi",
+    "slider_eqymtk",
+    "slider_HePJEd",
+    "preorder_popup_pG4kae",
+    "stethoscope_video_xUbgxn",
+    "faq_accordion_gfHXT6",
+    "read_more_section_QyjyeR"
+  ]
+}

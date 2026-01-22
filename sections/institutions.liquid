@@ -1,0 +1,324 @@
+{%- style -%}
+#institutions{{ section.id }}{ margin-top:{{section.settings.margin-top-desktop}}px; margin-bottom:{{section.settings.margin-bottom-desktop}}px; }
+#institutions{{ section.id }} .institutionswrap{padding-top:24px;padding-bottom:24px;}
+#institutions{{ section.id }} .institutionswrap h2{
+font-size: clamp(18px, calc(24*(100vw / var(--viewportDesktop))), 36px);
+line-height: clamp(28px, calc(32*(100vw / var(--viewportDesktop))), 34px);color: #462D8C;padding-bottom:0px;
+}
+#institutions{{ section.id }} .institutionswrap p.subheading{font-family: Heebo-Regular;margin:0px;
+font-size: clamp(12px, calc(14*(100vw / var(--viewportDesktop))), 14px);
+line-height: clamp(16px, calc(20*(100vw / var(--viewportDesktop))), 20px);font-weight: 400;color: #000303;padding-top:4px;padding-bottom:24px;
+letter-spacing: 0.60px;opacity:0.7;
+}  
+#institutions{{ section.id }} .content_grid p{font-family: Heebo-Regular;margin:0px;
+font-size: clamp(11px, calc(12*(100vw / var(--viewportDesktop))), 14px);
+line-height: clamp(18px, calc(18*(100vw / var(--viewportDesktop))), 20px);font-weight: 400;color: #48464C;padding-top:42px;
+}  
+#institutions{{ section.id }} .institutionmain{display: grid; grid-template-columns:50% 50%; column-gap:24px;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left{overflow:hidden;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .mediaimage{max-width:144px; height:auto;margin:auto; padding-top:108px;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .mediaimage img{width:100%; height:auto;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .gridfooter{max-width:395px;margin:auto; padding-bottom:108px;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper{height:100%;}  
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-next,
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-prev{display:block;z-index:5; color:#462D8C;width:24px;height:24px;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-next:after,
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-prev:after{font-size:24px; font-weight:bold;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-next{right:15px;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-prev{left:27px;}
+
+  
+#institutions{{ section.id }} .institutionmain .institutionswrap_right{overflow:hidden; display: grid; grid-template-columns:33.33% 33.33% 33.33%; column-gap:20px; padding:13px 78px;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_right .content_grid{max-width:144px;min-height:120px; display: flex;align-items: center;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_right .mediaimage{width:100%;height:auto; cursor:pointer;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_right .mediaimage img{width:100%;height:auto;}
+  @media screen and (max-width:1100px){
+    #institutions{{ section.id }} .institutionmain{display: grid; grid-template-columns:100%; column-gap:24px;}
+    
+  }
+@media screen and (max-width: 749px) {
+   #institutions{{ section.id }}{ margin-top:{{section.settings.margin-top-mobile}}px; margin-bottom:{{section.settings.margin-bottom-mobile}}px; }
+   #institutions{{ section.id }} .institutionswrap{padding-top:12px;padding-bottom:12px;}
+  #institutions{{ section.id }} .institutionswrap h2{padding-bottom:0px;}
+
+#institutions{{ section.id }} .institutionmain .institutionswrap_right{grid-template-columns: calc(33.33% - 16px) calc(33.33% - 16px) calc(33.33% - 16px); column-gap:24px; padding:0px 36px;}
+
+
+
+  
+#institutions{{ section.id }} .institutionmain .institutionswrap_right .content_grid{max-width:78px;min-height:72px; display: flex;align-items: center;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .mediaimage{padding-top:32px;}  
+#institutions{{ section.id }} .content_grid p{padding-top:24px;}  
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .gridfooter{padding-bottom:36px; padding-left:30px;padding-right:30px;}
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-next,
+#institutions{{ section.id }} .institutionmain .institutionswrap_left .swiper .swiper-button-prev{top:35%;}
+#institutions{{ section.id }} .institutionswrap p.subheading{font-family: Heebo-Regular;padding-top:0px;letter-spacing: 0.20px;padding-bottom:12px;}    
+
+  
+}
+{%- endstyle -%}
+<div id="institutions{{ section.id }}" class="{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.adapt_height_first_image and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %} ">
+ <div class="institutionswrap page-width">
+  {% if section.settings.heading %} <h2 class="first-line-home font-heebo-medium">{{ section.settings.heading }}</h2> {% endif %}
+  {% if section.settings.subheading %}<p class="subheading">{{ section.settings.subheading }}</p>{% endif %}
+
+
+<div class="institutionmain">
+   <div class="institutionswrap_left">
+   <div class="swiper banner_with_text_{{ section.id }}">
+       <div class="swiper-wrapper">
+       {%- for block in section.blocks -%}
+      {%- if block.settings.image != blank -%}
+      <div class="content_grid swiper-slide" style="background:{{ block.settings.bgcolor }}">
+  
+ 
+    <div class="mediaimage">
+      {%-liquid
+        assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
+          assign sizes = "100vw"
+       if forloop.index0 == 0 
+        assign lazy = 'eager' 
+       assign fetch_priority = 'high' 
+      assign preload = true 
+       assign decoding = 'sync' 
+      else 
+     assign lazy = 'lazy'
+      assign fetch_priority = 'auto' 
+      assign preload = false 
+      assign decoding = 'async'                   
+       endif 
+      -%}
+      
+        {%  assign mob_desk = block.settings.image.alt | default: 'desktop-banner-image-' | append: forloop.index %}
+        
+      {{ block.settings.image | image_url: width: 144 , format: 'webp' | image_tag:
+        loading: lazy,
+        fetchpriority: fetch_priority, 
+        preload: preload, 
+        decoding: decoding,
+        width: block.settings.image.width,
+        height: image_height,
+        class: image_class,
+        sizes: sizes,
+        widths: '200',
+        alt: mob_desk
+      }}
+    
+    </div>
+     <div class="gridfooter">
+      {% if block.settings.title %}  <h5>{{ block.settings.title }}</h5> {% endif %}
+       {% if block.settings.text %} <p>{{ block.settings.text }}</p>{% endif %}
+      </div>
+ 
+      </div>
+ {%- endif -%}
+ {%- endfor -%}
+       </div>
+     <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    </div>
+     </div>
+
+
+
+ <div class="institutionswrap_right">
+       {%- for block in section.blocks -%}
+      {%- if block.settings.image != blank -%}
+      <div class="content_grid">
+    <div class="mediaimage" onclick="slideToFn({{ forloop.index0 }})">
+      {%-liquid
+        assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
+          assign sizes = "100vw"
+       if forloop.index0 == 0 
+        assign lazy = 'eager' 
+       assign fetch_priority = 'high' 
+      assign preload = true 
+       assign decoding = 'sync' 
+      else 
+     assign lazy = 'lazy'
+      assign fetch_priority = 'auto' 
+      assign preload = false 
+      assign decoding = 'async'                   
+       endif 
+      -%}
+      
+        {%  assign mob_desk = block.settings.image.alt | default: 'desktop-banner-image-' | append: forloop.index %}
+        
+      {{ block.settings.image | image_url: width: 500 , format: 'webp' | image_tag:
+        loading: lazy,
+        fetchpriority: fetch_priority, 
+        preload: preload, 
+        decoding: decoding,
+        width: block.settings.image.width,
+        height: image_height,
+        class: image_class,
+        sizes: sizes,
+        widths: '375, 550, 750',
+        alt: mob_desk
+      }}
+    
+    </div>
+      </div>
+ {%- endif -%}
+ {%- endfor -%}
+
+    </div>
+
+</div>
+   
+  
+  </div>
+  
+</div>
+
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {     
+      let bannerWithText = new Swiper('.banner_with_text_{{ section.id }}', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        {% if section.settings.checkforautoslide %} 
+            loop: true,
+        {% endif %}
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+       {% if section.settings.checkforautoslide %} 
+              function startAutoplay() {
+                      if (bannerWithText) {
+                          bannerWithText.autoplay.start();
+                      }
+                  }
+                document.addEventListener('mousemove', startAutoplay);
+               document.addEventListener('touchstart', startAutoplay);
+        {% endif %}
+    },
+    {once: true}
+    
+  );
+    
+    const slideToFn = (index) => {
+      let bannerslide = new Swiper('.banner_with_text_{{ section.id }}');
+      if (bannerslide) {
+        bannerslide.slideTo(index);
+        console.log(`Slid to index: ${index}`);
+      }
+    };
+</script> 
+
+
+
+{% schema %}
+{
+  "name": "Institutions",
+  "tag": "section",
+  "class": "section",
+  "settings": [   
+    {
+      "type": "checkbox",
+      "id": "checkforautoslide",     
+      "label": "Check for auto slide",
+      "default":false
+    },
+    {
+      "type": "range",
+      "id": "margin-top-desktop",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Desktop margin top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom-desktop",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Desktop margin bottom",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "margin-top-mobile",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Mobile margin top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom-mobile",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Mobile margin bottom",
+      "default": 0
+    },  
+    {
+          "type": "text",
+          "id": "heading",         
+          "label": "Heading"
+      },
+     {
+          "type": "text",
+          "id": "subheading",         
+          "label": "Sub Heading"
+      },
+    {
+      "type": "checkbox",
+      "id": "show_text_box",
+      "default": true,
+      "label": "t:sections.image-banner.settings.show_text_box.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Image with Text",      
+      "settings": [
+
+   {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }, 
+         {
+          "type": "text",
+          "id": "text",          
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        }
+        ,
+        {
+          "type": "color",
+          "id": "bgcolor",          
+          "label": "Background color",
+          "default":"#F2F2F7"
+        }
+      ]
+    }
+    
+    
+  ],  
+  "presets": [
+    {
+      "name": "Institutions"
+    }
+  ]
+}
+{% endschema %}

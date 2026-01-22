@@ -1,0 +1,264 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "80cf92bc-824d-4c6f-819d-9ec34ac0cd81": {
+      "type": "breadcrumb",
+      "settings": {
+        "margintopbread": 0,
+        "margintopbreadmob": 0,
+        "margintopbread_collection": 0,
+        "margintopbreadmob_collection": 0
+      }
+    },
+    "dca91e49-efb2-40e2-ae83-02901bacc693": {
+      "type": "custom-landing-page-section",
+      "blocks": {
+        "block_CkVaGk": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/UGC_01_1.jpg",
+            "Personname": "Dr. Rasha",
+            "link": "https://knyamed.com/collections/navy-women"
+          }
+        },
+        "block_NGNimD": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/sdfghjk.jpg",
+            "Personname": "Dr. Akshata",
+            "link": "https://knyamed.com/collections/mauve-women"
+          }
+        },
+        "template--16780450267392__dca91e49-efb2-40e2-ae83-02901bacc693-16855180969e9ae330-0": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/WhatsApp_Image_2024-08-02_at_15.15.12_1.jpg",
+            "Personname": "Dr. Srushti",
+            "link": "https://knyamed.com/collections/forest-green-women"
+          }
+        },
+        "ef612449-aba9-4e32-b190-4a8f811c02c1": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_48.png",
+            "Personname": "Dr. Vaibhav Chawla",
+            "link": "https://knyamed.com/collections/classic-mens-5-pocket-active-scrub/products/classic-mens-5-pocket-active-navy-scrub"
+          }
+        },
+        "fbf68e15-d1e4-4b68-8868-f4147fa4f8f4": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/IMG_4138_1.webp",
+            "Personname": "Dr. Anjana",
+            "link": ""
+          }
+        },
+        "block_nTNPR9": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/1706274025192.jpg",
+            "Personname": "Dr. Suhail",
+            "link": "https://knyamed.com/collections/wine-men"
+          }
+        },
+        "23301311-d19e-4dc9-a03e-df001dc86414": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_47.png",
+            "Personname": "Dr. Priya Sikka",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "0fd2f5cc-c37a-479c-949f-a69cf9d3fe14": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_58.png",
+            "Personname": "Dr. Aditi Joshi",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "a8eea0ce-ee20-414b-bcd3-cf18d67455f8": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_61.png",
+            "Personname": "Dr. Ashok Shyam",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "3174b05a-23be-4ded-b592-f06d7a299347": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_65.png",
+            "Personname": "Dr. Mehdi Kazerouni",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "131a2288-8df5-4136-9464-06507cf7a1f1": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_67.png",
+            "Personname": "Dr. Prateek Makhwana",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "87937e4f-e559-466f-b77b-c949d5a81478": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_70_9a3a4a48-f450-4fe0-807a-5f171f3c6e4f.png",
+            "Personname": "Dr. Rashi",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "883cebe1-d53e-493c-a87e-5a4006cb1314": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_71.png",
+            "Personname": "Dr. Sachin Dhawan",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "ac550142-ede8-4f0c-81b3-e76e827f1439": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_74.png",
+            "Personname": "Dr. Samhita Bahutule",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "cd45bae5-b91a-4d1b-a349-d63852e4bd2c": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_73.png",
+            "Personname": "Dr. Shrikant Ohri",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "7b3c45bb-eb29-4546-8c6d-1f490e92ec74": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_76_047b56d7-cfd9-4e1e-805c-361ff809ceed.png",
+            "Personname": "Dr. Vaibhav Chawla",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "a74e98c8-2beb-401b-b8e5-204c55cfed55": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_79.png",
+            "Personname": "Dr. Yirkar",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "f15527ad-1236-4c8c-8cef-fa90c425a39b": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_84.png",
+            "Personname": "Dr. Mallika Solanki",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "7b5a5381-f561-4782-987f-f0c62b067e22": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_89.png",
+            "Personname": "Dr. Sasha Grover",
+            "link": "shopify://collections"
+          }
+        },
+        "3ea7a92e-c180-43e0-b318-48b99b4873ef": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_91.png",
+            "Personname": "Dr. Sharmeela Kazerouni",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "dc12d417-f0f9-4499-bb66-f5fc03d1c329": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_93.png",
+            "Personname": "Dr. Snehil Chauhan",
+            "link": "shopify://collections/all-womens-scrub"
+          }
+        },
+        "09ee1347-901d-4a2c-8b2d-7f5063d5dcb8": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_94.png",
+            "Personname": "",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "56d0725a-0310-4a57-9fbb-e931c815b6d4": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_98.png",
+            "Personname": "Dr. Siddhant",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        },
+        "0e55322f-b8be-49cb-92d4-7bb9f4f5716b": {
+          "type": "block",
+          "settings": {
+            "PersonImg": "shopify://shop_images/Untitled_design_99.png",
+            "Personname": "Dr. Himanshu Sharma",
+            "link": "shopify://collections/all-mens-scrubs"
+          }
+        }
+      },
+      "block_order": [
+        "block_CkVaGk",
+        "block_NGNimD",
+        "template--16780450267392__dca91e49-efb2-40e2-ae83-02901bacc693-16855180969e9ae330-0",
+        "ef612449-aba9-4e32-b190-4a8f811c02c1",
+        "fbf68e15-d1e4-4b68-8868-f4147fa4f8f4",
+        "block_nTNPR9",
+        "23301311-d19e-4dc9-a03e-df001dc86414",
+        "0fd2f5cc-c37a-479c-949f-a69cf9d3fe14",
+        "a8eea0ce-ee20-414b-bcd3-cf18d67455f8",
+        "3174b05a-23be-4ded-b592-f06d7a299347",
+        "131a2288-8df5-4136-9464-06507cf7a1f1",
+        "87937e4f-e559-466f-b77b-c949d5a81478",
+        "883cebe1-d53e-493c-a87e-5a4006cb1314",
+        "ac550142-ede8-4f0c-81b3-e76e827f1439",
+        "cd45bae5-b91a-4d1b-a349-d63852e4bd2c",
+        "7b3c45bb-eb29-4546-8c6d-1f490e92ec74",
+        "a74e98c8-2beb-401b-b8e5-204c55cfed55",
+        "f15527ad-1236-4c8c-8cef-fa90c425a39b",
+        "7b5a5381-f561-4782-987f-f0c62b067e22",
+        "3ea7a92e-c180-43e0-b318-48b99b4873ef",
+        "dc12d417-f0f9-4499-bb66-f5fc03d1c329",
+        "09ee1347-901d-4a2c-8b2d-7f5063d5dcb8",
+        "56d0725a-0310-4a57-9fbb-e931c815b6d4",
+        "0e55322f-b8be-49cb-92d4-7bb9f4f5716b"
+      ],
+      "settings": {
+        "setion_heading": "Look & feel like a superhero",
+        "section_description": "It is this strength with which you operate that inspires us to honor your road to achieving greatness.",
+        "button-text": "SHOP NOW"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "80cf92bc-824d-4c6f-819d-9ec34ac0cd81",
+    "dca91e49-efb2-40e2-ae83-02901bacc693"
+  ]
+}

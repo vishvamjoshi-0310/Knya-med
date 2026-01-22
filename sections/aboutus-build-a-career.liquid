@@ -1,0 +1,100 @@
+{{ 'aboutus-build-a-career.css' | asset_url | stylesheet_tag }}
+<style>
+  /*     .jointhe_team{background-image:url('{{ 'Vector.svg' | asset_url }}');} */
+    .jointhe_team a:active{color: #482f8f;}
+    .aboutus_career{margin-top:{{ section.settings.margintop_aboutus_build_acareer}}px;}
+</style>
+<div class="aboutus_career {% if section.settings.aboutus_career_desktop  %} page-padding-right page-padding-left{% endif %} {% if section.settings.aboutus_career_mob %}padding-right-mob padding-left-mob{% endif %}">
+  <div class="left_div">
+    <div>
+      {{
+        section.settings.left_desktop_image
+        | image_url: width: 600
+        | image_tag: class: 'Desktop-image', loading: 'lazy'
+      }}
+      {{
+        section.settings.left_mobile_image
+        | image_url: width: 360
+        | image_tag: class: 'mobile-image', loading: 'lazy'
+      }}
+    </div>
+  </div>
+  <div class="right_div">
+    <p class="heading_font">{{ section.settings.right_Heading_text }}</p>
+    <div class="jointhe_team">
+      <img src="{{ section.settings.back-abt-img | img_url }}" class="back-img-abt" loading="lazy">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=support@knya.in" target="_blank">
+        {{- section.settings.button_text -}}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Build a career",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "aboutus_career_desktop",
+      "label": "Padding for Section in Desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "aboutus_career_mob",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintop_aboutus_build_acareer",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "back-abt-img",
+      "label": "back-ground img"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_desktop_image",
+      "label": " Desktop Image"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "left_mobile_image",
+      "label": " Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "right_Heading_text",
+      "label": "Heading",
+      "default": "Type heading here"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Type button text here"
+    }
+  ],
+  "presets": [
+    {
+      "name": "build a career"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,327 @@
+{{ 'pincode-checker.css' | asset_url | stylesheet_tag: media: 'screen' }}
+
+<style>
+  .custom-product-info .pincode_div{
+    background: {{pincodeBgColor}};
+  }
+  .custom-product-info .pincode_input{
+    color: {{pincodeInputColor}};
+  }
+  .custom-product-info .pdp_pincode_container .pincode_submit{
+    color: {{pincodeButtonColor}};
+  }
+  .error-message-container {
+    display: none;
+    color: red;
+  }
+  .error-message-digits-container {
+    display: none;
+    color: red;
+  }
+  .pinMsg.success {
+    color: green;
+  }
+  .pinMsg.error {
+    color: red;
+  }
+</style>
+
+{% if block.settings.pincode_btn_text != blank %}
+  <div class="pdp_pincode_container page-width-pdp-mob" {{ block.shopify_attributes }}>
+    <span class="pdp_pincode_heading">{{ block.settings.pincode_heading }}</span>
+    <div class="pincode_div">
+      <input
+        class="pincode_input"
+        type="number"
+        oninput="limitPincodeLength();"
+        inputmode="numeric"
+        placeholder="{{ block.settings.pincode_placeholder }}"
+        minlength="6"
+        maxlength="6"
+        onkeypress="handleKeyPress(event);"
+      >
+      <div class="pincode_submitContainer" onclick="checkPinCode();">
+        <button class="pincode_submit">
+          {{ block.settings.pincode_btn_text }}
+        </button>
+      </div>
+    </div>
+    <p class="pincode_loading" style="display: none;">Checking</p>
+    <p
+      class="pinMsg"
+      data-success-message="{{ block.settings.pincode_success_msg }}"
+      data-failed-message="{{ block.settings.pincode_failed_msg }}"
+    ></p>
+  </div>
+  <div class="error-message-container page-width-pdp-mob">
+    <p class="input-message">{{ block.settings.pincode_emptymsg }}</p>
+  </div>
+  <div class="error-message-digits-container page-width-pdp-mob">
+    <p class="input-message-digits-error">{{ block.settings.pincode_invalid_msg }}</p>
+  </div>
+  <div class="pinMsg success-message-digits-container page-width-pdp-mob">
+    <div class="pinMsg success-message-24Delivery">
+      <div class="success-message-24DeliveryHeadings success-message_subcontainerHeading">
+        <p class="onedayHeading success-message__Heading"></p>
+        <p class="onedaymessage success-message__date"></p>
+        <p class="onedaymessage-note success-message__date"></p>
+      </div>
+    </div>
+    <div class="pinMsg success-message-ExpressDelivery">
+      <div class="success-message-ExpressDeliveryHeadings success-message_subcontainerHeading">
+        <p class="Express_heading success-message__Heading"></p>
+        <p class="Express_message success-message__date"></p>
+        <p class="Express_message_note success-message__date"></p>
+      </div>
+    </div>
+    <div class="pinMsg success-message-StandardDelivery">
+      <div class="success-message-StandardDeliveryHeadings success-message_subcontainerHeading">
+        <p class="Standard_heading success-message__Heading"></p>
+        <p class="Standard_message success-message__date"></p>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+
+document.addEventListener('DOMContentLoaded', fetchPincodeData);
+
+async function fetchPincodeData() {
+  const GOOGLE_API_KEY = 'AIzaSyCt9vxb2zotiO1Xzc7AYeVnHs2VINDKJ5A';
+  const GOOGLE_SHEET_URL = `https://sheets.googleapis.com/v4/spreadsheets/1JCeLhL672tMivI0z2YHxei9IF0qRxgYTjuqhbPgJcwM/values/ServicablePincode!A:H?key=${GOOGLE_API_KEY}`;
+
+  try {
+    let response = await fetch(GOOGLE_SHEET_URL);
+    if (!response.ok) throw new Error('Failed to fetch data');
+
+    let result = await response.json();
+    sessionStorage.setItem('pincodeData', JSON.stringify(result.values));
+    console.log('Pincode data fetched and stored in session storage.');
+  } catch (error) {
+    console.error('Error fetching pincode data:', error);
+  }
+}
+
+function limitPincodeLength() {
+  let pincodeInput = document.querySelector('.pincode_input');
+  pincodeInput.value = pincodeInput.value.length > pincodeInput.maxLength ? pincodeInput.value.slice(0, pincodeInput.maxLength) : pincodeInput.value;
+}
+
+window.handleKeyPress = function(event) {
+  if (event.keyCode === 13) {checkPinCode();}
+};
+
+function checkPinCode() {
+  document.querySelector(".pincode_submitContainer").style.background="#6750A41F";
+  let pincodeInputValue = document.querySelector('.pincode_input').value.trim();
+  let pincodeLoading = document.querySelector('.pincode_loading');
+  let pincodeResult = document.querySelector('.pinMsg');
+  let errorMessage = document.querySelector('.error-message-container');
+  let digitsErrorMessage = document.querySelector('.error-message-digits-container');
+
+  let firstDeliveryMessage = document.querySelector(".success-message-24DeliveryHeadings .onedayHeading");
+  let firstDeliveryDate = document.querySelector(".success-message-24DeliveryHeadings .onedaymessage");
+  let secondDeliveryMessage = document.querySelector(".pinMsg.success-message-ExpressDelivery .Express_heading");
+  let secondDeliveryDate = document.querySelector(".pinMsg.success-message-ExpressDelivery .Express_message");
+  let thirdDeliveryMessage = document.querySelector(".success-message-StandardDeliveryHeadings .Standard_heading");
+  let thirdDeliveryDate = document.querySelector(".success-message-StandardDeliveryHeadings .Standard_message");
+
+  clearMessages(errorMessage, digitsErrorMessage, pincodeResult);
+
+  if (!validatePincode(pincodeInputValue, errorMessage, digitsErrorMessage)) return;
+
+  pincodeLoading.style.display = 'inline-block';
+  pincodeLoading.style.marginTop = '12px';
+
+  try {
+    let pincodeData = JSON.parse(sessionStorage.getItem('pincodeData'));
+    let matchingRow = pincodeData.find(row => row[0] === pincodeInputValue);
+
+    if (matchingRow) {
+      let deliveryMessages = calculateDeliveryDates(matchingRow);
+      shouldHideThirdMessage().then(hideThirdMessage => {
+        displaySuccessMessage(pincodeInputValue, deliveryMessages, pincodeResult, hideThirdMessage);
+      });
+    } else {
+      displayErrorMessage(`{{ block.settings.pincode_failed_msg }}`, pincodeResult);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    displayErrorMessage('An error occurred while checking the pincode.', pincodeResult);
+  } finally {
+    pincodeLoading.style.display = 'none';
+  }
+}
+
+  function clearDeliveryMessages() {
+  document.querySelector(".success-message-24DeliveryHeadings .onedayHeading").textContent = '';
+  document.querySelector(".success-message-24DeliveryHeadings .onedaymessage").textContent = '';
+  document.querySelector(".pinMsg.success-message-ExpressDelivery .Express_heading").textContent = '';
+  document.querySelector(".pinMsg.success-message-ExpressDelivery .Express_message").textContent = '';
+  document.querySelector(".success-message-StandardDeliveryHeadings .Standard_heading").textContent = '';
+  document.querySelector(".success-message-StandardDeliveryHeadings .Standard_message").textContent = '';
+   document.querySelector(".onedaymessage-note").textContent = '';
+  document.querySelector(".Express_message_note").textContent = '';
+}
+
+function clearMessages(errorMessage, digitsErrorMessage, pincodeResult) {
+  errorMessage.style.display = 'none';
+  digitsErrorMessage.style.display = 'none';
+  pincodeResult.textContent = '';
+  pincodeResult.classList.remove('error', 'success');
+  clearDeliveryMessages();
+}
+
+function validatePincode(pincode, errorMessage, digitsErrorMessage) {
+  if (pincode.length === 0) {
+    errorMessage.style.display = 'block';
+    return false;
+  }
+
+  if (pincode.length !== 6) {
+    digitsErrorMessage.style.display = 'block';
+    return false;
+  }
+
+  return true;
+}
+
+  function calculateDeliveryDates(row) {
+  let currentDate = new Date();
+  let deliveryMessages = [];
+
+  if (row[2] || row[4] || row[6]) {
+    if (row[2]) {
+      let firstDelivery = `${row[2]}`;
+      let firstDeliveryDate =  row[3] ? calculateDeliveryDate(currentDate, row[3]) : '';
+      deliveryMessages.push({ type: 'first', message: firstDelivery, date: firstDeliveryDate });
+    }
+   else if (row[4]) {
+      let secondDelivery = `${row[4]}`;
+      let secondDeliveryDate =  row[5] ? calculateDeliveryDate(currentDate, row[5]) : '';
+      deliveryMessages.push({ type: 'second', message: secondDelivery, date: secondDeliveryDate });
+    }
+    if (row[6]) {
+      let thirdDelivery = `${row[6]}`;
+      let thirdDeliveryDate =  row[7] ? calculateDeliveryDate(currentDate, row[7]) : '';
+      deliveryMessages.push({ type: 'third', message: thirdDelivery, date: thirdDeliveryDate });
+    }
+  } else {
+    let pincodeResult = document.querySelector('.pinMsg');
+    pincodeResult.textContent = `{{ block.settings.pincode_failed_msg }}`;
+    pincodeResult.classList.add('error');
+  }
+
+  return deliveryMessages;
+}
+
+
+  function calculateDeliveryDate(currentDate, daysToAdd) {
+  let deliveryDate = new Date(currentDate);
+  deliveryDate.setDate(deliveryDate.getDate() + (parseInt(daysToAdd) || 0));
+
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  const dayOfWeek = daysOfWeek[deliveryDate.getDay()];
+  const day = deliveryDate.getDate();
+  const month = months[deliveryDate.getMonth()];
+
+  const formattedDate = `Delivery by ${dayOfWeek} ${day} ${month}`;
+  return formattedDate;
+}
+
+function shouldHideThirdMessage() {
+  return fetch('/cart.js')
+    .then(res => res.json())
+    .then(res => {
+      let hasEmbroidery = res.items.some(item => item.product_type && item.product_type === "Embroidery");
+      return document.querySelector("input.embroidery_filled").checked || hasEmbroidery;
+    })
+    .catch(error => {
+      console.error('Error fetching cart data:', error);
+      return false;
+    });
+}
+
+function displaySuccessMessage(pincode, messages, resultElement, hideThirdMessage) {
+  resultElement.classList.add('success');
+  
+  messages.forEach(message => {
+    if (message.type === 'first') {
+      document.querySelector(".success-message-24DeliveryHeadings .onedayHeading").textContent = message.message;
+      document.querySelector(".success-message-24DeliveryHeadings .onedaymessage").textContent = message.date;
+      {% for tag in product.tags %}
+       {% assign downCaseTag = tag | downcase %}
+        {% if downCaseTag contains 'embroidery' %}
+      document.querySelector(".onedaymessage-note").textContent = `{{ block.settings.pincode_Note_msg }}`;
+      {% break %}
+        {% endif %}
+        {% endfor %}
+    } else if (message.type === 'second') {
+      document.querySelector(".pinMsg.success-message-ExpressDelivery .Express_heading").textContent = message.message;
+      document.querySelector(".pinMsg.success-message-ExpressDelivery .Express_message").textContent = message.date;
+       {% for tag in product.tags %}
+       {% assign downCaseTag = tag | downcase %}
+        {% if downCaseTag contains 'embroidery' %}
+      document.querySelector(".Express_message_note").textContent = `{{ block.settings.pincode_Note_msg }}`;
+      {% break %}
+        {% endif %}
+        {% endfor %}
+    } 
+    if (message.type === 'third' && !hideThirdMessage) {
+      document.querySelector(".success-message-StandardDeliveryHeadings .Standard_heading").textContent = message.message;
+      document.querySelector(".success-message-StandardDeliveryHeadings .Standard_message").textContent = message.date;
+      document.querySelector(".success-message-StandardDeliveryHeadings.success-message_subcontainerHeading").style.display = 'block';
+    }
+  });
+}
+
+function displayErrorMessage(message, resultElement) {
+  resultElement.textContent = message;
+  resultElement.classList.add('error');
+}
+
+
+
+
+window.handleEmbroideryCOD = ()=>{
+    try {
+  if(document.querySelector("input.embroidery_filled").checked){
+    if(document.querySelector(".success-message-StandardDeliveryHeadings.success-message_subcontainerHeading")){
+      document.querySelector(".success-message-StandardDeliveryHeadings.success-message_subcontainerHeading").style.display = 'none';
+    }
+}
+      } catch (error) {
+    console.error('Error in handleEmbroideryCODHide:', error);
+  }
+};
+  window.handleEmbroideryCODShow = ()=>{
+  try {
+  if(!document.querySelector("input.embroidery_filled").checked){
+    if(document.querySelector(".success-message-StandardDeliveryHeadings.success-message_subcontainerHeading")){
+      document.querySelector(".success-message-StandardDeliveryHeadings.success-message_subcontainerHeading").style.display = 'block';
+    }
+}
+ 
+    setTimeout(() => {
+      fetch('/cart.js')
+        .then(res => res.json())
+        .then(res => {
+          let hasEmbroidery = res.items.some(item => item.product_type && item.product_type === "Embroidery");
+          if (hasEmbroidery) {
+            document.querySelector(".success-message-StandardDeliveryHeadings.success-message_subcontainerHeading").style.display = 'none';
+          }
+        })
+        .catch(error => console.error('Error fetching cart data:', error));
+    }, 1500); // Adjust the timeout duration as needed
+
+    
+     } catch (error) {
+    console.error('Error in handleEmbroideryCODShow:', error);
+  }
+};
+
+
+</script>

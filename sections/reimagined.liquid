@@ -1,0 +1,345 @@
+{{ 'reimagined.css' | asset_url | stylesheet_tag }}
+<style>
+  .top-reim{
+    margin-top:{{ section.settings.marginTopreimgined }}px;
+    margin-bottom:{{ section.settings.marginBottomreimgined }}px;
+  }
+  .top-reim{
+      background-image: url("{{ section.settings.backgroundImgdesk | img_url:"1920x" }}");
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  @media only screen and (max-width:640px){
+     .top-reim{
+        margin-top:{{ section.settings.marginTopreimginedmob }}px;
+        margin-bottom:{{ section.settings.marginBottomreimginedmob }}px;
+      }
+      .top-reim{
+        background-image: url("{{ section.settings.backgroundImgmob | img_url:"600x" }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+  }
+</style>
+<div class="top-reim ">
+  <!--
+    <div class="div-back-reim">
+      <img class="desk-background"
+    srcset="{%- if section.settings.backgroundImgdesk.width >= 375 -%}{{ section.settings.backgroundImgdesk | image_url: width: 375 }} 375w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 550 -%}{{ section.settings.backgroundImgdesk | image_url: width: 550 }} 550w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 750 -%}{{ section.settings.backgroundImgdesk | image_url: width: 750 }} 750w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 1100 -%}{{ section.settings.backgroundImgdesk | image_url: width: 1100 }} 1100w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 1500 -%}{{ section.settings.backgroundImgdesk | image_url: width: 1500 }} 1500w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 1780 -%}{{ section.settings.backgroundImgdesk | image_url: width: 1780 }} 1780w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 2000 -%}{{ section.settings.backgroundImgdesk | image_url: width: 2000 }} 2000w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 3000 -%}{{ section.settings.backgroundImgdesk | image_url: width: 3000 }} 3000w,{%- endif -%}
+    {%- if section.settings.backgroundImgdesk.width >= 3840 -%}{{ section.settings.backgroundImgdesk | image_url: width: 3840 }} 3840w,{%- endif -%}
+    {{ section.settings.backgroundImgdesk | image_url }} {{ section.settings.backgroundImgdesk.width }}w"
+    sizes="100vw"
+    src="{{ section.settings.backgroundImgdesk | image_url: width: 1500 }}"
+    loading="lazy"
+    alt="{{ section.settings.backgroundImgdesk.alt | escape }}"
+    width="{{ section.settings.backgroundImgdesk.width }}"
+    height="{{ section.settings.backgroundImgdesk.height }}"
+    >
+
+      </div>
+  -->
+  <div class="firstdiv page-width">
+    <div class="cont1">
+      <div class="heading_section">
+        <h2 class="cont-head-1 font-heebo-medium">{{ section.settings.mainText }}</h2>
+        <p class="cont-p-1 font-heebo-regular">{{ section.settings.secondryText }}</p>
+      </div>
+      <div class="detail-box upper-detail">
+        {% for block in section.blocks %}
+          <div class="accor accor-{{ forloop.index }}">
+            <span class="accordion toggle font-heebo-SemiBold" id="acc-head-{{ forloop.index }}">
+              {%- render 'vector-accor' -%}
+              {{- block.settings.headingForAccor -}}
+            </span>
+            <div class="panel1 font-heebo-regular">
+              <p class="for-cont-acco" id="acc-cont-{{ forloop.index }}">{{ block.settings.textForCont }}</p>
+            </div>
+            <div class="zoomSection">
+              <div class="zoomSectionInner">
+                <span class="close">&times;</span>
+                {{ block.settings.zoomImage | image_url: width: 600 | image_tag: class: '', loading: 'lazy' }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="cont2">
+      {{ section.settings.frontImg | image_url: width: 600 | image_tag: class: 're-images redesk', loading: 'lazy' }}
+
+      {{ section.settings.frontImgmob | image_url: width: 360 | image_tag: class: 're-images remob', loading: 'lazy' }}
+      <div class="zoom-pointers ">
+        {% for block in section.blocks %}
+          <div
+            class="font-heebo-light zoom zoom-{{ forloop.index }}"
+            data-id="acc-head-{{ forloop.index }}"
+            id="slide{{ forloop.index }}"
+          >
+            <span>{{ block.settings.headingForAccor }}</span> {% render 'ellips' %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="mob-popup">
+    <span class="close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M9.84863 9.84869L29.5461 29.5462" stroke="#F4ECD0" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M9.84863 29.5462L29.5461 9.84871" stroke="#F4ECD0" stroke-width="2" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <div class="head-mob">
+      <h2 class="cont-head-1">{{ section.settings.mainText }}</h2>
+      <p class="cont-p-1">{{ section.settings.secondryText }}</p>
+    </div>
+    <div class="mySlides fade" data-id="slide{{ forloop.index }}">
+      <div class="swiper mySwiperRR">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide" data-id="acc-head-{{ forloop.index }}">
+              {{ block.settings.mob_zoomImage | image_url: width: 360 | image_tag: class: '', loading: 'lazy' }}
+              <div class="detail-box test">
+                <div class="accor">
+                  <div class="title-next-prev font-heebo-SemiBold">
+                    <h2 class="accordion " id="acc-head-{{ forloop.index }}">{{ block.settings.headingForAccor }}</h2>
+                    <div class="swiper-button-prev">{% render 'next' %}</div>
+                    <div class="swiper-button-next">{% render 'prev' %}</div>
+                  </div>
+                  <div class="panel panel-onpic font-heebo-medium">
+                    <p class="for-cont-acco" id="acc-cont-{{ forloop.index }}">{{ block.settings.textForCont }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      var zoomswiper = new Swiper('.mySwiperRR', {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
+      document.querySelectorAll('.toggle').forEach((toggle) => {
+        toggle.addEventListener('click', function () {
+          document.querySelectorAll('.accor').forEach((removeToggle) => {
+            removeToggle.classList.remove('toggled');
+          });
+          toggle.parentElement.classList.toggle('toggled');
+          document.querySelector('.cont2').style.display = 'none';
+        });
+      });
+
+      document.querySelectorAll('.close').forEach((close) => {
+        close.addEventListener('click', () => {
+          document.querySelectorAll('.accor').forEach((removeToggle) => {
+            removeToggle.classList.remove('toggled');
+          });
+          document.querySelector('.cont2').style.display = 'block';
+          if (screen.width <= 750) {
+            document.querySelector('.mob-popup').style.display = 'none';
+            document.querySelector('.firstdiv').style.display = 'block';
+          }
+        });
+      });
+
+      document.querySelectorAll('.zoom').forEach((zoomPointers) => {
+        zoomPointers.addEventListener('click', function () {
+          let zoomID = zoomPointers.getAttribute('data-id');
+          document.querySelectorAll('.accordion').forEach((accordionclick) => {
+            let accordionID = accordionclick.getAttribute('id');
+            if (zoomID == accordionID) accordionclick.click();
+          });
+          if (screen.width <= 750) {
+            document.querySelector('.mob-popup').style.display = 'block';
+            document.querySelector('.firstdiv').style.display = 'none';
+            document.querySelectorAll('.mySwiperRR .swiper-slide').forEach((eachSlide) => {
+              let slideID = eachSlide.getAttribute('data-id');
+              if (zoomID == slideID) {
+                let slideIndex = slideID.split('-');
+                let finalIndex = parseInt(slideIndex[2] - 1);
+                zoomswiper.slideTo(finalIndex);
+              }
+            });
+          }
+        });
+      });
+    },
+    { once: true }
+  );
+
+  // document.querySelectorAll('.toggle').forEach((toggle) => {
+  //   toggle.addEventListener('click', function () {
+  //     document.querySelectorAll('.accor').forEach((removeToggle) => {
+  //       removeToggle.classList.remove('toggled');
+  //     });
+  //     toggle.parentElement.classList.toggle('toggled');
+  //     document.querySelector('.cont2').style.display = 'none';
+  //   });
+  // });
+  // document.querySelectorAll('.close').forEach((close) => {
+  //   close.addEventListener('click', () => {
+  //     document.querySelectorAll('.accor').forEach((removeToggle) => {
+  //       removeToggle.classList.remove('toggled');
+  //     });
+  //     document.querySelector('.cont2').style.display = 'block';
+  //     if (screen.width <= 750) {
+  //       document.querySelector('.mob-popup').style.display = 'none';
+  //       document.querySelector('.firstdiv').style.display = 'block';
+  //     }
+  //   });
+  // });
+  // document.querySelectorAll('.zoom').forEach((zoomPointers) => {
+  //   zoomPointers.addEventListener('click', function () {
+  //     let zoomID = zoomPointers.getAttribute('data-id');
+  //     document.querySelectorAll('.accordion').forEach((accordionclick) => {
+  //       let accordionID = accordionclick.getAttribute('id');
+  //       if (zoomID == accordionID) accordionclick.click();
+  //     });
+  //     if (screen.width <= 750) {
+  //       document.querySelector('.mob-popup').style.display = 'block';
+  //       document.querySelector('.firstdiv').style.display = 'none';
+  //       document.querySelectorAll('.mySwiperRR .swiper-slide').forEach((eachSlide) => {
+  //         let slideID = eachSlide.getAttribute('data-id');
+  //         if (zoomID == slideID) {
+  //           let slideIndex = slideID.split('-');
+  //           let finalIndex = parseInt(slideIndex[2] - 1);
+  //           zoomswiper.slideTo(finalIndex);
+  //         }
+  //       });
+  //     }
+  //   });
+  // });
+</script>
+{% schema %}
+{
+  "name": "reimagined Section2",
+  "settings": [
+    {
+      "type": "range",
+      "id": "marginTopreimgined",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottomreimgined",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginTopreimginedmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottomreimginedmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "backgroundImgdesk",
+      "label": "Image for background"
+    },
+    {
+      "type": "image_picker",
+      "id": "backgroundImgmob",
+      "label": "Image for background mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "frontImg",
+      "label": "Image for front(please use 700x880 image)"
+    },
+    {
+      "type": "image_picker",
+      "id": "frontImgmob",
+      "label": "Image for front mob (please use 600x1035 image)"
+    },
+    {
+      "type": "text",
+      "id": "mainText",
+      "label": "first text"
+    },
+    {
+      "type": "text",
+      "id": "secondryText",
+      "label": "first text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "Text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "headingForAccor",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "textForCont",
+          "label": "content"
+        },
+        {
+          "type": "image_picker",
+          "id": "zoomImage",
+          "label": "Zoom image(Size 721x720)"
+        },
+        {
+          "type": "image_picker",
+          "id": "mob_zoomImage",
+          "label": "Zoom image(Size 600x1299px)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "reimagined2"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,332 @@
+{{ 'section-home-banner-jogger.css' | asset_url | stylesheet_tag }}
+
+
+  {%- style -%}
+   #Banner-{{ section.id }}{width:100%;display:block; background:{{section.settings.bgcolor}}; }
+  .section_align_{{ section.id }}{
+    margin-top:{{ section.settings.margintopread }}px;
+    margin-bottom:{{ section.settings.marginbottomread }}px;
+    padding:0px;
+  } 
+  @media screen and (max-width: 640px){
+    .section_align_{{ section.id }}{
+      margin-top:{{ section.settings.margintopreadmob }}px ;
+      margin-bottom:{{ section.settings.marginbottomreadmob }}px ;
+    }
+  }
+ 
+{%- for blockk in section.blocks -%} 
+     {%- case blockk.type -%}
+       {%- when 'small-image' -%}
+      .section_align_{{ section.id }} .title_jogger p{ font-size:{{blockk.settings.subtitleFontDesktop}}px; line-height:105%;}
+      .section_align_{{ section.id }} .title_jogger h2{font-size:{{blockk.settings.maintitleFontDesktop}}px; line-height:105%;}
+      @media screen and (max-width: 749px) {
+           .section_align_{{ section.id }} .title_jogger p{ font-size:{{blockk.settings.subtitleFontMobile}}px; line-height:105%;}
+           .section_align_{{ section.id }} .title_jogger h2{font-size:{{blockk.settings.maintitleFontMobile}}px; line-height:105%;}
+      }
+{%- endcase -%}
+{%- endfor -%}
+
+
+
+    
+{%- endstyle -%}
+
+<div id="Banner-{{ section.id }}" class="banner_joggger">
+
+  <div class="banner_jogger_inner page-width  section_align_{{ section.id }}">
+    <div class="banner_jogger_box">
+     {%- for block in section.blocks -%} 
+     {%- case block.type -%}
+       {%- when 'small-image' -%}
+                <div class="banner_jogger_box_left">
+                        <div class="banner_jogger_box_left_inner">                  
+                              <div class="thumbnailbanner_jogger">
+                                    <div class="thumimg_jogg">       
+                                                 {% assign image1 = block.settings.smallimage1 %}
+                                                  <img
+                                                    class=""
+                                                    srcset="
+                                                    {%- if image1.width >= 165 -%}{{ image1 | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if image1.width >= 360 -%}{{ image1 | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if image1.width >= 535 -%}{{ image1 | image_url: width: 535 }} 535w,{%- endif -%}
+                                                    {%- if image1.width >= 750 -%}{{ image1 | image_url: width: 750 }} 750w,{%- endif -%}
+                                                    {%- if image1.width >= 1070 -%}{{ image1 | image_url: width: 1070 }} 1070w,{%- endif -%}
+                                                    {%- if image1.width >= 1500 -%}{{ image1 | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                                    {{ image1 | image_url }} {{ image1.width }}w
+                                                    "
+                                                    src="{{ image1 | img_url:'1900x' }}"
+                                                    sizes="100vw"
+                                                    alt="{% if image1.alt == blank  %} collection banner {% else %} {{ image1.alt | escape }} {% endif %}"
+                                                    width="{{ image1.width }}"
+                                                    height="{{ image1.height }}"
+                                                    >                     
+                                    </div>
+                                     <div class="thumimg_jogg">
+                                                      {% assign image2 = block.settings.smallimage2 %}
+                                                    <img
+                                                    class=""
+                                                    srcset="
+                                                    {%- if image2.width >= 165 -%}{{ image2 | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if image2.width >= 360 -%}{{ image2 | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if image2.width >= 535 -%}{{ image2 | image_url: width: 535 }} 535w,{%- endif -%}
+                                                    {%- if image2.width >= 750 -%}{{ image2 | image_url: width: 750 }} 750w,{%- endif -%}
+                                                    {%- if image2.width >= 1070 -%}{{ image2 | image_url: width: 1070 }} 1070w,{%- endif -%}
+                                                    {%- if image2.width >= 1500 -%}{{ image2 | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                                    {{ image2 | image_url }} {{ image2.width }}w
+                                                    "
+                                                    src="{{ image2 | img_url:'1900x' }}"
+                                                    sizes="100vw"
+                                                    alt="{% if image2.alt == blank  %} collection banner {% else %} {{ image2.alt | escape }} {% endif %}"
+                                                    width="{{ image2.width }}"
+                                                    height="{{ image2.height }}"
+                                                    >              
+                                        </div>
+                                         <div class="thumimg_jogg">
+                                                   {% assign image3 = block.settings.smallimage3 %}
+                                                  <img
+                                                    class=""
+                                                    srcset="
+                                                    {%- if image3.width >= 165 -%}{{ image3 | image_url: width: 165 }} 165w,{%- endif -%}
+                                                    {%- if image3.width >= 360 -%}{{ image3 | image_url: width: 360 }} 360w,{%- endif -%}
+                                                    {%- if image3.width >= 535 -%}{{ image3 | image_url: width: 535 }} 535w,{%- endif -%}
+                                                    {%- if image3.width >= 750 -%}{{ image3 | image_url: width: 750 }} 750w,{%- endif -%}
+                                                    {%- if image3.width >= 1070 -%}{{ image3 | image_url: width: 1070 }} 1070w,{%- endif -%}
+                                                    {%- if image3.width >= 1500 -%}{{ image3 | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                                    {{ image3 | image_url }} {{ image3.width }}w
+                                                    "
+                                                    src="{{ image3 | img_url:'1900x' }}"
+                                                    sizes="100vw"
+                                                    alt="{% if image3.alt == blank  %} collection banner {% else %} {{ image3.alt | escape }} {% endif %}"
+                                                    width="{{ image3.width }}"
+                                                    height="{{ image3.height }}"
+                                                    >                    
+                                         </div>
+                              </div>
+                              <div class="title_jogger">
+                              <p>{{ block.settings.subtitle }}</p>
+                              <h2>{{ block.settings.maintitle }}</h2>
+                              </div>
+                              <div class="button_jogger"><a href="{{ block.settings.buttonurl }}">{{ block.settings.buttontext }}  <img src="{{ 'right-arrow.png' | asset_url }}" width="13" height="12" alt="Your Image">  </a></div> 
+                        </div>                  
+                </div>
+
+       {%- when 'big-image' -%}
+    
+  <div class="banner_jogger_box_right">
+          <div class="jogger_box_right_img">
+           {% assign image_big = block.settings.bigimage %}
+           {% assign image_big_mobile = block.settings.bigimage_mobile %}
+          <img
+                                      class="desktopimage"
+                                      srcset="
+                                      {%- if image_big.width >= 165 -%}{{ image_big | image_url: width: 165 }} 165w,{%- endif -%}
+                                      {%- if image_big.width >= 360 -%}{{ image_big | image_url: width: 360 }} 360w,{%- endif -%}
+                                      {%- if image_big.width >= 535 -%}{{ image_big | image_url: width: 535 }} 535w,{%- endif -%}
+                                      {%- if image_big.width >= 750 -%}{{ image_big | image_url: width: 750 }} 750w,{%- endif -%}
+                                      {%- if image_big.width >= 1070 -%}{{ image_big | image_url: width: 1070 }} 1070w,{%- endif -%}
+                                      {%- if image_big.width >= 1500 -%}{{ image_big | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                      {{ image_big | image_url }} {{ image_big.width }}w
+                                      "
+                                      src="{{ image_big | img_url:'1900x' }}"
+                                      sizes="100vw"
+                                      alt="{% if image_big.alt == blank  %} collection banner {% else %} {{ image_big.alt | escape }} {% endif %}"
+                                      width="{{ image_big.width }}"
+                                      height="{{ image_big.height }}"
+                                      >
+         <img
+                                      class="mobileimage"
+                                      srcset="
+                                      {%- if image_big_mobile.width >= 165 -%}{{ image_big_mobile | image_url: width: 165 }} 165w,{%- endif -%}
+                                      {%- if image_big_mobile.width >= 360 -%}{{ image_big_mobile | image_url: width: 360 }} 360w,{%- endif -%}
+                                      {%- if image_big_mobile.width >= 535 -%}{{ image_big_mobile | image_url: width: 535 }} 535w,{%- endif -%}
+                                      {%- if image_big_mobile.width >= 750 -%}{{ image_big_mobile | image_url: width: 750 }} 750w,{%- endif -%}
+                                      {%- if image_big_mobile.width >= 1070 -%}{{ image_big_mobile | image_url: width: 1070 }} 1070w,{%- endif -%}
+                                      {%- if image_big_mobile.width >= 1500 -%}{{ image_big_mobile | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                      {{ image_big_mobile | image_url }} {{ image_big_mobile.width }}w
+                                      "
+                                      src="{{ image_big_mobile | img_url:'500x' }}"
+                                      sizes="100vw"
+                                      alt="{% if image_big_mobile.alt == blank  %} collection banner {% else %} {{ image_big_mobile.alt | escape }} {% endif %}"
+                                      width="{{ image_big_mobile.width }}"
+                                      height="{{ image_big_mobile.height }}"
+                                      >  
+          </div>
+  </div>
+  {%- endcase -%}
+ {%- endfor -%}
+    
+  </div>  
+</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "home banner jogger",
+  "tag": "section",
+  "class": "section",
+  "settings": [ 
+     {
+      "type": "range",
+      "id": "margintopread",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginbottomread",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintopreadmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginbottomreadmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "bgcolor",     
+      "label": "Background color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "small-image",
+      "name": "Small image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",          
+          "label": "Subtitle"
+        },
+        {
+        "type": "range",
+        "id": "subtitleFontDesktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subtitle font size Desktop",
+        "default":22
+        },
+        {
+        "type": "range",
+        "id": "subtitleFontMobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Subtitle font size Mobile",
+        "default":18
+        },
+        {
+          "type": "text",
+          "id": "maintitle",          
+          "label": "Title if line break ex:(<span>abc</span>)"
+        },
+         {
+        "type": "range",
+        "id": "maintitleFontDesktop",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Title font size Desktop",
+        "default":36
+        },
+        {
+        "type": "range",
+        "id": "maintitleFontMobile",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Title font size Mobile",
+        "default":22
+        },
+        {
+          "type": "text",
+          "id": "buttontext",          
+          "label": "Button Text"
+        },
+         {
+          "type": "url",
+          "id": "buttonurl",          
+          "label": "Button url"
+         },        
+        {
+          "type": "image_picker",
+          "id": "smallimage1",          
+          "label": "Small Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "smallimage2",          
+          "label": "Small Image 2"
+        },   
+        {
+          "type": "image_picker",
+          "id": "smallimage3",          
+          "label": "Small Image 3"
+        }   
+      ]
+    },
+    {
+      "type": "big-image",
+      "name": "Big image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "bigimage",          
+          "label": "big Image"
+        },
+         {
+          "type": "image_picker",
+          "id": "bigimage_mobile",          
+          "label": "big Image mobile"
+        }  
+      ]
+    }
+   
+  ],
+  "presets": [
+    {
+      "name": "home banner jogger",
+      "blocks": [
+        {
+          "type": "small-image"
+        },
+        {
+          "type": "big-image"
+        }        
+      ]
+    }
+  ]
+}
+{% endschema %}

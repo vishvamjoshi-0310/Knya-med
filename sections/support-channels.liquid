@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="{{ 'support-channels-stylesheet.css' | asset_url }}">
+
+<div class="support-channels">
+    <!-- Heading Section -->
+    <div class="support-channels-header">
+      {% if section.settings.main_heading != blank %}
+        <h2 class="support-channels-main-heading">{{ section.settings.main_heading }}</h2>
+      {% endif %}
+      {% if section.settings.sub_heading != blank %}
+        <p class="support-channels-sub-heading">{{ section.settings.sub_heading }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="support-channels-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link_url }}" class="support-channel-card">
+          <div class="support-channel-icon">
+            {{ block.settings.icon_svg }}
+          </div>
+            {% if block.settings.description != blank %}
+              <p class="support-channel-description">{{ block.settings.description }}</p>
+            {% endif %}
+            {% if block.settings.link_text != blank %}
+              <sapn class="support-channel-link">
+                {{ block.settings.link_text }}
+              </sapn>
+            {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Support Channels",
+  "class": "support-channels-parent",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "Couldn't find what you needed?"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Don't worry, we've got more options for you."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "channel",
+      "name": "Support Channel",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG",
+          "default": "<svg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M14 16C14 13.7909 15.7909 12 18 12H30C32.2091 12 34 13.7909 34 16V28C34 30.2091 32.2091 32 30 32H26L20 36V32H18C15.7909 32 14 30.2091 14 28V16Z' stroke='#5b47db' stroke-width='2' fill='none'/></svg>",
+          "info": "Paste your SVG icon code here"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Get instant answers to your questions with our live chat support."
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Contact us"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support Channels"
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,186 @@
+{%- style -%}
+#imagetextgridsection{{ section.id }}{ margin-top:{{section.settings.margin-top-desktop}}px; margin-bottom:{{section.settings.margin-bottom-desktop}}px; }
+#imagetextgridsection{{ section.id }} .contentwrapper{padding-top:24px;padding-bottom:24px;}
+#imagetextgridsection{{ section.id }} .contentwrapper .contentwrapper_inner{ display: grid;
+  grid-template-columns: auto auto auto auto; column-gap:24px;}
+#imagetextgridsection{{ section.id }} .contentwrapper h2{
+font-size: clamp(18px, calc(24*(100vw / var(--viewportDesktop))), 36px);
+line-height: clamp(28px, calc(32*(100vw / var(--viewportDesktop))), 34px);color: #462D8C;padding-bottom:24px;
+}
+#imagetextgridsection{{ section.id }} .content_grid{border: 1px solid #54545657; position:relative;}
+#imagetextgridsection{{ section.id }} .content_grid .gridfooter{padding: 12px 8px 16px 8px; opacity:0.7;}
+#imagetextgridsection{{ section.id }} .content_grid h5{font-family: Heebo-Medium;margin:0px;
+font-size: clamp(14px, calc(16*(100vw / var(--viewportDesktop))), 18px);
+line-height: clamp(20px, calc(24*(100vw / var(--viewportDesktop))), 26px);font-weight: 500;color: #000000;letter-spacing: 0.0015em;
+}
+#imagetextgridsection{{ section.id }} .content_grid p{font-family: Heebo-Regular;margin:0px;
+font-size: clamp(11px, calc(12*(100vw / var(--viewportDesktop))), 14px);
+line-height: clamp(16px, calc(18*(100vw / var(--viewportDesktop))), 20px);font-weight: 400;color: #48464C;padding-top:0px;
+}  
+#imagetextgridsection{{ section.id }} .content_grid .media{height:208px; position:relative;}
+@media screen and (max-width: 749px) {
+   #imagetextgridsection{{ section.id }}{ margin-top:{{section.settings.margin-top-mobile}}px; margin-bottom:{{section.settings.margin-bottom-mobile}}px; } 
+  #imagetextgridsection{{ section.id }} .contentwrapper .contentwrapper_inner{ display: grid;
+  grid-template-columns: auto auto; column-gap:12px; row-gap:12px;}
+   #imagetextgridsection{{ section.id }} .contentwrapper{padding-top:12px;padding-bottom:12px;}
+  #imagetextgridsection{{ section.id }} .content_grid .gridfooter{padding: 8px 8px 12px 8px;}
+  #imagetextgridsection{{ section.id }} .contentwrapper h2{padding-bottom:12px;}
+  #imagetextgridsection{{ section.id }} .content_grid h5{padding-top:0px; letter-spacing: 0.001em;}
+  #imagetextgridsection{{ section.id }} .content_grid .media{height:165px;}
+}
+@media screen and (max-width:1024px) {
+  #imagetextgridsection{{ section.id }} .content_grid .media{height:150px; position:relative;}
+} 
+@media screen and (max-width:428px){
+  #imagetextgridsection{{ section.id }} .content_grid .media{height:130px;}
+}
+{%- endstyle -%}
+<div id="imagetextgridsection{{ section.id }}" class="{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.adapt_height_first_image and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %} ">
+ <div class="contentwrapper page-width">
+  {% if section.settings.heading %} <h2 class="first-line-home font-heebo-medium">{{ section.settings.heading }}</h2> {% endif %}
+   <div class="contentwrapper_inner">
+       {%- for block in section.blocks -%}
+          {%- if block.settings.image != blank -%}
+      <div class="content_grid">
+    <div class="media">
+      {%-liquid
+        assign image_height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio
+          assign sizes = "100vw"
+       if forloop.index0 == 0 
+        assign lazy = 'eager' 
+       assign fetch_priority = 'high' 
+      assign preload = true 
+       assign decoding = 'sync' 
+      else 
+     assign lazy = 'lazy'
+      assign fetch_priority = 'auto' 
+      assign preload = false 
+      assign decoding = 'async'                   
+       endif 
+      -%}
+      
+        {%  assign mob_desk = block.settings.image.alt | default: 'desktop-banner-image-' | append: forloop.index %}
+        
+      {{ block.settings.image | image_url: width: 500 , format: 'webp' | image_tag:
+        loading: lazy,
+        fetchpriority: fetch_priority, 
+        preload: preload, 
+        decoding: decoding,
+        width: block.settings.image.width,
+        height: image_height,
+        class: image_class,
+        sizes: sizes,
+        widths: '375, 550, 750',
+        alt: mob_desk
+      }}
+    
+    </div>
+     <div class="gridfooter">
+      {% if block.settings.title %}  <h5>{{ block.settings.title }}</h5> {% endif %}
+       {% if block.settings.text %} <p>{{ block.settings.text }}</p>{% endif %}
+      </div>
+      </div>
+    {%- endif -%}
+
+ {%- endfor -%}
+
+    </div>
+  
+  </div>
+  
+</div>
+
+{% schema %}
+{
+  "name": "Image text with grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [   
+   
+    {
+      "type": "range",
+      "id": "margin-top-desktop",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Desktop margin top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom-desktop",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Desktop margin bottom",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "margin-top-mobile",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Mobile margin top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin-bottom-mobile",
+      "min": 0,
+      "max": 100,
+      "step":1,
+      "unit": "px",
+      "label": "Mobile margin bottom",
+      "default": 0
+    },  
+    {
+          "type": "text",
+          "id": "heading",         
+          "label": "Heading"
+      },
+    {
+      "type": "checkbox",
+      "id": "show_text_box",
+      "default": true,
+      "label": "t:sections.image-banner.settings.show_text_box.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Image with Text",      
+      "settings": [
+
+   {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },  
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Title",
+          "label": "Title"
+        },
+         {
+          "type": "text",
+          "id": "text",          
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        }
+      ]
+    }
+    
+    
+  ],  
+  "presets": [
+    {
+      "name": "Image text with grid"
+    }
+  ]
+}
+{% endschema %}

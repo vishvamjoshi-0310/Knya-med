@@ -1,0 +1,44 @@
+
+.firstline{font-family: 'Heebo-Regular';font-size: 3.281vw;line-height: 3.281vw;color: #F4ECD0;right: -100vw;}
+.secondline{position: relative;margin: 0px;text-transform: uppercase;font-family: 'Heebo-Regular';font-size: 6.641vw;
+line-height: 6.641vw;   font-weight: 500;color: #F4ECD0;right: -100vw;}
+.newline1{animation: myfirst 5s 1;animation-delay: 2s;}
+
+.newline2{animation: myfirst 5s 1;animation-delay: 4s;}
+.newline3{animation: myfirst 7s 1;animation-delay: 6s;}
+
+.main-textslider{background: #7EA7D6;padding: 12% 7%;overflow: hidden;position: relative;height: 100vh;}
+.thirdline{position: relative;margin: 0px;text-transform: uppercase;font-family: 'Heebo-Regular';font-size: 6.641vw;
+line-height: 6.641vw; font-weight: 500;color: #F4ECD0;right: -100vw;}
+.firstline {width: 100%;height: auto;position: relative;}
+
+
+@keyframes myfirst {0%   { right: -100vw; top: 0px;}100% { right: 0vw; top: 0px;}}
+.last_slide{width: 96vw;height: 90%;margin: 15px 20px;position: absolute;top: 0;right: -100vw;background: #F4ECD0;
+display: flex;justify-content: center;align-items: center;border-top-right-radius: 45px;border-bottom-left-radius: 45px;
+padding: 7%;}
+.newline4{animation: myfirst 6s 1; animation-delay: 12s;}
+.LastslideText p{margin:0;}
+
+.newclass{right: 0vw;}
+.LastslideText{font-size: 2.188vw !important;line-height: 2.578vw;font-family: 'Heebo-Regular';font-weight: 400;
+color: #482F8F;display: flex;flex-direction: column;gap: 20px;}
+.innerdiv{background: #F4ECD0;}
+.lastslide_heading{font-size: 2.188vw ;line-height: 2.578vw;font-family: 'Heebo-Regular';font-weight: 400;color: #482F8F;text-transform: uppercase;
+margin-bottom: 15px;}
+.lastslide_heading span {width: 14px;height: 14px;display: block;float: left;margin: 6px 11px 16px 0px;}
+.lastslide_heading span{background:  #7EA7D6; }
+.line_hold{right: 0vw;}
+.lastslide_hold{right: 0vw;}
+
+
+@media screen and (max-width:768px){
+.main-textslider{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.firstline{margin-bottom: 20px;}
+.thirdline{font-size:42px;line-height:36.4px;}
+.secondline{font-size:42px;line-height:36.4px;margin-bottom: 20px;}
+.last_slide{width: 93%;margin: 10px 12px;height: 94%;display: flex !important;}
+.LastslideText{font-size:22px !important;line-height:26.4px;}
+.lastslide_heading{font-size:22px !important;line-height:26.4px;}
+.lastslide_heading span{width: 12px;height: 12px;margin: 6px 7px 3px 0px;}
+}

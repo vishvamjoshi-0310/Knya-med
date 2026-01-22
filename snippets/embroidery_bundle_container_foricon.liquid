@@ -1,0 +1,36 @@
+ <div class='form_content'>
+   
+   <div class='form_wrapper form_wrapper-icon'>
+     <div class="form_wrapper_header">
+          <p>ADD ICON/LOGO</p>
+
+          <p> {{ mainPrice | money }} - {{ logoPrice }}</p>
+        </div>
+      
+    <p class="popup_steps">STEP 1</p>
+          <div class='optionbox swatch icon_container'>
+          
+            <h4> Icon Placement: </h4>
+            
+            <div class='option_row position'>
+           <input type='radio' name='iconposition' data-class='position'  value='Right Chest' checked/> <label> Right Chest </label>
+            </div>
+            
+          </div>
+          
+             <div class='optionbox swatch'>
+               <p class="popup_steps">STEP 2</p>
+             <h4 class="iconPlacement"><span class="icon_text"> Icon:</span> <span class="choosedIconPlacement"></span> <span class="emb-price"> ({{mainPrice | money }})</span>
+                                       <p class="error_embroideryFieldi">Please Select The Icon</p>
+
+             </h4>
+
+          {% render 'icon_swatches_bundle',logoPrice:logoPrice, proPww:proPww %}
+          </div>
+          
+          
+          
+   </div>
+          
+          
+        </div>

@@ -1,0 +1,461 @@
+<link rel="stylesheet" href="{{ 'product-new-media.css' | asset_url }}">
+
+{%- assign initial_media_id = product.featured_media.id -%}
+    {%- assign initial_media_index = 0 -%}
+    {%- assign media_count = 0 -%}
+
+{%- capture slideshow_media -%}
+      {%- for media in product.media -%}
+        {%- if media.alt == 'featured' or media.alt == 'featured mobile' -%}
+          {%- continue -%} 
+        {%- endif -%} 
+
+        {%- if product.selected_variant and media.id == product.selected_variant.featured_media.id -%}
+          {%- assign initial_media_index = media_count -%}
+          {%- assign initial_media_id = media.id -%}
+        {%- endif -%}
+
+        {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200,1400,1600', image: media -%}{%- endcapture -%}
+
+        {%- case media.media_type -%} 
+          {%- when 'image' -%}
+            {% assign valuename = media.alt | replace:' ','_' %}
+             <div id="Media{{ media.id }}"  data-color="{{media.alt | upcase}}" class="newMedia media_getindex {{media.alt | upcase | remove:" "}}">
+              <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
+                {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_700x.' %}
+               {% assign preView = media | img_url: '1x1' | replace: '_1x1.', '_100x.' %}
+
+               {% comment %}
+                <img id="myImgs" onclick="showzoom(this.src)" class="pdslider Image--lazyLoad Image--fadeIn prouduct-media-main-image "
+                     data-src="{{ image_url }}"
+                     src="{{preView}}"
+                     alt="{{valuename | upcase}}"
+                     src="{{ media | img_url: '100x' }}"
+                     width="{{ media.width }}"
+                     height="{{ media.height }}"
+                     loading="lazy"
+                     >
+                 {% endcomment %}
+                <img id="myImgs" onclick="showzoom(this.src)" class="pdslider Image--lazyLoad Image--fadeIn prouduct-media-main-image "
+                     src="{{image_url}}"
+                     alt="{{valuename | upcase}}"
+                     width="{{ media.width }}"
+                     height="{{ media.height }}"
+                     loading="lazy"
+                 >
+
+          
+          
+          
+                {% if forloop.index != 1 %}<span class="Image__Loader"></span>{% endif %}
+                <noscript>
+                  <img src="{{ media | img_url: '100x' }}" alt="{{ media.alt | escape }}">
+                </noscript> 
+              </div> 
+            </div>
+
+
+          {%- when 'external_video' -%}
+            <div id="Media{{ media.id }}" data-color="{{media.alt | upcase}}">
+              <div class="Image--lazyLoad2 Image--fadeIn2" data-expand="-100">
+                <div class="VideoWrapper">
+                  {{- media | external_video_tag: image_size: '1024x' -}}
+                </div>
+              </div>
+            </div>
+
+          {%- when 'video' -%}
+            <div id="Media{{ media.id }}" data-color="{{media.alt | upcase}}">
+              <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                <div class="kmkvid VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
+                  {{- media | video_tag: image_size: '1024x', controls: false, autoplay: true, loop: true, mute: true -}}
+                </div>
+              </div>
+            </div> 
+
+          {%- when 'model' -%} 
+            <div id="Media{{ media.id }}">
+              <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                <div class="ModelWrapper">
+                  {{- media | model_viewer_tag: image_size: '1024x', reveal: 'interaction', toggleable: true -}}
+                </div>
+              </div>
+            </div>
+        {%- endcase -%}
+
+        {%- assign media_count = media_count | plus: 1 -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+{%- assign initial_media_id = product.featured_media.id -%}
+    {%- assign initial_media_index = 0 -%}
+    {%- assign media_count = 0 -%}
+
+{%- capture slideshow_media_mob -%}
+      {%- for media in product.media -%}
+        {%- if media.alt == 'featured' or media.alt == 'featured mobile' -%}
+          {%- continue -%} 
+        {%- endif -%}
+
+        {%- if product.selected_variant and media.id == product.selected_variant.featured_media.id -%}
+          {%- assign initial_media_index = media_count -%}
+          {%- assign initial_media_id = media.id -%}
+        {%- endif -%}
+
+        {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200,1400,1600', image: media -%}{%- endcapture -%}
+
+        {%- case media.media_type -%} 
+          {%- when 'image' -%}
+            {% assign valuename = media.alt | replace:' ','_' %}
+             <div id="Media{{ media.id }}"  data-color="{{media.alt | upcase}}" class="newMedia {{media.alt | upcase | remove:" "}}">
+              <div class="AspectRatio AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
+                {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_200x.' %}
+               {% assign preView = media | img_url: '1x1' | replace: '_1x1.', '_100x.' %}
+
+                <img  class="Image--lazyLoad Image--fadeIn prouduct-media-main-image"
+                     data-src="{{ image_url }}"
+                     src="{{preView}}"
+                     alt="{{valuename | upcase}}"
+                     src="{{ media | img_url: '100x' }}"
+                     width="{{ media.width }}"
+                     height="{{ media.height }}"
+                     loading="lazy"
+                     >
+                {% if forloop.index != 1 %}<span class="Image__Loader"></span>{% endif %}
+                <noscript>
+                  <img src="{{ media | img_url: '100x' }}" alt="{{ media.alt | escape }}">
+                </noscript> 
+              </div> 
+            </div>
+
+
+          {%- when 'external_video' -%}
+            <div id="Media{{ media.id }}" data-color="{{media.alt | upcase}}">
+              <div class="Image--lazyLoad2 Image--fadeIn2" data-expand="-100">
+                <div class="VideoWrapper">
+                  {{- media | external_video_tag: image_size: '1024x' -}}
+                </div>
+              </div>
+            </div>
+
+          {%- when 'video' -%}
+            <div id="Media{{ media.id }}" data-color="{{media.alt | upcase}}">
+              <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                <div class="kmkvid VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
+                  {{- media | video_tag: image_size: '1024x', controls: false, autoplay: true, loop: true, mute: true -}}
+                </div>
+              </div>
+            </div> 
+
+          {%- when 'model' -%} 
+            <div id="Media{{ media.id }}">
+              <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                <div class="ModelWrapper">
+                  {{- media | model_viewer_tag: image_size: '1024x', reveal: 'interaction', toggleable: true -}}
+                </div>
+              </div>
+            </div>
+        {%- endcase -%}
+
+        {%- assign media_count = media_count | plus: 1 -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- capture slideshow_media_zoom -%}
+      {%- for media in product.media -%}
+        {%- if media.alt == 'featured' or media.alt == 'featured mobile' -%}
+          {%- continue -%} 
+        {%- endif -%}
+
+        {%- if product.selected_variant and media.id == product.selected_variant.featured_media.id -%}
+          {%- assign initial_media_index = media_count -%}
+          {%- assign initial_media_id = media.id -%}
+        {%- endif -%}
+
+        {%- capture supported_sizes -%}{%- render 'image-size', sizes: '200,400,600,700,800,900,1000,1200,1400,1600', image: media -%}{%- endcapture -%}
+
+        {%- case media.media_type -%} 
+          {%- when 'image' -%}
+            {% assign valuename = media.alt | replace:' ','_' %}
+             <div id="Media{{ media.id }}"  data-color="{{media.alt | upcase}}"  class="newMedia click-zoom {{media.alt | upcase | remove:" "}}">
+              <div class=" AspectRatio--withFallback" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%; --aspect-ratio: {{ media.aspect_ratio }};">
+                {% assign image_url = media | img_url: '1x1' | replace: '_1x1.', '_700x.' %}
+               {% assign preView = media | img_url: '1x1' | replace: '_1x1.', '_100x.' %}
+                 
+            <div class="pinch-zoom">
+          {% comment %}
+              <img id="zoommodelimgsli_{{ forloop.index }}" class="Image--lazyLoad Image--fadeIn prouduct-media-main-image"
+                     data-src="{{ image_url }}"
+                     src="{{preView}}"
+                     alt="{{valuename | upcase}}"
+                     src="{{ media | img_url: '100x' }}"
+                     width="{{ media.width }}"
+                     height="{{ media.height }}"
+                     loading="lazy"
+                     >
+            <img id="zoommodelimgsli_{{ forloop.index }}" class="Image--lazyLoad Image--fadeIn prouduct-media-main-image"
+                     data-src="{{ image_url }}"
+                     src="{{preView}}"
+                     alt="{{valuename | upcase}}"
+                     src="{{ media | img_url: '100x' }}"
+                     width="{{ media.width }}"
+                     height="{{ media.height }}"
+                     loading="lazy"
+                     >
+          {% endcomment %}
+          <img id="zoommodelimgsli_{{ forloop.index }}" class="prouduct-media-main-image"
+                    
+                     src="{{image_url}}"
+                     alt="{{valuename | upcase}}"
+                     src="{{ media | img_url: '100x' }}"
+                     width="{{ media.width }}"
+                     height="{{ media.height }}"
+                     loading="lazy"
+                     >
+             <span class="Image__Loader"></span>
+            </div>
+                {% if forloop.index != 1 %}{% endif %}
+                <noscript>
+                  <img src="{{ media | img_url: '100x' }}" alt="{{ media.alt | escape }}">
+                </noscript> 
+              </div> 
+            </div>
+
+
+          {%- when 'external_video' -%}
+            <div id="Media{{ media.id }}" data-color="{{media.alt | upcase}}">
+              <div class="Image--lazyLoad2 Image--fadeIn2" data-expand="-100">
+                <div class="VideoWrapper">
+                  {{- media | external_video_tag: image_size: '1024x' -}}
+                </div>
+              </div>
+            </div>
+
+          {%- when 'video' -%}
+            <div id="Media{{ media.id }}" data-color="{{media.alt | upcase}}">
+              <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                <div class="kmkvid VideoWrapper VideoWrapper--native" style="padding-bottom: {{ 100.0 | divided_by: media.aspect_ratio }}%">
+                  {{- media | video_tag: image_size: '1024x', controls: false, autoplay: true, loop: true, mute: true -}}
+                </div>
+              </div>
+            </div> 
+
+          {%- when 'model' -%} 
+            <div id="Media{{ media.id }}">
+              <div class="Image--lazyLoad Image--fadeIn" data-expand="-100">
+                <div class="ModelWrapper">
+                  {{- media | model_viewer_tag: image_size: '1024x', reveal: 'interaction', toggleable: true -}}
+                </div>
+              </div>
+            </div>
+        {%- endcase -%}
+
+        {%- assign media_count = media_count | plus: 1 -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+
+
+
+{%- if product.media.size > 0 -%}
+      <div class="Product__Gallery2 desktopmedia">
+        <div class="mobslide slider-nav">
+          {{ slideshow_media_mob }}
+        </div>
+        <div class="modals-contentmobslide slider-for">
+          {{ slideshow_media }}
+        </div>
+        
+      </div>
+     <div id="mymodals" class="modals">
+  <span class="close"><span>&times;</span></span>
+       <div class="pagingInfo"></div>
+       <div class=" modals-content mobslide slider-for1">
+          {{ slideshow_media_zoom }}
+        </div>
+    {% comment %}   
+  <img class="modals-content" id="img01s">
+  {% endcomment %}
+ </div>
+  
+<!-- <div id="myModalzoom" class="modal"> 
+  <img class="modal-content" id="img01zoom">
+ </div> -->
+
+    {%- endif -%}
+    
+<script src="{{ 'jquery-3.3.1.min.js' | asset_url }}"></script>
+{{'pinch-zoom.js' | asset_url | script_tag}}
+<script>
+ var $jq = jQuery.noConflict();
+ var targetDiv = document.querySelectorAll('div.pinch-zoom');
+for(var i=0; i<targetDiv.length;i++){
+ var pz = new PinchZoom.default(targetDiv[i], {});
+}
+
+    $(document).on('ready', function() {
+      
+        $jq('.slider-for').slick({
+            asNavFor: '.slider-nav',
+            slidesToShow:1,
+            loop:true,
+            responsive: [
+            {
+                breakpoint: 2000,
+                settings:  {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1600,
+                settings:  {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings:  {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+      
+  $jq('.slider-nav').slick({
+    slidesToShow: 4,
+    vertical:true,
+    arrows:false,
+    loop:true,
+    asNavFor: '.slider-for',
+   focusOnSelect: true,
+  
+});
+
+
+ $jq('.slider-for1').slick({
+    slidesToShow: 1,
+    arrows:true,
+    loop:true,
+    dots:true,
+});
+
+$jq('.slider-for1').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+     $jq('.slider-for1').addClass('loadercustom');
+     setTimeout(function(){
+       $jq('.slider-for1').removeClass('loadercustom');
+     },1000);
+});         
+
+
+$jq('body').on("click",".pdslider",function(){
+   var slideno = $(this).parent().parent().attr('data-slick-index');
+  console.log(slideno);
+  let slideindexn = parseInt(slideno);
+  $jq('.slider-for1')[0].slick.refresh();
+  setTimeout(function(){
+    $jq('#mymodals ul.slick-dots #slick-slide-control2'+slideindexn).click();
+   },500);
+
+if($(window).width() < 767 ){
+   setTimeout(function(){
+         let heightPinch = $('#mymodals .pinch-zoom-container').height();
+         let heightPinchchild = $('#mymodals .pinch-zoom').height();
+         let heightPinchchild_img = $('#mymodals .pinch-zoom img').height();
+         let actualH = heightPinchchild - heightPinchchild_img;
+         let actualHeight = actualH / 2;
+         //$('#mymodals .pinch-zoom').css({'padding-top':actualHeight,'padding-bottom':actualHeight});
+         for(var i=0; i<targetDiv.length;i++){
+            targetDiv[i].style.paddingTop = actualHeight+'px';
+            //targetDiv[i].style.paddingBottom = actualHeight+'px';
+         }  
+    },1000);
+}
+
+  
+});
+
+var $status = $('.pagingInfo');
+var $slickElement = $('.slider-for1');
+$slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+  //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+  if(!slick.$dots){
+  	return;
+  }
+  var i = (currentSlide ? currentSlide : 0) + 1;
+  $status.text(i + '/' + (slick.$dots[0].children.length));
+});      
+
+
+// image filter for desktop
+ 
+    let images = document.querySelectorAll('div[data-color]');
+    let inputsContainer = document.querySelector('input.ColorSwatch__Radio').closest('ul');
+    inputsContainer.addEventListener('change',()=>{
+      let selected = document.querySelector('input.ColorSwatch__Radio:checked');
+      
+      if(selected != null){
+        let value = selected.getAttribute('data-getcolorvar');
+        visibleImagesWithValue(value);
+      }
+      })
+    
+    function visibleImagesWithValue(value){
+      value= value.toUpperCase();
+          $jq('.slider-for').slick('slickUnfilter');
+          $jq('.slider-for1').slick('slickUnfilter');
+          $jq('.slider-nav').slick('slickUnfilter');
+          $jq('.slider-for').slick('slickFilter', `.${value}`);
+          $jq('.slider-for1').slick('slickFilter', `.${value}`);
+          $jq('.slider-nav').slick('slickFilter', `.${value}`);
+          $jq('.slider-nav').slick('refresh');
+
+    }
+    if(document.querySelector('input.ColorSwatch__Radio:checked').nextElementSibling.getAttribute('onclick') == null){
+      console.log("run");
+    //visibleImagesWithValue(document.querySelector('input.ColorSwatch__Radio:checked').value);
+      visibleImagesWithValue(document.querySelector('input.ColorSwatch__Radio:checked').getAttribute('data-getcolorvar'));
+    }
+    
+   
+});
+</script>
+<script>
+  
+// Get the modals
+var modalss = document.getElementById("mymodals");
+var imgs = document.getElementById("myImgs");
+var modalsImgs = document.getElementById("img01s");
+  var sslideimgss = document.getElementById("zoommodelimgsli_1");
+
+
+ function showzoom(_slsrc){
+  modalss.style.display = "block";
+  //modalsImgs.src = this.src; 
+   //sslideimgss.src = _slsrc;
+setTimeout(function(){
+  var targetDiv = document.querySelectorAll('div.pinch-zoom');
+for(var i=0; i<targetDiv.length;i++){
+ var pz = new PinchZoom.default(targetDiv[i], {});
+}
+},500)
+
+
+   
+ }
+
+// Get the <span> element that closes the modals
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modals
+span.onclick = function() { 
+  modalss.style.display = "none";
+}
+
+</script>
+

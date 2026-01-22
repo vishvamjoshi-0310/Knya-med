@@ -1,0 +1,13 @@
+.pagecontent :is(p, h1, h2, h3, h4, h5, span, strong, li, ul, ol){
+  font-family: 'Heebo-Regular' !important; font-size:1.250vw;color:#000303;
+}
+@media screen and (min-width: 640px) and (max-width:1024px){
+  .pagecontent :is(p, h1, h2, h3, h4, h5, span, strong, li, ul, ol){
+  font-size:1.563vw;
+}
+}
+@media screen and (max-width: 640px){
+  .pagecontent :is(p, h1, h2, h3, h4, h5, span, strong, li, ul, ol){
+  font-size:16px;
+}
+}

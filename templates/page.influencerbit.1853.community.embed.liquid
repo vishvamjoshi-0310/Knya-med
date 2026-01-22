@@ -1,0 +1,64 @@
+<html>
+  <style>
+    #ib-community-frame{ display: block; }
+      #header.site-header {position: relative !important;}
+  </style>
+  <body>
+    <iframe id='ib-community-frame' width='100%' scrolling="no" style='border: none;min-height: 550px;' allow="clipboard-write" src='https://community.influencerbit.com/1853'></iframe>
+  </body>
+  <script type="text/javascript">
+    {
+      function funinit() {
+        addSearchIframe()
+        relativeHeader()
+      }
+      function getCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(';');
+          for(var i=0;i < ca.length;i++) {
+              var c = ca[i];
+              while (c.charAt(0)==' ') c = c.substring(1,c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+          }
+          return null;
+      }
+      function relativeHeader() {
+        let d = document.getElementById("header");
+        if(d) {
+          d.style.setProperty("position", "relative", "important")
+        }
+      }
+      function setCookie(name,value,days) {
+          var expires = "";
+          if(!days) {
+              days = 60;
+          }
+          var date = new Date();
+          date.setTime(date.getTime() + (days*24*60*60*1000));
+          expires = "; expires=" + date.toUTCString();
+          document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+      }
+      function addSearchIframe() {  
+        const iframeObj = document.getElementById("ib-community-frame");
+        let pageVisits = Number(getCookie("ib_visits") || 0)
+        if(iframeObj) {
+            let iframeSrc = iframeObj.src
+            iframeSrc = iframeSrc + window.location.search
+            var ul = new URL(iframeSrc)
+            ul.searchParams.set("ib_visits", pageVisits)
+            setCookie("ib_visits", pageVisits+1)
+            let player = getCookie("gameIbUser")
+            if(player) {
+                let playerObj = JSON.parse(player)
+                let playerId = playerObj.player_id
+                let playerEmail = playerObj.email
+                ul.searchParams.set("ib_gamer_id", playerId)
+                ul.searchParams.set("ib_gamer_email", playerEmail)
+            }
+            iframeObj.src = ul
+        }
+      }
+      funinit()
+    }
+  </script>
+</html>

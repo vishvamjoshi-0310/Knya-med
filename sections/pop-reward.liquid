@@ -1,0 +1,32 @@
+<div id="POPStar" class="pop-star {{ template.name | handleize |  prepend: 'pop__'  }}">
+  <div id="POPStar" class="pop-star1">
+    <button
+      type="submit"
+      id="pop-club-quick-buy3"
+      class="product-form__submit button button--full-width button--secondary"
+      {% if template == 'cart' or template == 'product' %}
+        style="display: none!important;"
+      {% endif %}
+      disabled
+    >
+      <span id="pop-club-quick-buy-span-stripe">
+        <span class="reward_name"></span>
+        Loading Your Rewards...
+      </span>
+    </button>
+
+    <div id="popModal" class="popclub-modal hidden" onclick="popModalClose(event)">
+      <div class="popclub-modal-content">
+        <div class="pop_modal_close">×</div>
+        <iframe src="" title="POP CLUB" width="100%" height="1000" id="popclub_iframe"> </iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Section name",
+  "settings": []
+}
+{% endschema %}

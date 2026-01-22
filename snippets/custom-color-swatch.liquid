@@ -1,0 +1,382 @@
+<style>
+   .swatch-ic-active .is-active img{outline: 1.5px solid black;
+      border: 1.5px solid transparent !important;padding: 1px;}
+    .swatch-img{    border: 1.5px solid transparent;
+          /* border-radius: 0px 0px 0px 4px !important; */
+                border-radius:50% !important;
+      width: 34%;
+      height: auto;
+      margin-top: 0px;cursor:pointer;}
+
+    .swatch-img:hover{
+      outline: 1.5px solid black;
+      border: 1.5px solid transparent;
+      padding:1px;
+    }
+  
+    ul.colorSwatchMarginStyle {
+      padding: 0px 1.2px;
+      list-style: none;
+      display: flex;
+      align-items:start; 
+      flex-wrap: wrap;
+      margin-top: 0px;
+      margin-bottom: 2px;
+      min-height: 2rem;
+  }
+
+
+ul.colorSwatchMarginStyle{align-items:start;} 
+.HorizontalList--spacingTight li span.fornewcolor{position:relative;font-family: Heebo-Regular;font-size: 11px;font-weight: 400;line-height: 16.16px;text-align: center;
+                                   color:#FF3B30;left:0px;text-transform: capitalize; margin-top:4px;}
+.product__info-wrapper .HorizontalList--spacingTight li span.fornewcolor{line-height:12px !important;}
+
+  
+ 
+ul.colorSwatchMarginStyle{column-gap:8px;}
+.product__info-wrapper ul.colorSwatchMarginStyle{gap: 16px;}
+
+
+
+@media screen and (max-width:750px){
+  ul.colorSwatchMarginStyle{column-gap:12px;}
+  .product__info-wrapper ul.colorSwatchMarginStyle{row-gap: 14px; column-gap:10px;}
+  .product__info-wrapper ul.colorSwatchMarginStyle li .fornewcolor{position:absolute;top:19px !important;left:-2px;z-index:1;font-size: 10px !important;}
+}
+.product__info-wrapper ul.colorSwatchMarginStyle li{position:relative;}
+.product__info-wrapper ul.colorSwatchMarginStyle li .fornewcolor{position:absolute;top:23px;left:-1px;z-index:1;}
+  
+    label.ColorSwatch.ColorSwatch--small.onclickcolorvar {
+      display: inline-block;
+      width: auto;
+  height: auto;
+      border-radius: 40rem;
+  }
+    .swatch-img {
+      /* border: 1px solid #000; */
+      border-radius: 30px;
+          width: 100%;
+      height: auto;
+      margin-top: 0px;
+  }
+    input.ColorSwatch__Radio {
+      display: none;
+  }
+    .plus-swatch{display: none;}
+   @media screen and (max-width:750px){
+       {% if template.name != "product" %}
+         .plus-swatch a{display: inline-block;position: relative;}
+       {% endif %}
+       {% if template.name == "index" %}
+     .plus-swatch a{bottom:2px;}
+       {% endif %}
+   }
+  @media screen and (max-width: 495px){
+      ul.colorSwatchMarginStyle{ align-items: start;}
+ 
+  }
+  
+    
+    
+     
+    
+    @media screen and (max-width: 989px){
+      .HorizontalList--spacingTight li, span.Replace-Image{
+        width:18px
+      }
+   
+  }
+    
+    
+     
+     .swatch-titlee{display:none;}
+    .imaged-swatch:hover .swatch-titlee{
+      position:absolute;
+      display:block;
+      text-transform: capitalize;
+      bottom: 30px;
+      left:-3px;
+      background: #482F8F;
+      color: #F4ECD0;
+      z-index: 5;
+      font-weight: 400;
+      -webkit-box-shadow: 0 2px 12px 1px rgb(0 0 0 / 22%);
+      -moz-box-shadow: 0 2px 12px 1px rgba(0,0,0,.22);
+      box-shadow: 0 2px 12px 1px rgb(0 0 0 / 22%);
+      padding: 7px 8px;
+      font-size: 14px;
+      line-height: 1.2;
+      border-radius: 4px;}
+    .swatch-titlee:after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      right: 0;
+      margin: 0 auto;
+      border-width: 12px 12px 0;
+      border-style: solid;
+      border-color: #482F8F transparent;
+      display: block;
+      width: 0;
+      left: -50%;
+  }
+  .ColorSwatch{position:relative; line-height:100%;}
+  
+  .swatch-count--desktop,.swatch-count--desktop-only { display: flex;}
+  .swatch-count--mobile,.swatch-count--mobile-only {display: none;}
+  .swatch-count--desktop, .swatch-count--mobile{align-items: center;}
+  .swatch-count--mobile svg, .swatch-count--desktop svg{max-width: 8px; max-height: 8px;}
+  .swatch-count--mobile p, .swatch-count--desktop p{font-family: 'Heebo-regular'; font-weight: 400; letter-spacing: 0; color: #8E8E93; margin:0; margin-bottom: 2px;}
+  .swatch-count--mobile p{font-size: 14px; line-height: 24px; margin-bottom: 2px;}
+  .swatch-count--desktop p{font-size: 16px; line-height: 24px;}
+  .wrapper_swatch--swatch-count{display: flex; align-items: center; gap:8px}
+
+  @media (max-width: 640px) {
+  .swatch-count--desktop , .swatch-count--desktop-only {
+    display: none;
+  }
+  .swatch-count--mobile, .swatch-count--mobile-only {
+    display: flex;
+  }
+}
+
+.page-width-pdp .swatch-count--mobile, .page-width-pdp .swatch-count--desktop{display:none}
+
+
+  
+</style>
+
+{%- assign allcolor_custom = settings.colortextarea | upcase -%}
+{%- assign allcolor_custom_arr = allcolor_custom | split: ',' -%}
+
+{%- assign variantColor = product.metafields.my_fields.color_variants | upcase -%}
+{%- assign variantColor_arr = variantColor | split: ',' -%}
+{%- assign variantColor_size = variantColor_arr.size -%}
+{%- assign variantHandleArr = product.metafields.my_fields.color_variant_handle | downcase | split: ',' -%}
+{%- assign currentHandle = product.handle | downcase -%}
+{% assign newcolor_setting = settings.color-new | split:"@" %}
+{% assign text_for_show_setting = settings.color-new-text %}
+
+
+{% if template == 'product.scrub' or template == 'product' or template=="product.new-combo-product" or template == "product.engraving" %}
+  {% if variantHandleArr.size > 0 %}
+    {% if showColorTxt %}
+    <div class="color-click1 font-heebo-regular" id="colorr-clickk">
+      <span class="font-heebo-medium clor-option-size1">Color</span>
+      <span class="varient-title-color nhb"> </span>
+    </div>
+      {% endif %}
+  {% endif %}
+{% endif %}
+<div class="wrapper_swatch--swatch-count">
+  <ul class="HorizontalList HorizontalList--spacingTight colorSwatchMarginStyle {{template}}-swatch-class {% if template contains 'product' %} for-product {% endif %} {% if variantHandleArr.size > 0 %}shall-appear{% endif %}">
+    {% assign swatchCount = 0 | plus: 0 %}
+    {%- for vColor in variantColor_arr  -%}
+      {% assign swatchCount = swatchCount | plus: 1 %}
+      {% assign selected-variant-bg-color = settings.swatchDefaultColor %}
+      {% assign loopindexo = forloop.index0 %}
+
+      {% assign imageFileName = vColor | strip | append: '.jpg' | downcase | replace: ' ', '-' %}
+
+      {% assign imgURL = imageFileName | asset_url %}
+
+      <li
+        class="HorizontalList__Item {{ imageFileName }} swatch-ic-active custom-color-swaatch {% if forloop.index > 5 %} desktopcolorhide{% endif %} {% if forloop.index > 4 %} mobilecolorhide{% endif %} {% if forloop.index > 3 %} extrasmallhide{% endif %}"
+        data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+        data-colorvalue="{{ vColor }}"
+        {% for color in allcolor_custom_arr %}
+          {% assign colorName = color | split: '=' | first | upcase %}
+          {% if colorName == vColor %}
+            {% assign selected-variant-bg-color = color | split: '=' | last %}
+            data-color-code="{{ selected-variant-bg-color }}"
+            data-color="{{ vColor }}"
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      >
+        <input
+          {% comment %}  id="option-{{ forloop.index }}"  {% endcomment %}
+          class="ColorSwatch__Radio"
+          type="radio"
+          name="colorSwatch"
+          value="{{ vColor }}"
+          data-option-position="{{ option.position }}"
+          {% if variantHandleArr[loopindexo] == currentHandle %}
+            checked="checked"
+          {% endif %}
+        >
+
+        <label
+          data-handle="{{ variantHandleArr[loopindexo] }}"
+          onclick="location.href='/products/{{ variantHandleArr[loopindexo]}}';"
+          {% comment %} for="option-{{ forloop.index }}" {% endcomment %}
+          class="ColorSwatch {% if template.name contains 'product' %}ColorSwatch--large {% else %} ColorSwatch--small {% endif %} onclickcolorvar {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} is-active  {% endif %}"
+          data-bgColor="{{selected-variant-bg-color}}"
+        >
+          <span class="imaged-swatch">
+            <img
+              class="swatch-img"
+              src="{{imgURL}}"
+              loading="lazy"
+              alt="{{vColor}} COLOR"
+              width="100"
+              height="100"
+              onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"
+            {% if vColor == "WHITE" %} style="border:1px solid" {% endif %}
+            >
+            <span class="Replace-Image" style="background-color:{{selected-variant-bg-color}}"></span>
+            <span class="swatch-titlee">{{ vColor | downcase }}</span>
+            {% comment %}
+            {% assign newcolor = vColor | downcase %} 
+          {% for color_new in newcolor_setting  %}
+            {% assign colordown = color_new | downcase %}
+                {% if text_for_show_setting != blank and colordown ==  newcolor %}
+                <span class="fornewcolor">{{ text_for_show_setting }}</span>
+                {% endif %}
+          {% endfor %}
+            {% endcomment %}
+            
+          </span>
+          <span class="u-visually-hidden">{{ colorNameCode[0] }}</span>       
+        </label>
+
+  {% assign newcolor = vColor | downcase %} 
+          {% for color_new in newcolor_setting  %}
+            {% assign colordown = color_new | downcase %}
+                {% if text_for_show_setting != blank and colordown ==  newcolor %}
+                <span class="fornewcolor">{{ text_for_show_setting }}</span>
+                {% endif %}
+          {% endfor %}
+
+
+
+        
+      </li>
+    {% endfor %}
+    
+  </ul>
+  
+  {% assign moreCountDesktop = variantColor_size | minus: 5 %}
+  {% assign moreCountMobile = variantColor_size | minus: 4 %}
+  
+  {%  if moreCountMobile >= 1 %} 
+    <div class="swatch-count--mobile">
+    <a href="{{ product.url }}" aria-label="{{ product.url }}"><p class="swatch-count--mobile-only">
+      {% if moreCountMobile > 0 %}
+        +{{ moreCountMobile }}
+      {% endif %}
+    </p></a>
+  </div>
+  {% endif %}
+
+  {%  if moreCountDesktop >= 1 %} 
+    <div class="swatch-count--desktop">
+    <a href="{{ product.url }}" aria-label="{{ product.url }}">
+    <p class="swatch-count--desktop-only">
+      {% if moreCountDesktop > 0 %}
+         +{{ moreCountDesktop }} more
+      {% endif %}
+    </p></a>
+  </div>
+  {% endif %} 
+
+
+
+</div>
+
+<div>
+  {% if forloop.last == true %}
+    {%- unless vColor == colorName -%}
+      <li
+        class="a1 HorizontalList__Item "
+        data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+        data-colorvalue="{{ colorNameCode[0] }}"
+      >
+        <input
+          id="option-{{ section.id }}"
+          class="ColorSwatch__Radio"
+          type="radio"
+          data-option-position="{{ option.position }}"
+          {% if variantHandleArr[loopindexo] == currentHandle %}
+            checked="checked"
+          {% endif %}
+        >
+        <label
+          for="option-{{ section.id }}"
+          onclick="location.href='/products/{{currentHandle}}';"
+          class="ColorSwatch {% comment %} ColorSwatch--large {% endcomment %} ColorSwatch--small  {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} active  {% endif %}"
+          style="background-color:#cccccc; {% if colorNameCode[1] == blank %}background-color:#cccccc {% endif %}"
+        >
+          <span class="u-visually-hidden color-value font-heebo-regular">{{ colorNameCode[0] }}</span>
+        </label>
+      </li>
+    {% endunless %}
+    {%- if vColor == colorName -%}
+      <li
+        class="a2 HorizontalList__Item "
+        data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+        data-colorvalue="{{ colorNameCode[0] }}"
+        data-color="{{ colorNameCode[0] }}"
+      >
+        <input
+          id="option-{{ section.id }}"
+          class="ColorSwatch__Radio"
+          type="radio"
+          data-option-position="{{ option.position }}"
+          value="{{ colorNameCode[0] }}"
+          {% if variantHandleArr[loopindexo] == currentHandle %}
+            checked="checked"
+          {% endif %}
+        >
+        <label
+          data-handle="{{variantHandleArr[loopindexo]}}"
+          onclick="location.href='/products/{{variantHandleArr[loopindexo]}}';"
+          for="option-{{ section.id }}"
+          class="ColorSwatch {% comment %} ColorSwatch--large {% endcomment %} ColorSwatch--small  onclickcolorvar {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} active  {% endif %}"
+          style="background-color: {{ colorNameCode[1] | downcase }}; {% if colorNameCode[1] == blank %}background-color:#cccccc{% endif %}"
+        >
+          <span class="u-visually-hidden">{{ colorNameCode[0] }}</span>
+        </label>
+      </li>
+    {% endif %}
+  {% else %}
+    {%- if vColor == colorName -%}
+      <li
+        class="a3 HorizontalList__Item"
+        data-selected="{% if variantHandleArr[loopindexo] contains currentHandle %}true{%else%}false{% endif %}"
+        data-colorvalue="{{ colorNameCode[0] }}"
+      >
+        <input
+          id="option-{{ section.id }}"
+          class="ColorSwatch__Radio"
+          type="radio"
+          data-option-position="{{ option.position }}"
+          {% if variantHandleArr[loopindexo] == currentHandle %}
+            checked="checked"
+          {% endif %}
+        >
+        <label
+          data-handle="{{variantHandleArr[loopindexo]}}"
+          onclick="location.href='/products/{{variantHandleArr[loopindexo]}}';"
+          for="option-{{ section.id }}"
+          class="ColorSwatch {% comment %} ColorSwatch--large {% endcomment %} ColorSwatch--small  onclickcolorvar {% if downcase_value == 'white' %}ColorSwatch--white{% endif %}  {% if variantHandleArr[loopindexo] == currentHandle %} active  {% endif %}"
+          style="background-color: {{ colorNameCode[1] | downcase }}; {% if colorNameCode[1] == blank %}background-color:#cccccc{% endif %}"
+        >
+          <span class="imaged-swatch">
+            <img
+              src="{{imgURL}}"
+              alt="{{ vColor }} COLOR"
+              width="100"
+              height="100"
+              onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='inline-block';"
+            >
+            <span class="Replace-Image" style="background-color:{{selected-variant-bg-color}}"></span>
+          </span>
+
+          <span class="u-visually-hidden">{{ colorNameCode[0] }}</span>
+        </label>
+      </li>
+      {% break %}
+    {% endif %}
+  {% endif %}
+</div>

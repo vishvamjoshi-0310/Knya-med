@@ -1,0 +1,63 @@
+<style>
+  @media(max-width: 768px){
+  quantity-input.quantity {
+      width: 120px;
+  }
+  }
+    @media(max-width: 1320px) and (min-width: 600px){
+      .buy-containers .mobile-atc-pdp {width: 60%;}
+      .price-per-item__container {width: 35%;}
+      quantity-input.quantity {width: 100%;}
+    }
+  .quantity:after {content: unset;}
+</style>
+{%- assign cart_qty = product.selected_or_first_available_variant.inventory_quantity -%}
+<div class="price-per-item__container">
+  <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+    <button class="quantity__button no-js-hidden custon-border" name="minus" type="button">
+      <span class="visually-hidden">
+        {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+      </span>
+      {% render 'icon-minus' %}
+    </button>
+    <input
+      class="quantity__input quantity__input-custom-embro"
+      type="number"
+      onchange="updateRdInputBar()"
+      name="quantity"
+      id="Quantity-{{ section.id }}"
+      data-cart-quantity="{{ cart_qty }}"
+      data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+      min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+      {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+        data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+        max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+      {% endif %}
+      step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+      value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+      {% comment %} <!-- form="{{ product_form_id }}" --> {% endcomment %}
+    >
+    <button class="quantity__button no-js-hidden custom-border-left" name="plus" type="button">
+      <span class="visually-hidden">
+        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+      </span>
+      {% render 'icon-plus' %}
+    </button>
+  </quantity-input>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const quantityInput = document.querySelector('.quantity__input-custom-embro');
+    const rdInputBar = document.querySelector('.Rd-input-bar');
+    const rdInputBar_emb = document.querySelector('.Rd-input-bar-emb');
+
+    // Function to update Rd-input-bar value
+     window.updateRdInputBar=function() {
+      rdInputBar.value = quantityInput.value;
+       if(rdInputBar_emb){
+          rdInputBar_emb.value = quantityInput.value;
+       }
+    }
+  });
+</script>

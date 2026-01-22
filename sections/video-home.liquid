@@ -1,0 +1,413 @@
+{{ 'video-home.css' | asset_url | stylesheet_tag }}
+<style>
+  .desk-vid{
+      /* margin-top:{{ section.settings.marginTop }}px; */
+      /* line-height:0; */
+  }
+  .section-{{ section.id }}-margin{
+      margin-top:{{ section.settings.marginTop }}px;
+      margin-bottom:{{ section.settings.marginBottom }}px;
+      line-height:0;
+    }
+  .desk-vid a:not([href]) {
+    cursor: unset;
+  }
+
+  @media screen and (max-width:640px){
+    .desk-vid{
+      /* margin-top:{{ section.settings.marginTopmob }}px; */
+    }
+    .section-{{ section.id }}-margin{
+      margin-top:{{ section.settings.marginTopmob }}px;
+      margin-bottom: {{ section.settings.marginBottomMob }}px;
+    }
+  }
+</style>
+<section class="home-banner-container section-{{ section.id }}-margin">
+  <div class="desk-vid{% if section.settings.show_padding_vid  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_vid %}padding-right-mob padding-left-mob{% endif %}">
+    <div class="swiper test-swiper1 mySwipervid mySwiperVid">
+      <div class="swiper-wrapper custom-wraperhome">
+        {% for block in section.blocks %}
+          <div class="desk-vid-inner swiper-slide">
+            <a
+              {% if block.settings['banner-url'] %}
+                href="{{ block.settings.banner-url }}"
+              {% endif %}
+            >
+              {% if block.settings.deskktop != blank %}
+                <video
+                  id="homevideo"
+                  class="pro-vid lazy"
+                  width="100%"
+                  height="auto"
+                  playsinline="playsinline"
+                  loading="lazy"
+                  preload="metadata"
+                  type="video/mp4"
+                  autoplay="autoplay"
+                  controls="controls"
+                  muted="muted"
+                  muted
+                  playsinline
+                  loop
+                >
+                  <source src="{{ block.settings.deskktop.sources[1].url }}" type="video/webm">
+                </video>
+              {% else %}
+                {% if forloop.index0 == 0 %}
+                  {% assign lazy = 'eager' %}
+                {% else %}
+                  {% assign lazy = 'lazy' %}
+                {% endif %}
+                {% assign desktopAlt = block.settings.deskktopImg.alt | default: 'main-desktop-banner' %}
+                {{
+                  block.settings.deskktopImg
+                  | image_url: width: 1600, format: 'webp'
+                  | image_tag:
+                    class: 'imageFordesk',
+                    loading: lazy,
+                    widths: '15, 990, 1200, 1600',
+                    sizes: '(max-width: 600px) 15px, (max-width: 990px) 990px, (max-width: 1200px) 1200px, (min-width: 1200px) 1600px',
+                    alt: desktopAlt
+                }}
+              {% endif %}
+            </a>
+            {%- if block.settings.button_1_text != blank -%}
+              <div class="SectionHeader__ButtonWrapper {{ block.settings.contentlayout}}">
+                <div class="ButtonGroup ButtonGroup--spacingSmall {% if has_two_buttons %}ButtonGroup--sameSize{% endif %}">
+                  {%- if block.settings.button_1_text != blank -%}
+                    <a href="{{ block.settings.button_1_link }}" class="ButtonGroup__Item Button">
+                      {{- block.settings.button_1_text | escape -}}
+                    </a>
+                  {%- endif -%}
+
+                  {%- if block.settings.button_2_text != blank -%}
+                    <a href="{{ block.settings.button_2_link }}" class="ButtonGroup__Item Button">
+                      {{- block.settings.button_2_text | escape -}}
+                    </a>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+  <div class="mob-vid page-width">
+    <div class="swiper test-swiper1 mySwipervid mySwiperVid">
+      <div class="swiper-wrapper custom-wraperhome">
+        {% for block in section.blocks %}
+          {% if forloop.index0 == 0 %}
+            {% assign lazy = 'eager' %}
+          {% else %}
+            {% assign lazy = 'lazy' %}
+          {% endif %}
+
+          <div class="swiper-slide mob-vid">
+            <a
+              {% if block.settings['banner-url'] %}
+                href="{{ block.settings.banner-url }}"
+              {% endif %}
+            >
+              {% if block.settings.Mobile != blank %}
+                <video
+                  id="homevideo"
+                  class="pro-vid lazy"
+                  width="100%"
+                  height="auto"
+                  loading="lazy"
+                  playsinline=""
+                  muted=""
+                  loop=""
+                  preload="metadata"
+                  type="video/mp4"
+                  autoplay="autoplay"
+                >
+                  <source src="{{ block.settings.Mobile.sources[1].url }}" type="video/webm">
+                  <source src="{{ block.settings.Mobile.sources[1].url }}" type="video/mp4">
+                </video>
+
+              {% else %}
+                {% if block.settings.mobImg != blank %}
+                  {%- capture sizes -%}(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1 }}px, (min-width: 750px) calc((100vw - 130px) / 1), calc((100vw - 50px) / 1){%- endcapture -%}
+                  {% assign mobileAlt = block.settings.mobImg.alt | default: 'main-mobile-banner' %}
+                  {{
+                    block.settings.mobImg
+                    | image_url: width: 800, format: 'webp'
+                    | image_tag: class: 'imageFormob', loading: lazy, widths: '300, 400, 500,600,800', sizes: sizes,
+                      alt: mobileAlt
+                  }}
+
+                  {% comment %}
+                    <img
+                      srcset="
+                        {%- if  block.settings.mobImg.width >= 165 -%}{{  block.settings.mobImg | img_url: '165x' }} 165w,{%- endif -%}
+                        {%- if  block.settings.mobImg.width >= 360 -%}{{  block.settings.mobImg | img_url:'360x' }} 360w,{%- endif -%}
+                        {%- if  block.settings.mobImg.width >= 535 -%}{{  block.settings.mobImg | img_url: '535x' }} 535w,{%- endif -%}
+                        {%- if  block.settings.mobImg.width >= 750 -%}{{  block.settings.mobImg | img_url:'750x' }} 600w,{%- endif -%}
+                        {%- if  block.settings.mobImg.width >= 1000 -%}{{  block.settings.mobImg | img_url:'1200x' }} 1000w,{%- endif -%}
+                        {%- if  block.settings.mobImg.width >= 1500 -%}{{  block.settings.mobImg | img_url: '1500x' }} 1500w,{%- endif -%}
+                        {{  block.settings.mobImg | img_url:'' }} {{  block.settings.mobImg.width }}w
+                      "
+                      src="{{  block.settings.mobImg | img_url:'400x' }}"
+                      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width:750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                      alt="{{  block.settings.mobImg.alt | escape }}"
+                      width="400"
+                      height="auto"
+                      class="imageFormob"
+                      loading="{{ lazy }}"
+                    >
+                  {% endcomment %}
+                {% endif %}
+              {% endif %}
+            </a>
+
+            {%- if block.settings.button_1_text != blank -%}
+              <div class="SectionHeader__ButtonWrapper {{ block.settings.contentlayout}}">
+                <div class="ButtonGroup ButtonGroup--spacingSmall {% if has_two_buttons %}ButtonGroup--sameSize{% endif %}">
+                  {%- if block.settings.button_1_text != blank -%}
+                    <a href="{{ block.settings.button_1_link }}">
+                      <button class="ButtonGroup__Item Button ">{{ block.settings.button_1_text | escape }}</button>
+                    </a>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+<script>
+  //     window.addEventListener('load', videoScroll);
+  // window.addEventListener('scroll', videoScroll);
+
+  var vid = document.getElementById('homevideo');
+
+  function videoScroll() {
+    if (document.querySelectorAll('video[autoplay]').length > 0) {
+      var windowHeight = window.innerHeight,
+        videoEl = document.querySelectorAll('video[autoplay]');
+
+      for (var i = 0; i < videoEl.length; i++) {
+        var thisVideoEl = videoEl[i],
+          videoHeight = thisVideoEl.clientHeight,
+          videoClientRect = thisVideoEl.getBoundingClientRect().top;
+
+        if (videoClientRect <= windowHeight - videoHeight * 0.5 && videoClientRect >= 0 - videoHeight * 0.5) {
+          thisVideoEl.play();
+          vid.muted = true;
+        } else {
+          thisVideoEl.pause();
+          vid.muted = true;
+        }
+      }
+    }
+  }
+</script>
+<script>
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      swipervid = new Swiper('.mySwiperVid', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        autoplay: {
+          delay: 3000,
+        },
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    },
+    { once: true }
+  );
+</script>
+<style>
+  .SectionHeader__ButtonWrapper .Button{
+      color: {{ section.settings.button_color }};
+      border: 1px solid {{ section.settings.button_background }};
+    background-color: {{ section.settings.button_background }};
+      padding:15px 20px; text-decoration:none;
+      display:unset !important;
+      font-family: 'Heebo-Regular',sans-serif;
+    }
+  .SectionHeader__ButtonWrapper a{text-decoration:none;}
+  .SectionHeader__ButtonWrapper{width: 100%;
+      position: absolute;
+       text-align: center;bottom:40px; }
+     .SectionHeader__ButtonWrapper.topcenter{top:10%;}
+      .SectionHeader__ButtonWrapper.bottomcenter{bottom:60px;}
+    .SectionHeader__ButtonWrapper.center{top:50%;}
+
+
+      .SectionHeader__ButtonWrapper .Button::before {
+      background-color: {{ section.settings.button_background }};
+    }
+
+      @media screen and (max-width:768px){
+         .SectionHeader__ButtonWrapper.topcenter{top:80%;}
+      .SectionHeader__ButtonWrapper.bottomcenter{bottom:60px;}
+      .SectionHeader__ButtonWrapper .Button{font-size:16px;}
+    .SectionHeader__ButtonWrapper.center{top:45%;}
+  }
+</style>
+{% schema %}
+{
+  "name": "home vid",
+  "class": "home-video-banner",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_padding_vid",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_vid",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+
+    {
+      "type": "range",
+      "id": "marginTop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginTopmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginBottomMob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin-Bottom",
+      "default": 0
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button text",
+      "default": "#363636"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "videos",
+      "settings": [
+        {
+          "type": "video",
+          "id": "deskktop",
+          "label": "video for desktop"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "deskktopImg",
+          "label": "image for desktop"
+        },
+        {
+          "type": "video",
+          "id": "Mobile",
+          "label": "video for mobile"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobImg",
+          "label": "image for mob"
+        },
+        {
+          "type": "url",
+          "id": "banner-url",
+          "label": "url for bannner"
+        },
+        {
+          "type": "text",
+          "id": "button_1_text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "button_1_link",
+          "label": "Link"
+        },
+        {
+          "id": "contentlayout",
+          "label": "Content Alignment",
+          "type": "select",
+          "options": [
+            {
+              "value": "topcenter",
+              "label": "Top Center"
+            },
+            {
+              "value": "bottomcenter",
+              "label": "Bottom Center"
+            },
+            {
+              "value": "center",
+              "label": "center"
+            }
+          ],
+          "default": "center"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "home vid" }]
+}
+{% endschema %}

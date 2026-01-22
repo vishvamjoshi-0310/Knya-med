@@ -1,0 +1,352 @@
+<style>
+    .mySwipernews{overflow:hidden}
+   .mySwipernews .swiper-slide-prev .firstNewsDiv{transform:scale(.95) !important}
+    .mySwipernews .swiper-slide-active .firstNewsDiv{transform:scale(.9)!important}
+    .mySwipernews .swiper-slide .firstNewsDiv{transform:scale(.85)}
+    swiper-slide-next
+    .logoNews {min-height: 76px;max-height: 76px;display: flex;align-items: end;}
+    .firstNewsDiv {padding: 3rem;}
+    .main-news{
+      margin-top: {{ section.settings.margintopnews }}px;
+      margin-bottom: {{ section.settings.marginbottomnews }}px;
+    }
+    .main-heading-news {
+
+      padding-bottom: 24px;
+    }
+
+    .main-news .mySwipernews .swiper-news{
+      width: calc(329 * (100vw / 1440));
+      margin-right: 29px;
+    }
+
+    .main-news .mySwipernews .news-custom-swiper {
+      transform: translate3d(88.3235px, 0px, 0px);
+    }
+
+    @media screen and (max-width: 640px){
+      .summeryNews{color:#0F0F0F !important;}
+      .main-news {
+        margin-top: {{ section.settings.margintopnewsmob }}px;
+        margin-bottom: {{ section.settings.marginbottomnewsmob }}px;
+      }
+
+      .main-news .mySwipernews .swiper-news{
+        width: calc(223 * (100vw / 400));
+      }
+
+      .main-news .head-news{
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: .24px;
+      }
+
+    }
+
+    .head-news{
+      color: #482F8F;
+      font-size: clamp(28px, calc(32 * (100vw / var(--viewportDesktop))), 35px);
+      line-height: clamp(35px, calc(40 * (100vw / var(--viewportDesktop))), 43px);
+    }
+    .test-swiper{width:100% !important;}
+    .main-news{padding:0 !important}
+  {% comment %}   .slide-news{margin-left:-21px} {% endcomment %}
+    .custom-wraper2 .swiper-slide{ cursor:grab; background-image: url( '{{ section.settings.backImg | image_url : width: 400 }}' ); background-repeat: no-repeat;
+      background-size: 100% 100%; margin-top: auto !important;margin-bottom: auto !important;}
+      .newsSumm {display: flex;text-align: left;}
+    .readMore a{text-decoration:none;}
+    .readMore {
+      display: flex;text-align: left;}
+      .main-news .firstNewsDiv p.readd {
+      margin: 0;
+      /* font-size:0.938vw; */
+      color:#482F8F;
+      font-size: clamp(11px, calc(12.82 * (100vw / var(--viewportDesktop))), 16px);
+      line-height: clamp(14px, calc(16.2 * (100vw / var(--viewportDesktop))), 19px);
+      font-family: 'Heebo-Regular',sans-serif;
+
+    }
+    .summeryNews {
+      min-height:4vw; max-height:4vw; overflow:hidden;
+      /* line-height: 120% !important; */
+      /* font-size: 1.094vw; */
+      margin: 2rem 0; display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;
+      overflow: hidden;    color: #000303;
+    }
+    .newsSumm .summeryNews{
+      font-size: clamp(13px, calc(14.22 * (100vw / var(--viewportDesktop))), 18px);
+      line-height: clamp(17px, calc(19 * (100vw / var(--viewportDesktop))), 23px);
+
+    }
+
+    .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-active .logoNews {
+      width: 59% !important;
+  }
+  .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-active {
+    justify-content:flex-start;
+  }
+    .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-next .logoNews{
+      width: 50% !important;
+    }
+     .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-next {
+     justify-content:flex-start;
+    }
+       .mySwipernews .swiper-slide-prev .logoNews{
+      width: 78% !important;
+    }
+   .swiper-slide .logoNews{
+      width: 40% ;
+    }
+      .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-next + .swiper-slide {
+      justify-content:flex-start;
+    }
+  /*    .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-prev ~ .swiper-slide .logoNews{
+      width: 30% !important;
+    }  */
+    @media screen and (max-width: 1000px){
+      .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-prev{
+        justify-content:flex-start;
+      }
+      .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-prev .logoNews{
+        width: 45% !important;
+      }
+      .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-next{
+        justify-content:flex-start;
+      }
+      .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-next .logoNews{
+        width: 45% !important;
+      }
+
+      .main-news .mySwipernews .swiper-news{
+        width: calc(222 * (100vw / 750));
+      }
+    }
+     @media screen and (max-width: 500px){
+      .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-active .logoNews {
+      width: 100% !important;
+  }
+    .main-news .mySwipernews .swiper-news{
+      width: calc(264 * (100vw / 400));
+      /* margin-right: 29px; */
+    }
+       .swiper-slide.slide-news.swiper-slidenews.swiper-news.swiper-slide-active {
+         width: 66%!important;
+         /* width: calc(311 * (100vw / 400)); */
+  }
+       .firstNewsDiv {
+      padding: 2rem !important;
+  }
+    }
+     @media screen and (max-width: 1024px) and (min-width: 768px){
+       .summeryNews{font-size: 1.367vw ;}
+     }
+     @media screen and (max-width: 767px){
+
+       .summeryNews{
+        /* font-size: 12px !important;
+        line-height:140% !important; */
+      }
+
+      .newsSumm .summeryNews{
+        font-size: 10.8px ;
+        line-height: 16.8px ;
+        letter-spacing: 0.6px;
+      }
+
+       .main-news .firstNewsDiv p.readd{
+        font-size: 10.8px !important;
+        line-height: 14.4px;
+      }
+     }
+     @media screen and (min-width: 1700px){
+       .firstNewsDiv {
+      padding: 5rem;
+  }
+     }
+     @media screen and (max-width: 1024px) and (min-width: 640px){
+     /* p.readd{font-size: 1.172vw !important;} */
+     }
+    .custom-wraper2{position:relative; right:9vw;}
+    @media screen and (min-width: 1500px) and (max-width:1799px){
+      .custom-wraper2{right: 10vw;}
+    }
+    @media screen and (min-width: 1800px) and (max-width:2100px){
+      .custom-wraper2{right: 9.7vw;}
+    }
+    @media screen and (min-width: 2200px) {
+      .custom-wraper2{right: 8vw;}
+    }
+</style>
+<div class="page-width main-news">
+  <div class="page-width font-heebo-medium main-heading-news {% if section.settings.show_padding_news  %} page-padding-right page-padding-left{% endif %} {% if section.settings.show_padding_mob_news %}padding-right-mob padding-left-mob{% endif %}">
+    <h2 class="head-news">{{ section.settings.headingss }}</h2>
+  </div>
+  <div class=" mySwipernews">
+    <div class="swiper-wrapper custom-wraper2 news-custom-swiper">
+      {%- for block in section.blocks -%}
+        <div class="swiper-slide slide-news swiper-slidenews swiper-news" data-swiper-autoplay="2500">
+          <div class="firstNewsDiv">
+            <div class="logoNews">
+              {{
+                block.settings.logoImage
+                | image_url: width: 180, format: 'webp'
+                | image_tag: class: '', loading: 'lazy'
+              }}
+            </div>
+            <div class="newsSumm font-heebo-regular">
+              <span class="summeryNews">{{ block.settings.textBelowLogo }}</span>
+            </div>
+            <div class="readMore font-heebo-medium">
+              <a href="{{ block.settings.urlNews }}" target="_blank">
+                <p class="readd">{{ block.settings.ReadMore }}</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+    window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+        const swipernews = new Swiper(".mySwipernews", {
+          spaceBetween: 47,
+          slidesPerGroup: 1,
+          centeredSlides: true,
+          loop: true,         
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+          0: {
+            spaceBetween: 29,
+            slidesPerView: 1.7
+          },
+          640: {
+            slidesPerView: 3.1
+          },
+          1000:{
+            slidesPerView: 4.1
+          }
+          },
+        });
+function startAutoplay4() {
+      if (swipernews) {
+          swipernews.autoplay.start();                
+      }
+  }
+document.addEventListener('mousemove', startAutoplay4);
+document.addEventListener('touchstart', startAutoplay4);
+
+
+      
+    },
+    { once: true }
+  );
+  {% comment %}   document.querySelector(".news-custom-swiper .swiper-slide-prev").previousElementSibling.childNodes[1].style.width = "40%";
+    swipernews.on('slideChange', function (e) {
+   document.querySelector(".news-custom-swiper .swiper-slide-active").previousElementSibling.childNodes[1].style.width = "40%";
+  }); {% endcomment %}
+</script>
+{% schema %}
+{
+  "name": "news",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_padding_news",
+      "label": "padding for section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding_mob_news",
+      "label": "padding for section in mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintopnews",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Desktop : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginbottomnews",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Desktop : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintopnewsmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Mobile : Margin-Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "marginbottomnewsmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Mobile : Margin-Bottom",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "headingss",
+      "label": "Write Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "backImg",
+      "label": "background image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logoImage",
+          "label": "Image(use 200*200 sized image)"
+        },
+        {
+          "type": "text",
+          "id": "textBelowLogo",
+          "label": "Write Text"
+        },
+        {
+          "type": "url",
+          "id": "urlNews",
+          "label": "enter URL of news"
+        },
+        {
+          "type": "text",
+          "id": "ReadMore",
+          "label": "Read More"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "news"
+    }
+  ]
+}
+{% endschema %}

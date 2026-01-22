@@ -1,0 +1,72 @@
+<script src="{{ 'embroidery-validation.js' | asset_url }}" async></script>
+<link rel="stylesheet" href="{{ 'embroidery-box.css' | asset_url }}">
+{% assign embroidery = all_products[settings.embroideryProductHandle] %}
+{% assign max_price = 0 %}
+{% for variant in embroidery.variants %}
+{% if variant.price > max_price %}
+{% assign max_price = variant.price %}
+{% endif %}
+{% endfor %}
+{% assign min_price = max_price %}
+{% for variant in embroidery.variants %}
+    {% if variant.price < min_price %}
+       {% assign min_price = variant.price %}
+    {% endif %}
+{% endfor %}
+
+{% if settings.showEmbroidery %}
+<div class='embroidery-box' data-product-pair=''>
+  <div class='wrapp'>
+<div class='btn_pack popupbtn' data-close='false'>
+  <div class="first_div">
+    <div class="imagDivss">
+<img src="https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Emb_icons.gif?v=1668586887&width=50" width="30px" height="30px" loading="lazy">
+<div class="priceDiv font-heebo-regular">
+  <h3> TAP FOR CUSTOM EMBROIDERY </h3>
+  <p> {{min_price | money }} - {{max_price | money }} </p>
+</div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="34" viewBox="0 0 33 34" fill="none">
+<path d="M33 0.341797H0V27.3798C0 30.6935 2.68629 33.3798 6 33.3798H33V0.341797Z" fill="#F4ECD0"/>
+<path d="M15 9.45558L20 16.291L15 23.1265" fill="#F4ECD0"/>
+<path d="M15 9.45558L20 16.291L15 23.1265" stroke="#482F8F" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>
+
+  </div>  
+  </div>
+    <div class='added_list' data-added='false'>
+      <div class='wrap'>
+        <div class='left'>
+        <input type="checkbox" class='embroidery_filled' >  <label> Custom Embroidery </label>
+        </div>
+        
+        <div class='right asdf'>
+          
+          <span class='box_price'>  </span>
+          
+          <label class='edit_box' style="display:none;"> EDIT  </label> | <label class='delete_box'> {% render 'icon-delete' %} </label>
+          
+        </div>
+        
+      </div>
+      
+      <div class='added_list_contents'>
+        <div class='list_row'>
+        </div>
+        <div class='list_row'>
+        </div>
+      </div>
+      
+    </div>
+ 
+
+</div>
+
+</div>
+<script src="{{ 'embroidery-box.js' | asset_url }}" async></script>
+
+{% else %}
+<div class="embroidery-hidden-message">
+  <p>{{settings.embroideryHiddenMessage}}</p>
+</div>
+{% endif %}

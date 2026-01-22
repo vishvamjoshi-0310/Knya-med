@@ -1,0 +1,289 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "appbrew",
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    },
+    "banner_with_text_6T4FK3": {
+      "type": "banner-with-text",
+      "blocks": {
+        "text_YbEEJz": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/stethoBannerWeb.png",
+            "image_2": "shopify://shop_images/stethoBannerMob.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "",
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "",
+            "button-color": "",
+            "hpbox1": "HpBANNER-1"
+          }
+        }
+      },
+      "block_order": [
+        "text_YbEEJz"
+      ],
+      "settings": {
+        "enable_autoplay": false,
+        "margin-top-desktop": 0,
+        "margin-bottom-desktop": 0,
+        "margin-top-mobile": 0,
+        "margin-bottom-mobile": 0,
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "text-backgroundcolor": "",
+        "text-color": "",
+        "box-padding": 0,
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "stethoscope_features_dHzAmK": {
+      "type": "stethoscope-features",
+      "blocks": {
+        "block_ggBHpb": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Superior Acoustics ",
+            "feature_heading": "Ensuring accurate diagnoses with <b>high acoustic sensitivity and noise cancellation.</b>  High acoustic sensitivity and <b>noise cancellation.</b>"
+          }
+        },
+        "block_GFqEmn": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Enhanced Performance ",
+            "feature_heading": "Crafted for <b>excellence and precision</b> in collaboration with the top Indian medicos. Crafted alongside top Indian medicos, with <b>excellence and precision. </b>"
+          }
+        },
+        "block_paPfn7": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Scratch Resistant ",
+            "feature_heading": "The anodised aluminium improves <b></b> scratch resistance and overall maintenance. Anodised aluminium enhances <b>scratch resistance and longevity.</b>"
+          }
+        },
+        "block_wizpRa": {
+          "type": "block",
+          "settings": {
+            "feature_name": "High Flexibility ",
+            "feature_heading": "Designed for maximum <b>flexibility with latex-free PVC material. </b> Engineered for optimal flexibility with  latex-free PVC material."
+          }
+        },
+        "block_gE96eC": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Long Durability",
+            "feature_heading": "Engineered for <b> durability and comfort </b>to endure daily medical demands. Designed to withstand daily demands with<b> durability and comfort.</b>"
+          }
+        },
+        "block_6A9PLp": {
+          "type": "block",
+          "settings": {
+            "feature_name": "Made in India",
+            "feature_heading": "Locally manufactured keeping in mind the modern Indian healthcare professionals. Built for modern healthcare professionals,  <b>proudly made in India.</b>"
+          }
+        }
+      },
+      "block_order": [
+        "block_ggBHpb",
+        "block_GFqEmn",
+        "block_paPfn7",
+        "block_wizpRa",
+        "block_gE96eC",
+        "block_6A9PLp"
+      ],
+      "settings": {
+        "feature_subheading": "Reinventing the Stethoscope",
+        "stetho-preorder-count": "126+",
+        "stetho-preorder-text": "Be one of the first ones to get our 6sense Stethoscope",
+        "stetho-preorder-url": "shopify://collections"
+      }
+    },
+    "stethoscope_feature_cards_pB9Dqi": {
+      "type": "stethoscope-feature-cards",
+      "blocks": {
+        "block_fUn6CN": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/Chestpiece.png",
+            "feature_name": "Chest Piece ",
+            "feature_description": "Dual-sided diaphragm that easily switches between adult and paediatric diaphragm to hear high and low frequency sounds. "
+          }
+        },
+        "block_tcteBP": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/Chestpiece_9fcf2dcf-34db-4e30-b50d-dfd1b2e7190d.png",
+            "feature_name": "Earpieces",
+            "feature_description": "Soft-sealing earpieces make for a comfortable fit, providing sound occlusion and blocking out external noise. "
+          }
+        },
+        "block_YGyTMg": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/feature-img.png",
+            "feature_name": "Tubes ",
+            "feature_description": "Dual-lumen tubing provides a high-quality sound transmission by minimising interference, ensuring clear auscultation. "
+          }
+        },
+        "block_fmwTz8": {
+          "type": "block",
+          "settings": {
+            "feature_card_image": "shopify://shop_images/Engraving.png",
+            "feature_name": "Engraving ",
+            "feature_description": "Customisation option with engraving on the anodised aluminium chest piece gives the stethoscope a personal look. "
+          }
+        }
+      },
+      "block_order": [
+        "block_fUn6CN",
+        "block_tcteBP",
+        "block_YGyTMg",
+        "block_fmwTz8"
+      ],
+      "settings": {}
+    },
+    "slider_eqymtk": {
+      "type": "slider",
+      "custom_css": [
+        ".content-home h2 {margin-bottom: 32px;}"
+      ],
+      "settings": {
+        "shop-now-cont": "",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "Shop Collection",
+        "shop_collection_url": "https://knyamed.com/collections/shop-6sense-stethoscope",
+        "marginTopslidd": 32,
+        "marginBottomslidd": 56,
+        "marginTopsliddmob": 32,
+        "marginBottomsliddmob": 32,
+        "headText": "Designed with you in mind",
+        "secondText": "",
+        "collection": "shop-6sense-stethoscope"
+      }
+    },
+    "preorder_popup_pG4kae": {
+      "type": "preorder-popup",
+      "settings": {
+        "present_count": 126,
+        "update_interval": 5,
+        "update_count": 30,
+        "upper_limit": 500
+      }
+    },
+    "stethoscope_video_xUbgxn": {
+      "type": "stethoscope-video",
+      "settings": {
+        "headline": "NEVER MISS A BEAT",
+        "description": "Experience precision like never before with the <strong>6sense stethoscope.</strong>",
+        "video_url": "shopify://files/videos/stetho-original.mp4",
+        "thumbnail": "shopify://shop_images/video-thumbnail_jpg.png",
+        "button_text": "WATCH THE FILM",
+        "button_link": "shopify://collections"
+      }
+    },
+    "faq_accordion_gfHXT6": {
+      "type": "faq-accordion",
+      "blocks": {
+        "faq_dkxc7y": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I change the shipping address for my order?",
+            "answer": "You can track your order using Order ID or AWB No. here Track Order.You can also find your Order ID and AWB No. in the confirmation email or Whatsapp Message you sent to you earlier."
+          }
+        },
+        "faq_pPQamx": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I change the shipping address for my order?",
+            "answer": "You can track your order using Order ID or AWB No. here Track Order.You can also find your Order ID and AWB No. in the confirmation email or Whatsapp Message you sent to you earlier."
+          }
+        },
+        "faq_mDrbMK": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I change the shipping address for my order?",
+            "answer": "You can track your order using Order ID or AWB No. here Track Order.You can also find your Order ID and AWB No. in the confirmation email or Whatsapp Message you sent to you earlier."
+          }
+        },
+        "faq_dgVBTW": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I change the shipping address for my order?",
+            "answer": "You can track your order using Order ID or AWB No. here Track Order.You can also find your Order ID and AWB No. in the confirmation email or Whatsapp Message you sent to you earlier."
+          }
+        }
+      },
+      "block_order": [
+        "faq_dkxc7y",
+        "faq_pPQamx",
+        "faq_mDrbMK",
+        "faq_dgVBTW"
+      ],
+      "settings": {
+        "heading": "FAQs"
+      }
+    },
+    "read_more_section_QyjyeR": {
+      "type": "read-more-section",
+      "settings": {
+        "show_padding_read": false,
+        "show_padding_mob_read": false,
+        "margintopread": 0,
+        "marginbottomread": 0,
+        "margintopreadmob": 0,
+        "marginbottomreadmob": 32,
+        "main-text": "Knya: Your Go-To Destination for Stylish and Functional Medical Scrubs and Lab Coats for Men and Women!",
+        "content-text-before": "<h2>Introduction:</h2><p>Knya is your one-stop shop for top-quality medical scrubs, lab coats, and underscrubs for men and women!</p>",
+        "content-text": "We believe every medical professional deserves comfortable, flexible, and breathable apparel that also projects a highly professional image. Medical Scrub Suits for Men and Women:  Experience the perfect blend of functionality and fashion with our   medical scrub suits. Crafted from a premium polyester-viscose blend, our scrubs offer superior comfort and practicality. Types of Scrubs for Men and Women: V-neck Scrubs: Embrace a modern and stylish look with our flattering V-neck scrubs, available for both men and women.   Mandarin Collar Scrubs: Revamp your professional appearance with our sophisticated Mandarin collar scrubs.   Full-Sleeve Scrubs:  Experience superior coverage and protection with our practical full-sleeve scrubs.   Short-Sleeve Scrubs: Stay cool and comfortable in our breathable short-sleeve scrubs, ideal for any medical setting.  Lab Coat Aprons for Men and Women:Our lab coat aprons blend functionality and sophistication. Meticulously crafted from high-quality polyester, they offer the perfect combination of durability and comfort, ensuring you make a lasting impression. Types of Lab Coats: Chief Lab Coat: Command attention and exude authority with this distinguished design.   Focus Lab Coat: Stay sharp and focused in this versatile lab coat, perfect for the dynamic medical environment.  Everyday Lab Coat: Embrace the practicality and comfort of this staple lab coat for daily wear.  Long-Sleeve and Short-Sleeve Underscrubs for Men and Women: Discover ultimate comfort with underscrubs, crafted from supersoft Pima cotton. Elevate your medical attire with underscrubs that prioritize your well-being and redefine style in healthcare. Types of Underscrubs: Long-Sleeve Underscrubs: Experience all-day comfort and warmth with extra coverage and breathability. Available in grey and white.  Short-Sleeve Underscrubs: Stay cool and stylish in this lighter, comfortable option. Available in grey and white.  Ecoflex Scrubs - Sustainable Medical Scrubs: Made from PET Bottles: Each scrub embodies our commitment to environmental safety. Reduced Carbon Footprint: One Ecoflex scrub reduces 0.50 tons of carbon footprint. Each scrub represents the recycling of six PET bottles.  4-Way Stretch: Designed for comfort and flexibility in the fast-paced medical environment.  Surgical Caps for Men and Women:Types of Scrub Caps  Designer Scrub Caps: Express your individuality with our vibrant range of printed caps, including designs like Camouflage, Smiley, and Evil Eye.  Plain Scrub Caps: Opt for a classic and understated look with our plain caps in various colors. Frequently Asked Questions: How do I determine the right size for my medical scrubs?Refer to our comprehensive size chart available on each product page to find the perfect fit. If you have specific questions, our customer service team is ready to assist you  Are your sustainable scrubs as durable as traditional scrubs?Yes, our sustainable scrubs are crafted with the same commitment to durability and quality. We prioritize eco-friendly materials without compromising on the longevity of the garment Can I mix and match different types of underscrubs with my medical scrubs?Absolutely! Our underscrubs are designed to complement our entire range of medical scrubs, allowing you to mix and match them for a personalized and professional look. Do you offer customization options for buying bulk scrubs online orders?Yes, we provide customization options for bulk orders. Contact our customer service team to discuss your specific requirements and personalize your order to meet your team's needs What is the return policy for Knya products?Our return policy allows you to return unworn and unused items within a specified period. For detailed information, please refer to our Returns and Exchanges page or contact our customer service.",
+        "read-more-text": "READ MORE",
+        "read-less-text": "READ LESS",
+        "back-img": "shopify://shop_images/Vector_e3c241a2-7b11-44f6-8e63-6dcca5fa809c.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_with_text_6T4FK3",
+    "stethoscope_features_dHzAmK",
+    "stethoscope_feature_cards_pB9Dqi",
+    "slider_eqymtk",
+    "preorder_popup_pG4kae",
+    "stethoscope_video_xUbgxn",
+    "faq_accordion_gfHXT6",
+    "read_more_section_QyjyeR"
+  ]
+}

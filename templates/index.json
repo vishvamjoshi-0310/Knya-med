@@ -1,0 +1,1450 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "home_banner_jogger_V4rjfx": {
+      "type": "home-banner-jogger",
+      "blocks": {
+        "small_image_PAjNVw": {
+          "type": "small-image",
+          "settings": {
+            "subtitle": "introducing.",
+            "subtitleFontDesktop": 22,
+            "subtitleFontMobile": 16,
+            "maintitle": "Ecoflex jogger scrubs",
+            "maintitleFontDesktop": 56,
+            "maintitleFontMobile": 22,
+            "buttontext": "Shop joggers",
+            "buttonurl": "shopify://products/printed-camouflage-scrub-cap",
+            "smallimage1": "shopify://shop_images/Joggerslaunch.png",
+            "smallimage2": "shopify://shop_images/Joggers_launch_11.png",
+            "smallimage3": "shopify://shop_images/Joggers_launch_13.png"
+          }
+        },
+        "big_image_8W3RXm": {
+          "type": "big-image",
+          "settings": {
+            "bigimage": "shopify://shop_images/joggers_1.png",
+            "bigimage_mobile": "shopify://shop_images/joggers_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "small_image_PAjNVw",
+        "big_image_8W3RXm"
+      ],
+      "disabled": true,
+      "settings": {
+        "margintopread": 0,
+        "marginbottomread": 0,
+        "margintopreadmob": 54,
+        "marginbottomreadmob": 0,
+        "bgcolor": "#e0dcd3"
+      }
+    },
+    "cebea76d-870b-4ba0-a34e-241b1cb1d64c": {
+      "type": "video-home",
+      "blocks": {
+        "8630aaac-5569-46d7-a648-389dd08e6572": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "deskktopImg": "shopify://shop_images/web_banner_1.png",
+            "mobImg": "shopify://shop_images/Mob_Web1_2.png",
+            "banner-url": "shopify://collections/all",
+            "button_1_text": "SHOP NOW",
+            "button_1_link": "shopify://collections/all",
+            "contentlayout": "bottomcenter"
+          }
+        },
+        "60481912-8411-4f6d-80b6-5037437f6ed7": {
+          "type": "text",
+          "settings": {
+            "deskktopImg": "shopify://shop_images/Desktop_Banner_2_1.jpg",
+            "mobImg": "shopify://shop_images/Valentine_Mobile_banner_37.jpg",
+            "banner-url": "https://knyamed.com/collections/all",
+            "button_1_text": "Shop Now",
+            "button_1_link": "https://knyamed.com/collections/all",
+            "contentlayout": "bottomcenter"
+          }
+        },
+        "e1472d4c-173b-4686-b338-49a2f29cadcc": {
+          "type": "text",
+          "settings": {
+            "deskktopImg": "shopify://shop_images/JOGGER_SCRUBS_BANNER_PURPLE_TXT.jpg",
+            "mobImg": "shopify://shop_images/Mobile_banner_1.jpg",
+            "banner-url": "shopify://collections/all-joggers",
+            "button_1_text": "SHOP NOW",
+            "button_1_link": "shopify://collections/all-joggers",
+            "contentlayout": "bottomcenter"
+          }
+        },
+        "3b5d195b-b87d-476c-b4c2-649508851180": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "deskktopImg": "shopify://shop_images/MicrosoftTeams-image_29.jpg",
+            "mobImg": "shopify://shop_images/MicrosoftTeams-image_30_2b5870ba-75a8-448e-8f2d-c58f532f8e14.jpg",
+            "banner-url": "shopify://pages/ecoflex",
+            "button_1_text": "SHOP NOW",
+            "button_1_link": "shopify://pages/ecoflex",
+            "contentlayout": "bottomcenter"
+          }
+        },
+        "7f390e7d-1fb0-4a2c-b21a-8b4da643fad0": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "deskktopImg": "shopify://shop_images/web_Mandarin_2.png",
+            "mobImg": "shopify://shop_images/Mob_Web3_1.png",
+            "banner-url": "shopify://collections/mandarincollar",
+            "button_1_text": "SHOP MANDARIN",
+            "button_1_link": "shopify://collections/mandarincollar",
+            "contentlayout": "bottomcenter"
+          }
+        }
+      },
+      "block_order": [
+        "8630aaac-5569-46d7-a648-389dd08e6572",
+        "60481912-8411-4f6d-80b6-5037437f6ed7",
+        "e1472d4c-173b-4686-b338-49a2f29cadcc",
+        "3b5d195b-b87d-476c-b4c2-649508851180",
+        "7f390e7d-1fb0-4a2c-b21a-8b4da643fad0"
+      ],
+      "disabled": true,
+      "settings": {
+        "show_padding_vid": false,
+        "show_padding_mob_vid": false,
+        "marginTop": 0,
+        "marginBottom": 48,
+        "marginTopmob": 0,
+        "marginBottomMob": 32,
+        "text_color": "#ffffff",
+        "button_color": "#363636",
+        "button_background": "#ffffff"
+      }
+    },
+    "banner_with_text_eqWN97": {
+      "type": "banner-with-text",
+      "blocks": {
+        "text_aeEcUY": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Resident_Core_Website_Banners_Homepage_Desktop.jpg",
+            "image_2": "shopify://shop_images/Resident_Core_Website_Banners_Homepage_Mobile.jpg",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "shopify://collections/all-neet-pg",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "#482f8f",
+            "button-color": "#ffffff",
+            "hpbox1": "residency-4thDec"
+          }
+        },
+        "text_QNVcpx": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Website_Banner_Generic_Desktop_f99521d1-e805-47de-9fe5-9e980700e559.png",
+            "image_2": "shopify://shop_images/Website_Banner_Generic_Mobile_277be60a-3bcb-407f-98fd-fab3277f17be.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "https://knyamed.com/collections/all",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "",
+            "button-color": "",
+            "hpbox1": "herobanner-25thnov"
+          }
+        },
+        "text_YFPVBy": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Website_Banner_All_Black_Desktop.png",
+            "image_2": "shopify://shop_images/Website_Banner_All_Black_Mobile.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "https://knyamed.com/products/6sense-all-black-stethoscope",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "",
+            "button-color": "",
+            "hpbox1": "stethoscope-25thNov"
+          }
+        },
+        "text_qCantB": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Website_Banner_Jacket_Desktop.png",
+            "image_2": "shopify://shop_images/Website_Banner_Jacket_Mobile.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "https://knyamed.com/pages/shop-drift-jacket",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "",
+            "button-color": "",
+            "hpbox1": "drift-25thnov"
+          }
+        }
+      },
+      "block_order": [
+        "text_aeEcUY",
+        "text_QNVcpx",
+        "text_YFPVBy",
+        "text_qCantB"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "margin-top-desktop": 0,
+        "margin-bottom-desktop": 0,
+        "margin-top-mobile": 0,
+        "margin-bottom-mobile": 0,
+        "desktop_content_position": "top-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "text-backgroundcolor": "rgba(0,0,0,0)",
+        "text-color": "#ffffff",
+        "box-padding": 0,
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "f3187842-abdd-436a-a0d1-9ba469f819b3": {
+      "type": "home-continuous-ticker",
+      "blocks": {
+        "6c913de0-9b6f-40c1-adb2-5729d93f58ea": {
+          "type": "Text",
+          "settings": {
+            "textCont": "LONG-SHIFT VERIFIED"
+          }
+        },
+        "bcb386e1-47f8-4f21-822e-28e71a5b9d1d": {
+          "type": "Text",
+          "settings": {
+            "textCont": "ANTI-DISTRACTION"
+          }
+        },
+        "54e9232b-c309-4bef-a9a8-50f0212c0909": {
+          "type": "Text",
+          "settings": {
+            "textCont": "LAB TESTED"
+          }
+        },
+        "6c2c68cc-008c-491f-a177-b996cbd1ef63": {
+          "type": "Text",
+          "settings": {
+            "textCont": "BACKED BY TECHNOLOGY"
+          }
+        },
+        "890f171c-eaf2-4398-8f28-d0f1c9d68759": {
+          "type": "Text",
+          "settings": {
+            "textCont": "TONS OF STORAGE"
+          }
+        }
+      },
+      "block_order": [
+        "6c913de0-9b6f-40c1-adb2-5729d93f58ea",
+        "bcb386e1-47f8-4f21-822e-28e71a5b9d1d",
+        "54e9232b-c309-4bef-a9a8-50f0212c0909",
+        "6c2c68cc-008c-491f-a177-b996cbd1ef63",
+        "890f171c-eaf2-4398-8f28-d0f1c9d68759"
+      ],
+      "settings": {
+        "marginTopticker": 48,
+        "marginBottomTicker": 48,
+        "marginToptickermob": 0,
+        "marginBottomtickermob": 32
+      }
+    },
+    "shop_by_category_9ndWyn": {
+      "type": "shop-by-category",
+      "blocks": {
+        "text_wQHaJQ": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "category-name": "SHOP SALE",
+            "category-subtext": "15% Off",
+            "category-image": "shopify://shop_images/Category_Sale..png",
+            "urlofcategory": "shopify://collections/all",
+            "background_color": "#ffdfae",
+            "category_text_color": "#482f8f"
+          }
+        },
+        "text_7bbDrL": {
+          "type": "text",
+          "settings": {
+            "category-name": "Women",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/Women.png",
+            "urlofcategory": "https://knyamed.com/collections/women",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_UK9qMN": {
+          "type": "text",
+          "settings": {
+            "category-name": "Men",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/Men.png",
+            "urlofcategory": "https://knyamed.com/collections/men",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_fNtebw": {
+          "type": "text",
+          "settings": {
+            "category-name": "Classic Scrubs",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/b7e551978c02d1b6d387114becb44701ba6904bb.png",
+            "urlofcategory": "shopify://collections/all-classic-scrubs",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_6AHJjk": {
+          "type": "text",
+          "settings": {
+            "category-name": "Ecoflex Scrubs",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/Ecoflex_980bfb38-13e2-4371-b56a-c339b939f515.png",
+            "urlofcategory": "shopify://collections/all-ecoflex",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_rbMGVD": {
+          "type": "text",
+          "settings": {
+            "category-name": "Stethoscope",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/Stethoscope_9e60f98f-2d4c-4857-b4ad-e6f6e4de7c99.png",
+            "urlofcategory": "https://knyamed.com/pages/stethoscope?utm_source=website&utm_medium=homepage&utm_campaign=shop-by-category",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_Lpk6Md": {
+          "type": "text",
+          "settings": {
+            "category-name": "Drift Jacket",
+            "category-subtext": "New",
+            "category-image": "shopify://shop_images/Drift_Jacket.png",
+            "urlofcategory": "shopify://pages/shop-drift-jacket",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_zkUmWP": {
+          "type": "text",
+          "settings": {
+            "category-name": "Lab Coats",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/Labcoat_ce0fc358-2f2f-47da-afbf-66c8ffbf6356.png",
+            "urlofcategory": "shopify://collections/lab-coat",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_hcCDR3": {
+          "type": "text",
+          "settings": {
+            "category-name": "Underscrubs",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/Underscrubs_01b6dd1b-09cd-4a28-8289-0aba50b511c7.png",
+            "urlofcategory": "https://knyamed.com/collections/underscrubs",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        },
+        "text_iTiYDG": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "category-name": "Scrub Caps",
+            "category-subtext": "",
+            "category-image": "shopify://shop_images/1_1.png",
+            "urlofcategory": "https://knyamed.com/collections/scrub-cap",
+            "background_color": "#f5f5f9",
+            "category_text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "text_wQHaJQ",
+        "text_7bbDrL",
+        "text_UK9qMN",
+        "text_fNtebw",
+        "text_6AHJjk",
+        "text_rbMGVD",
+        "text_Lpk6Md",
+        "text_zkUmWP",
+        "text_hcCDR3",
+        "text_iTiYDG"
+      ],
+      "settings": {
+        "section_heading": "Shop By Categories",
+        "margin_top_desktop": 48,
+        "margin_bottom_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 40
+      }
+    },
+    "2244536a-1a6c-42d5-adf3-749e2fbb9eb6": {
+      "type": "shop-by-color",
+      "blocks": {
+        "67bfb32f-6e0d-4966-911a-3daf8f0b3a29": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "color_collection": "bestsellers",
+            "collection_image": "shopify://shop_images/Scrub_Bestseller.png",
+            "label_text": "Bestseller",
+            "label_color": "#202020",
+            "collection_title": "Bestsellers"
+          }
+        },
+        "03672eb6-b963-45d2-ac61-11a414916800": {
+          "type": "collection",
+          "settings": {
+            "color_collection": "shop-all-blues",
+            "collection_image": "shopify://shop_images/Scrub_Navy_Blue.png",
+            "label_text": "",
+            "label_color": "#202020",
+            "collection_title": "All Blues"
+          }
+        },
+        "8ed680b9-7978-482a-8806-2e5198930c5c": {
+          "type": "collection",
+          "settings": {
+            "color_collection": "men-women-all-blacks",
+            "collection_image": "shopify://shop_images/Scrub_Black_2.png",
+            "label_text": "",
+            "label_color": "#202020",
+            "collection_title": "All Blacks"
+          }
+        },
+        "d5d8150c-3dd6-47c3-9751-c64861a85f80": {
+          "type": "collection",
+          "settings": {
+            "color_collection": "shop-all-greens",
+            "collection_image": "shopify://shop_images/Scrub_Forest_Green.png",
+            "label_text": "",
+            "label_color": "#202020",
+            "collection_title": "All Greens"
+          }
+        },
+        "18a69828-9846-4332-bb61-eeaa2d840ac2": {
+          "type": "collection",
+          "settings": {
+            "color_collection": "shop-all-reds",
+            "collection_image": "shopify://shop_images/Scrub_Wine.png",
+            "label_text": "",
+            "label_color": "#202020",
+            "collection_title": "All Reds"
+          }
+        },
+        "0726ad3b-e44c-4f48-9eb8-cb95e569b57d": {
+          "type": "collection",
+          "settings": {
+            "color_collection": "shop-all-pastels",
+            "collection_image": "shopify://shop_images/Scrub_Pastel_Lilac.png",
+            "label_text": "",
+            "label_color": "#202020",
+            "collection_title": "All Pastels"
+          }
+        },
+        "collection_iWmYV3": {
+          "type": "collection",
+          "settings": {
+            "color_collection": "shop-all-greys",
+            "collection_image": "shopify://shop_images/Scrub_Heather_Grey_892c9f0b-e236-4fcb-ba05-58b75fd70bc5.png",
+            "label_text": "",
+            "label_color": "#202020",
+            "collection_title": "All Greys"
+          }
+        }
+      },
+      "block_order": [
+        "67bfb32f-6e0d-4966-911a-3daf8f0b3a29",
+        "03672eb6-b963-45d2-ac61-11a414916800",
+        "8ed680b9-7978-482a-8806-2e5198930c5c",
+        "d5d8150c-3dd6-47c3-9751-c64861a85f80",
+        "18a69828-9846-4332-bb61-eeaa2d840ac2",
+        "0726ad3b-e44c-4f48-9eb8-cb95e569b57d",
+        "collection_iWmYV3"
+      ],
+      "settings": {
+        "section_heading": "Shop By Colour",
+        "margin_top_desktop": 48,
+        "margin_bottom_desktop": 48,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "efa2d725-25cd-450d-919f-884fa78cbb02": {
+      "type": "slider",
+      "settings": {
+        "shop-now-cont": "ADD TO CART",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 48,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 0,
+        "marginBottomsliddmob": 32,
+        "headText": "Shop Ecoflex Scrubs",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "Engineered with 4-way stretch technology",
+        "collection": "all-ecoflex"
+      }
+    },
+    "slider_7MeABU": {
+      "type": "slider",
+      "settings": {
+        "shop-now-cont": "ADD TO CART",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 48,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 0,
+        "marginBottomsliddmob": 32,
+        "headText": "Shop Classic Scrubs",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "Made to last with breathable & light fabric",
+        "collection": "knya-classic-scrubs"
+      }
+    },
+    "slider_PRL49U": {
+      "type": "slider",
+      "settings": {
+        "shop-now-cont": "ADD TO CART",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 48,
+        "marginBottomslidd": 0,
+        "marginTopsliddmob": 0,
+        "marginBottomsliddmob": 32,
+        "headText": "Shop Stethoscope",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "Brilliant sound. Innovative design.",
+        "collection": "shop-6sense-stethoscope"
+      }
+    },
+    "image_with_text_AnTy7J": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_w3NUaH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Residents! You're built different.",
+            "heading_size": "h0"
+          }
+        },
+        "text_hB67tY": {
+          "type": "text",
+          "settings": {
+            "text": "<p></p><p>Your grind is ruthless. Your scrubs shouldn’t be. Upgrade to Knya scrubs: Premium comfort, zero distraction, built for long shifts and longer dreams. Trusted by thousands of PG students & residents across India.<br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_7Ew4hM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all-neet-pg"
+          }
+        }
+      },
+      "block_order": [
+        "heading_w3NUaH",
+        "text_hB67tY",
+        "button_7Ew4hM"
+      ],
+      "custom_css": [],
+      "settings": {
+        "image": "shopify://shop_images/Resident_Core_Website_Banners_Homepage_Highlight_Section.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "banner_with_text_yPXVzW": {
+      "type": "banner-with-text",
+      "blocks": {
+        "text_GzpmW3": {
+          "type": "text",
+          "settings": {
+            "image": "shopify://shop_images/Bulk_Order_Desktop_Banner_32_BIT_1_211d66de-3a7d-4616-9e2d-0ab3cc10ff21.png",
+            "image_2": "shopify://shop_images/Bulk_Order_Mobile_Banner_32_BIT_3_21e7062b-516d-439c-8f67-d705af117d27.png",
+            "subheading": "",
+            "subheading_color": "#ffffff",
+            "heading": "",
+            "heading_color": "#ffffff",
+            "heading_size": "h1",
+            "text": "",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "button_link_banner": "https://jpk1r94h9ow.typeform.com/to/YQIdTObt?utm_source=website&utm_medium=homepage&utm_campaign=b2b-banner",
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button-backgroundcolor": "",
+            "button-color": "",
+            "hpbox1": "b2b-banner"
+          }
+        }
+      },
+      "block_order": [
+        "text_GzpmW3"
+      ],
+      "name": "Banner with text",
+      "settings": {
+        "enable_autoplay": true,
+        "margin-top-desktop": 0,
+        "margin-bottom-desktop": 0,
+        "margin-top-mobile": 0,
+        "margin-bottom-mobile": 0,
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "text-backgroundcolor": "",
+        "text-color": "",
+        "box-padding": 0,
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "8969a6cb-e9a0-4fd7-9739-87652d7279d7": {
+      "type": "brands-slider",
+      "blocks": {
+        "74ef0ee4-cbf5-486f-8538-5008af079b74": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/bhatia-hospital.png"
+          }
+        },
+        "b5ce0761-b8af-4d79-ac87-fc0dd67430d1": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/fortis.png"
+          }
+        },
+        "8b464ebf-314e-41e1-b9a5-c767be323c37": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/global-hospital.png"
+          }
+        },
+        "0f13818d-5be5-456f-8fcd-c0d27b4caf93": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/hinduja.png"
+          }
+        },
+        "eceeb52d-090d-40b7-ae59-f37398f4de84": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/jaslok.png"
+          }
+        },
+        "b7de3605-3f3e-4e7d-a1e4-22c39489b5b7": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/jupiter-hospital.png"
+          }
+        },
+        "16fff8eb-1a97-403d-9aba-7ae88e8b6987": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/nanavati.png"
+          }
+        },
+        "29b21f8d-3abf-4e0f-9045-b8ee46ae564c": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/narayana-health.png"
+          }
+        },
+        "42f924cf-8103-400f-a506-b39f8569dca9": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/riliance.png"
+          }
+        },
+        "13f38280-41d4-4e4a-bc03-9fa21de57f0e": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/riliance-foundation.png"
+          }
+        },
+        "8960474b-6a12-46d5-a210-5c9630cfff60": {
+          "type": "text",
+          "settings": {
+            "brandImage": "shopify://shop_images/wockhardt.png"
+          }
+        }
+      },
+      "block_order": [
+        "74ef0ee4-cbf5-486f-8538-5008af079b74",
+        "b5ce0761-b8af-4d79-ac87-fc0dd67430d1",
+        "8b464ebf-314e-41e1-b9a5-c767be323c37",
+        "0f13818d-5be5-456f-8fcd-c0d27b4caf93",
+        "eceeb52d-090d-40b7-ae59-f37398f4de84",
+        "b7de3605-3f3e-4e7d-a1e4-22c39489b5b7",
+        "16fff8eb-1a97-403d-9aba-7ae88e8b6987",
+        "29b21f8d-3abf-4e0f-9045-b8ee46ae564c",
+        "42f924cf-8103-400f-a506-b39f8569dca9",
+        "13f38280-41d4-4e4a-bc03-9fa21de57f0e",
+        "8960474b-6a12-46d5-a210-5c9630cfff60"
+      ],
+      "disabled": true,
+      "settings": {
+        "show_padding_brand": false,
+        "show_padding_mob_brand": false,
+        "marginTopbrands": 0,
+        "marginBottombrands": 0,
+        "marginTopbrandsmob": 0,
+        "marginBottombrandsmob": 32
+      }
+    },
+    "96c25f2d-7761-4afd-83ef-cad62f095944": {
+      "type": "news2",
+      "disabled": true,
+      "settings": {
+        "show_padding_news": false,
+        "show_padding_mob_news": false,
+        "margintopnews": 0,
+        "marginbottomnews": 0,
+        "margintopnewsmob": 0,
+        "marginbottomnewsmob": 0,
+        "headingss": "Institutions we have served",
+        "backImg": "shopify://shop_images/Speech_bubble_2_1.png"
+      }
+    },
+    "institutions_carousel_3yLHhE": {
+      "type": "institutions-carousel",
+      "blocks": {
+        "logo_p7CKew": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_24_1.png"
+          }
+        },
+        "logo_dde7Qh": {
+          "type": "logo",
+          "name": "HN Reliance",
+          "settings": {
+            "image": "shopify://shop_images/HN_Reliance.png"
+          }
+        },
+        "logo_q63EyM": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Vantara.png"
+          }
+        },
+        "logo_MpVXMi": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/apollo_aee76d8f-7cd0-4783-a117-030dc08a7c08.png"
+          }
+        },
+        "logo_abJMae": {
+          "type": "logo",
+          "name": "Fortis",
+          "settings": {
+            "image": "shopify://shop_images/fortis-logo_4345ce13-8cf5-4873-a111-c0d4449f406f.png"
+          }
+        },
+        "logo_djcAWw": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_25_1.png"
+          }
+        },
+        "logo_9BpaLR": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/narayana-logo_58fcfbf5-50ab-4c7e-840a-5cec37530b94.png"
+          }
+        },
+        "logo_yBgdUY": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/image_23_1.png"
+          }
+        },
+        "logo_JNyeWN": {
+          "type": "logo",
+          "name": "Supertails",
+          "settings": {
+            "image": "shopify://shop_images/SuperTails.png"
+          }
+        }
+      },
+      "block_order": [
+        "logo_p7CKew",
+        "logo_dde7Qh",
+        "logo_q63EyM",
+        "logo_MpVXMi",
+        "logo_abJMae",
+        "logo_djcAWw",
+        "logo_9BpaLR",
+        "logo_yBgdUY",
+        "logo_JNyeWN"
+      ],
+      "name": "Institutions Carousel",
+      "settings": {
+        "heading": "Institutions we have served",
+        "subheading": "We’ve suited up the best"
+      }
+    },
+    "news2_HyALUb": {
+      "type": "news2",
+      "blocks": {
+        "text_hiXdLi": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/In-the-news_-section-icon-1-TOI_300x120_08c4a138-c257-4c5c-bbe8-a71bf5a25d9a.png",
+            "textBelowLogo": "How technology is democratising healthcare",
+            "urlNews": "https://timesofindia.indiatimes.com/blogs/voices/how-technology-is-democratising-healthcare/",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_GPFVEi": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/In-the-news_-section-icon-5-economic-times_300x120_29509605-a446-46a0-8f1a-49e3248d66ec.png",
+            "textBelowLogo": "The Evolution of Medical Apparel in India",
+            "urlNews": "https://health.economictimes.indiatimes.com/amp/news/industry/the-evolution-of-medical-apparel-in-india/92663873",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_bEJebA": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/Forbes_India_Logo_200200_1.png",
+            "textBelowLogo": "Knya co-founder, Vanshika Kaji got a special mention in Forbes India 30 Under 30 in the E-commerce and Retail category for 2024.",
+            "urlNews": "https://www.forbesindia.com/article/30-under-30-2024/forbes-india-30-under-30-the-ones-to-watch-out-for/91843/1",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_AWKgKd": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/In-the-news_-section-icon-2-the-better-india_300x120_d172dba0-dc1c-492f-bda1-e9b8b1e0ddd7.png",
+            "textBelowLogo": "Duo Makes Eco-Friendly, Durable Scrubs For Doctors; Supplies To 500 Medical Institutions",
+            "urlNews": "https://www-thebetterindia-com.cdn.ampproject.org/c/s/www.thebetterindia.com/273523/knya-med-couple-makes-eco-friendly-recycled-polyester-scrubs-for-doctors/amp/",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_PJi8QQ": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/In-the-news_-section-icon-4-express-healthcare_300x120_b2a3d776-5e4d-4f2a-bedb-a7f859075ad4.png",
+            "textBelowLogo": "Changing dynamics of the medical apparels industry in India",
+            "urlNews": "https://www.expresshealthcare.in/news/changing-dynamics-of-the-medical-apparels-industry-in-india/435271/",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_MgVDhF": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/In-the-news_-section-icon-6-biospectrum_300x120_a8486823-0922-430c-abbd-eb82fa4da2f7.png",
+            "textBelowLogo": "KNYA Med is aiming to be the Nike for medical professionals",
+            "urlNews": "https://www.biospectrumindia.com/features/85/21510/startupoftheday-163-knya-enterprise-pvt-ltd-knya-med.html?utm_content=bufferf3a32&utm_medium=social&utm_source=bufferapp.com&utm_campaign=buffer",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_j3E77J": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/forbes_asia_1a.png",
+            "textBelowLogo": "Knya co-founder, Vanshika Kaji got a special mention in Forbes Asia 30 Under 30 in the E-commerce and Retail category for 2024.",
+            "urlNews": "https://www.forbes.com/profile/vanshika-kaji/?list=30under30-asia-retail-ecommerce/",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_mBQJGp": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/The-New-Indian-Express-Logo_b3be2dda-7fb4-47f7-ab7f-9e57ac102a9a.png",
+            "textBelowLogo": "Why doctors in India burn out faster",
+            "urlNews": "https://www.newindianexpress.com/cities/chennai/2025/Nov/29/why-doctors-in-india-burn-out-faster",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_YPbdBx": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/2024-11-11t082606806z-shethepeople-black-logo-2000-x-2000-px-1.png",
+            "textBelowLogo": "Meet The Winners Of SheThePeople Digital Women Awards 2025",
+            "urlNews": "https://www.shethepeople.tv/women-entrepreneurs/digital-women-awards-winners-2025-10809472",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_qE83Mi": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/logo_1_063a4be0-074b-45f1-a1ce-ed9273cc7e5e.png",
+            "textBelowLogo": "Knya Expands Footprint in South India by Launching Two New Stores Within a Month",
+            "urlNews": "https://www.indianretailer.com/news/knya-expands-footprint-south-india-launching-two-new-stores-within-month",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_CePgQE": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/channels4_profile.png",
+            "textBelowLogo": "Capital Reality Check 2026: How founders are rethinking growth, burn, and belief",
+            "urlNews": "https://www.indiaretailing.com/capital-reality-check-2026-how-founders-are-rethinking-growth-burn-and-belief",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_G3DnY6": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/logo_2_ab1061a4-38ac-441e-ad9d-b35994ca0483.png",
+            "textBelowLogo": "Knya expands presence in South India with two new stores",
+            "urlNews": "https://www.retail4growth.com/news/knya-expands-presence-in-south-india-with-two-new-stores-7660#:~:text=The%20recent%20openings%20in%20Manipal,of%20medical%20apparel%20and%20accessories.",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_jj8zqg": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/StartupTalky_Final_Logo-1_2_2_14daabeb-8622-468d-9c55-4876ba91e011.png",
+            "textBelowLogo": "Abhijeet Kaji of Knya on Building a Medical Lifestyle Brand, Performance-Driven Apparel, and Community-Led D2C Growth",
+            "urlNews": "https://startuptalky.com/abhijeet-kaji-knya-healthcare-industry-recap25/",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_pCwM8U": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/fvc-logo-opt.png",
+            "textBelowLogo": "Knya Expands South India Retail With Two New Store Launches",
+            "urlNews": "https://fashionvaluechain.com/knya-expands-south-india-retail-with-two-new-store-launches/",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_Tqxk4f": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/ap_logo_222.png",
+            "textBelowLogo": "Knya accelerates retail expansion with new stores in Manipal and Secunderabad",
+            "urlNews": "https://in.apparelresources.com/business-news/retail/knya-accelerates-retail-expansion-new-stores-manipal-secunderabad/",
+            "ReadMore": "READ MORE"
+          }
+        },
+        "text_pGgKKe": {
+          "type": "text",
+          "settings": {
+            "logoImage": "shopify://shop_images/logo_2_218d4fa5-611c-42ad-932c-65e4730c2abb.png",
+            "textBelowLogo": "Knya Launches Two New Stores Within a Month, Expands Its Retail Presence in South India",
+            "urlNews": "https://www.entrepreneurindia.com/blog/en/news/knya-launches-two-new-stores-within-a-month-expands-its-retail-presence-in-south-india.58431",
+            "ReadMore": "READ MORE"
+          }
+        }
+      },
+      "block_order": [
+        "text_hiXdLi",
+        "text_GPFVEi",
+        "text_bEJebA",
+        "text_AWKgKd",
+        "text_PJi8QQ",
+        "text_MgVDhF",
+        "text_j3E77J",
+        "text_mBQJGp",
+        "text_YPbdBx",
+        "text_qE83Mi",
+        "text_CePgQE",
+        "text_G3DnY6",
+        "text_jj8zqg",
+        "text_pCwM8U",
+        "text_Tqxk4f",
+        "text_pGgKKe"
+      ],
+      "settings": {
+        "show_padding_news": false,
+        "show_padding_mob_news": false,
+        "margintopnews": 48,
+        "marginbottomnews": 0,
+        "margintopnewsmob": 0,
+        "marginbottomnewsmob": 32,
+        "headingss": "In the news",
+        "backImg": "shopify://shop_images/Speech_bubble_2_1.png"
+      }
+    },
+    "6aa4be9d-d987-43f7-8579-9c85566fc0ea": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16810724262144__6aa4be9d-d987-43f7-8579-9c85566fc0ea-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Come say Hi !",
+            "heading_size": "h1"
+          }
+        },
+        "template--16810724262144__6aa4be9d-d987-43f7-8579-9c85566fc0ea-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Visit us at our store<br/>10 AM - 10 PM<br/>Everyday</p><p></p><p><a href=\"https://knyamed.com/a/store-locator/list\" title=\"https://knyamed.com/a/store-locator/list\">FIND A STORE</a><br/></p>",
+            "text_style": "body"
+          }
+        },
+        "template--16810724262144__6aa4be9d-d987-43f7-8579-9c85566fc0ea-button-1": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16810724262144__6aa4be9d-d987-43f7-8579-9c85566fc0ea-heading-1",
+        "template--16810724262144__6aa4be9d-d987-43f7-8579-9c85566fc0ea-text-1",
+        "template--16810724262144__6aa4be9d-d987-43f7-8579-9c85566fc0ea-button-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Knya-store-sketch-600x400-2.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "center",
+        "content_layout": "no-overlap",
+        "color_scheme": "accent-1",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 48
+      }
+    },
+    "454842b8-296e-4b45-8706-a6c960696652": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16709725913344__454842b8-296e-4b45-8706-a6c960696652-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>Join the Knya club</h2>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "template--16709725913344__454842b8-296e-4b45-8706-a6c960696652-heading-1"
+      ],
+      "custom_css": [
+        "h1 {color: #482f8f !important; font-weight: bold !important;}",
+        "h2 {font-size: clamp(28px, calc(32 * (100vw / 1440)), 35px); line-height: clamp(35px, calc(40 * (100vw / 1440)), 43px); font-family: \"Heebo-Medium\", sans-serif; margin: 0px;}",
+        "@media screen and (min-width: 1900px) {h1 {padding-left: 60px; }}",
+        "@media screen and (max-width: 640px) {.rich-text__wrapper {padding-left: 0px; } h2 {font-size: 24px; line-height: 32px; letter-spacing: 0.24px; margin: 0 0 6px; }}",
+        "@media screen and (max-width: 500px) {h1 {padding-left: 0px; margin-left: -17px; }}"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "1694435764b8a51147": {
+      "type": "apps",
+      "blocks": {
+        "a6380633-6c4d-4b39-af49-7b6ff666d584": {
+          "type": "shopify://apps/quinn-shoppable-videos/blocks/app-cards-block/150d2781-732b-4020-a9fb-1368e974e6bb",
+          "settings": {
+            "layer_number": 1,
+            "card_margins_desktop": "",
+            "card_margins_mobile": "0",
+            "custom_metaobject_handle": "null",
+            "heading": "",
+            "heading_alignment": "center",
+            "heading_font_size_desktop": "16px",
+            "heading_letter_spacing_desktop": "normal",
+            "heading_font_size_mobile": "16px",
+            "heading_letter_spacing_mobile": "normal",
+            "heading_line_height_desktop": "1.2",
+            "heading_line_height_mobile": "1.2",
+            "heading_font_weight_desktop": "400",
+            "heading_font_weight_mobile": "400",
+            "heading_font": "sans_serif_n4",
+            "heading_color": "#000000",
+            "heading_background_color": "#ffffff",
+            "heading_padding": "0px",
+            "heading_margin": "0px",
+            "subheading": "",
+            "subheading_alignment": "center",
+            "subheading_font": "sans_serif_n4",
+            "subheading_color": "#000000",
+            "subheading_background_color": "#ffffff",
+            "subheading_padding": "0px",
+            "subheading_margin": "0px"
+          }
+        }
+      },
+      "block_order": [
+        "a6380633-6c4d-4b39-af49-7b6ff666d584"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "20d9c3ff-a38b-4d28-9fa0-c46c84f18293": {
+      "type": "join-knya-club",
+      "blocks": {
+        "e1e86eea-4cfb-4f69-8d0d-5d199caf1cdf": {
+          "type": "text",
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/a82e4e940a264f70992fc4a95cf872a6.mp4",
+            "thumb-img": "shopify://shop_images/1080x1920.png",
+            "vid1Text": "Unboxing Knya Women’s Short Sleeve Underscrub"
+          }
+        },
+        "09dcb769-e4ae-48d7-baf6-22bbaa21bb48": {
+          "type": "text",
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/c54ac280cf454b3babeb756b95dccf30.mp4",
+            "thumb-img": "shopify://shop_images/Dr._Mallika.png",
+            "vid1Text": "KNYA Scrub review by Dr. MALIKA SEERAT"
+          }
+        },
+        "9219c880-f573-4caa-a592-07d450715fd6": {
+          "type": "text",
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/9fb436b48ce5464586141821e4945066.mp4",
+            "thumb-img": "shopify://shop_images/Dr.png",
+            "vid1Text": "Knya Scrub review by Ishita Khurana"
+          }
+        },
+        "d5dec152-ba5d-41d8-b209-5bcf1993ea52": {
+          "type": "text",
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/753cb00ddb5a4e44a379c2243c4d961e.mp4",
+            "thumb-img": "shopify://shop_images/1080x1920b.png",
+            "vid1Text": "Knya scrub review by Dr. Shreya Joshi"
+          }
+        },
+        "ca5a0879-19f6-4103-9f63-af57498cead8": {
+          "type": "text",
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/a03a273af0034208a467722a2b0b4058.mp4",
+            "thumb-img": "shopify://shop_images/Screenshot_2023-08-07_173941.png",
+            "vid1Text": "Dr. Sidhaant in mauve scrub"
+          }
+        },
+        "aae79fe2-d629-4a6b-94ad-b34c6bd0c27c": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/a92d26fe35be4c26879059129ce2bff0.mp4",
+            "thumb-img": "shopify://shop_images/1080x1920a.png",
+            "vid1Text": "Doctor's 1st Surgery Experience"
+          }
+        },
+        "ed29ea6d-047a-4fee-b2ff-2c8f61d56d55": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/fd0bcc35b5a043ff93b4b98f11f20243.mp4",
+            "thumb-img": "shopify://shop_images/1080x1920d_1.png",
+            "vid1Text": "A Journey from NEET UG to to successful Doctors"
+          }
+        },
+        "5fa5361f-044d-4710-8957-6e40d8b3421c": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "desk-vid-src": "https://cdn.shopify.com/videos/c/o/v/320d24d5b4f740b0aeff969388183a53.mp4",
+            "thumb-img": "shopify://shop_images/1080x1920c.png",
+            "vid1Text": "How can ChatGPT help Doctors?"
+          }
+        }
+      },
+      "block_order": [
+        "e1e86eea-4cfb-4f69-8d0d-5d199caf1cdf",
+        "09dcb769-e4ae-48d7-baf6-22bbaa21bb48",
+        "9219c880-f573-4caa-a592-07d450715fd6",
+        "d5dec152-ba5d-41d8-b209-5bcf1993ea52",
+        "ca5a0879-19f6-4103-9f63-af57498cead8",
+        "aae79fe2-d629-4a6b-94ad-b34c6bd0c27c",
+        "ed29ea6d-047a-4fee-b2ff-2c8f61d56d55",
+        "5fa5361f-044d-4710-8957-6e40d8b3421c"
+      ],
+      "disabled": true,
+      "settings": {
+        "back_image": "shopify://shop_images/Vector_186e6b4f-5baf-4818-b39e-19d4e9d3e103.png",
+        "social-you": "shopify://shop_images/Vector_6.png",
+        "social-you-back": "shopify://shop_images/121x42_1.png",
+        "social-insta": "shopify://shop_images/Vector_6.png",
+        "social-insta-back": "shopify://shop_images/121x42_1.png",
+        "show_padding": false,
+        "show_padding_mob": false,
+        "margintopjoin": 100,
+        "margintopjoinmob": 56,
+        "joinheader": "Join the Knya club",
+        "youtubeJoin": "ON YOUTUBE",
+        "urlYoutube": "https://www.youtube.com/@KNYAMed",
+        "instaJoin": "ON INSTAGRAM",
+        "urlInstagram": "https://www.instagram.com/knyamed/"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "video": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "d74bd94f-02b8-4dcc-a3a6-fed16da99a43": {
+      "type": "seen-in-knya",
+      "blocks": {
+        "99ddf76e-7d4f-4928-89b0-ffd1aaa2fdec": {
+          "type": "text",
+          "settings": {
+            "firstImG": "shopify://shop_images/456x500px--Himanshu-Sharma-Anesthesia-student_b22c703a-6fe1-4719-849a-95b3dafbb119.jpg",
+            "firsttext": "Himanshu Sharma, Anesthesia Student",
+            "secImG": "shopify://shop_images/250x250px-Hema-Rawat-RN-_Registered-Nurse_3b45a6ee-e518-4fa4-9d0b-5e78859cdbef.jpg",
+            "secondtext": "Hema Rawat, Registered Nurse",
+            "thirdImG": "shopify://shop_images/250x250px-mitali-sharma-Medical-student_41a67f1f-bf98-4982-ab7e-04c79049b88d.jpg",
+            "thirdtext": "Mitali Sharma, Medical Student",
+            "mobfirst": "shopify://shop_images/250x250px-Vignesh-Sreeraman-medical-student_f3368610-f560-4652-be5e-97d55152aaea.jpg",
+            "firstmobtext": "Vignesh Sreeraman, Medical Student",
+            "mobsec": "shopify://shop_images/250x250px-Hissey-Lanzon-RN-_Registered-Nurse_555f702a-61d3-446c-aaea-44c411edb0a3.jpg",
+            "sectext": "Hissey Lanzon, Registered Nurse",
+            "mobthird": "shopify://shop_images/456x500px-Dr-Mili-Dogra-Anesthesiology-Resident_ab4edce0-1b04-431e-b09f-678b766e87c7.jpg",
+            "thirdtextmob": "Dr. Mili Dogra, Anesthesiology"
+          }
+        },
+        "ad0c94f6-0367-45fa-8afd-6b2a69ee25e7": {
+          "type": "text",
+          "settings": {
+            "firstImG": "shopify://shop_images/456x500px-Dr-Mili-Dogra-Anesthesiology-Resident_ab4edce0-1b04-431e-b09f-678b766e87c7.jpg",
+            "firsttext": "Dr Mili Dogra, Anesthesiology",
+            "secImG": "shopify://shop_images/250x250px-Dr-Shivani-Agarwal-OBGYN-Resident_b2b80249-328c-4def-8586-69e27aea3814.jpg",
+            "secondtext": "Dr Shivani Agarwal, OBGYN Resident",
+            "thirdImG": "shopify://shop_images/250x250px-Dr-Prateek-Makwana-Fertility-Specialist_a197c02e-7b83-4940-9671-8086c30a1ba4.jpg",
+            "thirdtext": "Dr Prateek Makwana, Fertility Specialist",
+            "mobfirst": "shopify://shop_images/250x250px-Dr-Romain-Rajan-MBBS_dc02b3d2-954a-436f-8f0d-af15701b79d2.jpg",
+            "firstmobtext": "Dr Romain Rajan, MBBS",
+            "mobsec": "shopify://shop_images/250x250px-Dr-Riya-Garg-MD-Psychiatry_0e0c865a-0e66-4b85-96d5-8eb19eba8086.jpg",
+            "sectext": "Dr Riya Garg, MD Psychiatry",
+            "mobthird": "shopify://shop_images/456x500px-Dr-Agni-Kumar-Bose--Dermatology_4a99b525-a676-4f8d-ba99-27bef167e77c.jpg",
+            "thirdtextmob": "Dr Agni Kumar Bose, Dermatology"
+          }
+        },
+        "b1be0f7a-e2d9-418c-83f7-5654abedbcec": {
+          "type": "text",
+          "settings": {
+            "firstImG": "shopify://shop_images/456x500px-Dr-Geetika-Rawat-General-dentist_abebb3a9-38ff-4639-b84d-516e0181320e.jpg",
+            "firsttext": "Dr Geetika Rawat, General Dentist",
+            "secImG": "shopify://shop_images/250x250px-Dr-Nikita-Nagar-MD-Infertility-_-Gynecology_089f35b2-db6f-4da5-a788-5d0865c9012e.jpg",
+            "secondtext": "Dr Nikita Nagar, MD Infertility",
+            "thirdImG": "shopify://shop_images/250x250px-Dr-Hardik-Pawar--Orthopaedic_70d2b07e-2a87-476c-accd-e27ce71425db.jpg",
+            "thirdtext": "Dr Hardik Pawar, Orthopaedic",
+            "mobfirst": "shopify://shop_images/250x250px-Dr-Dhruv-Chauhan-MBBS_667c997e-7eee-468f-96b4-752c1d18819b.jpg",
+            "firstmobtext": "Dr Dhruv Chauhan, MBBS",
+            "mobsec": "shopify://shop_images/250x250px-Dr-Aditya-Gupta--Paediatric-Oncology_91e74299-6a45-4465-9c92-cc513366c930.jpg",
+            "sectext": "Dr Aditya Gupta, Paediatric Oncology",
+            "mobthird": "shopify://shop_images/456x500px-Dr-Mili-Dogra-Anesthesiology-Resident_ab4edce0-1b04-431e-b09f-678b766e87c7.jpg",
+            "thirdtextmob": "Dr Mili Dogra, Anesthesiology"
+          }
+        },
+        "5df7e6ca-0c01-4145-a168-b2f91a2eb74c": {
+          "type": "text",
+          "settings": {
+            "firstImG": "shopify://shop_images/456x500px-Dr-Agni-Kumar-Bose--Dermatology_4a99b525-a676-4f8d-ba99-27bef167e77c.jpg",
+            "firsttext": "Dr Agni Kumar Bose, Dematology",
+            "secImG": "shopify://shop_images/250x250px-Dr.Prashant-Tiwari-MS-Orthopaedic-Surgery-Resident_10688bc1-7d01-4eda-9e7b-c63dc561d29c.jpg",
+            "secondtext": "Dr Prashant Tiwari, MS Orthopaedic Surgery",
+            "thirdImG": "shopify://shop_images/250x250px-Dr.-shreya-shetty_29d9e486-c5f7-4006-8783-b89d3682aee3.jpg",
+            "thirdtext": "Dr Shreya Shetty",
+            "mobfirst": "shopify://shop_images/250x250px-Dr.-Vaibhav-Chawla-Child-Psychiatry_a6867f42-62dc-422c-9e99-109b3a26d274.jpg",
+            "firstmobtext": "Dr Vaibhav Chawla, Child Psychiatry",
+            "mobsec": "shopify://shop_images/250x250px-Dr.-Sahana-Devakumar-Doctor_fad02416-ea5c-48b5-b3a2-b6c88229e474.jpg",
+            "sectext": "Dr Sahana Devakumar, Doctor",
+            "mobthird": "shopify://shop_images/456x500px--Himanshu-Sharma-Anesthesia-student_b22c703a-6fe1-4719-849a-95b3dafbb119.jpg",
+            "thirdtextmob": "Himanshu Sharma, Anesthesia Student"
+          }
+        }
+      },
+      "block_order": [
+        "99ddf76e-7d4f-4928-89b0-ffd1aaa2fdec",
+        "ad0c94f6-0367-45fa-8afd-6b2a69ee25e7",
+        "b1be0f7a-e2d9-418c-83f7-5654abedbcec",
+        "5df7e6ca-0c01-4145-a168-b2f91a2eb74c"
+      ],
+      "settings": {
+        "show_padding_seen": false,
+        "show_padding_mob_seen": false,
+        "margintopseen": 48,
+        "marginbottomseen": 0,
+        "margintopseenmob": 0,
+        "marginbottomseenmob": 32,
+        "H1First": "Seen in Knya",
+        "H1second": "Over a 10,000+ 5-star reviews and counting"
+      }
+    },
+    "9d8bfe92-5262-4a9b-a0a8-20a0c6559157": {
+      "type": "read-more-section",
+      "settings": {
+        "show_padding_read": false,
+        "show_padding_mob_read": false,
+        "margintopread": 0,
+        "marginbottomread": 0,
+        "margintopreadmob": 0,
+        "marginbottomreadmob": 32,
+        "main-text": "Knya: Stylish & Functional Medical Scrubs, Lab Coats, and Stethoscopes for Men & Women!",
+        "content-text-before": "<h2>Introduction:</h2><p>Knya is your one-stop shop for top-quality medical scrubs, lab coats, and underscrubs for men and women. We believe every medical professional deserves comfortable, flexible, and breathable apparel that also projects a highly professional image.</p>",
+        "content-text": "<div>\n<h2><strong>Medical Scrub Suits for Men and Women</strong></h2>\n<p>Experience the perfect blend of functionality and fashion with our <strong><a href=\"https://knyamed.com/collections/men\">medical scrub suits</a></strong>. Crafted from a premium polyester-viscose blend, our scrubs offer superior comfort and practicality.</p>\n<h3>Types of Scrubs for Men and Women:</h3>\n<ul><li>\n<strong>V-neck Scrubs:</strong> Embrace a modern and stylish look with our flattering V-neck scrubs, available for both men and women.</li></ul>\n<ul><li>\n<strong>Mandarin Collar Scrubs:</strong> Revamp your professional appearance with our sophisticated Mandarin collar scrubs.</li></ul>\n<ul><li>\n<strong>Full-Sleeve Scrubs:</strong> Experience superior coverage and protection with our practical full-sleeve scrubs.</li></ul>\n<ul><li>\n<strong>Short-Sleeve Scrubs:</strong> Stay cool and comfortable in our breathable short-sleeve scrubs, ideal for any medical setting.</li></ul>\n<h2><strong>Lab Coat Aprons for Men and Women</strong></h2>\n<p>Our lab coat aprons blend functionality and sophistication. Meticulously crafted from high-quality polyester, they offer the perfect combination of durability and comfort, ensuring you make a lasting impression.</p>\n<h3>Types of Lab Coats:</h3>\n<ul><li>\n<strong>Chief Lab Coat:</strong> Command attention and exude authority with this distinguished design.</li></ul>\n<ul><li>\n<strong>Focus Lab Coat:</strong> Stay sharp and focused in this versatile lab coat, perfect for the dynamic medical environment.</li></ul>\n<ul><li>\n<strong>Everyday Lab Coat:</strong> Embrace the practicality and comfort of this staple lab coat for daily wear.</li></ul>\n<h2><strong>Long-Sleeve and Short-Sleeve Underscrubs for Men and Women</strong></h2>\n<p>Discover ultimate comfort with Knya's <strong><a href=\"https://knyamed.com/collections/underscrubs\">underscrubs</a></strong>, crafted from supersoft Pima cotton. Elevate your medical attire with underscrubs that prioritize your well-being and redefine style in healthcare.</p>\n<h3>Types of Underscrubs:</h3>\n<ul><li>\n<strong>Long-Sleeve Underscrubs:</strong> Experience all-day comfort and warmth with extra coverage and breathability. Available in grey and white.</li></ul>\n<ul><li>\n<strong>Short-Sleeve Underscrubs:</strong> Stay cool and stylish in this lighter, comfortable option. Available in grey and white.</li></ul>\n<h2><strong>Ecoflex Scrubs - Sustainable Medical Scrubs</strong></h2>\n<ul><li>\n<strong>Made from PET Bottles:</strong> Each scrub embodies our commitment to environmental safety.</li></ul>\n<ul><li>\n<strong>Reduced Carbon Footprint:</strong> One <a href=\"https://knyamed.com/collections/ecoflex\"><strong>Ecoflex scrub</strong></a> reduces 0.50 tons of carbon footprint. Each scrub represents the recycling of six PET bottles.</li></ul>\n<ul><li>\n<strong>4-Way Stretch:</strong> Designed for comfort and flexibility in the fast-paced medical environment.</li></ul>\n<h2><strong>Surgical Caps for Men and Women</strong></h2>\n<h3>Types of Scrub Caps:</h3>\n<ul><li>\n<strong>Designer Scrub Caps:</strong> Express your individuality with our vibrant range of printed caps, including designs like Camouflage, Smiley, and Evil Eye.</li></ul>\n<ul><li>\n<strong>Plain Scrub Caps:</strong> Opt for a classic and understated look with our plain caps in various colors.</li></ul>\n<h2><strong>Knya’s 6sense Stethoscope</strong></h2>\n<p>Building on our commitment to providing comprehensive solutions for medical professionals, Knya recognizes the critical role of diagnostic tools like the stethoscope. While our primary focus lies in crafting stylish and functional apparel such as medical scrubs, lab coats, and underscrubs, we understand the importance of reliable equipment in your daily practice.</p>\n<p>For those seeking advanced auscultation technology, we invite you to explore the features and benefits of the <strong><a href=\"https://knyamed.com/pages/stethoscope\">6sense Stethoscope</a></strong>, a valuable tool that complements our high-quality medical wear.</p>\n<h2><strong>Frequently Asked Questions</strong></h2>\n<ul><li>\n<strong>How do I determine the right size for my medical scrubs?</strong><br> Refer to our comprehensive size chart available on each product page to find the perfect fit. If you have specific questions, our customer service team is ready to assist you.</li></ul>\n<ul><li>\n<strong>Are your sustainable scrubs as durable as traditional scrubs?</strong><br> Yes, our sustainable scrubs are crafted with the same commitment to durability and quality. We prioritize eco-friendly materials without compromising on the longevity of the garment.</li></ul>\n<ul><li>\n<strong>Can I mix and match different types of underscrubs with my medical scrubs?</strong><br> Absolutely! Our underscrubs are designed to complement our entire range of medical scrubs, allowing you to mix and match them for a personalized and professional look.</li></ul>\n<ul><li>\n<strong>Do you offer customization options for buying bulk scrubs online?</strong><br> Yes, we provide customization options for bulk orders. Contact our customer service team to discuss your specific requirements and personalize your order to meet your team's needs.</li></ul>\n<ul><li>\n<strong>What is the return policy for Knya products?</strong><br> Our return policy allows you to return unworn and unused items within a specified period. For detailed information, please refer to our Returns and Exchanges page or contact our customer service.</li></ul>\n<ul><li>\n<strong>Are your scrub caps suitable for long hours of wear?</strong><br> Yes, our scrub caps are designed for comfort during extended wear. They are crafted with breathable materials and a secure fit to ensure you stay comfortable throughout your busy day.</li></ul>\n<ul><li>\n<strong>Can I order a sample before placing a bulk order?</strong><br> Yes, we offer sample orders for bulk purchases. Contact our sales team to discuss your requirements, and they will guide you through the sample order process.</li></ul>\n<ul><li>\n<strong>Are your products suitable for different healthcare professions?</strong><br> Absolutely! Our diverse range of medical scrubs, accessories, and apparel caters to various healthcare professions, ensuring that you can find the perfect attire for your specific needs.</li></ul>\n<ul><li>\n<strong>What are the benefits of buying scrubs online?</strong><br> Buying scrubs online offers convenience, a wide variety of styles and colors, and the ability to compare prices easily. Knya provides a larger selection than physical stores, making it easier to find the desired style and size.</li></ul>\n</div>",
+        "read-more-text": "READ MORE",
+        "read-less-text": "READ LESS",
+        "back-img": "shopify://shop_images/Vector_e3c241a2-7b11-44f6-8e63-6dcca5fa809c.png"
+      }
+    },
+    "e005c70d-b5d7-4963-a33d-6135bb4d08e7": {
+      "type": "end-footer",
+      "settings": {
+        "text_1": "WOMEN",
+        "url_1": "https://knyamed.com/collections/women",
+        "text_2": "MEN",
+        "url_2": "https://knyamed.com/collections/men"
+      }
+    }
+  },
+  "order": [
+    "home_banner_jogger_V4rjfx",
+    "cebea76d-870b-4ba0-a34e-241b1cb1d64c",
+    "banner_with_text_eqWN97",
+    "f3187842-abdd-436a-a0d1-9ba469f819b3",
+    "shop_by_category_9ndWyn",
+    "2244536a-1a6c-42d5-adf3-749e2fbb9eb6",
+    "efa2d725-25cd-450d-919f-884fa78cbb02",
+    "slider_7MeABU",
+    "slider_PRL49U",
+    "image_with_text_AnTy7J",
+    "banner_with_text_yPXVzW",
+    "8969a6cb-e9a0-4fd7-9739-87652d7279d7",
+    "96c25f2d-7761-4afd-83ef-cad62f095944",
+    "institutions_carousel_3yLHhE",
+    "news2_HyALUb",
+    "6aa4be9d-d987-43f7-8579-9c85566fc0ea",
+    "454842b8-296e-4b45-8706-a6c960696652",
+    "1694435764b8a51147",
+    "20d9c3ff-a38b-4d28-9fa0-c46c84f18293",
+    "featured_collection",
+    "video",
+    "d74bd94f-02b8-4dcc-a3a6-fed16da99a43",
+    "9d8bfe92-5262-4a9b-a0a8-20a0c6559157",
+    "e005c70d-b5d7-4963-a33d-6135bb4d08e7"
+  ]
+}

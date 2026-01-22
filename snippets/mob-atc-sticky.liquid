@@ -1,0 +1,94 @@
+<style>
+  .mob-atc-sticky {
+    display: none;
+}
+  @media(max-width: 600px){
+    .atc-mob-stky-container {
+    display: flex;
+    padding: 12px 18px;
+    align-items: center;
+    gap: 18px;
+    background: #fff;
+      align-items:center;
+}
+    .atc-svg{line-height: 0;}
+    .atc-stk-subcontainer{
+      display: flex;
+justify-content: space-between;
+align-items: center;
+flex-shrink: 0;
+          padding: 10px 24px 10px 16px;
+    justify-content: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    align-items: center;
+    background: #482F8F;
+    }
+    .atc-stk-subcontainer span {
+    
+text-align: center;
+font-family: Heebo-Medium;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 15.84px; /* 113.143% */
+letter-spacing: 0.6px;
+text-transform: uppercase; 
+      color: #F5EBD2;
+}
+    .mob-atc-sticky {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+    margin: 0 !important;
+    display: block;
+}
+  }
+</style>
+
+<div class="atc-mob-stky-container">
+  <div class="atc-stk-subcontainer">
+    <div class="atc-svg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+  <g clip-path="url(#clip0_98_489)">
+    <path d="M8.25 6.77539H9.75V4.52539H12V3.02539H9.75V0.775391H8.25V3.02539H6V4.52539H8.25V6.77539ZM5.25 13.5254C4.425 13.5254 3.7575 14.2004 3.7575 15.0254C3.7575 15.8504 4.425 16.5254 5.25 16.5254C6.075 16.5254 6.75 15.8504 6.75 15.0254C6.75 14.2004 6.075 13.5254 5.25 13.5254ZM12.75 13.5254C11.925 13.5254 11.2575 14.2004 11.2575 15.0254C11.2575 15.8504 11.925 16.5254 12.75 16.5254C13.575 16.5254 14.25 15.8504 14.25 15.0254C14.25 14.2004 13.575 13.5254 12.75 13.5254ZM6.075 9.77539H11.6625C12.225 9.77539 12.72 9.46789 12.975 9.00289L15.87 3.74539L14.565 3.02539L11.6625 8.27539H6.3975L3.2025 1.52539H0.75V3.02539H2.25L4.95 8.71789L3.9375 10.5479C3.39 11.5529 4.11 12.7754 5.25 12.7754H14.25V11.2754H5.25L6.075 9.77539Z" fill="#F5EBD2"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_98_489">
+      <rect width="18" height="18" fill="white" transform="translate(0 0.0253906)"/>
+    </clipPath>
+  </defs>
+</svg>
+    </div>
+    <span> ADD TO CART</span>
+  </div>
+</div>
+
+<script>
+
+  function stickyState() {
+     var stkSubcontainer = document.querySelector(".atc-stk-subcontainer");
+    setTimeout(function() {
+        document.querySelector(".atc-stk-subcontainer span").innerText = document.querySelector('.mobile-atc-pdp button span').innerText;
+       if (document.querySelector('.mobile-atc-pdp button span').innerText ==="SOLD OUT") {
+        stkSubcontainer.style.opacity = 0.5;
+    } else {
+        stkSubcontainer.style.opacity = 1;
+    }
+    }, 2000); // Adjust the delay time as needed (in milliseconds)
+}
+  stickyState() 
+
+  function stickyATC() {
+    document.querySelector('.mobile-atc-pdp button').click()
+ var addToCartOpacity = window.getComputedStyle(document.querySelector('.ProductForm__AddToCart')).getPropertyValue('opacity');
+    document.querySelector('.atc-stk-subcontainer').style.opacity = addToCartOpacity;
+
+    setTimeout(function() {
+        document.querySelector('.atc-stk-subcontainer').style.opacity = '1';
+    }, 2000);
+  }
+</script>

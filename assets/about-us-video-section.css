@@ -1,0 +1,23 @@
+ p.over-text {
+    position: absolute;
+    font-size: 3.594vw;
+    color: #F4ECD0;
+    top: 72px;
+    width: 53%;
+    /* left: 26px; */
+}
+  .youtube-vidd {
+    position: relative;
+}
+.over-text-mob{display:none}
+  .over-text{display:block}
+@media only screen and (max-width: 1024px) and (min-width:640px){
+   p.over-text{font-size:4.492vw !important;}
+}
+@media only screen and (max-width:641px){
+   p.over-text{font-size:42px !important;}
+  .over-text-mob{display:block;  position: unset !important;color: #482F8F; font-size: 42px;}
+  .over-text{display:none}
+  .y-vid-abt{height:350px !important;}
+}
+.y-vid-abt{height:1100px}

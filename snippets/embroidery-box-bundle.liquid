@@ -1,0 +1,80 @@
+<script src="{{ 'embroidery_bundle_validation.js' | asset_url }}" async></script>
+<link rel="stylesheet" href="{{ 'embroidery-box-new.css' | asset_url }}">
+{% assign embroidery = all_products[settings.embroideryProductHandle] %}
+{% assign max_price = 0 %}
+{% for variant in embroidery.variants %}
+  {% if variant.price > max_price %}
+    {% assign max_price = variant.price %}
+  {% endif %}
+{% endfor %}
+{% assign min_price = max_price %}
+{% for variant in embroidery.variants %}
+  {% if variant.price < min_price %}
+    {% assign min_price = variant.price %}
+  {% endif %}
+{% endfor %}
+
+{% if settings.showEmbroidery %}
+  <div class="embroidery-box page-width-pdp-mob" data-product-pair="">
+    <div class="wrapp">
+      <div class="btn_pack popupbtn" data-close="false" onclick="openEmbroidery(this)">
+        <div class="first_div">
+          <div class="first_div_container">
+          <svg xmlns="http://www.w3.org/2000/svg" width="95%" height="2" viewBox="0 0 390 2" fill="none">
+<path d="M0.0396118 1H389.951" stroke="#F4ECD0" stroke-dasharray="8 8"/>
+</svg>
+            <div class="imagDivss">
+              <div class="imagDivss_containers">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0562/9247/5063/files/45ca03565c864a8c101204c858fb01fc.gif?v=1710307477&width=60"
+                  width="60px"
+                  height="60px"
+                  loading="lazy"
+                >
+                <div class="priceDiv font-heebo-medium">
+                  <div class="priceDiv-txt">
+                    <h3>Custom Embroidery</h3>
+                    <p>Add your Name/Logo/ Icon</p>
+                  </div>
+                  <div class="priceDiv-price">
+                  {% comment %}  <!-- <p> {{min_price | money }} - {{max_price | money }} </p> --> {% endcomment %}
+                    <p class="priceDivStart">Starting at {{ min_price | money_without_trailing_zeros | replace: '₹ ', '₹'  }}</p>
+                  </div>
+                </div>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                <path d="M10.5879 6.59961L9.17793 8.00961L13.7579 12.5996L9.17793 17.1896L10.5879 18.5996L16.5879 12.5996L10.5879 6.59961Z" fill="white"/>
+              </svg>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="95%" height="2" viewBox="0 0 390 2" fill="none">
+              <path d="M0 1H389.911" stroke="#F4ECD0" stroke-dasharray="8 8"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="added_list" data-added="false">
+        <div class="wrap">
+          <div class="left"><input type="checkbox" class="embroidery_filled"> <label> Custom Embroidery </label></div>
+
+          <div class="right asdf">
+            <span class="box_price"> </span>
+
+            <label class="edit_box" style="display:none;"> EDIT </label> | <label class="delete_box" onclick="deletEmbroidery(this)"> {% render 'icon-delete' %} </label>
+          </div>
+        </div>
+
+        <div class="added_list_contents">
+          <div class="list_row"></div>
+          <div class="list_row"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% else %}
+  <div class="embroidery-hidden-message">
+    <p>{{ settings.embroideryHiddenMessage }}</p>
+  </div>
+{% endif %}

@@ -1,0 +1,93 @@
+{{ 'institutions-carousel-stylesheet.css' | asset_url | stylesheet_tag: preload: true }}
+
+<section class="logo-slider-section">
+  <div class="page-width container">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+    <div class="logo-slider-wrapper" id="logoSlider">
+      <div class="logo-slider-track" id="logoSliderTrack">
+        {% comment %} First set of items {% endcomment %}
+        {% for block in section.blocks %}
+          {% if block.settings.image %}
+            <div class="logo-slider-item">
+              {{
+                block.settings.image
+                | image_url: width: 500
+                | image_tag: widths: '300, 500', loading: 'lazy', height: 'auto', alt: 'Logo', fetchpriority: 'low'
+              }}
+            </div>
+          {% endif %}
+        {% endfor %}
+        {% comment %} Duplicate set for seamless loop {% endcomment %}
+        {% for block in section.blocks %}
+          {% if block.settings.image %}
+            <div class="logo-slider-item">
+              {{
+                block.settings.image
+                | image_url: width: 500
+                | image_tag: widths: '300, 500', loading: 'lazy', height: 'auto', alt: 'Logo', fetchpriority: 'low'
+              }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.getElementById('logoSlider');
+    const track = document.getElementById('logoSliderTrack');
+
+    if (!track) return;
+
+    // Pause animation on hover
+    slider.addEventListener('mouseenter', function () {
+      track.style.animationPlayState = 'paused';
+    });
+
+    slider.addEventListener('mouseleave', function () {
+      track.style.animationPlayState = 'running';
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "institutions-carousel",
+  "class": "institutions-carousel-parent",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Institutions we have served"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "We’ve suited up the best"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Institutions Carousel"
+    }
+  ]
+}
+{% endschema %}

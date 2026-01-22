@@ -1,0 +1,548 @@
+@media (max-width: 640px) {
+  .clickpost-edd__container {
+    padding: 0 var(--mobile-padding);
+  }
+}
+.clickpost-edd__form {
+  position: relative;
+}
+.clickpost-edd__heading {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  letter-spacing: 0.001em !important;
+  color: #000000 !important;
+  padding-bottom: 8px !important;
+  font-family: Heebo-Medium !important;
+}
+#response-extra{
+  padding-left:10px !important;
+  font-family: Heebo-Medium;
+}
+@font-face {
+  font-family: 'Heebo-Regular';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Regular.ttf?v=1675230698');
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Regular.eot?v=1676007784')
+      format('eot'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Regular.eot?v=1676007784')
+      format('eot'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Regular.woff2?v=1676008158')
+      format('woff2'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Regular.woff?v=1676007853')
+      format('woff'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Regular.otf?v=1676007993')
+      format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+.font-heebo-regular h1,
+.font-heebo-regular h2,
+.font-heebo-regular h3,
+.font-heebo-regular h4,
+.font-heebo-regular h5,
+.font-heebo-regular h6,
+.font-heebo-regular p,
+.font-heebo-regular ul,
+.font-heebo-regular li,
+.font-heebo-regular span,
+.font-heebo-regular a {
+  font-family: 'Heebo-Regular';
+}
+p.font-heebo-regular,
+a.font-heebo-regular,
+span.font-heebo-regular,
+h3.font-heebo-regular,
+h2.font-heebo-regular,
+legend.font-heebo-regular,
+small.font-heebo-regular {
+  font-family: 'Heebo-Regular';
+}
+
+@font-face {
+  font-family: 'Heebo-Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Medium.ttf?v=1686295626');
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Medium.eot?v=1686295625')
+      format('eot'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Medium.woff2?v=1686295625')
+      format('woff2'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Medium.woff?v=1686295626')
+      format('woff'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Medium.otf?v=1686295626')
+      format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+.font-heebo-medium h1,
+.font-heebo-medium h2,
+.font-heebo-medium h3,
+.font-heebo-medium h4,
+.font-heebo-medium h5,
+.font-heebo-medium h6,
+.font-heebo-medium p,
+.font-heebo-medium ul,
+.font-heebo-medium li,
+.font-heebo-medium span,
+.font-heebo-medium a,
+.font-heebo-medium th {
+  font-family: 'Heebo-Medium';
+}
+h1.font-heebo-medium,
+h2.font-heebo-medium,
+h3.font-heebo-medium,
+h5.font-heebo-medium,
+span.font-heebo-medium,
+a.font-heebo-medium,
+p.font-heebo-medium,
+label.font-heebo-medium {
+  font-family: 'Heebo-Medium';
+}
+
+@font-face {
+  font-family: 'Heebo-SemiBold';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-SemiBold.ttf?v=1680777714');
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-SemiBold.eot?v=1680777713')
+      format('eot'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-SemiBold.woff2?v=1680777714')
+      format('woff2'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-SemiBold.woff?v=1680777713')
+      format('woff'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-SemiBold.otf?v=1680777714')
+      format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+.font-heebo-SemiBold h1,
+.font-heebo-SemiBold h2,
+.font-heebo-SemiBold h3,
+.font-heebo-SemiBold h4,
+.font-heebo-SemiBold h5,
+.font-heebo-SemiBold h6,
+.font-heebo-SemiBold p,
+.font-heebo-SemiBold ul,
+.font-heebo-SemiBold li,
+.font-heebo-SemiBold span,
+.font-heebo-SemiBold a,
+label.font-heebo-SemiBold,
+span.font-heebo-SemiBold {
+  font-family: 'Heebo-SemiBold';
+}
+
+h2.font-heebo-SemiBold,
+h1.font-heebo-SemiBold,
+span.font-heebo-SemiBold,
+h3.font-heebo-SemiBold,
+a.font-heebo-SemiBold {
+  font-family: 'Heebo-SemiBold';
+}
+@font-face {
+  font-family: 'Heebo-Bold';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Bold.ttf?v=1685339060');
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Bold.eot?v=1685339290')
+      format('eot'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Bold.woff2?v=1685339343')
+      format('woff2'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Bold.woff?v=1685339219')
+      format('woff'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Bold.otf?v=1685339444')
+      format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+.font-heebo-Bold label {
+  font-family: 'Heebo-Bold';
+}
+
+@font-face {
+  font-family: 'Heebo-Light';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Light.ttf?v=1686060236');
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Light.eot?v=1686060236')
+      format('eot'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Light.woff2?v=1686060236')
+      format('woff2'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Light.woff?v=1686060236')
+      format('woff'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Heebo-Light.otf?v=1686060236')
+      format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+.font-heebo-light h1,
+.font-heebo-light h2,
+.font-heebo-light h3,
+.font-heebo-light h4,
+.font-heebo-light h5,
+.font-heebo-light h6,
+.font-heebo-light p,
+.font-heebo-light ul,
+.font-heebo-light li,
+.font-heebo-light span,
+.font-heebo-light a {
+  font-family: 'Heebo-Light';
+}
+p.font-heebo-light {
+  font-family: 'Heebo-Light';
+}
+
+@font-face {
+  font-family: 'Fraunces-Italic';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Fraunces-Italic.ttf?v=1685340918');
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Fraunces-Italic.eot?v=1685340984')
+      format('eot'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Fraunces-Italic.woff2?v=1685341042')
+      format('woff2'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Fraunces-Italic.woff?v=1685341089')
+      format('woff'),
+    url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Fraunces-Italic.otf?v=1685341209')
+      format('otf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+.font-Fraunces-Italic label {
+  font-family: 'Fraunces-Italic';
+}
+
+h2,
+h1,
+.h2 {
+  font-weight: 500;
+  font-size: 3.594vw;
+  line-height: 100%;
+  margin: 0;
+}
+@media only screen and (max-width: 1024px) and (min-width: 601px) {
+  h2,
+  h1,
+  .h2 {
+    font-weight: 500;
+    font-size: 3.438vw;
+    line-height: 100%;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h2,
+  h1,
+  .h2 {
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 100%;
+    margin: 0;
+  }
+}
+h3,
+.h3 {
+  font-weight: 600;
+  font-size: 1.719vw;
+  line-height: 120%;
+}
+@media only screen and (max-width: 1024px) and (min-width: 601px) {
+  h3,
+  .h3 {
+    font-size: 1.563vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h3,
+  .h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+  }
+}
+
+h4,
+.h4 {
+  font-weight: 300;
+  font-size: 1.406vw;
+  line-height: 120%;
+}
+@media only screen and (max-width: 1024px) and (min-width: 601px) {
+  h3,
+  .h3 {
+    font-size: 1.628vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h4,
+  .h4 {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 120%;
+  }
+}
+
+h5 {
+  font-weight: 500;
+  font-size: 1.094vw;
+  line-height: 120%;
+}
+
+/* @media only screen and (max-width: 1024px) and (min-width:601px){
+font-weight: 500;
+font-size: 1.250vw;
+line-height: 120%;
+} */
+
+@media only screen and (min-width: 640px) {
+  h5 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+  }
+}
+
+p {
+  font-weight: 400;
+  font-size: 2.188vw;
+  line-height: 120%;
+}
+@media only screen and (max-width: 1024px) and (min-width: 601px) {
+  p {
+    font-size: 2.031vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  p {
+    font-size: 20px;
+  }
+}
+
+.upper-main-list a {
+  text-decoration: none;
+}
+a:-webkit-any-link {
+  text-decoration: none !important;
+}
+
+@font-face {
+  font-family: 'Sallim-Regular';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Salim.ttf?v=1746437417');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+@font-face {
+  font-family: 'Bookscript';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Knyascript-Regular.ttf?v=1751292002');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+@font-face {
+  font-family: 'NotoSansDevanagari-Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/NotoSansDevanagari-Medium.ttf?v=1758028046');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+/* Poppins Font Family */
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Poppins-Regular.ttf?v=1767861046');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Poppins-Medium.ttf?v=1767861046');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Poppins-SemiBold.ttf?v=1767861046');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'Poppins-Italic';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Poppins-Italic.ttf?v=1767861608');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('https://cdn.shopify.com/s/files/1/0562/9247/5063/files/Poppins-Bold.ttf?v=1767861046');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+}
+
+/* Poppins Font Utility Classes */
+.font-poppins-regular,
+.font-poppins-regular h1,
+.font-poppins-regular h2,
+.font-poppins-regular h3,
+.font-poppins-regular h4,
+.font-poppins-regular h5,
+.font-poppins-regular h6,
+.font-poppins-regular p,
+.font-poppins-regular ul,
+.font-poppins-regular li,
+.font-poppins-regular span,
+.font-poppins-regular a {
+  font-family: 'Poppins-Regular', sans-serif;
+}
+
+p.font-poppins-regular,
+a.font-poppins-regular,
+span.font-poppins-regular,
+h1.font-poppins-regular,
+h2.font-poppins-regular,
+h3.font-poppins-regular,
+h4.font-poppins-regular,
+h5.font-poppins-regular,
+h6.font-poppins-regular {
+  font-family: 'Poppins-Regular', sans-serif;
+}
+
+.font-poppins-medium,
+.font-poppins-medium h1,
+.font-poppins-medium h2,
+.font-poppins-medium h3,
+.font-poppins-medium h4,
+.font-poppins-medium h5,
+.font-poppins-medium h6,
+.font-poppins-medium p,
+.font-poppins-medium ul,
+.font-poppins-medium li,
+.font-poppins-medium span,
+.font-poppins-medium a {
+  font-family: 'Poppins-Medium', sans-serif;
+}
+
+p.font-poppins-medium,
+a.font-poppins-medium,
+span.font-poppins-medium,
+h1.font-poppins-medium,
+h2.font-poppins-medium,
+h3.font-poppins-medium,
+h4.font-poppins-medium,
+h5.font-poppins-medium,
+h6.font-poppins-medium {
+  font-family: 'Poppins-Medium', sans-serif;
+}
+
+.font-poppins-semibold,
+.font-poppins-semibold h1,
+.font-poppins-semibold h2,
+.font-poppins-semibold h3,
+.font-poppins-semibold h4,
+.font-poppins-semibold h5,
+.font-poppins-semibold h6,
+.font-poppins-semibold p,
+.font-poppins-semibold ul,
+.font-poppins-semibold li,
+.font-poppins-semibold span,
+.font-poppins-semibold a {
+  font-family: 'Poppins-SemiBold', sans-serif;
+}
+
+p.font-poppins-semibold,
+a.font-poppins-semibold,
+span.font-poppins-semibold,
+h1.font-poppins-semibold,
+h2.font-poppins-semibold,
+h3.font-poppins-semibold,
+h4.font-poppins-semibold,
+h5.font-poppins-semibold,
+h6.font-poppins-semibold {
+  font-family: 'Poppins-SemiBold', sans-serif;
+}
+
+.font-poppins-italic,
+.font-poppins-italic h1,
+.font-poppins-italic h2,
+.font-poppins-italic h3,
+.font-poppins-italic h4,
+.font-poppins-italic h5,
+.font-poppins-italic h6,
+.font-poppins-italic p,
+.font-poppins-italic ul,
+.font-poppins-italic li,
+.font-poppins-italic span,
+.font-poppins-italic a {
+  font-family: 'Poppins-Italic', sans-serif;
+}
+
+p.font-poppins-italic,
+a.font-poppins-italic,
+span.font-poppins-italic,
+h1.font-poppins-italic,
+h2.font-poppins-italic,
+h3.font-poppins-italic,
+h4.font-poppins-italic,
+h5.font-poppins-italic,
+h6.font-poppins-italic {
+  font-family: 'Poppins-Italic', sans-serif;
+}
+
+.font-poppins-bold,
+.font-poppins-bold h1,
+.font-poppins-bold h2,
+.font-poppins-bold h3,
+.font-poppins-bold h4,
+.font-poppins-bold h5,
+.font-poppins-bold h6,
+.font-poppins-bold p,
+.font-poppins-bold ul,
+.font-poppins-bold li,
+.font-poppins-bold span,
+.font-poppins-bold a {
+  font-family: 'Poppins-Bold', sans-serif;
+}
+
+p.font-poppins-bold,
+a.font-poppins-bold,
+span.font-poppins-bold,
+h1.font-poppins-bold,
+h2.font-poppins-bold,
+h3.font-poppins-bold,
+h4.font-poppins-bold,
+h5.font-poppins-bold,
+h6.font-poppins-bold {
+  font-family: 'Poppins-Bold', sans-serif;
+}

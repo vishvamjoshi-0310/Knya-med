@@ -1,0 +1,225 @@
+<script src="{{ 'embroidery-validation.js' | asset_url }}" async></script>
+<link rel="stylesheet" href="{{ 'embroidery-box-new.css' | asset_url }}">
+<style>
+  .priceDiv {
+    /* margin-left: 20px; */
+    display: flex;
+    flex-direction: column;
+    color: #F5EBD2;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-between;
+      width: 100%;
+  }
+  .addNamePara {
+    font-size: {{ section.settings.add_emb_desktop_sub_font_size }}px;;
+    font-weight: 400;
+    line-height: 17.63px;
+    letter-spacing: 0.001em;
+    font-family: 'Heebo-Regular';
+    text-align: left;
+    margin: 0;
+    margin-left: 24px;
+    color: {{ section.settings.subHeading_font_text }};
+  }
+
+  .popupbtnAdd, .popupbtnDontAdd {
+    font-size: {{ section.settings.add_emb_desktop_font_size }}px;
+    font-weight: 500;
+    font-family: 'Heebo-Medium';
+    line-height: 20px;
+    letter-spacing: 0.001em;
+    text-align: center;
+    color: {{ section.settings.heading_font_text }};
+    margin-left: 24px;
+  }
+  .popupbtnDontAdd {
+    margin-left: 0rem;
+  }
+
+  .embMaiDiv {
+    margin-top: 0;
+    padding-top: 6px;
+    padding-bottom: 12px;
+    background: #F7F7F7;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 1px 2px 1px rgb(0 0 0 / 30%);
+  }
+
+
+  .showEmb.checked {
+    background: {{ section.settings.selected_background_color}};
+  }
+  .dontShowEmb.checked {
+    background: {{ section.settings.selected_background_color}};
+  }
+
+  .dontShowEmb {
+    /* padding: 13px 5px; */
+  }
+
+  .emb_select_opt {
+    font-size: 16px;
+    font-weight: 400;
+    color: #FF0C00;
+    font-family: 'Heebo-Regular' !important;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    display: none;
+  }
+  .priceDiv-txt.error-shown ~ .priceDiv-price {
+    display: none;
+  }
+  .priceDiv-txt {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrapp .btn_pack h3 {
+    text-decoration: none;
+    margin: 0;
+    line-height: 1.5;
+    font-size: clamp(22px, calc(22 * (100vw / 1440)), 18px);
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.024px;
+  }
+  .wrapp .btn_pack p.priceDivStart {
+    font-size: clamp(11px, calc(11 * (100vw / 1440)), 14px);
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    color: #B0A7C0;
+    font-weight: 500;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .priceDiv-txt {
+      gap: 2px;
+    }
+    .emb_select_opt {
+      font-size: 11px;
+      line-height: 16px;
+    }
+    .wrapp .btn_pack h3 {
+      text-decoration: none;
+      margin: 0;
+      line-height: 1.5;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 0.024px;
+    }
+    .btn_pack {
+      min-width: 100%;
+      margin-left:0%;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .popupbtnAdd, .popupbtnDontAdd {
+      font-size: {{ section.settings.add_emb_mobile_font_size }}px;
+    }
+    .popupbtnDontAdd {
+      margin-left: 0rem;
+    }
+    .embMaiDiv {
+      margin-top: 0;
+    }
+    .addNamePara {
+      font-size: {{ section.settings.add_emb_mobile_sub_font_size }}px;;
+    }
+  }
+
+</style>
+{% assign embroidery = all_products[settings.embroideryProductHandle] %}
+{% assign max_price = 0 %}
+{% for variant in embroidery.variants %}
+  {% if variant.price > max_price %}
+    {% assign max_price = variant.price %}
+  {% endif %}
+{% endfor %}
+{% assign min_price = max_price %}
+{% for variant in embroidery.variants %}
+  {% if variant.price < min_price %}
+    {% assign min_price = variant.price %}
+  {% endif %}
+{% endfor %}
+
+{% if settings.showEmbroidery %}
+  <div class="embroidery-box page-width-pdp-mob" data-product-pair="">
+    <div class="wrapp">
+      <div class="btn_pack" data-close="false" onclick='document.querySelector(".popupbtnAdd").click(); document.querySelector(".emb_select_opt").style.display = "none";'>
+        <div class="first_div">
+          <div class="first_div_container">
+          {% comment %} <svg xmlns="http://www.w3.org/2000/svg" width="95%" height="2" viewBox="0 0 390 2" fill="none">
+            <path d="M0.0396118 1H389.951" stroke="#F4ECD0" stroke-dasharray="8 8"/>
+          </svg> {% endcomment %}
+            <div class="imagDivss">
+              <div class="imagDivss_containers">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0562/9247/5063/files/45ca03565c864a8c101204c858fb01fc.gif?v=1710307477&width=60"
+                  width="34px"
+                  height="39px"
+                  loading="lazy"
+                >
+                <div class="priceDiv font-heebo-medium">
+                  <div class="priceDiv-txt">
+                    <h3>Custom Embroidery</h3>
+                    <span class="emb_select_opt">*Please Select</span>
+                  </div>
+                  <div class="priceDiv-price">
+                  {% comment %}  <!-- <p> {{min_price | money }} - {{max_price | money }} </p> --> {% endcomment %}
+                    <p class="priceDivStart">Starting at {{ min_price | money_without_trailing_zeros | replace: '₹ ', '₹'  }} personalise your scrubs</p>
+                  </div>
+                </div>
+              </div>
+              {% comment %} <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                <path d="M10.5879 6.59961L9.17793 8.00961L13.7579 12.5996L9.17793 17.1896L10.5879 18.5996L16.5879 12.5996L10.5879 6.59961Z" fill="white"/>
+              </svg> {% endcomment %}
+            </div>
+            {% comment %} <svg xmlns="http://www.w3.org/2000/svg" width="95%" height="2" viewBox="0 0 390 2" fill="none">
+              <path d="M0 1H389.911" stroke="#F4ECD0" stroke-dasharray="8 8"></path>
+            </svg> {% endcomment %}
+          </div>
+        </div>
+      </div>
+
+      <div class="embMaiDiv">
+        <div class="showEmb embMaiDivInner" onclick='document.querySelector(".popupbtnAdd").click(); document.querySelector(".emb_select_opt").style.display = "none";'>
+          <input type="radio" id="showEmb" class="popupbtn embMaiDivPopupbtn" name="emb" value="" />
+          <label class="popupbtnAdd" for="showEmb">{{ section.settings.heading_text }}</label>
+          <p class="addNamePara">{{ section.settings.subheading_text }}</p>
+        </div>
+  
+        <div class="dontShowEmb embMaiDivInner" onclick='document.querySelector(".popupbtnDontAdd").click(); document.querySelector(".emb_select_opt").style.display = "none"; document.querySelector(".emb_select_opt").parentElement.classList.remove("error-shown");'>
+          <input type="radio" class="embMaiDivPopupbtn" id="dontShowEmb" name="emb" value="" />
+          <label class="popupbtnDontAdd" for="dontShowEmb">{{ section.settings.heading_second_text }}</label>
+          <p class="addNamePara">{{ section.settings.subheading_second_text }}</p>
+        </div>
+      </div>
+      
+      <div class="added_list" data-added="false">
+        <div class="wrap">
+          <div class="left"><input type="checkbox" class="embroidery_filled"> <label> Custom Embroidery </label></div>
+
+          <div class="right asdf">
+            <span class="box_price"> </span>
+
+            <label class="edit_box" style="display:none;"> EDIT </label> | <label class="delete_box"> {% render 'icon-delete' %} </label>
+          </div>
+        </div>
+
+        <div class="added_list_contents">
+          <div class="list_row"></div>
+          <div class="list_row"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ 'embroidery-box.js' | asset_url }}" defer></script>
+
+{% else %}
+  <div class="embroidery-hidden-message">
+    <p>{{ settings.embroideryHiddenMessage }}</p>
+  </div>
+{% endif %}

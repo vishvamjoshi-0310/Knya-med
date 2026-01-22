@@ -1,0 +1,58 @@
+.firstMainDiv{padding:0;}
+.second-text{color:#482f8f;width:466px;margin-top:-20px;display:block;    padding-bottom: 21px;}
+  .full-div{position: relative;width: 100%;height: auto;line-height: 0; }
+
+  .firstMainDiv .full-div .img-div{
+    width: 100%;
+  }
+
+  .content-full {position: absolute;top: 0;}
+{% comment %}    @media screen and (min-width:1400px){.second-text {width: 650px; }} {% endcomment %}
+   @media screen and (min-width:1534px){.first-text {width: 100%; }}
+  .imageFordesk{display:block}
+  .imageForMob{display:none}
+  @media screen and (max-width:640px){
+/*     .content-full {padding-top: 47px;}  */
+    span.shop-now {font-size:16px!important;}
+    .firstMainDiv .mobilecontentoverlaponimage{position:absolute;}
+    .firstMainDiv{margin-top:{{section.settings.marginTopfullmob}}px; padding:0;}
+.content-full {padding-left: 17px !important;margin:0;padding-top: 47px !important;}
+span.shop-now{justify-content:center !important;}
+.imageFordesk{display:none} .second-text{font-size: 42px;}.imageForMob{display:block}.full-div{display:flex;flex-direction:column-reverse;background:#9cb5d1}.first-text{font-weight:400;font-size:20px;line-height:120%; margin:0 !important}.content-full{position:unset;}.full-div img{opacity:1}.first-text,.second-text{width:284px}}
+
+  span.shop-now {color: #482F8F;width: 216px;height: 32.5px;display: flex;justify-content: center;align-items: center;position: absolute;
+    top: 0;font-size:1.250vw;
+    width: 100%;
+    height: 100%;}
+.img-div-full img{opacity:1 !important;}
+.img-div-full {
+    position: relative;
+    width: 153px;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content-full {
+  padding-top: 53px;
+    
+}
+@media screen and (min-width:1920px){
+  .content-full {
+  padding-top: 53px;
+    position: absolute;
+    width: 100%;
+    display: block;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+  .img-div-full{width: 25%;}
+.second-text {width: 100%; }
+ .full-div{ display: flex;
+    align-items: center;
+    justify-content: center;}
+}
+  @media screen and (min-width:1500px) and (max-width:1919px){
+    .img-div-full{width:180px !important;}
+  }

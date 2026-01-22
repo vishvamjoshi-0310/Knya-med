@@ -1,0 +1,242 @@
+{{ 'ecoflex-flexthefit.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .main-flexthefit-container {max-width: 100%;margin-top:{{ section.settings.margintop_flexthefit}}px;}
+  @media screen and (max-width: 640px){
+    .main-flexthefit-container{margin-top:{{ section.settings.margintop_flexthefitmob}}px;}
+  }
+{%- endstyle -%}
+
+<div class="main-flexthefit-container ">
+  <div class="page-width">
+    <div class="{% if section.settings.ecoflex_flexthefit  %} page-padding-right page-padding-left{% endif %} {% if section.settings.ecoflex_flexthefit_mob %}padding-right-mob padding-left-mob{% endif %}">
+      <div class="text-conatiner">
+        <h2 class="main-heading font-heebo-medium">{{ section.settings.flexthefit_heading }}</h2>
+        <p class="main-paragraph font-heebo-regular">{{ section.settings.flexthefit_para }}</p>
+      </div>
+      <div class="flexfit-image-container">
+        <div class="left-image-container">
+          <div class="left-image-contains-container relative-img ">
+            {% for block in section.blocks limit: 1 %}
+              <img
+                srcset="
+                  {%- if block.settings.left_image_section.width >= 165 -%}{{ block.settings.left_image_section | img_url: '165x' }} 165w,{%- endif -%}
+                  {%- if block.settings.left_image_section.width >= 360 -%}{{ block.settings.left_image_section | img_url: '214x' }} 360w,{%- endif -%}
+                  {%- if block.settings.left_image_section.width >= 533 -%}{{ block.settings.left_image_section | img_url: '533x' }} 533w,{%- endif -%}
+                  {%- if block.settings.left_image_section.width >= 720 -%}{{ block.settings.left_image_section | img_url: '720x' }} 720w,{%- endif -%}
+                  {%- if block.settings.left_image_section.width >= 940 -%}{{ block.settings.left_image_section | img_url: '940x' }} 940w,{%- endif -%}
+                  {%- if block.settings.left_image_section.width >= 1066 -%}{{ block.settings.left_image_section | img_url: '1066x' }} 1066w,{%- endif -%}
+                  {{ block.settings.left_image_section | img_url: '550x' }} {{ block.settings.left_image_section.width }}w
+                "
+                src="{{ block.settings.left_image_section | img_url: '550x' }}"
+                size="auto"
+                alt="{{ block.settings.left_image_section.alt | escape }}"
+                loading="lazy"
+                class="main-image-class"
+                width="{{ block.settings.left_image_section.width }}"
+                height="{{ block.settings.left_image_section.height }}"
+              >
+              <div class="name-left">
+                <h5 class="font-heebo-medium">{{ block.settings.name_of_pic }}</h5>
+<!--                 <span class="span-sub-class font-heebo-medium">{{ block.settings.designation_of_pic }}</span> -->
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="right-image-container">
+          <div class="right-up relative-img">
+            {% for block in section.blocks limit: 3 %}
+              {% if forloop.first %}
+                {% continue %}
+              {% endif %}
+              <div class="relative-img ">
+                <img
+                  srcset="
+                    {%- if block.settings.left_image_section.width >= 165 -%}{{ block.settings.left_image_section | img_url: '165x' }} 165w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 360 -%}{{ block.settings.left_image_section | img_url: '214x' }} 360w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 533 -%}{{ block.settings.left_image_section | img_url: '533x' }} 533w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 720 -%}{{ block.settings.left_image_section | img_url: '720x' }} 720w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 940 -%}{{ block.settings.left_image_section | img_url: '940x' }} 940w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 1066 -%}{{ block.settings.left_image_section | img_url: '1066x' }} 1066w,{%- endif -%}
+                    {{ block.settings.left_image_section | img_url: '550x' }} {{ block.settings.left_image_section.width }}w
+                  "
+                  src="{{ block.settings.left_image_section | img_url: '550x' }}"
+                  size="auto"
+                  alt="{{ block.settings.left_image_section.alt | escape }}"
+                  loading="lazy"
+                  class="main-image-class"
+                  width="{{ block.settings.left_image_section.width }}"
+                  height="{{ block.settings.left_image_section.height }}"
+                >
+                <div class="right-up-text">
+                  <h5 class="font-heebo-medium">{{ block.settings.name_of_pic }}</h5>
+<!--                   <span class="span-sub-class hide font-heebo-medium">{{ block.settings.designation_of_pic }}</span> -->
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="right-down relative-img">
+            {% for block in section.blocks limit: 6 %}
+              {% if forloop.index0 < 3 %}
+                {% continue %}
+              {% endif %}
+              <div class="relative-img">
+                <img
+                  srcset="
+                    {%- if block.settings.left_image_section.width >= 165 -%}{{ block.settings.left_image_section | img_url: '165x' }} 165w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 360 -%}{{ block.settings.left_image_section | img_url: '214x' }} 360w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 533 -%}{{ block.settings.left_image_section | img_url: '533x' }} 533w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 720 -%}{{ block.settings.left_image_section | img_url: '720x' }} 720w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 940 -%}{{ block.settings.left_image_section | img_url: '940x' }} 940w,{%- endif -%}
+                    {%- if block.settings.left_image_section.width >= 1066 -%}{{ block.settings.left_image_section | img_url: '1066x' }} 1066w,{%- endif -%}
+                    {{ block.settings.left_image_section | img_url: '550x' }} {{ block.settings.left_image_section.width }}w
+                  "
+                  src="{{ block.settings.left_image_section | img_url: '550x' }}"
+                  size="auto"
+                  alt="{{ block.settings.left_image_section.alt | escape }}"
+                  loading="lazy"
+                  class="main-image-class"
+                  width="{{ block.settings.left_image_section.width }}"
+                  height="{{ block.settings.left_image_section.height }}"
+                >
+                <div class="right-text-down">
+                  <h5 class="font-size-fixed font-heebo-medium">{{ block.settings.name_of_pic }}</h5>
+<!--                   <span class="span-sub-class hide font-size-fixed font-heebo-medium">{{ block.settings.designation_of_pic }}</span> -->
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let imgCount1 = 0;
+window.imgArray = [];
+
+{% for block in section.blocks %}
+  imgArray.push({
+    img: "{{ block.settings.left_image_section | img_url: '600x' }}",
+    name: "{{ block.settings.name_of_pic }}",
+    designation: "{{ block.settings.designation_of_pic }}"
+  });
+{% endfor %}
+
+function shiftImage() {
+  const mainImageElems = document.querySelectorAll('.main-image-class');
+
+  for (let i = 0; i < mainImageElems.length; i++) {
+    if (window.innerWidth < 768 && (i == 1 || i == 2)) {
+      continue;
+    }
+
+    mainImageElems[i].classList.add('fade-out');
+    setTimeout(() => {
+      mainImageElems[i].removeAttribute('srcset');
+      mainImageElems[i].src = `${imgArray[(imgCount1 + i) % imgArray.length].img}`;
+      mainImageElems[i].closest('.relative-img').querySelector("h5").innerText = `${imgArray[(imgCount1 + i) % imgArray.length].name}`;
+      mainImageElems[i].closest('.relative-img').querySelector("span").innerText = `${imgArray[(imgCount1 + i) % imgArray.length].designation}`;
+      mainImageElems[i].classList.remove('fade-out');
+    }, 500);
+  }
+  
+  imgCount1 = (imgCount1 + 1) % imgArray.length;
+}
+
+setInterval(() => {
+  shiftImage();
+}, 4000);
+
+
+
+
+
+</script>
+
+{% schema %}
+{
+  "name": "Ecoflex Flex the fit",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "ecoflex_flexthefit",
+      "label": "Padding for Section",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "ecoflex_flexthefit_mob",
+      "label": "Padding for Section in Mobile",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "margintop_flexthefit",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margintop_flexthefitmob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Margin from top for Entire Section",
+      "default": 0
+    },
+    {
+       "type": "text",
+        "id": "flexthefit_heading",
+        "label": "Flex the Fit Heading",
+        "default": "Flex the Fit"
+    },
+    {
+       "type": "text",
+        "id": "flexthefit_para",
+        "label": "Flex the fit Text",
+        "default": "Reviews"
+    }
+  ],
+    "blocks":[
+      {
+        "type": "Image",
+        "name": "Image Section",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "left_image_section",
+            "label": "Left Image",
+            "info" : "Recommended Image Size : 800X734px"
+          },
+          {
+             "type": "text",
+              "id": "name_of_pic",
+              "label": "Enter Name",
+              "default": "Dr . "
+          }
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "Ecoflex Flex the fit"
+    }
+  ],
+    "enabled_on": {
+      "templates": ["page"]
+    }
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,79 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "breadcrum_new_YntgHW": {
+      "type": "breadcrum-new",
+      "settings": {
+        "margintopbread": 0,
+        "margintopbreadmob": 0,
+        "margintopbread_collection": 0,
+        "margintopbreadmob_collection": 0
+      }
+    },
+    "main": {
+      "type": "main-new-article",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": true
+          }
+        },
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "medium"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "featured_image",
+        "content"
+      ],
+      "settings": {
+      }
+    },
+    "blog_faq_section_new_CHrCki": {
+      "type": "blog-faq-section-new",
+      "settings": {
+        "heading": "FAQ's",
+        "button": "",
+        "button_link": ""
+      }
+    },
+    "related_articles_hA9F7K": {
+      "type": "related-articles",
+      "settings": {
+        "heading": "Related Article",
+        "layout": "grid",
+        "show_image": true,
+        "image_height": "adapt",
+        "show_date": false,
+        "show_author": false,
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "breadcrum_new_YntgHW",
+    "main",
+    "blog_faq_section_new_CHrCki",
+    "related_articles_hA9F7K"
+  ]
+}

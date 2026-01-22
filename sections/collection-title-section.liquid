@@ -1,0 +1,97 @@
+<style>
+  .section-{{ section.id }}-margin {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+
+  }
+
+  @media screen and (max-width: 640px) {
+      .section-{{ section.id }}-margin {
+        margin-top: {{ section.settings.margin_top_mobile }}px;
+        margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      }
+  }
+</style>
+
+<style>
+  .collection-title-section .collecton-title-info {
+    color: #000;
+    font-family: 'Heebo-Medium', sans-serif;
+    font-size: clamp(28px, calc(32 * (100vw / var(--viewportDesktop))), 35px);
+    font-weight: 500;
+    line-height: clamp(36px, calc(40 * (100vw / var(--viewportDesktop))), 43px);
+    letter-spacing: 0.64px;
+  }
+
+  @media (max-width: 640px) {
+    .collection-title-section .collecton-title-info {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+</style>
+
+<div class="collection-title-section page-width section-{{ section.id }}-margin">
+  {% assign collection_title_info = collection.metafields.custom.collection_title_info.value %}
+  {% if collection_title_info != null %}
+    <h1 class="collecton-title-info">{{ collection_title_info }}</h1>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection Title Info",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop : Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile : Margin Bottom",
+      "default": 0
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Collection Title Info"
+    }
+  ]
+}
+{% endschema %}

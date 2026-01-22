@@ -1,0 +1,42 @@
+{% assign getproductMeta = product.metafields.custom.combo_product_for_pairs.value %}
+{% assign sizeMetasssss = getproductMeta.metafields.custom.size_guide.value %}
+
+<div class="sizeGuide">
+  <div class="sizeGuide_inner">
+    <svg class="size_close" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <path d="M11 1L1 10.9999" stroke="#482F8F" stroke-linecap="round"/>
+      <path d="M11 11L1 1.00008" stroke="#482F8F" stroke-linecap="round"/>
+    </svg>
+    <div class="imageSec">
+      {% assign sizeImage = sizeMetasssss.Image.value %}
+
+      <img
+        src="{{ sizeMetasssss.image.value | image_url: width: 500 }}"
+        alt="{{ image.alt | escape }}"
+        loading="lazy"
+      >
+    </div>
+    <div class="tableContet">
+      <h2>{{ sizeMetasssss.title.value }}</h2>
+      <h5>{{ sizeMetasssss.sub_title.value }}</h5>
+      <table>
+        {% for tablecontents in sizeMetasssss.table_content_row_wise.value %}
+          <tr>
+            {% assign tablecontent = tablecontents | split: '##' %}
+            {% for splitValue in tablecontent %}
+              <td>{{ splitValue }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </table>
+
+      <div class="pointers">
+        {% for pointers in sizeMetasssss.image_highlight_points.value %}
+          <p>
+            <span class="number">{{ forloop.index }}</span><span class="points">{{ pointers }}</span>
+          </p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

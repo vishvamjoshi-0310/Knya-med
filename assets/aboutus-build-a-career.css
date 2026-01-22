@@ -1,0 +1,100 @@
+/*aboutus-build-a-career  */
+   .jointhe_team a{color: #482f8f; font-size:1.250vw;line-height:120%;}
+    @media screen and (min-width:769px){
+      .heading_font{width:61%;
+            font-family: 'Heebo-Medium';
+    color: #482F8F;
+    font-size: 46px;
+    margin:0px;
+      }
+      .Desktop-image{
+    width: 100%;
+    height: auto;
+            border-radius: 0px 0px 120px 0px;
+      }
+      .right_div{
+        flex:2;
+            display: flex;
+    flex-direction: column;
+    gap: 15px;
+      }
+      .left_div{
+        flex:3;
+      }
+      
+      .aboutus_career{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+
+      }
+/*       .jointhe_team{background-image:url('{{ 'Vector.svg' | asset_url }}');} */
+      .jointhe_team{width:127px;height:37px;display:flex;justify-content:center;align-items:center;color: #482f8f;font-family: "Heebo-Medium";}
+   
+      .mobile-image{
+      display:none;
+    }
+
+      .Desktop-image{
+      display:block;
+    }
+  }
+  
+  @media screen and (max-width:768px){
+    .right_div{
+           margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    }
+/*        .jointhe_team{background-image:url('{{ 'Vector.svg' | asset_url }}');} */
+      .jointhe_team{width:127px;height:37px;display:flex;justify-content:center;align-items:center;color: #482f8f;font-family: "Heebo-Medium";}
+      .jointhe_team a{font-size:16px;}
+   
+      .heading_font{width:100%;
+            font-family: 'Heebo-Medium';
+    color: #482F8F;
+    font-size: 42px;
+    margin:0px;
+      }
+    .left_div{
+        order:2;width:100%;
+      }
+      .aboutus_career{
+        display: flex;
+        flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        gap: 15px;
+      }
+    .Desktop-image{
+      display:none;
+    }
+    .mobile-image{
+      display:block;
+    }
+  }
+.jointhe_team{position: relative;
+    width: 14.609vw;}
+.back-img-abt {
+    width: 100%;
+    height: auto;
+}
+.jointhe_team a {
+    color: #482f8f;
+/*     font-size: 16px; */
+    line-height: 120%;
+    position: absolute;
+}
+@media screen and (max-width:1024px) and(min-width:641px){
+  .jointhe_team a{font-size: 1.563vw !important;}
+  .jointhe_team{width:18.262vw !important;}
+  
+}
+@media screen and (max-width:640px){
+  .jointhe_team a{font-size: 16px !important;}
+  .jointhe_team{width:172px !important;}
+  
+}

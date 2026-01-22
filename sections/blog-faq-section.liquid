@@ -1,0 +1,56 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+{% if article.metafields.custom.blog_faq.value != blank %}
+  <div class="faqsection">
+  <div class="page-width">
+  <h3 class="faq-heading">{{ section.settings.heading }}</h3>
+  {%assign sizes =  article.metafields.custom.blog_faq.value %}
+  {%for i in sizes %}
+  {% assign question-arr =  i | split:"##"  %}
+    
+<details {% if forloop.index == 1 %} open {% endif %} >
+  <summary>
+    <h4 class="question">{{ question-arr[0] }} </h4>
+
+    <span class="plus">{% render 'icon-plus' %}</span><span class="minus">{% render 'icon-minus' %}</span>
+
+  </summary>
+  <p>
+    {{ question-arr[1] }}
+  </p>
+</details>
+    {% endfor %}
+  </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "FAQ Section",
+    "settings": [
+      {
+      "type":"text",
+      "id":"heading",
+      "label":"section heading"
+      },
+       {
+      "type":"text",
+      "id":"button",
+      "label":"Button"
+      },
+       {
+      "type":"url",
+      "id":"button_link",
+      "label":"Button Link"
+      }
+      
+    ],
+    "presets": [
+    {
+      "name": "blog-Faq-section"
+     
+    }
+  ]
+  }
+{% endschema %}
+

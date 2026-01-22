@@ -1,0 +1,87 @@
+{{ 'custom-landing-page.css' | asset_url | stylesheet_tag }}
+<div class="custom-landing-page page-width">
+
+  <div class="custom-landing-page-top">
+    <h2>{{ section.settings.setion_heading }}</h2>
+    <p>{{ section.settings.section_description }}</p>
+    
+  </div>
+<div class="custom-landing-page-bottom">
+  {%  for block in section.blocks %}
+     <div class="custom-landing-page-imagesection">
+    <a href="{{ block.settings.link }}">
+    <div class="custom-landing-page-imagtext">
+      
+      <img src="{{ block.settings.PersonImg |img_url:'' }}">
+      <p class="bottomdescription"> {{ block.settings.Personname }}</p>
+    <a href="{{ block.settings.link }}" class="Button Button--primary customlandingbtn">{{ section.settings.button-text }}</a>
+    </div>
+    </a>
+     </div>
+    {% endfor %}
+</div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "custom-landing-page",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "id": "setion_heading",
+      "type": "text",
+      "label": "Section Heading"
+    },
+     {
+      "id": "section_description",
+      "type": "text",
+      "label": "Section Description"
+    },
+     {
+          "type": "text",
+          "id": "button-text",
+          "label": "Button Text"
+        }
+   ],
+     "blocks": [
+      {
+      "type": "block",
+      "name": "Add Banner ",
+      "settings": [
+    {
+      "id": "PersonImg",
+      "type": "image_picker",
+      "label": "Person Image"
+      
+    },
+         {
+      "id": "Personname",
+      "type": "text",
+      "label": "Person Name"
+    
+    },
+    {
+      
+      "id": "link",
+      "type": "url",
+      "label": "Link"
+    
+    }
+  ]
+  }
+  ],
+  
+  "presets": [
+    {
+      "name": "custom-landing-page",
+      "blocks": [
+        {
+        "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

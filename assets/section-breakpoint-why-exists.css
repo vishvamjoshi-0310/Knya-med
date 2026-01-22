@@ -1,0 +1,357 @@
+.breakpoint-why-exists-section {
+  width: 100%;
+  padding: 56px 80px;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-background {
+  position: absolute;
+  top: 0px;
+  left: -25%;
+  width: max-content;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-background img {
+  width: fit-content;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-content {
+  position: relative;
+  z-index: 1;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-heading {
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 64px;
+  letter-spacing: 0px;
+  color: #000000;
+  margin-bottom: 36px;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-left {
+  flex: 1;
+  max-width: 50%;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-right {
+  flex: 1;
+  max-width: 46%;
+  padding-top: 68px;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-vitals img {
+  width: auto;
+  height: 52px;
+  display: block;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-description-before {
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  color: #616161;
+  margin-bottom: 10px;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-description-after {
+  font-family: Poppins-Regular;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  color: #616161;
+  margin-top: 10px;
+  margin-bottom: 36px;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-statement {
+  font-family: Poppins-SemiBold;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  color: #000000;
+  margin-bottom: 36px;
+  width: 86%;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Poppins-SemiBold;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 36px;
+  letter-spacing: 0px;
+  color: #4949E9;
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-link svg {
+  width: 32px;
+  height: 32px;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-slider {
+  overflow: hidden;
+  /* CHANGED FROM visible to hidden */
+  position: relative;
+  padding: 0;
+  height: 500px;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla {
+  overflow: visible;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-slider-wrapper {
+  display: flex;
+  align-items: flex-start;
+  will-change: transform;
+  width: max-content;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.embla__slide {
+  flex: 0 0 auto;
+  /* Stat Card Styles */
+}
+
+.breakpoint-why-exists-section .stat-card {
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 40px;
+  color: #FFFFFF;
+  margin-right: -110px;
+  /* Constant overlap */
+  width: 379.46px;
+  /* Constant layout width */
+  height: 419.53px;
+  /* Constant layout height */
+  transition: all 0.3s ease;
+  transform-origin: top left;
+
+  /* Default state (Hidden) */
+  transform: scale(0.8) translateY(52px);
+  z-index: 1;
+  opacity: 0;
+  /* Hidden by default */
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+/* Active State (using plugin class) */
+.breakpoint-why-exists-section .stat-card.is-snapped {
+  transform: scale(1) translateY(0);
+  margin-top: 0;
+  box-shadow: 7px 7px 40px 0px #00000033;
+  z-index: 10;
+  opacity: 1;
+  pointer-events: auto;
+  background-color: var(--bg-primary, #5E5EEC) !important;
+  /* Dynamic Primary Color */
+}
+
+/* Next Card Logic: The card explicitly marked as next by JS */
+.breakpoint-why-exists-section .stat-card.next {
+  z-index: 5;
+  opacity: 1;
+  pointer-events: auto;
+  background-color: var(--bg-secondary, #6767A5) !important;
+  /* Dynamic Secondary Color */
+}
+
+/* Fallback for loop edge case? 
+   If the snapped card is the last one, the 'next' is visually the first one.
+   Embla loop handles this by physically moving/cloning nodes. 
+   So there should almost always be a DOM sibling. 
+   Usually Embla ensures buffer. 
+*/
+
+.breakpoint-why-exists-section .stat-top-row {
+  margin-left: 50px;
+  display: flex;
+  align-items: flex-end;
+  /* Align bottom to handle arrow position */
+  position: absolute;
+  top: 78px;
+  /* Moved further down to sit just above description */
+}
+
+.breakpoint-why-exists-section .stat-icon-left {
+  margin-right: -25px;
+  /* Overlap the number */
+  margin-bottom: 25px;
+  /* Adjust vertical alignment relative to number baseline */
+  z-index: 2;
+  /* Ensure on top for overlap */
+  position: relative;
+}
+
+.breakpoint-why-exists-section .stat-number {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  font-size: 196px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+}
+
+.breakpoint-why-exists-section .stat-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 140px;
+  margin-bottom: 40px;
+}
+
+.breakpoint-why-exists-section .stat-percent-symbol {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  font-size: 47.09px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.breakpoint-why-exists-section .stat-icon-right {
+  margin-top: auto;
+  /* Push to bottom of meta container */
+}
+
+.breakpoint-why-exists-section .stat-icon-left svg,
+.breakpoint-why-exists-section .stat-icon-right svg {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.breakpoint-why-exists-section .stat-description {
+  position: absolute;
+  top: 255px;
+  left: 57.72px;
+  width: 260px;
+  height: 88.5px;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-slider-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-pagination-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.breakpoint-why-exists-section .breakpoint-why-exists-pagination-dot.active {
+  background-color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+  .breakpoint-why-exists-section {
+    padding: 36px 18px;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-layout {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .breakpoint-why-exists-section .stat-card,
+  .breakpoint-why-exists-section .stat-card.active,
+  .breakpoint-why-exists-section .stat-card.next {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 0.8;
+    margin-right: 0;
+    margin-top: 0;
+    transform: none;
+    flex-shrink: 0;
+    margin-right: 16px;
+  }
+
+  .breakpoint-why-exists-section .stat-card:last-child {
+    margin-right: 0;
+  }
+
+  .breakpoint-why-exists-section .stat-number {
+    font-size: 120px;
+  }
+
+  .breakpoint-why-exists-section .stat-description {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-background {
+    left: -20%;
+    top: -2px;
+    transform: rotateX(0deg);
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-background img {
+    height: 66%;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-vitals img {
+    height: 30px;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-right {
+    max-width: 100%;
+    width: 100%;
+    padding-top: 0px;
+  }
+}
+
+/* 1-2-3-4-5-6-7-8-9-0- */

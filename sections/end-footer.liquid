@@ -1,0 +1,152 @@
+<style>
+  .upper-main-list {
+    display: flex;
+    padding: 0 8px;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    width: 67%;
+    justify-content: space-around;
+    background: #482f8f;
+    height: 62px;
+    align-items: center;
+  }
+  .content-foot {
+    color: #d4e167;
+    font-size: 16px;
+  }
+  .first-list.font-heebo-medium {
+    width: 50%;
+    border-right: 2px solid #d4e167;
+    display: flex;
+    justify-content: center;
+    line-height: 12px;
+  }
+  .secondt-list.font-heebo-medium {
+    width: 50%;
+    border-right: 2px solid #d4e167;
+    display: flex;
+    justify-content: center;
+    line-height: 12px;
+  }
+  @media screen and (min-width: 641px) {
+    .upper-main-list {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .header-index details-modal.header__search {
+      position: fixed;
+      bottom: 0;
+      z-index: 2;
+      width: 34%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 62px;
+      background: #482f8f;
+      right: 0px;
+      /*     height:40px; */
+    }
+    /*   .search__button{
+    top: -7px !important;
+  } */
+    .openSearch {
+      left: 0px !important;
+      top: 42px !important;
+      width: 100% !important;
+    }
+    .openSearch1 {
+      left: 0px !important;
+      top: 60px !important;
+      width: 100% !important;
+    }
+  }
+</style>
+
+<div class="upper-main-list">
+  <div class="first-list font-heebo-medium">
+    <a href="{{ section.settings.url_1 }}"
+      ><span class="content-foot">{{ section.settings.text_1 }}</span></a
+    >
+  </div>
+  <div class="secondt-list font-heebo-medium">
+    <a href="{{ section.settings.url_2 }}"
+      ><span class="content-foot">{{ section.settings.text_2 }}</span></a
+    >
+  </div>
+</div>
+
+<script>
+  if (window.innerWidth <= 640) {
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelector('.mobile-search').style.visibility = 'visible';
+      document.querySelector('.mobile-search').style.position = 'unset';
+    });
+    document.querySelector('.search-modal__close-button').addEventListener('click', function () {
+      document.querySelector('.upper-main-list').style.width = '67%';
+      document.querySelector('.header__search').classList.remove('openSearch');
+      document.querySelector('.header__search').classList.remove('openSearch1');
+      document.body.style.overflow = 'auto';
+      // document.querySelector(".mobile-facets__wrapper").style.width = "34%"
+    });
+    document.addEventListener('mouseup', function (event) {
+      let tarr = document.querySelector('.search-modal__content');
+      if (tarr.contains(event.target)) {
+      } else {
+        document.querySelector('.upper-main-list').style.width = '67%';
+        document.querySelector('.header__search').classList.remove('openSearch');
+        document.querySelector('.header__search').classList.remove('openSearch1');
+        document.body.style.overflow = 'auto';
+      }
+    });
+    document.querySelector('.header__search span').addEventListener('click', function () {
+      if (window.pageYOffset > 50) {
+        document.querySelector('.header__search').classList.add('openSearch1');
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.querySelector('.header__search').classList.add('openSearch');
+        document.body.style.overflow = 'hidden';
+      }
+      document.querySelector('.upper-main-list').style.width = '100%';
+    });
+  }
+</script>
+{% schema %}
+{
+  "name": "Section name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Heading"
+    },
+    {
+      "type": "url",
+      "id": "url_1",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Heading"
+    },
+    {
+      "type": "url",
+      "id": "url_2",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "footer-end"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
