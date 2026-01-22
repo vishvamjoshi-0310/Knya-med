@@ -1,3 +1,8 @@
+/* ============================================
+   BREAKPOINT WHY EXISTS SECTION - CLEAN VERSION
+   ============================================ */
+
+/* Section Container */
 .breakpoint-why-exists-section {
   width: 100%;
   padding: 56px 80px;
@@ -6,6 +11,7 @@
   background-color: white;
 }
 
+/* Background Image */
 .breakpoint-why-exists-section .breakpoint-why-exists-background {
   position: absolute;
   top: 0px;
@@ -24,11 +30,13 @@
   display: block;
 }
 
+/* Content Wrapper */
 .breakpoint-why-exists-section .breakpoint-why-exists-content {
   position: relative;
   z-index: 1;
 }
 
+/* Section Heading */
 .breakpoint-why-exists-section .breakpoint-why-exists-heading {
   font-family: Poppins-Regular;
   font-weight: 400;
@@ -39,6 +47,7 @@
   margin-bottom: 36px;
 }
 
+/* Main Layout (Left + Right Sections) */
 .breakpoint-why-exists-section .breakpoint-why-exists-layout {
   display: flex;
   justify-content: space-between;
@@ -55,12 +64,18 @@
   padding-top: 68px;
 }
 
+/* ============================================
+   RIGHT SECTION STYLES
+   ============================================ */
+
+/* Vitals Logo */
 .breakpoint-why-exists-section .breakpoint-why-exists-vitals img {
   width: auto;
   height: 52px;
   display: block;
 }
 
+/* Description Text */
 .breakpoint-why-exists-section .breakpoint-why-exists-description-before {
   font-family: Poppins-Regular;
   font-weight: 400;
@@ -82,6 +97,7 @@
   margin-bottom: 36px;
 }
 
+/* Breakpoint Statement */
 .breakpoint-why-exists-section .breakpoint-why-exists-statement {
   font-family: Poppins-SemiBold;
   font-weight: 600;
@@ -93,6 +109,7 @@
   width: 86%;
 }
 
+/* Action Link */
 .breakpoint-why-exists-section .breakpoint-why-exists-link {
   display: inline-flex;
   align-items: center;
@@ -112,6 +129,11 @@
   height: 32px;
 }
 
+/* ============================================
+   LEFT SECTION - CUSTOM CAROUSEL STYLES
+   ============================================ */
+
+/* Carousel Container */
 .breakpoint-why-exists-section .breakpoint-why-exists-slider {
   position: relative;
   height: 500px;
@@ -120,26 +142,14 @@
   user-select: none;
 }
 
-.embla {
-  overflow: visible;
-}
-
+/* Carousel Wrapper */
 .breakpoint-why-exists-section .breakpoint-why-exists-slider-wrapper {
   position: relative;
   height: 100%;
   width: 100%;
 }
 
-.embla__container {
-  display: flex;
-  align-items: flex-start;
-}
-
-.embla__slide {
-  flex: 0 0 auto;
-  /* Stat Card Styles */
-}
-
+/* Stat Card - Base Styles */
 .breakpoint-why-exists-section .stat-card {
   position: absolute;
   top: 0;
@@ -152,6 +162,7 @@
   transform-origin: top left;
   cursor: pointer;
   box-sizing: border-box;
+  
   /* Default state - hidden */
   opacity: 0;
   pointer-events: none;
@@ -159,6 +170,7 @@
   transform: scale(0.8) translateY(52px);
 }
 
+/* Active Card State */
 .breakpoint-why-exists-section .stat-card.is-active {
   transform: scale(1) translateY(0);
   box-shadow: 7px 7px 40px 0px #00000033;
@@ -167,6 +179,7 @@
   pointer-events: auto;
 }
 
+/* Next Card State (60% visible behind) */
 .breakpoint-why-exists-section .stat-card.is-next {
   transform: scale(0.8) translateY(52px) translateX(269px);
   z-index: 5;
@@ -174,51 +187,19 @@
   pointer-events: auto;
 }
 
-/* Active State (using plugin class) */
-.breakpoint-why-exists-section .stat-card.is-snapped {
-  transform: scale(1) translateY(0);
-  margin-top: 0;
-  box-shadow: 7px 7px 40px 0px #00000033;
-  z-index: 10;
-  opacity: 1;
-  pointer-events: auto;
-  background-color: var(--bg-primary, #5E5EEC) !important;
-  /* Dynamic Primary Color */
-}
-
-/* Next Card Logic: The card explicitly marked as next by JS */
-.breakpoint-why-exists-section .stat-card.next {
-  z-index: 5;
-  opacity: 1;
-  pointer-events: auto;
-  background-color: var(--bg-secondary, #6767A5) !important;
-  /* Dynamic Secondary Color */
-}
-
-/* Fallback for loop edge case? 
-   If the snapped card is the last one, the 'next' is visually the first one.
-   Embla loop handles this by physically moving/cloning nodes. 
-   So there should almost always be a DOM sibling. 
-   Usually Embla ensures buffer. 
-*/
-
+/* Card Content Layout */
 .breakpoint-why-exists-section .stat-top-row {
   margin-left: 50px;
   display: flex;
   align-items: flex-end;
-  /* Align bottom to handle arrow position */
   position: absolute;
   top: 78px;
-  /* Moved further down to sit just above description */
 }
 
 .breakpoint-why-exists-section .stat-icon-left {
   margin-right: -25px;
-  /* Overlap the number */
   margin-bottom: 25px;
-  /* Adjust vertical alignment relative to number baseline */
   z-index: 2;
-  /* Ensure on top for overlap */
   position: relative;
 }
 
@@ -249,7 +230,6 @@
 
 .breakpoint-why-exists-section .stat-icon-right {
   margin-top: auto;
-  /* Push to bottom of meta container */
 }
 
 .breakpoint-why-exists-section .stat-icon-left svg,
@@ -273,6 +253,7 @@
   color: #FFFFFF;
 }
 
+/* Pagination Dots */
 .breakpoint-why-exists-section .breakpoint-why-exists-slider-pagination {
   display: flex;
   justify-content: center;
@@ -297,34 +278,17 @@
   background-color: #000000;
 }
 
+/* ============================================
+   RESPONSIVE - MOBILE STYLES
+   ============================================ */
 
 @media screen and (max-width: 768px) {
-  .breakpoint-why-exists-section .breakpoint-why-exists-slider {
-    height: auto;
-    min-height: 400px;
-  }
-
-  .breakpoint-why-exists-section .stat-card {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 0.8;
-    position: relative;
-  }
-
-  .breakpoint-why-exists-section .stat-card.is-active {
-    transform: scale(1);
-  }
-
-  .breakpoint-why-exists-section .stat-card.is-next {
-    transform: scale(0.85) translateX(60%);
-  }
-}
-
-@media screen and (max-width: 768px) {
+  /* Section Padding */
   .breakpoint-why-exists-section {
     padding: 36px 18px;
   }
 
+  /* Layout Changes */
   .breakpoint-why-exists-section .breakpoint-why-exists-layout {
     flex-direction: column;
     gap: 22px;
@@ -335,23 +299,35 @@
     width: 100%;
   }
 
-  .breakpoint-why-exists-section .stat-card,
-  .breakpoint-why-exists-section .stat-card.active,
-  .breakpoint-why-exists-section .stat-card.next {
+  .breakpoint-why-exists-section .breakpoint-why-exists-right {
+    max-width: 100%;
+    width: 100%;
+    padding-top: 0px;
+  }
+
+  /* Carousel Mobile */
+  .breakpoint-why-exists-section .breakpoint-why-exists-slider {
+    height: auto;
+    min-height: 400px;
+  }
+
+  /* Cards Mobile */
+  .breakpoint-why-exists-section .stat-card {
     width: 100%;
     height: auto;
     aspect-ratio: 0.8;
-    margin-right: 0;
-    margin-top: 0;
-    transform: none;
-    flex-shrink: 0;
-    margin-right: 16px;
+    position: absolute;
   }
 
-  .breakpoint-why-exists-section .stat-card:last-child {
-    margin-right: 0;
+  .breakpoint-why-exists-section .stat-card.is-active {
+    transform: scale(1);
   }
 
+  .breakpoint-why-exists-section .stat-card.is-next {
+    transform: scale(0.85) translateX(60%);
+  }
+
+  /* Card Content Mobile */
   .breakpoint-why-exists-section .stat-number {
     font-size: 120px;
   }
@@ -364,25 +340,18 @@
     width: 100%;
   }
 
+  /* Background Mobile */
   .breakpoint-why-exists-section .breakpoint-why-exists-background {
     left: -20%;
     top: -2px;
-    transform: rotateX(0deg);
   }
 
   .breakpoint-why-exists-section .breakpoint-why-exists-background img {
     height: 66%;
   }
 
+  /* Vitals Logo Mobile */
   .breakpoint-why-exists-section .breakpoint-why-exists-vitals img {
     height: 30px;
   }
-
-  .breakpoint-why-exists-section .breakpoint-why-exists-right {
-    max-width: 100%;
-    width: 100%;
-    padding-top: 0px;
-  }
 }
-
-/* 1-2-3-4-5-6-7-8-9-0- */
