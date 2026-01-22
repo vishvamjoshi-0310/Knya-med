@@ -147,6 +147,7 @@
       this.startX = 0;
       this.currentX = 0;
       this.threshold = 50; // Minimum drag distance to trigger slide change
+      this.hasMoved = false; // Track if user actually dragged
 
       this.init();
     }
@@ -227,8 +228,8 @@
       // Click on cards
       this.cards.forEach((card, index) => {
         card.addEventListener('click', (e) => {
-          // Only navigate if clicking on next card or inactive card
-          if (index !== this.currentIndex) {
+          // Only navigate if it was a click (not a drag) and NOT clicking the active card
+          if (!this.hasMoved && index !== this.currentIndex) {
             this.goToSlide(index);
           }
         });
@@ -252,6 +253,7 @@
 
     onDragStart(e) {
       this.isDragging = true;
+      this.hasMoved = false; // Reset movement tracking
       this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
       this.carousel.style.cursor = 'grabbing';
     }
@@ -260,6 +262,12 @@
       if (!this.isDragging) return;
 
       this.currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+
+      // Track if user has moved significantly (more than 5px)
+      const diff = Math.abs(this.startX - this.currentX);
+      if (diff > 5) {
+        this.hasMoved = true;
+      }
     }
 
     onDragEnd(e) {
@@ -270,8 +278,8 @@
 
       const diff = this.startX - this.currentX;
 
-      // Check if drag distance exceeds threshold
-      if (Math.abs(diff) > this.threshold) {
+      // Check if drag distance exceeds threshold AND user actually moved
+      if (this.hasMoved && Math.abs(diff) > this.threshold) {
         if (diff > 0) {
           // Swiped left - go to next slide
           this.nextSlide();
@@ -283,6 +291,11 @@
 
       this.startX = 0;
       this.currentX = 0;
+
+      // Reset hasMoved after a short delay to allow click event to check it
+      setTimeout(() => {
+        this.hasMoved = false;
+      }, 10);
     }
   }
 
