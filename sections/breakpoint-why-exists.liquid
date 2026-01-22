@@ -39,13 +39,14 @@
 
     <div class="breakpoint-why-exists-layout">
       <div class="breakpoint-why-exists-left">
-        <div class="breakpoint-why-exists-slider embla" id="Embla-{{ section.id }}">
-          <div class="breakpoint-why-exists-slider-wrapper embla__container">
+        <div class="breakpoint-why-exists-slider" id="customCarousel-{{ section.id }}">
+          <div class="breakpoint-why-exists-slider-wrapper">
             {%- for block in section.blocks -%}
               <div
-                class="stat-card embla__slide"
+                class="stat-card"
                 data-index="{{ forloop.index0 }}"
-                style="--bg-primary: {{ block.settings.primary_background_color }}; --bg-secondary: {{ block.settings.secondary_background_color }};"
+                data-primary-color="{{ block.settings.primary_background_color }}"
+                data-secondary-color="{{ block.settings.secondary_background_color }}"
               >
                 <div class="stat-card-content">
                   <div class="stat-top-row">
@@ -132,123 +133,166 @@
     </div>
   </div>
 </section>
-<script src="https://unpkg.com/embla-carousel@8.0.0/embla-carousel.umd.js" defer></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const emblaId = 'Embla-{{ section.id }}';
-    const emblaNode = document.getElementById(emblaId);
+  class CustomCarousel {
+    constructor(element) {
+      this.carousel = element;
+      this.cards = Array.from(element.querySelectorAll('.stat-card'));
+      this.pagination = element.querySelector('.breakpoint-why-exists-slider-pagination');
+      this.currentIndex = 0;
+      this.totalCards = this.cards.length;
 
-    // Safety check
-    if (!emblaNode) return;
-    if (typeof EmblaCarousel === 'undefined') return;
+      // Touch/drag variables
+      this.isDragging = false;
+      this.startX = 0;
+      this.currentX = 0;
+      this.threshold = 50; // Minimum drag distance to trigger slide change
 
-    // ===== FIX #1: Updated options to prevent container movement =====
-    const OPTIONS = {
-      align: 'start',
-      loop: true,
-      containScroll: false,
-      dragFree: false, // Prevents free dragging
-      draggable: true, // Keep swipe/drag enabled
-      slidesToScroll: 1, // Snap to one slide at a time
-    };
-    const emblaApi = EmblaCarousel(emblaNode, OPTIONS);
+      this.init();
+    }
 
-    // ===== FIX #2: Updated updateSlideClasses to handle loop correctly =====
-    const updateSlideClasses = () => {
-      const allSlides = emblaNode.querySelectorAll('.embla__slide');
-      const scrollSnaps = emblaApi.scrollSnapList();
-      const selectedIndex = emblaApi.selectedScrollSnap();
+    init() {
+      this.createPagination();
+      this.updateCards();
+      this.attachEventListeners();
+    }
 
-      // Calculate next index with proper wrap-around
-      const nextIndex = (selectedIndex + 1) % scrollSnaps.length;
+    createPagination() {
+      if (!this.pagination) return;
 
-      allSlides.forEach((slide) => {
-        const slideIndex = parseInt(slide.getAttribute('data-index'));
-
-        // Remove all classes first
-        slide.classList.remove('is-snapped', 'next');
-
-        // Reset styles
-        slide.style.zIndex = '1';
-        slide.style.opacity = '0';
-        slide.style.pointerEvents = 'none';
-
-        // Apply classes based on position
-        if (slideIndex === selectedIndex) {
-          // Current active slide
-          slide.classList.add('is-snapped');
-          slide.style.zIndex = '10';
-          slide.style.opacity = '1';
-          slide.style.pointerEvents = 'auto';
-        } else if (slideIndex === nextIndex) {
-          // Next slide (60% visible behind)
-          slide.classList.add('next');
-          slide.style.zIndex = '5';
-          slide.style.opacity = '1';
-          slide.style.pointerEvents = 'auto';
-        }
-      });
-    };
-
-    // Click to scroll functionality
-    const addSlideClickListeners = () => {
-      const slides = emblaApi.slideNodes();
-      slides.forEach((slide) => {
-        slide.addEventListener('click', () => {
-          const index = parseInt(slide.getAttribute('data-index'));
-          if (!isNaN(index)) emblaApi.scrollTo(index);
-        });
-        slide.style.cursor = 'pointer';
-      });
-    };
-
-    // Pagination
-    const pagination = emblaNode.querySelector('.breakpoint-why-exists-slider-pagination');
-
-    const createPagination = () => {
-      if (!pagination) return;
-      pagination.innerHTML = '';
-      const scrollSnaps = emblaApi.scrollSnapList();
-      scrollSnaps.forEach((_, index) => {
+      this.pagination.innerHTML = '';
+      for (let i = 0; i < this.totalCards; i++) {
         const dot = document.createElement('span');
         dot.className = 'breakpoint-why-exists-pagination-dot';
-        dot.addEventListener('click', () => emblaApi.scrollTo(index));
-        pagination.appendChild(dot);
-      });
-      updatePagination();
-    };
+        dot.addEventListener('click', () => this.goToSlide(i));
+        this.pagination.appendChild(dot);
+      }
+      this.updatePagination();
+    }
 
-    const updatePagination = () => {
-      if (!pagination) return;
-      const dots = pagination.querySelectorAll('.breakpoint-why-exists-pagination-dot');
-      const selectedIndex = emblaApi.selectedScrollSnap();
+    updatePagination() {
+      if (!this.pagination) return;
+
+      const dots = this.pagination.querySelectorAll('.breakpoint-why-exists-pagination-dot');
       dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === selectedIndex);
+        dot.classList.toggle('active', index === this.currentIndex);
       });
-    };
+    }
 
-    // ===== FIX #3: Updated event listeners =====
-    emblaApi.on('init', () => {
-      addSlideClickListeners();
-      createPagination();
-      updateSlideClasses();
-    });
+    updateCards() {
+      const nextIndex = (this.currentIndex + 1) % this.totalCards;
 
-    emblaApi.on('select', () => {
-      updatePagination();
-      updateSlideClasses();
-    });
+      this.cards.forEach((card, index) => {
+        // Remove all classes
+        card.classList.remove('is-active', 'is-next');
 
-    // Removed 'scroll' event to prevent jerky behavior during drag
+        // Get colors from data attributes
+        const primaryColor = card.getAttribute('data-primary-color');
+        const secondaryColor = card.getAttribute('data-secondary-color');
 
-    emblaApi.on('settle', () => {
-      updateSlideClasses();
-    });
+        if (index === this.currentIndex) {
+          // Active card
+          card.classList.add('is-active');
+          card.style.backgroundColor = primaryColor;
+        } else if (index === nextIndex) {
+          // Next card (60% visible)
+          card.classList.add('is-next');
+          card.style.backgroundColor = secondaryColor;
+        } else {
+          // Hidden cards
+          card.style.backgroundColor = primaryColor;
+        }
+      });
 
-    emblaApi.on('reInit', () => {
-      createPagination();
-      updateSlideClasses();
-    });
+      this.updatePagination();
+    }
+
+    goToSlide(index) {
+      if (index < 0 || index >= this.totalCards) return;
+      this.currentIndex = index;
+      this.updateCards();
+    }
+
+    nextSlide() {
+      this.currentIndex = (this.currentIndex + 1) % this.totalCards;
+      this.updateCards();
+    }
+
+    prevSlide() {
+      this.currentIndex = (this.currentIndex - 1 + this.totalCards) % this.totalCards;
+      this.updateCards();
+    }
+
+    attachEventListeners() {
+      // Click on cards
+      this.cards.forEach((card, index) => {
+        card.addEventListener('click', (e) => {
+          // Only navigate if clicking on next card or inactive card
+          if (index !== this.currentIndex) {
+            this.goToSlide(index);
+          }
+        });
+      });
+
+      // Touch/Mouse drag events
+      this.carousel.addEventListener('mousedown', this.onDragStart.bind(this));
+      this.carousel.addEventListener('touchstart', this.onDragStart.bind(this), { passive: true });
+
+      this.carousel.addEventListener('mousemove', this.onDragMove.bind(this));
+      this.carousel.addEventListener('touchmove', this.onDragMove.bind(this), { passive: true });
+
+      this.carousel.addEventListener('mouseup', this.onDragEnd.bind(this));
+      this.carousel.addEventListener('touchend', this.onDragEnd.bind(this));
+
+      this.carousel.addEventListener('mouseleave', this.onDragEnd.bind(this));
+
+      // Prevent default drag behavior on images
+      this.carousel.addEventListener('dragstart', (e) => e.preventDefault());
+    }
+
+    onDragStart(e) {
+      this.isDragging = true;
+      this.startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+      this.carousel.style.cursor = 'grabbing';
+    }
+
+    onDragMove(e) {
+      if (!this.isDragging) return;
+
+      this.currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+    }
+
+    onDragEnd(e) {
+      if (!this.isDragging) return;
+
+      this.isDragging = false;
+      this.carousel.style.cursor = '';
+
+      const diff = this.startX - this.currentX;
+
+      // Check if drag distance exceeds threshold
+      if (Math.abs(diff) > this.threshold) {
+        if (diff > 0) {
+          // Swiped left - go to next slide
+          this.nextSlide();
+        } else {
+          // Swiped right - go to previous slide
+          this.prevSlide();
+        }
+      }
+
+      this.startX = 0;
+      this.currentX = 0;
+    }
+  }
+
+  // Initialize carousel when DOM is ready
+  document.addEventListener('DOMContentLoaded', function () {
+    const carouselId = 'customCarousel-{{ section.id }}';
+    const carouselElement = document.getElementById(carouselId);
+    if (carouselElement) {
+      new CustomCarousel(carouselElement);
+    }
   });
 </script>
 
