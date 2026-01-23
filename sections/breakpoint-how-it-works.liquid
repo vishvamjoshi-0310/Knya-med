@@ -1,6 +1,46 @@
 {{ 'section-breakpoint-how-it-works.css' | asset_url | stylesheet_tag }}
 
 <section class="breakpoint-how-it-works-section">
+  {%- if section.settings.background_image_desktop != blank or section.settings.background_image_mobile != blank -%}
+    <div class="breakpoint-how-it-works-background">
+      {%- liquid
+        assign bg_image_desktop = section.settings.background_image_desktop
+        assign bg_image_mobile = section.settings.background_image_mobile | default: bg_image_desktop
+        assign bg_image_desktop = bg_image_desktop | default: bg_image_mobile
+
+        # Determine which image to use for the fallback/default src
+        assign master_image = bg_image_desktop
+      -%}
+
+      <picture>
+        {%- if section.settings.background_image_mobile != blank -%}
+          <source
+            media="(max-width: 768px)"
+            srcset="{{ section.settings.background_image_mobile | image_url: width: 800 }}"
+          >
+        {%- endif -%}
+
+        {%- if section.settings.background_image_desktop != blank -%}
+          <source
+            media="(min-width: 769px)"
+            srcset="{{ section.settings.background_image_desktop | image_url: width: 2000 }}"
+          >
+        {%- endif -%}
+
+        {{
+          master_image
+          | image_url: width: 2000
+          | image_tag:
+            loading: 'lazy',
+            width: '100%',
+            height: '100%',
+            alt: master_image.alt,
+            class: 'how-it-works-bg-img'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
   {%- if section.settings.heading != blank -%}
     <h2 class="breakpoint-how-it-works-heading">{{ section.settings.heading }}</h2>
   {%- endif -%}
@@ -9,7 +49,10 @@
     <div class="breakpoint-how-it-works-steps">
       {%- for block in section.blocks -%}
         {%- assign step_number = forloop.index -%}
-        <div class="breakpoint-how-it-works-step" style="--step-bg-color: {{ block.settings.number_bg_color }}; --number-color: {{ block.settings.number_color }}; --heading-color: {{ block.settings.heading_color }};">
+        <div
+          class="breakpoint-how-it-works-step"
+          style="--step-bg-color: {{ block.settings.number_bg_color }}; --number-color: {{ block.settings.number_color }}; --heading-color: {{ block.settings.heading_color }};"
+        >
           <div class="breakpoint-how-it-works-number-circle">
             <span class="breakpoint-how-it-works-number">{{ step_number }}</span>
           </div>
@@ -38,6 +81,16 @@
       "id": "heading",
       "label": "Section Heading",
       "default": "How It works"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_desktop",
+      "label": "Background image for Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image_mobile",
+      "label": "Background image for Mobile"
     }
   ],
   "blocks": [
@@ -125,6 +178,3 @@
   ]
 }
 {% endschema %}
-
-
-

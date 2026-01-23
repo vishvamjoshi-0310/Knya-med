@@ -2,6 +2,7 @@
   width: 100%;
   padding: 56px 80px 0px 80px;
 }
+
 .breakpoint-how-it-works-section .breakpoint-how-it-works-heading {
   font-family: Poppins-Regular;
   font-weight: 400;
@@ -10,13 +11,29 @@
   letter-spacing: 0px;
   color: #000000;
 }
+
 .breakpoint-how-it-works-section {
   position: relative;
 }
+
+/* Background Image */
+.breakpoint-how-it-works-section .breakpoint-how-it-works-background {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .breakpoint-how-it-works-section .breakpoint-how-it-works-parent {
   position: relative;
   width: 100%;
 }
+
 .breakpoint-how-it-works-section .breakpoint-how-it-works-steps {
   display: flex;
   justify-content: space-between;
@@ -25,26 +42,90 @@
   position: relative;
   padding: 36px 0 0 0;
 }
-.breakpoint-how-it-works-section .breakpoint-how-it-works-parent::before {
-  content: "";
-  position: absolute;
-  top: 71px;
-  left: -80px;
-  right: -80px;
-  width: calc(100% + 160px);
-  height: 0;
-  border-bottom: 12px solid #dcf343;
-  z-index: 0;
-  pointer-events: none;
-}
-.breakpoint-how-it-works-section .breakpoint-how-it-works-step {
+
+/* .breakpoint-how-it-works-section .breakpoint-how-it-works-step {
   flex: 1 0 30%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: center;
   position: relative;
+} */
+
+/* Step 1 */
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) {
+  flex: 1 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  position: relative;
+  /* Add specific positioning for Step 1 here */
 }
+
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) .breakpoint-how-it-works-number-circle {
+  position: relative;
+  /* top: 0px; */
+  /* left: 0px; */
+}
+
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) .breakpoint-how-it-works-step-content {
+  position: relative;
+  width: 177px;
+  top: -48px;
+  left: 98px;
+}
+
+/* Step 2 */
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) {
+  flex: 1 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  position: relative;
+  top: -62px;
+  /* Add specific positioning for Step 2 here */
+}
+
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) .breakpoint-how-it-works-number-circle {
+  position: relative;
+  /* top: 0px; */
+  /* left: 0px; */
+}
+
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) .breakpoint-how-it-works-step-content {
+  position: relative;
+  top: -55px;
+  left: 105px;
+  width: 253px;
+}
+
+/* Step 3 */
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) {
+  flex: 1 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  position: relative;
+  top: -95px;
+  /* Add specific positioning for Step 3 here */
+}
+
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) .breakpoint-how-it-works-number-circle {
+  position: relative;
+  /* top: 0px; */
+  /* left: 0px; */
+}
+
+.breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) .breakpoint-how-it-works-step-content {
+  position: relative;
+  top: -53px;
+  left: 98px;
+  width: 302px;
+}
+
 .breakpoint-how-it-works-section .breakpoint-how-it-works-number-circle {
   width: 82px;
   height: 82px;
@@ -58,6 +139,7 @@
   position: relative;
   z-index: 1;
 }
+
 .breakpoint-how-it-works-section .breakpoint-how-it-works-number {
   font-family: Poppins-Regular;
   font-weight: 300;
@@ -65,6 +147,7 @@
   line-height: 1;
   color: var(--number-color);
 }
+
 .breakpoint-how-it-works-section .breakpoint-how-it-works-step-heading {
   font-family: Poppins-SemiBold;
   font-weight: 600;
@@ -75,6 +158,7 @@
   margin: 0 0 14px 0;
   text-align: left;
 }
+
 .breakpoint-how-it-works-section .breakpoint-how-it-works-step-subheading {
   font-family: Poppins-Regular;
   font-weight: 400;
@@ -85,47 +169,54 @@
   margin: 0;
   text-align: left;
 }
+
 @media screen and (max-width: 768px) {
   .breakpoint-how-it-works-section {
-    padding: 36px 18px;
+    padding: 0px 18px;
   }
+
+  /* Background Image */
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-background {
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-heading {
     font-size: 24px;
     line-height: 32px;
   }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-steps {
     flex-direction: column;
-    gap: 22px;
-    padding: 36px 0;
     position: relative;
+    gap: 0px;
   }
-  .breakpoint-how-it-works-section .breakpoint-how-it-works-steps::before {
-    content: "";
-    position: absolute;
-    top: 64px;
-    left: 24.5px;
-    bottom: 96px;
-    width: 0;
-    border-left: 12px solid #dcf343;
-    z-index: 0;
-    pointer-events: none;
-  }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-parent::before {
     display: none;
   }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-step {
     max-width: 100%;
     width: 100%;
     flex-direction: row;
     align-items: flex-start;
     text-align: left;
-    gap: 14px;
+    /* gap: 14px; */
     position: relative;
   }
-  .breakpoint-how-it-works-section
-    .breakpoint-how-it-works-step:not(:last-child)::after {
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:not(:last-child)::after {
     display: none;
   }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-number-circle {
     width: 56px;
     height: 56px;
@@ -134,23 +225,89 @@
     position: relative;
     z-index: 1;
   }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-number {
     font-size: 32px;
   }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-step-content {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-step-heading {
     font-size: 18px;
     line-height: 28px;
     margin-bottom: 8px;
     text-align: left;
   }
+
   .breakpoint-how-it-works-section .breakpoint-how-it-works-step-subheading {
     font-size: 14px;
     line-height: 20px;
     text-align: left;
+  }
+
+  /* Step 1 Mobile Positioning */
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) {
+    position: relative;
+    width: 354px;
+    top: 0px;
+    left: 0px;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) .breakpoint-how-it-works-number-circle {
+    position: relative;
+    top: 30px;
+    /* left: 0px; */
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) .breakpoint-how-it-works-step-content {
+    position: relative;
+    width: 284px;
+    top: -30px;
+    left: 75px;
+  }
+
+  /* Step 2 Mobile Positioning */
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) {
+    position: relative;
+    width: 354px;
+    top: 0px;
+    left: 0px;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) .breakpoint-how-it-works-number-circle {
+    position: relative;
+    /* top: 0px; */
+    left: 25px;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) .breakpoint-how-it-works-step-content {
+    position: relative;
+    width: 234px;
+    left: 93px;
+  }
+
+  /* Step 3 Mobile Positioning */
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) {
+    position: relative;
+    width: 354px;
+    top: 0px;
+    left: 0px;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) .breakpoint-how-it-works-number-circle {
+    position: relative;
+    /* top: 0px; */
+    /* left: 0px; */
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) .breakpoint-how-it-works-step-content {
+    position: relative;
+    width: 225px;
+    top: -56px;
+    left: 70px;
   }
 }
