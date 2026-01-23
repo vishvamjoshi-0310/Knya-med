@@ -170,6 +170,80 @@
   text-align: left;
 }
 
+
+@media screen and (min-width: 769px) and (max-width: 1220px) {
+  .breakpoint-how-it-works-section {
+    padding: 4.59vw 6.56vw 0 6.56vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-heading {
+    font-size: 2.95vw;
+    line-height: 5.25vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-background {
+    top: 0.41vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-steps {
+    gap: 2.95vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) {
+    top: -3.02vw;
+  }
+
+  /* Step 1 */
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(1) .breakpoint-how-it-works-step-content {
+    width: 14.51vw;
+    top: -3.93vw;
+    left: 8.03vw;
+  }
+
+  /* Step 2 */
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) {
+    top: -7.08vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) .breakpoint-how-it-works-step-content {
+    top: -4.51vw;
+    left: 8.61vw;
+    width: 20.74vw;
+  }
+
+  /* Step 3 */
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) {
+    top: -9.79vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) .breakpoint-how-it-works-step-content {
+    top: -4.34vw;
+    left: 8.03vw;
+    width: 24.75vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-number-circle {
+    width: 6.72vw;
+    height: 6.72vw;
+    margin-bottom: 1.31vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-number {
+    font-size: 4.43vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step-heading {
+    font-size: 1.80vw;
+    line-height: 2.46vw;
+    margin-bottom: 1.15vw;
+  }
+
+  .breakpoint-how-it-works-section .breakpoint-how-it-works-step-subheading {
+    font-size: 1.31vw;
+    line-height: 1.97vw;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .breakpoint-how-it-works-section {
     padding: 0 4.62vw;
