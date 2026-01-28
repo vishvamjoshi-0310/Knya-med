@@ -161,11 +161,6 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Hide sticky button when support section is active */
-.breakpoint-banner-sticky-button.is-hidden-by-support {
-  display: none !important;
-}
-
 .breakpoint-banner-sticky-button a {
   display: flex;
   gap: 22px;
@@ -194,48 +189,6 @@
 .breakpoint-banner-sticky-button a svg path {
   stroke: #4949E9;
   transition: stroke 0.3s ease;
-}
-
-/* When text is hidden (between sections) - apply hover styles */
-.breakpoint-banner-sticky-button.text-hidden a {
-  color: #4949E9;
-  transition: color 0.3s ease;
-}
-
-.breakpoint-banner-sticky-button.text-hidden a svg rect {
-  fill: #4949E9;
-}
-
-.breakpoint-banner-sticky-button.text-hidden a svg path {
-  stroke: #FFFFFF;
-}
-
-/* Text Animation Styles */
-.breakpoint-banner-cta-text {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 500px;
-  opacity: 1;
-  transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.3s ease 0.1s,
-              margin-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.breakpoint-banner-cta-text.show-text {
-  max-width: 500px;
-  opacity: 1;
-  margin-right: 0;
-}
-
-.breakpoint-banner-sticky-button a:has(.hide-text) {
-  gap: 0;
-}
-
-.breakpoint-banner-cta-text.hide-text {
-  max-width: 0;
-  opacity: 0;
-  margin-right: -22px;
 }
 
 #anonymous-btn{
@@ -278,12 +231,6 @@
     height: 64px;
     width: 64px;
   }
-  .breakpoint-banner-cta-text.hide-text {
-    margin-right: -16px;
-  }
-  .breakpoint-banner-sticky-button a:has(.hide-text) {
-    gap: 0;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -300,13 +247,6 @@
     height: 60px;
     width: 60px;
   }
-  .breakpoint-banner-cta-text.hide-text {
-    margin-right: -14px;
-  }
-  .breakpoint-banner-sticky-button a:has(.hide-text) {
-    gap: 0;
-  }
-
   #anonymous-btn a{
     gap: 8px;
   }
@@ -318,4 +258,105 @@
     font-size: 16px;
     line-height: 24px;
   }
+}
+
+/* Keyframe animations for sticky CTA */
+@keyframes stickyDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes feelingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes feelingFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+}
+
+/* Base visibility/transition styles for sticky CTAs */
+#anonymous-btn,
+.breakpoint-banner-sticky-button {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* First-time drop-in for anonymous sticky CTA */
+#anonymous-btn.sticky-btn-drop-in {
+  animation: stickyDropIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: auto;
+}
+
+/* Normal visible state for anonymous sticky CTA */
+#anonymous-btn.sticky-btn-original {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Merged state when support CTA is fully visible */
+#anonymous-btn.sticky-btn-merged {
+  opacity: 0;
+  transform: translateY(-12px) scale(0.98);
+  pointer-events: none;
+}
+
+/* Hidden by feeling section state for anonymous CTA */
+#anonymous-btn.sticky-btn-hidden-by-feeling {
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  pointer-events: none;
+}
+
+/* Feeling variant active (cloned banner CTA) */
+.breakpoint-banner-sticky-button.sticky-btn-feeling-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  animation: feelingFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
