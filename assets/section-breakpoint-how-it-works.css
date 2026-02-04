@@ -97,7 +97,7 @@
 .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(2) .breakpoint-how-it-works-step-content {
   position: relative;
   top: -3.82vw;
-  left: 7.29vw;
+  left: 6.8vw;
   width: 17.57vw;
 }
 
@@ -362,6 +362,7 @@
     position: relative;
     width: 60.00vw;
     left: 23.85vw;
+    top: -15vw;
   }
 
   /* Step 3 Mobile Positioning */
@@ -380,7 +381,7 @@
 
   .breakpoint-how-it-works-section .breakpoint-how-it-works-step:nth-child(3) .breakpoint-how-it-works-step-content {
     position: relative;
-    width: 57.69vw;
+    width: 63.4vw;
     top: -14.36vw;
     left: 17.95vw;
   }

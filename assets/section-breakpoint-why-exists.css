@@ -330,16 +330,20 @@
    ============================================ */
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
+
+  /* Section Container */
   .breakpoint-why-exists-section {
     padding: 4.5vw 6vw;
   }
 
+  /* Section Heading */
   .breakpoint-why-exists-section .breakpoint-why-exists-heading {
     font-size: 3vw;
     line-height: 5vw;
     margin-bottom: 3vw;
   }
 
+  /* Right Section */
   .breakpoint-why-exists-section .breakpoint-why-exists-right {
     padding-top: 5.5vw;
   }
@@ -349,20 +353,107 @@
   }
 
   .breakpoint-why-exists-section .breakpoint-why-exists-description-before,
-  .breakpoint-why-exists-section .breakpoint-why-exists-description-after,
+  .breakpoint-why-exists-section .breakpoint-why-exists-description-after {
+    font-size: 2vw;
+    line-height: 2.8vw;
+    margin-bottom: 1vw;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-description-after {
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+  }
+
   .breakpoint-why-exists-section .breakpoint-why-exists-statement {
     font-size: 2vw;
     line-height: 2.8vw;
+    margin-bottom: 3vw;
   }
 
   .breakpoint-why-exists-section .breakpoint-why-exists-link {
     font-size: 2vw;
     line-height: 3vw;
+    gap: 1vw;
   }
 
   .breakpoint-why-exists-section .breakpoint-why-exists-link svg {
     width: 3vw;
     height: 3vw;
+  }
+
+  /* Carousel Container */
+  .breakpoint-why-exists-section .breakpoint-why-exists-slider {
+    height: 40vw;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-slider-wrapper {
+    margin-top: 3.5vw;
+  }
+
+  /* Stat Cards */
+  .breakpoint-why-exists-section .stat-card {
+    width: 30vw;
+    height: 33vw;
+    border-radius: 3.2vw;
+  }
+
+  /* Active Card State */
+  .breakpoint-why-exists-section .stat-card.is-active {
+    transform: scale(1) translateY(0);
+    box-shadow: 0.7vw 0.7vw 3vw 0px #00000033;
+  }
+
+  /* Next Card State */
+  .breakpoint-why-exists-section .stat-card.is-next {
+    transform: scale(0.8) translateY(4vw) translateX(26vw);
+  }
+
+  /* Card Content */
+  .breakpoint-why-exists-section .stat-top-row {
+    margin-left: 4vw;
+    top: 7vw;
+  }
+
+  .breakpoint-why-exists-section .stat-icon-left {
+    margin-right: -2vw;
+    margin-bottom: 3vw;
+  }
+
+  .breakpoint-why-exists-section .stat-number {
+    font-size: 15.5vw;
+  }
+
+  .breakpoint-why-exists-section .stat-meta {
+    height: 11vw;
+    margin-bottom: 3.2vw;
+  }
+
+  .breakpoint-why-exists-section .stat-percent-symbol {
+    font-size: 3.7vw;
+  }
+
+  .breakpoint-why-exists-section .stat-description {
+    top: 20vw;
+    left: 4.5vw;
+    width: 20vw;
+    height: 7vw;
+    font-size: 1.75vw;
+  }
+
+  /* Pagination Dots */
+  .breakpoint-why-exists-section .breakpoint-why-exists-slider-pagination {
+    gap: 0.8vw;
+    margin-top: 2vw;
+  }
+
+  .breakpoint-why-exists-section .breakpoint-why-exists-pagination-dot {
+    width: 0.8vw;
+    height: 0.8vw;
+  }
+
+  /* Background */
+  .breakpoint-why-exists-section .breakpoint-why-exists-background {
+    left: -15%;
   }
 }
 
