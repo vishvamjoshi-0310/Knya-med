@@ -1,1 +1,143 @@
-{"sections":{"main":{"type":"main-account","disabled":true,"settings":{"padding_top":36,"padding_bottom":36}},"1766396813cff8e63d":{"type":"apps","settings":{"include_margins":true}},"17673583541084b17b":{"type":"apps","settings":{"include_margins":true}},"17676162538c2dbf03":{"type":"apps","settings":{"include_margins":true}},"main_account_page_8JPP3F":{"type":"main-account-page","name":"Main Account Page","settings":{"user_profile_image":"shopify:\/\/shop_images\/Frame_427319516_612a1a41-004c-4644-8a45-019f8fba3778.png","user_profile_image_mobile":"shopify:\/\/shop_images\/Group_2_e4a274e1-ba9c-4bd5-aef7-f863ad587cae.png","help_support_link":"https:\/\/knyamed.com\/pages\/exchanges-returns","reorder_url":"https:\/\/knyamed.com\/","return_and_exchange_url":"https:\/\/returns.logisy.tech\/returns?encipherencode=gAAAAABmlRY2MxcXkU9ozThBD6MPxixuF0bFtNPATiotkFL4FPhmcba381GcFb1NrUAxuSoUK6wOduaBrFlDnTORBHQWWEA95w==","chat_support_link":"https:\/\/wa.me\/919987200005?text=Hi%20there,%20can%20you%20help?","terms_policies_link":"https:\/\/knyamed.com\/pages\/terms-and-conditions","empty_orders_image":"shopify:\/\/shop_images\/KANYA9THMAY2022-31672_10_18_51_PM_png_3a25c331-9ea3-4408-bf08-9651147b264f.png","empty_shopnow_link":"https:\/\/knyamed.com\/","track_order_link":"https:\/\/knyamed.clickpost.ai\/en","cancel_order_link":""}},"slider_iVNcjA":{"type":"slider","settings":{"shop-now-cont":"ADD TO CART","show_padding_slidd":false,"pagination":false,"show_secondary_image":false,"show_padding_mob_slidd":false,"shop_collection_text":"","shop_collection_url":"","marginTopslidd":48,"marginBottomslidd":50,"marginTopsliddmob":0,"marginBottomsliddmob":48,"headText":"You May Also like","new-color-bg":"shopify:\/\/shop_images\/Product_card_tag_2x_1.png","secondText":"","collection":"all-ecoflex"}}},"order":["main","1766396813cff8e63d","17673583541084b17b","17676162538c2dbf03","main_account_page_8JPP3F","slider_iVNcjA"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-account",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1766396813cff8e63d": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_points_on_account_page_tCt6QR": {
+          "type": "shopify://apps/smile-io/blocks/smile-points-on-account-page/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "disabled": true,
+          "settings": {
+            "primary_colour": "#482f8f",
+            "secondary_colour": "#f8f8f8",
+            "preview_scenario": "can_afford_reward",
+            "show_icon": true,
+            "show_points_label": true,
+            "cannot_afford_reward_body_text": "",
+            "can_afford_reward_body_text": "<p>You’ve earned [points_balance] Knya Points!</p><p></p>",
+            "ways_to_earn_button_text": "",
+            "ways_to_redeem_button_text": "Redeem Now!"
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_points_on_account_page_tCt6QR"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "17673583541084b17b": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_points_on_account_page_qzY4Xc": {
+          "type": "shopify://apps/smile-io/blocks/smile-points-on-account-page/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "disabled": true,
+          "settings": {
+            "primary_colour": "#482f8f",
+            "secondary_colour": "#f8f8f8",
+            "preview_scenario": "can_afford_reward",
+            "show_icon": true,
+            "show_points_label": true,
+            "cannot_afford_reward_body_text": "",
+            "can_afford_reward_body_text": "<p>You've got [points_balance] Earn more to redeem rewards.<br/><br/></p>",
+            "ways_to_earn_button_text": "",
+            "ways_to_redeem_button_text": "Redeem Now"
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_points_on_account_page_qzY4Xc"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "17676162538c2dbf03": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_points_on_account_page_teamyD": {
+          "type": "shopify://apps/smile-io/blocks/smile-points-on-account-page/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#482f8f",
+            "secondary_colour": "#F8F8F8",
+            "preview_scenario": "can_afford_reward",
+            "show_icon": true,
+            "show_points_label": true,
+            "cannot_afford_reward_body_text": "<p>You’re just one order away from earning your first reward!</p>",
+            "can_afford_reward_body_text": "<p>You've got [points_balance]! Earn more to redeem rewards.</p>",
+            "ways_to_earn_button_text": "Earn Now",
+            "ways_to_redeem_button_text": "Redeem Now"
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_points_on_account_page_teamyD"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main_account_page_8JPP3F": {
+      "type": "main-account-page",
+      "name": "Main Account Page",
+      "settings": {
+        "user_profile_image": "shopify://shop_images/Frame_427319516_612a1a41-004c-4644-8a45-019f8fba3778.png",
+        "user_profile_image_mobile": "shopify://shop_images/Group_2_e4a274e1-ba9c-4bd5-aef7-f863ad587cae.png",
+        "help_support_link": "https://knyamed.com/pages/exchanges-returns",
+        "reorder_url": "https://knyamed.com/",
+        "return_and_exchange_url": "https://returns.logisy.tech/returns?encipherencode=gAAAAABmlRY2MxcXkU9ozThBD6MPxixuF0bFtNPATiotkFL4FPhmcba381GcFb1NrUAxuSoUK6wOduaBrFlDnTORBHQWWEA95w==",
+        "chat_support_link": "https://wa.me/919987200005?text=Hi%20there,%20can%20you%20help?",
+        "terms_policies_link": "https://knyamed.com/pages/terms-and-conditions",
+        "empty_orders_image": "shopify://shop_images/KANYA9THMAY2022-31672_10_18_51_PM_png_3a25c331-9ea3-4408-bf08-9651147b264f.png",
+        "empty_shopnow_link": "https://knyamed.com/",
+        "track_order_link": "https://knyamed.clickpost.ai/en",
+        "cancel_order_link": ""
+      }
+    },
+    "slider_iVNcjA": {
+      "type": "slider",
+      "settings": {
+        "shop-now-cont": "ADD TO CART",
+        "show_padding_slidd": false,
+        "pagination": false,
+        "show_secondary_image": false,
+        "show_padding_mob_slidd": false,
+        "shop_collection_text": "",
+        "shop_collection_url": "",
+        "marginTopslidd": 48,
+        "marginBottomslidd": 50,
+        "marginTopsliddmob": 0,
+        "marginBottomsliddmob": 48,
+        "headText": "You May Also like",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
+        "secondText": "",
+        "collection": "all-ecoflex"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1766396813cff8e63d",
+    "17673583541084b17b",
+    "17676162538c2dbf03",
+    "main_account_page_8JPP3F",
+    "slider_iVNcjA"
+  ]
+}

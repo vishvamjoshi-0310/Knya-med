@@ -73,6 +73,12 @@
             "Engravingbullets": "<ul><li>Engraving orders take an additional 3-5 business days for dispatch.</li><li>Since they are customized just for you, engraved items are not eligible for return or exchange.</li></ul>"
           }
         },
+        "kite_discount_free_gift_app_block_vol_discount_DXnWPt": {
+          "type": "shopify://apps/kite-discount-free-gift/blocks/app-block-volDiscount/2c7302c4-455d-4078-a829-48563ba26089",
+          "settings": {
+            "blockId": "block-id"
+          }
+        },
         "customtext_msg_AGeA4y": {
           "type": "customtextMsg",
           "disabled": true,
@@ -84,6 +90,31 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false
+          }
+        },
+        "icon_with_text_QjLE4R": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "image_1": "shopify://shop_images/Express_shippingbox.svg",
+            "heading_1": "1-3 Day express shipping",
+            "image_2": "shopify://shop_images/icon_1_f0e57eed-4e48-4887-9642-73164e09e46f.svg",
+            "heading_2": "Easy exchange & returns",
+            "image_3": "shopify://shop_images/icon_7aa98b84-a9c3-4d72-ae77-fe0a561dff2b.svg",
+            "heading_3": "COD Available"
+          }
+        },
+        "offer_JxBhcn": {
+          "type": "offer",
+          "disabled": true,
+          "settings": {
+            "headingoffer": "We are Offering",
+            "offer1": "Flat ₹50 Off##On Order Above ##₹1499##SAVE50",
+            "offer2": "Flat ₹100 Off##On Order Above ##₹1999##SAVE100",
+            "offer3": "Flat ₹150 Off##On Order Above ##₹2499##SAVE150",
+            "offer4": "Flat ₹200 Off##On Order Above ##₹2999##SAVE200",
+            "offer5": "",
+            "offer6": ""
           }
         },
         "estimated_delivery_date_cp_clickpost_edd_9WqyUK": {
@@ -111,38 +142,6 @@
             "helping_text": "",
             "padding_top": 0,
             "padding_bottom": 0
-          }
-        },
-        "icon_with_text_QjLE4R": {
-          "type": "icon-with-text",
-          "disabled": true,
-          "settings": {
-            "layout": "horizontal",
-            "image_1": "shopify://shop_images/Express_shippingbox.svg",
-            "heading_1": "1-3 Day express shipping",
-            "image_2": "shopify://shop_images/icon_1_f0e57eed-4e48-4887-9642-73164e09e46f.svg",
-            "heading_2": "Easy exchange & returns",
-            "image_3": "shopify://shop_images/icon_7aa98b84-a9c3-4d72-ae77-fe0a561dff2b.svg",
-            "heading_3": "COD Available"
-          }
-        },
-        "kite_discount_free_gift_app_block_vol_discount_DXnWPt": {
-          "type": "shopify://apps/kite-discount-free-gift/blocks/app-block-volDiscount/2c7302c4-455d-4078-a829-48563ba26089",
-          "settings": {
-            "blockId": "block-id"
-          }
-        },
-        "offer_JxBhcn": {
-          "type": "offer",
-          "disabled": true,
-          "settings": {
-            "headingoffer": "We are Offering",
-            "offer1": "Flat ₹50 Off##On Order Above ##₹1499##SAVE50",
-            "offer2": "Flat ₹100 Off##On Order Above ##₹1999##SAVE100",
-            "offer3": "Flat ₹150 Off##On Order Above ##₹2499##SAVE150",
-            "offer4": "Flat ₹200 Off##On Order Above ##₹2999##SAVE200",
-            "offer5": "",
-            "offer6": ""
           }
         },
         "pincode_checker_dFnWJg": {
@@ -249,12 +248,12 @@
         "variant_picker",
         "quantity_selector",
         "engraving_iAzktz",
+        "kite_discount_free_gift_app_block_vol_discount_DXnWPt",
         "customtext_msg_AGeA4y",
         "buy_buttons",
-        "estimated_delivery_date_cp_clickpost_edd_9WqyUK",
         "icon_with_text_QjLE4R",
-        "kite_discount_free_gift_app_block_vol_discount_DXnWPt",
         "offer_JxBhcn",
+        "estimated_delivery_date_cp_clickpost_edd_9WqyUK",
         "pincode_checker_dFnWJg",
         "productfeature_6neaeN",
         "knya_description_GdmCWC",

@@ -458,9 +458,19 @@
         "disabled": false,
         "settings": {}
       },
+      "1173261918193615741": {
+        "type": "shopify://apps/geo-pro-geolocation/blocks/geopro/16fc5313-7aee-4e90-ac95-f50fc7c8b657",
+        "disabled": false,
+        "settings": {}
+      },
+      "14591349720731162389": {
+        "type": "shopify://apps/koin/blocks/app-embed/02895843-ca31-4ee5-82a1-bfd81a36a58d",
+        "disabled": false,
+        "settings": {}
+      },
       "14403025053867589211": {
         "type": "shopify://apps/mobile-app-builder-appbrew/blocks/download-banner/2879e6c8-bdd2-4938-9f0b-cfba31d8616b",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "textColour": "#000000",
           "backgroundColour": "#f8f5f5",
@@ -481,16 +491,6 @@
           "desktopTextColour": "#f8f5f5",
           "desktopBackgroundColour": "#000000"
         }
-      },
-      "1173261918193615741": {
-        "type": "shopify://apps/geo-pro-geolocation/blocks/geopro/16fc5313-7aee-4e90-ac95-f50fc7c8b657",
-        "disabled": false,
-        "settings": {}
-      },
-      "14591349720731162389": {
-        "type": "shopify://apps/koin/blocks/app-embed/02895843-ca31-4ee5-82a1-bfd81a36a58d",
-        "disabled": false,
-        "settings": {}
       }
     }
   },

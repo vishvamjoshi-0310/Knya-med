@@ -1,10 +1,19 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "445dbe9e-db13-4d5d-87e6-daa3d474be6a": {
       "type": "blog-landing-page-banner",
       "settings": {
-        "backgroundImage1": "shopify:\/\/shop_images\/Blog-Landing-Page-Top-banner-1920x466-purple.jpg",
-        "backgroundImage2": "shopify:\/\/shop_images\/Blog-Landing-Page-Top-banner-600x400-purple.jpg",
+        "backgroundImage1": "shopify://shop_images/Blog-Landing-Page-Top-banner-1920x466-purple.jpg",
+        "backgroundImage2": "shopify://shop_images/Blog-Landing-Page-Top-banner-600x400-purple.jpg",
         "subtitle": "Stories From Our Community",
         "padding_top": 0,
         "padding_bottom": 0
@@ -35,7 +44,7 @@
       "settings": {
         "showcustomblog": false,
         "image_height1": "medium",
-        "bg-img-article1": "shopify:\/\/shop_images\/Product_card_tag_2.png",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
         "show_image1": true,
         "show_date1": true,
         "show_author1": true,
@@ -81,7 +90,7 @@
         "marginTopslidd": 0,
         "marginTopsliddmob": 0,
         "headText": "In the spotlight",
-        "new-color-bg": "shopify:\/\/shop_images\/Product_card_tag_2x_1.png",
+        "new-color-bg": "shopify://shop_images/Product_card_tag_2x_1.png",
         "secondText": "Shop our bestsellers",
         "collection": "all-mens-scrubs"
       }

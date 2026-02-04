@@ -87,6 +87,13 @@
             "show_dynamic_checkout": false
           }
         },
+        "koin_promotion_widget_tRwRc9": {
+          "type": "shopify://apps/koin/blocks/promotion_widget/02895843-ca31-4ee5-82a1-bfd81a36a58d",
+          "settings": {
+            "product": "{{product}}",
+            "form": ""
+          }
+        },
         "icon_with_text_QjLE4R": {
           "type": "icon-with-text",
           "settings": {
@@ -260,6 +267,7 @@
         "quantity_selector",
         "embroidery_gcCW7P",
         "buy_buttons",
+        "koin_promotion_widget_tRwRc9",
         "icon_with_text_QjLE4R",
         "estimated_delivery_date_cp_clickpost_edd_TByVKY",
         "offer_GtDd6B",

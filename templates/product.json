@@ -59,6 +59,13 @@
             "show_dynamic_checkout": false
           }
         },
+        "koin_promotion_widget_fQMFCj": {
+          "type": "shopify://apps/koin/blocks/promotion_widget/02895843-ca31-4ee5-82a1-bfd81a36a58d",
+          "settings": {
+            "product": "{{product}}",
+            "form": ""
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -137,7 +144,22 @@
             "padding_bottom": 0
           }
         },
-        "koin_promotion_widget_fQMFCj": {
+        "koin_promotion_widget_yV4ddV": {
+          "type": "shopify://apps/koin/blocks/promotion_widget/02895843-ca31-4ee5-82a1-bfd81a36a58d",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "form": ""
+          }
+        },
+        "koin_promotion_widget_eFUcbx": {
+          "type": "shopify://apps/koin/blocks/promotion_widget/02895843-ca31-4ee5-82a1-bfd81a36a58d",
+          "settings": {
+            "product": "{{product}}",
+            "form": ""
+          }
+        },
+        "koin_promotion_widget_cCg3ba": {
           "type": "shopify://apps/koin/blocks/promotion_widget/02895843-ca31-4ee5-82a1-bfd81a36a58d",
           "settings": {
             "product": "{{product}}",
@@ -153,6 +175,7 @@
         "quantity_selector",
         "kite_discount_free_gift_app_block_vol_discount_gbcAYK",
         "buy_buttons",
+        "koin_promotion_widget_fQMFCj",
         "description",
         "collapsible-row-0",
         "collapsible-row-1",
@@ -160,7 +183,9 @@
         "collapsible-row-3",
         "share",
         "estimated_delivery_date_cp_clickpost_edd_MqXn8G",
-        "koin_promotion_widget_fQMFCj"
+        "koin_promotion_widget_yV4ddV",
+        "koin_promotion_widget_eFUcbx",
+        "koin_promotion_widget_cCg3ba"
       ],
       "settings": {
         "bg-readmore-default": "shopify://shop_images/Vector_8_c38b4c41-8d23-44c8-b6b6-1fef4d867b18.png",

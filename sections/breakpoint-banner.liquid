@@ -1,41 +1,11 @@
 {{ 'section-breakpoint-banner.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'breakpoint-sticky-button.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'breakpoint-banner-rope.js' | asset_url }}" defer="defer"></script>
 
 <section id="BreakpointBanner-{{ section.id }}" class="breakpoint-banner-section">
   <div class="breakpoint-banner-parent">
-    {%- if section.settings.background_image_desktop != blank or section.settings.background_image_mobile != blank -%}
-      <picture class="breakpoint-banner-bg">
-        {%- if section.settings.background_image_mobile != blank -%}
-          <source
-            media="(max-width: 768px)"
-            srcset="{{ section.settings.background_image_mobile | image_url: width: 800 }}"
-          >
-        {%- endif -%}
-        {%- if section.settings.background_image_desktop != blank -%}
-          <source
-            media="(min-width: 769px)"
-            srcset="{{ section.settings.background_image_desktop | image_url: width: 2000 }}"
-          >
-        {%- endif -%}
-        {%- liquid
-          if section.settings.background_image_desktop != blank
-            assign bg_image = section.settings.background_image_desktop
-            assign bg_width = 2000
-          else
-            assign bg_image = section.settings.background_image_mobile
-            assign bg_width = 800
-          endif
-          assign bg_height = bg_width | divided_by: bg_image.aspect_ratio | round
-        -%}
-        <img
-          loading="lazy"
-          src="{{ bg_image | image_url: width: bg_width }}"
-          width="{{ bg_width }}"
-          height="{{ bg_height }}"
-          alt="{{ bg_image.alt | escape }}"
-        >
-      </picture>
-    {%- endif -%}
+    {%- comment -%} Interactive Rope Canvas Background {%- endcomment -%}
+    <canvas id="ropeCanvas" class="breakpoint-banner-rope-canvas"></canvas>
 
     <div class="breakpoint-banner-content">
       {%- if section.settings.title_svg != blank -%}
@@ -52,9 +22,12 @@
     </div>
 
     <div class="breakpoint-banner-mobile-button">
-        {%- if section.settings.cta_text != blank or section.settings.cta_icon_svg != blank -%}
-            <a href="{{ section.settings.cta_link }}" class="breakpoint-banner-cta"><span class="breakpoint-banner-cta-text">{{ section.settings.cta_text }}</span> {{ section.settings.cta_icon_svg }}</a>
-        {%- endif -%}
+      {%- if section.settings.cta_text != blank or section.settings.cta_icon_svg != blank -%}
+        <a href="{{ section.settings.cta_link }}" class="breakpoint-banner-cta"
+          ><span class="breakpoint-banner-cta-text">{{ section.settings.cta_text }}</span>
+          {{ section.settings.cta_icon_svg -}}
+        </a>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -74,20 +47,6 @@
   "tag": "section",
   "class": "section",
   "settings": [
-    {
-      "type": "header",
-      "content": "Background Images"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image_desktop",
-      "label": "Desktop Background Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image_mobile",
-      "label": "Mobile Background Image"
-    },
     {
       "type": "header",
       "content": "Content"

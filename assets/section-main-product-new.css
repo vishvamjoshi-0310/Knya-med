@@ -470,7 +470,7 @@ fieldset.product-form__input .form__label {
   background-color: rgba(var(--color-background), 0.3);
 }
 
-.product-form__input input[type="radio"]:disabled + label {
+.product-form__input input[type="radio"]:disabled + label:not(.custom-swatch) {
   border-color: rgba(var(--color-foreground), 0.1);
   color: rgba(var(--color-foreground), 0.4);
   text-decoration: line-through;
@@ -2009,6 +2009,11 @@ span.varient-title-color.nhb {
   pointer-events: none;
 }
 .size_varient1[data-available="false"] + label {
+  opacity: 0.2 !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+.size_varient2[data-available="false"] + label {
   opacity: 0.2 !important;
   cursor: not-allowed !important;
   pointer-events: none;

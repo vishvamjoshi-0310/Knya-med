@@ -86,6 +86,13 @@
             "show_dynamic_checkout": false
           }
         },
+        "koin_promotion_widget_kBTfMz": {
+          "type": "shopify://apps/koin/blocks/promotion_widget/02895843-ca31-4ee5-82a1-bfd81a36a58d",
+          "settings": {
+            "product": "{{product}}",
+            "form": ""
+          }
+        },
         "offer_7BHHwA": {
           "type": "offer",
           "disabled": true,
@@ -260,6 +267,7 @@
         "embroidery_gcCW7P",
         "customtext_msg_AGeA4y",
         "buy_buttons",
+        "koin_promotion_widget_kBTfMz",
         "offer_7BHHwA",
         "kite_discount_free_gift_app_block_vol_discount_H9zaVY",
         "icon_with_text_QjLE4R",

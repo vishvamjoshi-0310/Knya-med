@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -25,8 +34,7 @@
         },
         "content": {
           "type": "content",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -35,8 +43,7 @@
         "share",
         "content"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "f24448c3-ebcb-48c9-95ce-af5ab26fb772": {
       "type": "blog-faq-section",
@@ -50,7 +57,7 @@
       "type": "blog-tag-other-section",
       "settings": {
         "image_height1": "medium",
-        "bg-img-article1": "shopify:\/\/shop_images\/Product_card_tag_2.png",
+        "bg-img-article1": "shopify://shop_images/Product_card_tag_2.png",
         "show_image1": true,
         "show_date1": true,
         "show_author1": true,

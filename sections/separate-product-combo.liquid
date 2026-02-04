@@ -2393,76 +2393,42 @@ if (window.allVariantIds && (window.allVariantIds['top_variant-price'] || window
 }
 
 window.disabledUnavailableVariant = function(variantDataEls, productGroup) {
-  const variantMap = {};
+  const variants = [];
   variantDataEls.forEach(el => {
-    const title = el.getAttribute("variant_title").trim(); 
-    const available = el.getAttribute("available") === "true";
-    variantMap[title] = available;
+    const title = (el.getAttribute("variant_title") || "").trim();
+    if (!title) return;
+    variants.push({
+      options: title.split(" / ").map(part => part.trim()),
+      available: el.getAttribute("available") === "true",
+    });
   });
 
-  // Get all input elements for the product group
-  const allInputs = document.querySelectorAll(`.${productGroup} input`);
-  
-  allInputs.forEach(input => {
-    // Check if this specific input value has any available variants
-    let available = false;
-    
-    // Check for single option variants first
-    if (variantMap[input.value]) {
-      available = true;
-    }
-    
-    // If not available as single option, check if it can be part of any valid combination
-    if (!available) {
-      // Get all possible values for this product group
-      const fieldsets = document.querySelectorAll(`.swatch-cust.${productGroup}`);
-      const allValues = [];
-      
-      fieldsets.forEach(fieldset => {
-        const inputs = fieldset.querySelectorAll('input');
-        inputs.forEach(inp => {
-          if (inp.value && !allValues.includes(inp.value)) {
-            allValues.push(inp.value);
-          }
-        });
+  const fieldsets = Array.from(document.querySelectorAll(`.swatch-cust.${productGroup}`));
+  if (!fieldsets.length) return;
+
+  const selectedValues = fieldsets.map(fieldset => {
+    const checked = fieldset.querySelector("input:checked");
+    return checked ? checked.value : null;
+  });
+
+  fieldsets.forEach((fieldset, fieldsetIndex) => {
+    const inputs = Array.from(fieldset.querySelectorAll("input"));
+    inputs.forEach(input => {
+      const candidateValue = input.value;
+      const isAvailable = variants.some(variant => {
+        if (!variant.available) return false;
+        if (!variant.options[fieldsetIndex]) return false;
+        if (variant.options[fieldsetIndex] !== candidateValue) return false;
+        for (let i = 0; i < selectedValues.length; i++) {
+          if (i === fieldsetIndex) continue;
+          if (selectedValues[i] && variant.options[i] !== selectedValues[i]) return false;
+        }
+        return true;
       });
-      
-      // Check if this input can be part of any valid combination
-      for (const otherValue of allValues) {
-        if (otherValue !== input.value) {
-          const combination1 = `${input.value} / ${otherValue}`;
-          const combination2 = `${otherValue} / ${input.value}`;
-          if (variantMap[combination1] || variantMap[combination2]) {
-            available = true;
-            break;
-          }
-        }
-      }
-    }
-    
-    // Check if there are any selections made
-    const hasSelections = document.querySelectorAll(`.${productGroup} input:checked`).length > 0;
-    
-    // If no selections are made yet, check if this option is available in any variant
-    if (!hasSelections) {
-      // For initial load, only enable options that are actually available
-      // Check if this option appears in any available variant
-      let optionAvailable = false;
-      for (const [variantTitle, isAvailable] of Object.entries(variantMap)) {
-        if (isAvailable && variantTitle.includes(input.value)) {
-          optionAvailable = true;
-          break;
-        }
-      }
-      available = optionAvailable;
-    }
-    
-    input.dataset.available = available ? "true" : "false";
-    
-    // Debug logging for unavailable options
-    if (!available) {
-      console.log(`Disabled option: ${input.value} in ${productGroup} - not available in any variant`);
-    }
+
+      input.dataset.available = isAvailable ? "true" : "false";
+      input.disabled = !isAvailable;
+    });
   });
 };
 // top sync

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -13,9 +22,9 @@
       "settings": {
         "ecoflex_banner": false,
         "ecoflex_banner_mob": false,
-        "eco-top-url": "shopify:\/\/collections\/all",
-        "banner_logo_image": "shopify:\/\/shop_images\/interncore_landing_Page_Banner_23c54d4d-b7b5-439f-83b4-4dd001ea948f.jpg",
-        "mobile_banner_logo_image": "shopify:\/\/shop_images\/interncore_landing_Page_Banner_mob.jpg"
+        "eco-top-url": "shopify://collections/all",
+        "banner_logo_image": "shopify://shop_images/interncore_landing_Page_Banner_23c54d4d-b7b5-439f-83b4-4dd001ea948f.jpg",
+        "mobile_banner_logo_image": "shopify://shop_images/interncore_landing_Page_Banner_mob.jpg"
       }
     },
     "eb9c6599-8d10-41de-aa3c-4f0352290783": {
@@ -24,8 +33,8 @@
       "settings": {
         "behind_ourscrub": false,
         "behind_ourscrub_mob": false,
-        "our_scrub_video_Desktop": "shopify:\/\/files\/videos\/7th June_Aboutusanimation_desktop.mp4",
-        "our_scrub_video_mobile": "shopify:\/\/files\/videos\/7th June_Aboutusanimation_phone.mp4",
+        "our_scrub_video_Desktop": "shopify://files/videos/7th June_Aboutusanimation_desktop.mp4",
+        "our_scrub_video_mobile": "shopify://files/videos/7th June_Aboutusanimation_phone.mp4",
         "margintop_onscrub": 0
       }
     },
@@ -35,8 +44,8 @@
         "4f19ac1f-696a-4794-a795-d03da24aba91": {
           "type": "slider",
           "settings": {
-            "howwe_focus_image_desktop": "shopify:\/\/shop_images\/1_ce2fe1f3-f328-43fc-a813-26e539799b06.jpg",
-            "howwe_focus_image_mobile": "shopify:\/\/shop_images\/1_5b53cef7-045a-4a85-a4a6-01fb3ab406ce.jpg",
+            "howwe_focus_image_desktop": "shopify://shop_images/1_ce2fe1f3-f328-43fc-a813-26e539799b06.jpg",
+            "howwe_focus_image_mobile": "shopify://shop_images/1_5b53cef7-045a-4a85-a4a6-01fb3ab406ce.jpg",
             "card_title": "Classic",
             "card_Description": "As an intern, you need pockets.We know that.Carry all you want, keep them organised,with upto 10 pockets in these crowd favourite scrubs!"
           }
@@ -44,8 +53,8 @@
         "c20b59f9-2cbb-47a8-ba2b-ed107a766224": {
           "type": "slider",
           "settings": {
-            "howwe_focus_image_desktop": "shopify:\/\/shop_images\/2_f7bdc52f-b940-4a56-86f0-898676a586bb.jpg",
-            "howwe_focus_image_mobile": "shopify:\/\/shop_images\/2_3ed7adcc-0e69-4687-927f-2d99a5e7add5.jpg",
+            "howwe_focus_image_desktop": "shopify://shop_images/2_f7bdc52f-b940-4a56-86f0-898676a586bb.jpg",
+            "howwe_focus_image_mobile": "shopify://shop_images/2_3ed7adcc-0e69-4687-927f-2d99a5e7add5.jpg",
             "card_title": "Ecoflex",
             "card_Description": "Leave a good first impressionduring your internship with scrubs that stretch four directions, does not wrinkle, and does not smell bad even after a 24 hour shift!"
           }
@@ -53,8 +62,8 @@
         "5c1411a1-f610-4dd8-ad82-1d6c17e6ed3f": {
           "type": "slider",
           "settings": {
-            "howwe_focus_image_desktop": "shopify:\/\/shop_images\/3_31b545f2-54c4-490b-b5ed-716e6888329d.jpg",
-            "howwe_focus_image_mobile": "shopify:\/\/shop_images\/3_9ee38326-57d6-4e58-bd42-6641498fcced.jpg",
+            "howwe_focus_image_desktop": "shopify://shop_images/3_31b545f2-54c4-490b-b5ed-716e6888329d.jpg",
+            "howwe_focus_image_mobile": "shopify://shop_images/3_9ee38326-57d6-4e58-bd42-6641498fcced.jpg",
             "card_title": "Ecoflex Lite",
             "card_Description": "Made of fabric that’s light. It makes your internship feel light. With a 2-way stretch, these scrubs feel so good, you wouldn’t want to get out of them"
           }
@@ -65,9 +74,7 @@
         "c20b59f9-2cbb-47a8-ba2b-ed107a766224",
         "5c1411a1-f610-4dd8-ad82-1d6c17e6ed3f"
       ],
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "margintop_focuson_you": 0,
         "main_heading": "Explore Our Collections",
@@ -84,7 +91,7 @@
         "marginTopabtvid": 0,
         "marginTopmobabtvid": 60,
         "over-text-abt": "The minds behind our scrubs",
-        "desk-vid-abt": "shopify:\/\/files\/videos\/Behind the Scenes_ How Abhijeet Kaji Turned His Idea into Reality with Knya Scrubs.mp4",
+        "desk-vid-abt": "shopify://files/videos/Behind the Scenes_ How Abhijeet Kaji Turned His Idea into Reality with Knya Scrubs.mp4",
         "you_tube_vid_abtUs": "ubAaEn0apug",
         "vid_or_yvid": "YouTubeVideo"
       }
@@ -96,67 +103,67 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/Personalised_Embroidery_1x_1.png"
+            "brandImage": "shopify://shop_images/Personalised_Embroidery_1x_1.png"
           }
         },
         "cb78a643-051f-417e-beed-9693c13ee045": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/fortis.png"
+            "brandImage": "shopify://shop_images/fortis.png"
           }
         },
         "b4eb6489-87ac-42fb-bb00-81fc896ce161": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/global-hospital.png"
+            "brandImage": "shopify://shop_images/global-hospital.png"
           }
         },
         "06d99c00-05f2-49da-b04e-c616b5dcd4d2": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/hinduja.png"
+            "brandImage": "shopify://shop_images/hinduja.png"
           }
         },
         "1464162f-0d35-458b-a66a-7c48eeff2c7c": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/jaslok.png"
+            "brandImage": "shopify://shop_images/jaslok.png"
           }
         },
         "f338692b-b00d-46c2-ac57-dcfe6dfedd5c": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/jupiter-hospital.png"
+            "brandImage": "shopify://shop_images/jupiter-hospital.png"
           }
         },
         "1eb5a270-7a83-4c19-b1ee-6ec73868adee": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/nanavati.png"
+            "brandImage": "shopify://shop_images/nanavati.png"
           }
         },
         "5ad73935-d74d-4633-998c-a09068751b07": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/narayana-health.png"
+            "brandImage": "shopify://shop_images/narayana-health.png"
           }
         },
         "e2e878ee-432c-4dbc-87b0-c14f5151318d": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/riliance.png"
+            "brandImage": "shopify://shop_images/riliance.png"
           }
         },
         "3c950962-fc2e-4be6-8099-30c12503a366": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/riliance-foundation.png"
+            "brandImage": "shopify://shop_images/riliance-foundation.png"
           }
         },
         "e69a8542-367a-431a-ad5c-fa6291a6b5b5": {
           "type": "text",
           "settings": {
-            "brandImage": "shopify:\/\/shop_images\/wockhardt.png"
+            "brandImage": "shopify://shop_images/wockhardt.png"
           }
         }
       },
@@ -216,35 +223,35 @@
           "type": "pointers",
           "settings": {
             "pointers": "We manufacture all our products locally across 10 factories in Maharashtra.",
-            "desktop_image": "shopify:\/\/shop_images\/250x250px-Dr-Shivani-Agarwal-OBGYN-Resident_b2b80249-328c-4def-8586-69e27aea3814.jpg"
+            "desktop_image": "shopify://shop_images/250x250px-Dr-Shivani-Agarwal-OBGYN-Resident_b2b80249-328c-4def-8586-69e27aea3814.jpg"
           }
         },
         "74d883b7-a353-4d8b-afa7-03fd4ef820b7": {
           "type": "pointers",
           "settings": {
             "pointers": "At each factory, we employ up to 200 trained individuals.",
-            "desktop_image": "shopify:\/\/shop_images\/250x250px-Dr-Hardik-Pawar--Orthopaedic_70d2b07e-2a87-476c-accd-e27ce71425db.jpg"
+            "desktop_image": "shopify://shop_images/250x250px-Dr-Hardik-Pawar--Orthopaedic_70d2b07e-2a87-476c-accd-e27ce71425db.jpg"
           }
         },
         "94f1b70e-7379-46b0-9d81-63e1b56b6597": {
           "type": "pointers",
           "settings": {
             "pointers": "Our aim is to compensate every worker fairly, and boost their productivity.",
-            "desktop_image": "shopify:\/\/shop_images\/250x250px-Dr-Prateek-Makwana-Fertility-Specialist_a197c02e-7b83-4940-9671-8086c30a1ba4.jpg"
+            "desktop_image": "shopify://shop_images/250x250px-Dr-Prateek-Makwana-Fertility-Specialist_a197c02e-7b83-4940-9671-8086c30a1ba4.jpg"
           }
         },
         "758d59fb-e6f2-4f82-8eb7-2af5b1865070": {
           "type": "pointers",
           "settings": {
             "pointers": "As we grow, it is our promise to you that we will continue to find more avenues to contribute to the local economy in socially just ways.",
-            "desktop_image": "shopify:\/\/shop_images\/250x250px-Hema-Rawat-RN-_Registered-Nurse_3b45a6ee-e518-4fa4-9d0b-5e78859cdbef.jpg"
+            "desktop_image": "shopify://shop_images/250x250px-Hema-Rawat-RN-_Registered-Nurse_3b45a6ee-e518-4fa4-9d0b-5e78859cdbef.jpg"
           }
         },
         "067196eb-bb50-43ce-946e-4c6e35c4f00e": {
           "type": "pointers",
           "settings": {
             "pointers": "",
-            "desktop_image": "shopify:\/\/shop_images\/250x250px-Dr-Romain-Rajan-MBBS_dc02b3d2-954a-436f-8f0d-af15701b79d2.jpg"
+            "desktop_image": "shopify://shop_images/250x250px-Dr-Romain-Rajan-MBBS_dc02b3d2-954a-436f-8f0d-af15701b79d2.jpg"
           }
         }
       },
@@ -274,12 +281,12 @@
         "marginBottomfull": 0,
         "marginTopfullmob": 0,
         "marginBottomfullmob": 0,
-        "desk-img": "shopify:\/\/shop_images\/Desktop_Banner_with_Text.png",
-        "mob-img": "shopify:\/\/shop_images\/Mobile_Banner_with_Text.png",
+        "desk-img": "shopify://shop_images/Desktop_Banner_with_Text.png",
+        "mob-img": "shopify://shop_images/Mobile_Banner_with_Text.png",
         "headerText": "",
         "second": "",
         "shopNow": "",
-        "shopNowurl": "https:\/\/forms.office.com\/Pages\/ResponsePage.aspx?id=SmYqZN04j0uF1LfYx9s2BkyPlk30tr5DqmkOvq8MQxhUMFhTRzJUVlZZRzk4N1RVQ1NDWlRBVUQzSy4u"
+        "shopNowurl": "https://forms.office.com/Pages/ResponsePage.aspx?id=SmYqZN04j0uF1LfYx9s2BkyPlk30tr5DqmkOvq8MQxhUMFhTRzJUVlZZRzk4N1RVQ1NDWlRBVUQzSy4u"
       }
     },
     "860eea27-7f79-4a64-b710-0ad3a72ffd8f": {
@@ -289,52 +296,52 @@
           "type": "text",
           "settings": {
             "textBelowLogo": "How technology is democratising healthcare",
-            "urlNews": "https:\/\/timesofindia.indiatimes.com\/blogs\/voices\/how-technology-is-democratising-healthcare\/",
+            "urlNews": "https://timesofindia.indiatimes.com/blogs/voices/how-technology-is-democratising-healthcare/",
             "ReadMore": "READ MORE"
           }
         },
         "c6ba6b38-b784-4fb5-9606-45a8532c76e3": {
           "type": "text",
           "settings": {
-            "logoImage": "shopify:\/\/shop_images\/Daink_Jagran_578f88d2-089f-4182-8913-dadbc2980693.png",
+            "logoImage": "shopify://shop_images/Daink_Jagran_578f88d2-089f-4182-8913-dadbc2980693.png",
             "textBelowLogo": "National Doctor's Day 2022: नेशनल डॉक्टर्स डे पर भेजें ये शुभकामना संदेश",
-            "urlNews": "https:\/\/www.jagran.com\/lifestyle\/miscellaneous-national-doctors-day-2022-national-doctors-day-wishes-inspirational-quotes-slogans-in-hindi-whatsapp-stickers-facebook-status-22852397.html",
+            "urlNews": "https://www.jagran.com/lifestyle/miscellaneous-national-doctors-day-2022-national-doctors-day-wishes-inspirational-quotes-slogans-in-hindi-whatsapp-stickers-facebook-status-22852397.html",
             "ReadMore": "READ MORE"
           }
         },
         "9acbda0f-f4c3-492f-b330-559af7751e7d": {
           "type": "text",
           "settings": {
-            "logoImage": "shopify:\/\/shop_images\/Economic_Times_c3084695-b663-4d59-b006-ee1820deecbe.png",
+            "logoImage": "shopify://shop_images/Economic_Times_c3084695-b663-4d59-b006-ee1820deecbe.png",
             "textBelowLogo": "The Evolution of Medical Apparel in India",
-            "urlNews": "https:\/\/health.economictimes.indiatimes.com\/amp\/news\/industry\/the-evolution-of-medical-apparel-in-india\/92663873",
+            "urlNews": "https://health.economictimes.indiatimes.com/amp/news/industry/the-evolution-of-medical-apparel-in-india/92663873",
             "ReadMore": "READ MORE"
           }
         },
         "b89a75c0-9f3a-47db-83e9-ea36026bc722": {
           "type": "text",
           "settings": {
-            "logoImage": "shopify:\/\/shop_images\/The_Better_India_c6a4e1e5-4e77-48ed-8845-48c0b5c045fb.png",
+            "logoImage": "shopify://shop_images/The_Better_India_c6a4e1e5-4e77-48ed-8845-48c0b5c045fb.png",
             "textBelowLogo": "Duo Makes Eco-Friendly, Durable Scrubs For Doctors; Supplies To 500 Medical Institutions",
-            "urlNews": "https:\/\/www-thebetterindia-com.cdn.ampproject.org\/c\/s\/www.thebetterindia.com\/273523\/knya-med-couple-makes-eco-friendly-recycled-polyester-scrubs-for-doctors\/amp\/",
+            "urlNews": "https://www-thebetterindia-com.cdn.ampproject.org/c/s/www.thebetterindia.com/273523/knya-med-couple-makes-eco-friendly-recycled-polyester-scrubs-for-doctors/amp/",
             "ReadMore": "READ MORE"
           }
         },
         "35f3c195-977f-4181-8fc6-a60625e70e38": {
           "type": "text",
           "settings": {
-            "logoImage": "shopify:\/\/shop_images\/Express_Healthcare_aea39551-c6ea-43fa-ab7d-039d2fad1bf3.png",
+            "logoImage": "shopify://shop_images/Express_Healthcare_aea39551-c6ea-43fa-ab7d-039d2fad1bf3.png",
             "textBelowLogo": "Changing dynamics of the medical apparels industry in India",
-            "urlNews": "https:\/\/www.expresshealthcare.in\/news\/changing-dynamics-of-the-medical-apparels-industry-in-india\/435271\/",
+            "urlNews": "https://www.expresshealthcare.in/news/changing-dynamics-of-the-medical-apparels-industry-in-india/435271/",
             "ReadMore": "READ MORE"
           }
         },
         "7cfb5e11-54c5-4ecb-8a7c-afe92a0a4f66": {
           "type": "text",
           "settings": {
-            "logoImage": "shopify:\/\/shop_images\/Bio_Spectrum_480772c4-620e-43de-90c3-f402e1071694.png",
+            "logoImage": "shopify://shop_images/Bio_Spectrum_480772c4-620e-43de-90c3-f402e1071694.png",
             "textBelowLogo": "KNYA Med is aiming to be the Nike for medical professionals",
-            "urlNews": "https:\/\/www.biospectrumindia.com\/features\/85\/21510\/startupoftheday-163-knya-enterprise-pvt-ltd-knya-med.html?utm_content=bufferf3a32&utm_medium=social&utm_source=bufferapp.com&utm_campaign=buffer",
+            "urlNews": "https://www.biospectrumindia.com/features/85/21510/startupoftheday-163-knya-enterprise-pvt-ltd-knya-med.html?utm_content=bufferf3a32&utm_medium=social&utm_source=bufferapp.com&utm_campaign=buffer",
             "ReadMore": "READ MORE"
           }
         }
@@ -356,7 +363,7 @@
         "margintopnewsmob": 59,
         "marginbottomnewsmob": 0,
         "headingss": "In the news",
-        "backImg": "shopify:\/\/shop_images\/Speech_bubble_2_1.png"
+        "backImg": "shopify://shop_images/Speech_bubble_2_1.png"
       }
     },
     "image_with_text_8UbaVy": {
@@ -372,7 +379,7 @@
         "text_EVMpLU": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "text_style": "body"
           }
         },
@@ -391,7 +398,7 @@
         "button_QeQT7R"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Plan_the_week..jpg",
+        "image": "shopify://shop_images/Plan_the_week..jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -410,7 +417,7 @@
         "template--16773029036288__5e5a7208-52b2-4d95-8bb6-778c9be38187-heading-1": {
           "type": "heading",
           "settings": {
-            "heading": "<h2>Join the Knya Club<\/h2>",
+            "heading": "<h2>Join the Knya Club</h2>",
             "heading_size": "h0"
           }
         }
@@ -438,7 +445,7 @@
         "textslider_desktopline1": "We stand for",
         "textslider_desktopline2": "high- performance",
         "textslider_desktopline3": "medical apparel",
-        "Last_slide_Text": "<p>You wake up to show up. Unwavering.<\/p><p>While you keep your focus on the job, we trained ours on you, to enable you to be at it every day. With comfort and confidence.<\/p><p>At Knya Med, we care about how you show up. The proof is in our scrubs.<\/p><p>Because when you look and feel the part, getting into the zone feels just a little bit easier every day.<br\/><\/p>",
+        "Last_slide_Text": "<p>You wake up to show up. Unwavering.</p><p>While you keep your focus on the job, we trained ours on you, to enable you to be at it every day. With comfort and confidence.</p><p>At Knya Med, we care about how you show up. The proof is in our scrubs.</p><p>Because when you look and feel the part, getting into the zone feels just a little bit easier every day.<br/></p>",
         "lastslide_heading": "It starts with you"
       }
     },
@@ -446,7 +453,7 @@
       "type": "apps",
       "blocks": {
         "84e4ee88-d6df-4e2b-bf5f-bc1d6834adf5": {
-          "type": "shopify:\/\/apps\/quinn-shoppable-videos\/blocks\/app-cards-block\/150d2781-732b-4020-a9fb-1368e974e6bb",
+          "type": "shopify://apps/quinn-shoppable-videos/blocks/app-cards-block/150d2781-732b-4020-a9fb-1368e974e6bb",
           "settings": {
             "layer_number": 1,
             "card_margins_desktop": "0",
@@ -485,9 +492,9 @@
         "aboutus_career_desktop": false,
         "aboutus_career_mob": false,
         "margintop_aboutus_build_acareer": 32,
-        "back-abt-img": "shopify:\/\/shop_images\/Vector_8.png",
-        "left_desktop_image": "shopify:\/\/shop_images\/Knya_team.jpg",
-        "left_mobile_image": "shopify:\/\/shop_images\/Knya_team_92e6eacc-c124-4e92-9d63-0122486be30e.jpg",
+        "back-abt-img": "shopify://shop_images/Vector_8.png",
+        "left_desktop_image": "shopify://shop_images/Knya_team.jpg",
+        "left_mobile_image": "shopify://shop_images/Knya_team_92e6eacc-c124-4e92-9d63-0122486be30e.jpg",
         "right_Heading_text": "Build a career empowering medical professionals",
         "button_text": "Join the team"
       }
@@ -497,8 +504,8 @@
       "settings": {
         "heading": "Get Advice",
         "heading_size": "h1",
-        "cover_image": "shopify:\/\/shop_images\/Screenshot_2024-03-18_at_12.23.40_PM.png",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=NKs0kViRsG4",
+        "cover_image": "shopify://shop_images/Screenshot_2024-03-18_at_12.23.40_PM.png",
+        "video_url": "https://www.youtube.com/watch?v=NKs0kViRsG4",
         "description": "",
         "full_width": false,
         "color_scheme": "background-2",

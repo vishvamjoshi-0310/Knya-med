@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -11,7 +20,7 @@
       "type": "image-banner",
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/interncore_landing_Page_Banner_23c54d4d-b7b5-439f-83b4-4dd001ea948f.jpg",
+        "image": "shopify://shop_images/interncore_landing_Page_Banner_23c54d4d-b7b5-439f-83b4-4dd001ea948f.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "adapt_height_first_image": false,
@@ -58,31 +67,31 @@
         "column_7WFH6U": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Desktop_fcf7b4c4-d106-4533-bd4c-b0cc0c70c1df.jpg",
+            "image": "shopify://shop_images/Desktop_fcf7b4c4-d106-4533-bd4c-b0cc0c70c1df.jpg",
             "title": "Classic",
-            "text": "<p>As an intern, you need pockets.<br\/>We know that.<br\/>Carry all you want, keep them organised,<br\/>with upto 10 pockets in these crowd favourite scrubs!<\/p>",
+            "text": "<p>As an intern, you need pockets.<br/>We know that.<br/>Carry all you want, keep them organised,<br/>with upto 10 pockets in these crowd favourite scrubs!</p>",
             "link_label": "",
-            "link": "shopify:\/\/collections"
+            "link": "shopify://collections"
           }
         },
         "column_pJcW6k": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Desktop_copy.jpg",
+            "image": "shopify://shop_images/Desktop_copy.jpg",
             "title": "Ecoflex",
-            "text": "<p>Leave a good first impression<br\/>during your internship with scrubs that stretch four directions, does not wrinkle, and does not smell bad even after a 24 hour shift!<\/p>",
+            "text": "<p>Leave a good first impression<br/>during your internship with scrubs that stretch four directions, does not wrinkle, and does not smell bad even after a 24 hour shift!</p>",
             "link_label": "",
-            "link": "shopify:\/\/collections\/ecoflex-men"
+            "link": "shopify://collections/ecoflex-men"
           }
         },
         "column_Pi93nU": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Desktop_copy_2.jpg",
+            "image": "shopify://shop_images/Desktop_copy_2.jpg",
             "title": "Ecoflex Lite",
-            "text": "<p>Made of fabric that’s light. It makes your internship feel light. <br\/>With a 2-way stretch, these scrubs feel so good, <br\/>you wouldn’t want to get out of them<\/p>",
+            "text": "<p>Made of fabric that’s light. It makes your internship feel light. <br/>With a 2-way stretch, these scrubs feel so good, <br/>you wouldn’t want to get out of them</p>",
             "link_label": "",
-            "link": "shopify:\/\/collections\/ecoflex-womens-5-pocket-active-scrub"
+            "link": "shopify://collections/ecoflex-womens-5-pocket-active-scrub"
           }
         }
       },
@@ -101,7 +110,7 @@
         "column_alignment": "left",
         "background_style": "primary",
         "button_label": "EXPLORE ALL",
-        "button_link": "shopify:\/\/collections",
+        "button_link": "shopify://collections",
         "color_scheme": "background-1",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
@@ -124,7 +133,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "text_style": "body"
           }
         },
@@ -143,7 +152,7 @@
       ],
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/div.swiper-abt.png",
+        "image": "shopify://shop_images/div.swiper-abt.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -191,8 +200,8 @@
       "settings": {
         "heading": "Get Advice",
         "heading_size": "h1",
-        "cover_image": "shopify:\/\/shop_images\/Screenshot_2024-03-18_at_12.23.40_PM.png",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=NKs0kViRsG4",
+        "cover_image": "shopify://shop_images/Screenshot_2024-03-18_at_12.23.40_PM.png",
+        "video_url": "https://www.youtube.com/watch?v=NKs0kViRsG4",
         "description": "",
         "full_width": false,
         "color_scheme": "background-1",

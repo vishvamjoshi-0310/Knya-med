@@ -152,6 +152,15 @@
             "answers": "Ecoflex is our specially developed fabric. The fabric is prepared from 100% recycled polyester made from recycled PET bottles found in the ocean waste. Yes, it is really sustainable and it has one of the lowest carbon footprints. The manufacturing process is traceable and can be validated with a Global Recycling Standard (GRS) certification.##<ul>\n<li>The KNYA Med Classic Scrubs are made of Polyester Viscose blend fabric. The fabric is lighter and comfortable to wear for long hours. </li> <li> The KNYA Med Ecoflex Scrubs are made from our special Ecoflex fabric which is prepared from 100% recycled polyester made from recycled PET bottles found in the ocean waste. The Ecoflex fabric is super soft, auto-clavable and sustainable. </li> <li> Our shortsleeve and long sleeve underscrubs are made of 100% Pima Cotton.</li>\n</ul>##All our fabrics are lab tested by <a href=\"https://www.testtex.com/\" style=\"color:blue;text-decoration:underline;\">Testtex</a> &amp; <a href=\"https://www.btraindia.com/\" style=\"color:blue;text-decoration:underline;\">Bombay Textile Research Association (BTRA)</a> for important parameters such as color bleeding, pilling and yarn composition to name a few. We would be happy to share any certification and test reports with our customer, feel free to ask for it!##<ul>\n<li>Please check the size chart for KNYA Med lab coats and for scrub suits. </li>\n<li> If you’re between the sizes and if you like wearing a loose fitting scrub or a lab coat, we recommend the bigger size, otherwise we recommend you go for the smaller one.</li>\n</ul>##<ol style=\"list-style-type:lower-roman\">We offer following options for custom embroidered products  <li> Single Line: Name of the medical professional.</li> <li>Double Line: Name of the medical professional with designation, department or medical institution, totally up to our Superhero!!. </li> <li> Icons/Logo: We have 6 pre-defined options available for icons with an option for an institutional logo of your choice.</li>\n</ol>##Yes, why not!##Custom embroidery orders take a bit more time to perfect, we also perform quality checks to make sure they’re good for dispatch. This is why we take slightly longer to dispatch embroidery orders so you receive the best possible product from our end."
           }
         },
+        "text_MtHTJM": {
+          "type": "text",
+          "settings": {
+            "faq-img": "shopify://shop_images/store-credit-icon_1.png",
+            "faq-title": "Store Credit",
+            "questions": "What is store credit?##How much store credit will I get on my order?##Is there a maximum limit on store credit per order?##When will the store credit be added to my account?##How long is the store credit valid for?##What happens if I don’t use my store credit within 60 days?##Where can I check my store credit balance?##What happens to my store credit if I return my order?##Can I use store credit for partial payment?##Can I use store credit with other discounts or offers?##",
+            "answers": "Store credit is a reward balance added to your account that you can use to pay (fully or partially) for your next purchase.##You will receive 3% of your order amount as store credit.##Yes. The maximum store credit you can earn on a single order is ₹120.##Your store credit will be issued after 7 days of delivery.##Store credit is valid for 60 days from the date it is issued.##Any unused store credit will automatically expire after 60 days and cannot be reactivated.##You can view your available store credit in your account section after logging in.##If the order that earned store credit is returned or cancelled, the issued store credit may be adjusted or revoked.##Yes. You can use store credit for full or partial payment of your order. Any remaining amount can be paid using other available payment methods.##Yes, store credit can be used along with other applicable offers unless stated otherwise.##"
+          }
+        },
         "d3fe1dd7-266c-455b-859b-f12e14af6c84": {
           "type": "text",
           "settings": {
@@ -167,6 +176,7 @@
         "49883c31-1932-41c1-8b37-d3d72c2950f1",
         "text_XzgCkK",
         "18eeefc2-7640-4533-bb98-5f2b56604a12",
+        "text_MtHTJM",
         "d3fe1dd7-266c-455b-859b-f12e14af6c84"
       ],
       "settings": {
