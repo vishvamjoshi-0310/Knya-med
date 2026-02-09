@@ -309,16 +309,9 @@
             ctx.beginPath();
             ctx.moveTo(points[0].x, points[0].y);
 
-            for (let i = 0; i < points.length - 1; i++) {
-                const p0 = points[i];
-                const p1 = points[i + 1];
-
-                const cp1x = p0.x + (p1.x - p0.x) / 3;
-                const cp1y = p0.y + (p1.y - p0.y) / 3;
-                const cp2x = p0.x + 2 * (p1.x - p0.x) / 3;
-                const cp2y = p0.y + 2 * (p1.y - p0.y) / 3;
-
-                ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, p1.x, p1.y);
+            // Use simple lines to connect the high-res points
+            for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i].x, points[i].y);
             }
 
             ctx.stroke();
@@ -543,6 +536,7 @@
         }
 
         bindEvents() {
+            // Mouse events (Desktop - unchanged logic)
             this.canvas.addEventListener('mousemove', (e) => {
                 const rect = this.canvas.getBoundingClientRect();
                 this.mouseX = e.clientX - rect.left;
@@ -552,99 +546,122 @@
             this.canvas.addEventListener('mouseleave', () => {
                 this.mouseX = -1000;
                 this.mouseY = -1000;
-
-                if (this.isDragging && this.draggedPointIndex !== -1) {
-                    this.physicsPoints[this.draggedPointIndex].isDragging = false;
-                    this.isDragging = false;
-                    this.draggedPointIndex = -1;
-                    this.canvas.classList.remove('dragging');
-                }
+                this.stopDragging();
             });
 
             this.canvas.addEventListener('mousedown', (e) => {
-                const rect = this.canvas.getBoundingClientRect();
-                const screenX = e.clientX - rect.left;
-                const screenY = e.clientY - rect.top;
-                const canvasPos = this.screenToCanvas(screenX, screenY);
-
-                const nearestIndex = this.findNearestPoint(canvasPos.x, canvasPos.y, CONFIG.dragDetectionZone);
-
-                if (nearestIndex !== -1) {
-                    this.isDragging = true;
-                    this.draggedPointIndex = nearestIndex;
-                    this.physicsPoints[nearestIndex].isDragging = true;
-                    this.canvas.classList.add('dragging');
-
-                    this.dragStartX = canvasPos.x;
-                    this.dragStartY = canvasPos.y;
-                }
+                this.handleStart(e.clientX, e.clientY);
             });
 
             this.canvas.addEventListener('mouseup', () => {
-                if (this.isDragging && this.draggedPointIndex !== -1) {
-                    this.physicsPoints[this.draggedPointIndex].isDragging = false;
-                    this.isDragging = false;
-                    this.draggedPointIndex = -1;
-                    this.canvas.classList.remove('dragging');
-                }
+                this.stopDragging();
             });
 
-            // Touch support
+            // --- MOBILE TOUCH EVENTS (FIXED FOR SCROLLING) ---
+
             this.canvas.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                const rect = this.canvas.getBoundingClientRect();
+                // REMOVED: e.preventDefault();  <-- This was killing the scroll!
+
                 const touch = e.touches[0];
-                const screenX = touch.clientX - rect.left;
-                const screenY = touch.clientY - rect.top;
-                const canvasPos = this.screenToCanvas(screenX, screenY);
+                // Store start position to detect scroll vs drag direction later
+                this.touchStartX = touch.clientX;
+                this.touchStartY = touch.clientY;
+                this.isScrollDecisionMade = false; // Reset decision flag
 
-                const nearestIndex = this.findNearestPoint(canvasPos.x, canvasPos.y, CONFIG.dragDetectionZone);
-
-                if (nearestIndex !== -1) {
-                    this.isDragging = true;
-                    this.draggedPointIndex = nearestIndex;
-                    this.physicsPoints[nearestIndex].isDragging = true;
-                    this.canvas.classList.add('dragging');
-
-                    this.dragStartX = canvasPos.x;
-                    this.dragStartY = canvasPos.y;
-                }
-
-                this.mouseX = screenX;
-                this.mouseY = screenY;
+                this.handleStart(touch.clientX, touch.clientY);
             }, { passive: false });
 
             this.canvas.addEventListener('touchmove', (e) => {
-                e.preventDefault();
-                const rect = this.canvas.getBoundingClientRect();
                 const touch = e.touches[0];
-                this.mouseX = touch.clientX - rect.left;
-                this.mouseY = touch.clientY - rect.top;
+                this.mouseX = touch.clientX - this.canvas.getBoundingClientRect().left;
+                this.mouseY = touch.clientY - this.canvas.getBoundingClientRect().top;
+
+                // If we are not interacting with the rope, let the scroll happen naturally
+                if (!this.isDragging) {
+                    return;
+                }
+
+                // If we haven't decided yet whether to Scroll or Drag...
+                if (!this.isScrollDecisionMade) {
+                    const dx = Math.abs(touch.clientX - this.touchStartX);
+                    const dy = Math.abs(touch.clientY - this.touchStartY);
+
+                    // THRESHOLD: If moved 5px... check direction
+                    if (dx > 5 || dy > 5) {
+                        this.isScrollDecisionMade = true;
+
+                        // If vertical movement is greater -> It's a SCROLL
+                        if (dy > dx) {
+                            this.stopDragging(); // Release the rope
+                            return; // Let browser handle scrolling
+                        }
+                        // If horizontal movement is greater -> It's a DRAG
+                        else {
+                            // It's a rope interaction, so NOW we block scrolling
+                            e.preventDefault();
+                        }
+                    }
+                } else {
+                    // Decision already made: we are dragging, so keep blocking scroll
+                    if (this.isDragging) {
+                        e.preventDefault();
+                    }
+                }
             }, { passive: false });
 
             this.canvas.addEventListener('touchend', () => {
-                if (this.isDragging && this.draggedPointIndex !== -1) {
-                    this.physicsPoints[this.draggedPointIndex].isDragging = false;
-                    this.isDragging = false;
-                    this.draggedPointIndex = -1;
-                    this.canvas.classList.remove('dragging');
-                }
+                this.stopDragging();
                 this.mouseX = -1000;
                 this.mouseY = -1000;
             });
 
             this.canvas.addEventListener('touchcancel', () => {
-                if (this.isDragging && this.draggedPointIndex !== -1) {
-                    this.physicsPoints[this.draggedPointIndex].isDragging = false;
-                    this.isDragging = false;
-                    this.draggedPointIndex = -1;
-                    this.canvas.classList.remove('dragging');
-                }
+                this.stopDragging();
                 this.mouseX = -1000;
                 this.mouseY = -1000;
             });
 
             window.addEventListener('resize', () => this.resize());
+        }
+
+        // Helper to avoid duplicate code between mouse/touch
+        handleStart(clientX, clientY) {
+            const rect = this.canvas.getBoundingClientRect();
+            const screenX = clientX - rect.left;
+            const screenY = clientY - rect.top;
+            const canvasPos = this.screenToCanvas(screenX, screenY);
+
+            // --- FIX START: Update global mouse position immediately ---
+            // This prevents the rope from jumping to -1000 (off-screen) 
+            // on the first frame of a touch interaction.
+            this.mouseX = screenX;
+            this.mouseY = screenY;
+            // --- FIX END ---
+
+            // On mobile, reduce the grab zone so users can touch NEAR the rope to scroll
+            // Desktop = 80px (CONFIG.dragDetectionZone), Mobile = 30px
+            const hitZone = this.isMobile ? 30 : CONFIG.dragDetectionZone;
+
+            const nearestIndex = this.findNearestPoint(canvasPos.x, canvasPos.y, hitZone);
+
+            if (nearestIndex !== -1) {
+                this.isDragging = true;
+                this.draggedPointIndex = nearestIndex;
+                this.physicsPoints[nearestIndex].isDragging = true;
+                this.canvas.classList.add('dragging');
+
+                this.dragStartX = canvasPos.x;
+                this.dragStartY = canvasPos.y;
+            }
+        }
+
+        stopDragging() {
+            if (this.isDragging && this.draggedPointIndex !== -1) {
+                this.physicsPoints[this.draggedPointIndex].isDragging = false;
+                this.isDragging = false;
+                this.draggedPointIndex = -1;
+                this.canvas.classList.remove('dragging');
+            }
         }
 
         destroy() {
