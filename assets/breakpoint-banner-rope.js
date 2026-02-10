@@ -5,7 +5,7 @@
     const CONFIG = {
         ropeColor: '#DCF343',
         desktopRopeWidth: 14,
-        mobileRopeWidth: 5,
+        mobileRopeWidth: 6,
         hoverImpactZone: 300,      // For hover effect (push away)
         dragDetectionZone: 80,     // Zone to detect if click is near rope
         dragInfluenceZone: 150,    // How far drag affects neighboring points
@@ -16,8 +16,10 @@
         damping: 0.8,              // Velocity damping
         rippleSpeed: 0.7,          // Ripple propagation speed
         rippleDamping: 0.8,        // Ripple damping
-        normalSubdivisions: 24,    // Increased for smoother appearance
-        interactiveSubdivisions: 12,
+        // Higher subdivision count + centripetal Catmull–Rom below
+        // gives a much smoother, more “rope-like” curve.
+        normalSubdivisions: 32,
+        interactiveSubdivisions: 16,
         mobileBreakpoint: 768,     // Breakpoint for mobile layout
     };
 
@@ -52,6 +54,7 @@
         { x: 1500, y: 315 },
         { x: 1470, y: 385 },
         { x: 1380, y: 435 },
+        { x: 1330, y: 420 },
         { x: 1280, y: 320 },
         { x: 1250, y: 50 },
         { x: 1070, y: -150 },
@@ -68,7 +71,8 @@
         { x: 1025, y: 540 },
         { x: 870, y: 550 },
         { x: 810, y: 650 },
-        { x: 825, y: 790 },
+        { x: 815, y: 900 },
+        { x: 815, y: 1400 },
     ];
 
     // --- MOBILE CONTROL POINTS (Based on Figma design) ---
@@ -249,23 +253,51 @@
             return controlPoints[index];
         }
 
+        /**
+         * Centripetal Catmull–Rom interpolation
+         *
+         * Compared to the “uniform” variant, this reduces overshoot
+         * around tighter corners and produces a more natural looking
+         * rope that better matches the Figma reference.
+         */
         catmullRomInterpolate(p0, p1, p2, p3, t) {
-            const t2 = t * t;
-            const t3 = t2 * t;
+            const alpha = 0.5; // 0.5 = centripetal, good for avoiding loops
+            const EPS = 1e-4;
 
-            const v0 = (p2.x - p0.x) * 0.5;
-            const v1 = (p3.x - p1.x) * 0.5;
-            const x = (2 * p1.x - 2 * p2.x + v0 + v1) * t3 +
-                (-3 * p1.x + 3 * p2.x - 2 * v0 - v1) * t2 +
-                v0 * t + p1.x;
+            const tj = (ti, pa, pb) => {
+                const dx = pb.x - pa.x;
+                const dy = pb.y - pa.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                return ti + Math.pow(Math.max(dist, EPS), alpha);
+            };
 
-            const w0 = (p2.y - p0.y) * 0.5;
-            const w1 = (p3.y - p1.y) * 0.5;
-            const y = (2 * p1.y - 2 * p2.y + w0 + w1) * t3 +
-                (-3 * p1.y + 3 * p2.y - 2 * w0 - w1) * t2 +
-                w0 * t + p1.y;
+            const t0 = 0;
+            const t1 = tj(t0, p0, p1);
+            const t2 = tj(t1, p1, p2);
+            const t3 = tj(t2, p2, p3);
 
-            return { x, y };
+            // Re-parameterise t in [t1, t2]
+            const tt = t1 + t * (t2 - t1);
+
+            const lerpPoint = (a, b, ta, tb) => {
+                const denom = (tb - ta) || EPS;
+                const wa = (tb - tt) / denom;
+                const wb = (tt - ta) / denom;
+                return {
+                    x: wa * a.x + wb * b.x,
+                    y: wa * a.y + wb * b.y,
+                };
+            };
+
+            const A1 = lerpPoint(p0, p1, t0, t1);
+            const A2 = lerpPoint(p1, p2, t1, t2);
+            const A3 = lerpPoint(p2, p3, t2, t3);
+
+            const B1 = lerpPoint(A1, A2, t0, t2);
+            const B2 = lerpPoint(A2, A3, t1, t3);
+
+            const C = lerpPoint(B1, B2, t1, t2);
+            return C;
         }
 
         generateSmoothedPoints(controlPoints, subdivisions) {
