@@ -6,10 +6,11 @@
     }
   
     var DURATION = 3600; // total animation duration in ms
-    var BAR_ROTATION_PORTION = 0.4; // first 40% of timeline
+    var BAR_ROTATION_PORTION = 0.5; // first 40% of timeline
     var PILL_STAGGER = 150; // ms between pill starts
     var PILL_DURATION = 350; // ms per pill drop
     var BAR_OFFSET = 400; // ms before bar starts moving
+    var VISIBILITY_THRESHOLD = 0.7; // animation triggers when this fraction of section is visible (0–1, e.g. 0.5 = 50%)
   
     function setTransform(el, x, y, angle) {
       el.style.transform =
@@ -122,7 +123,7 @@
           entries.forEach(function (entry) {
             if (
               entry.isIntersecting &&
-              entry.intersectionRatio >= 0.3 &&
+              entry.intersectionRatio >= VISIBILITY_THRESHOLD &&
               !hasPlayed
             ) {
               observer.disconnect();
@@ -131,7 +132,7 @@
           });
         },
         {
-          threshold: [0, 0.3, 1],
+          threshold: [0, VISIBILITY_THRESHOLD, 1],
         }
       );
   
