@@ -1,36 +1,11 @@
 {{ 'section-breakpoint-feeling.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'breakpoint-feeling-assets.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'breakpoint-feeling-animation.js' | asset_url }}" defer="defer"></script>
 
 <section id="BreakpointFeeling-{{ section.id }}" class="breakpoint-feeling-section">
   <div class="breakpoint-feeling-parent">
-    {%- if section.settings.background_image_desktop != blank or section.settings.background_image_mobile != blank -%}
-      <picture class="breakpoint-feeling-bg">
-          <source
-            media="(max-width: 768px)"
-            srcset="{{ section.settings.background_image_mobile | image_url: width: 800 }}"
-          >
-          <source
-            media="(min-width: 769px)"
-            srcset="{{ section.settings.background_image_desktop | image_url: width: 3000 }}"
-          >
-        {%- liquid
-          if section.settings.background_image_desktop != blank
-            assign bg_image = section.settings.background_image_desktop
-            assign bg_width = 2000
-          else
-            assign bg_image = section.settings.background_image_mobile
-            assign bg_width = 800
-          endif
-          assign bg_height = bg_width | divided_by: bg_image.aspect_ratio | round
-        -%}
-        <img
-          loading="lazy"
-          src="{{ bg_image | image_url: width: bg_width }}"
-          width="{{ bg_width }}"
-          height="{{ bg_height }}"
-          alt="{{ bg_image.alt | escape }}"
-        >
-      </picture>
-    {%- endif -%}
+    <div class="breakpoint-feeling-bg"></div>
+    <div class="breakpoint-feeling-visual" data-section-id="{{ section.id }}"></div>
 
     <div class="breakpoint-feeling-content">
       {%- if section.settings.heading != blank -%}
@@ -43,13 +18,16 @@
       {%- endif -%}
     </div>
 
-    {% comment %} <div class="breakpoint-feeling-button">
-      {%- if section.settings.cta_text != blank or section.settings.cta_icon_svg != blank -%}
-        <a href="{{ section.settings.cta_link }}" class="breakpoint-feeling-cta">
-          {{ section.settings.cta_text }} {{ section.settings.cta_icon_svg }}
-        </a>
-      {%- endif -%}
-    </div> {% endcomment %}
+    {% comment %}
+      Optional CTA button (currently unused). Kept for future use but not rendered.
+      <div class="breakpoint-feeling-button">
+        {%- if section.settings.cta_text != blank or section.settings.cta_icon_svg != blank -%}
+          <a href="{{ section.settings.cta_link }}" class="breakpoint-feeling-cta">
+            {{ section.settings.cta_text }} {{ section.settings.cta_icon_svg }}
+          </a>
+        {%- endif -%}
+      </div>
+    {% endcomment %}
   </div>
 </section>
 
