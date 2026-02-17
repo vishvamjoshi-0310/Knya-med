@@ -1,8 +1,26 @@
 (function () {
     'use strict';
   
-    if (!window || !window.BreakpointFeelingAssets) {
-      return;
+    var MOBILE_BREAKPOINT = 768;
+    var DESKTOP_WIDTH = 1440; // assets are laid out for 1440px width
+    var desktopAssets = window && window.BreakpointFeelingAssets;
+    var mobileAssets = window && window.BreakpointFeelingAssetsMobile;
+    if (!desktopAssets && !mobileAssets) return;
+
+    function getAssets() {
+      return (window.innerWidth < MOBILE_BREAKPOINT && mobileAssets)
+        ? mobileAssets
+        : (desktopAssets || mobileAssets);
+    }
+
+    function getPositionScale() {
+      return window.innerWidth < MOBILE_BREAKPOINT
+        ? Math.min(1, window.innerWidth / DESKTOP_WIDTH)
+        : 1;
+    }
+
+    function scalePos(x, y, s) {
+      return { x: (x || 0) * s, y: (y || 0) * s };
     }
   
     var PILL_STAGGER = 150; // ms between pill starts
@@ -12,9 +30,10 @@
     var ENABLE_BAR_ROTATION = true; // set true when pill positions are final
     var VISIBILITY_THRESHOLD = 0.7; // animation triggers when this fraction of section is visible (0–1)
   
-    function setTransform(el, x, y, angle) {
-      el.style.transform =
-        'translate(' + x + 'px, ' + y + 'px) rotate(' + angle + 'deg)';
+    function setTransform(el, x, y, angle, scale) {
+      var t = 'translate(' + x + 'px, ' + y + 'px) rotate(' + angle + 'deg)';
+      if (scale != null && scale !== 1) t += ' scale(' + scale + ')';
+      el.style.transform = t;
     }
   
     function easeOutCubic(t) {
@@ -43,21 +62,26 @@
           return node;
         })();
   
-      var assets = window.BreakpointFeelingAssets || {};
+      var assets = getAssets();
+      var posScale = getPositionScale();
       var manNode = null;
       var barNode = null;
       var pills = [];
-  
+
       // Man (static)
       if (assets.man && assets.man.svg) {
         manNode = createWrapper('breakpoint-feeling-man', assets.man.svg);
-        var manPos = assets.man.position || { x: 0, y: 0 };
-        setTransform(manNode, manPos.x || 0, manPos.y || 0, assets.man.rotation || 0);
+        var manPos = scalePos(
+          (assets.man.position && assets.man.position.x),
+          (assets.man.position && assets.man.position.y),
+          posScale
+        );
+        setTransform(manNode, manPos.x, manPos.y, assets.man.rotation || 0, assets.man.scale);
         visual.appendChild(manNode);
       }
-  
+
       var barPos = (assets.bar && assets.bar.position)
-        ? { x: assets.bar.position.x || 0, y: assets.bar.position.y || 0 }
+        ? scalePos(assets.bar.position.x, assets.bar.position.y, posScale)
         : { x: 0, y: 0 };
       var barAndPillsContainer = null;
 
@@ -68,13 +92,13 @@
         barAndPillsContainer.style.position = 'absolute';
         barAndPillsContainer.style.left = '0';
         barAndPillsContainer.style.top = '0';
-        barAndPillsContainer.style.transformOrigin = '466px 8px';
+        barAndPillsContainer.style.transformOrigin = (466 * posScale) + 'px ' + (8 * posScale) + 'px';
         barAndPillsContainer.style.willChange = 'transform';
 
         barNode = createWrapper('breakpoint-feeling-bar', assets.bar.svg);
         barNode.style.left = '0';
         barNode.style.top = '0';
-        setTransform(barNode, 0, 0, 0);
+        setTransform(barNode, 0, 0, 0, assets.bar.scale);
         barAndPillsContainer.appendChild(barNode);
 
         barAndPillsContainer.dataset.barX = String(barPos.x);
@@ -95,11 +119,13 @@
 
           var start = pillAsset.startPosition || { x: 0, y: 0 };
           var end = pillAsset.endPosition || { x: 0, y: 0 };
+          var startScaled = scalePos(start.x, start.y, posScale);
+          var endScaled = scalePos(end.x, end.y, posScale);
 
-          var startRelX = (start.x || 0) - barX;
-          var startRelY = (start.y || 0) - barY;
-          var endRelX = (end.x || 0) - barX;
-          var endRelY = (end.y || 0) - barY;
+          var startRelX = startScaled.x - barX;
+          var startRelY = startScaled.y - barY;
+          var endRelX = endScaled.x - barX;
+          var endRelY = endScaled.y - barY;
 
           node.dataset.startX = String(startRelX);
           node.dataset.startY = String(startRelY);
@@ -108,13 +134,15 @@
           node.dataset.endRotation = String(pillAsset.endRotation || 0);
 
           node.style.opacity = '0';
-          setTransform(node, startRelX, startRelY, 0);
+          var pillScale = pillAsset.scale;
+          setTransform(node, startRelX, startRelY, 0, pillScale);
 
           barAndPillsContainer.appendChild(node);
           pills.push({
             node: node,
             asset: pillAsset,
             index: index,
+            scale: pillScale,
           });
         });
       }
@@ -218,13 +246,13 @@
 
             if (clamped <= 0) {
               pill.node.style.opacity = '0';
-              setTransform(pill.node, startX, startY, 0);
+              setTransform(pill.node, startX, startY, 0, pill.scale);
             } else {
               var easedPill = easeOutCubic(clamped);
               var x = startX + (endX - startX) * easedPill;
               var y = startY + (endY - startY) * easedPill;
               pill.node.style.opacity = String(easedPill);
-              setTransform(pill.node, x, y, endRotation);
+              setTransform(pill.node, x, y, endRotation, pill.scale);
             }
           });
         }
@@ -243,7 +271,7 @@
               var endY = parseFloat(pill.node.dataset.endY || '0');
               var endRotation = parseFloat(pill.node.dataset.endRotation || '0');
               pill.node.style.opacity = '1';
-              setTransform(pill.node, endX, endY, endRotation);
+              setTransform(pill.node, endX, endY, endRotation, pill.scale);
             });
           }
         }
