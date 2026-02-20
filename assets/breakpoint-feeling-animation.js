@@ -1,23 +1,28 @@
 (function () {
     'use strict';
   
-    var MOBILE_BREAKPOINT = 768;
-    var DESKTOP_WIDTH = 1440; // assets are laid out for 1440px width
+   var MOBILE_BREAKPOINT = 768;
+   var DESKTOP_WIDTH = 1440; // assets are laid out for ~1440px content width
     var desktopAssets = window && window.BreakpointFeelingAssets;
     var mobileAssets = window && window.BreakpointFeelingAssetsMobile;
     if (!desktopAssets && !mobileAssets) return;
 
-    function getAssets() {
-      return (window.innerWidth < MOBILE_BREAKPOINT && mobileAssets)
-        ? mobileAssets
-        : (desktopAssets || mobileAssets);
-    }
-
-    function getPositionScale() {
-      return window.innerWidth < MOBILE_BREAKPOINT
-        ? Math.min(1, window.innerWidth / DESKTOP_WIDTH)
-        : 1;
-    }
+   function getAssets() {
+     return (window.innerWidth < MOBILE_BREAKPOINT && mobileAssets)
+       ? mobileAssets
+       : (desktopAssets || mobileAssets);
+   }
+ 
+   /**
+    * Compute a scale factor based on the rendered width of the section
+    * so that the 1440px-based coordinates shrink proportionally on
+    * smaller viewports, instead of only switching at a single breakpoint.
+    */
+   function getPositionScale(containerWidth) {
+     if (!containerWidth || !DESKTOP_WIDTH) return 1;
+     // Never scale above the design size; only scale down for smaller widths.
+     return Math.min(1, containerWidth / DESKTOP_WIDTH);
+   }
 
     function scalePos(x, y, s) {
       return { x: (x || 0) * s, y: (y || 0) * s };
@@ -50,20 +55,23 @@
     }
   
     function initSection(section) {
-      var parent = section.querySelector('.breakpoint-feeling-parent');
-      if (!parent) return;
+     var parent = section.querySelector('.breakpoint-feeling-parent');
+     if (!parent) return;
   
-      var visual =
+     var visual =
         section.querySelector('.breakpoint-feeling-visual') ||
         (function () {
           var node = document.createElement('div');
           node.className = 'breakpoint-feeling-visual';
-          parent.insertBefore(node, parent.firstChild);
+         parent.insertBefore(node, parent.firstChild);
           return node;
         })();
-  
-      var assets = getAssets();
-      var posScale = getPositionScale();
+ 
+     // Use the actual rendered width of the section container so the
+     // animation layout scales smoothly across all screen widths.
+     var parentRect = parent.getBoundingClientRect();
+     var assets = getAssets();
+     var posScale = getPositionScale(parentRect && parentRect.width);
       var manNode = null;
       var barNode = null;
       var pills = [];
