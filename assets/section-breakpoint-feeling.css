@@ -34,6 +34,15 @@ pointer-events: none;
 .breakpoint-feeling-section .breakpoint-feeling-bar-pills-container > div {
 position: absolute;
 }
+/* Pills text typography */
+.breakpoint-feeling-section .breakpoint-feeling-pill text {
+  font-family: Poppins-Medium, "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  letter-spacing: 0;
+  dominant-baseline: middle;
+}
 .breakpoint-feeling-section .breakpoint-feeling-content {
 position: absolute;
 bottom: 56px;

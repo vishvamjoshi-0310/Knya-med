@@ -28,10 +28,10 @@
       return { x: (x || 0) * s, y: (y || 0) * s };
     }
   
-    var PILL_STAGGER = 150; // ms between pill starts
-    var PILL_DURATION = 350; // ms per pill drop
-    var BAR_OFFSET = 400; // ms before first pill starts
-    var BAR_ROTATION_DURATION = 500; // ms for bar+pills tilt after pills land
+    var PILL_STAGGER = 220; // ms between pill starts
+    var PILL_DURATION = 500; // ms per pill drop
+    var BAR_OFFSET = 550; // ms before first pill starts
+    var BAR_ROTATION_DURATION = 700; // ms for bar+pills tilt after pills land
     var ENABLE_BAR_ROTATION = true; // set true when pill positions are final
     var VISIBILITY_THRESHOLD = 0.7; // animation triggers when this fraction of section is visible (0–1)
   
